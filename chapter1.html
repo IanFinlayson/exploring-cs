@@ -1,0 +1,576 @@
+
+<h2>Chapter 1</h2>
+<hr />
+<h1>The Road Ahead</h1>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Learning Objectives</strong>
+</div>
+<ul>
+ 	<li>Understand the concept of an algorithm.</li>
+ 	<li>Understand how computers work and execute programs.</li>
+ 	<li>Become familiar with what you can do with computer science.</li>
+</ul>
+</div>
+
+
+
+<h3>1.1 What is Computer Science?</h3>
+<hr />
+
+<p>This book is an introduction to the field of computer science, so we will
+begin by talking about what computer science is.  Unlike other areas, like
+biology or history, this may not be that obvious.  People often are confused
+about what computer science actually is all about.  In particular, it is
+<strong>not</strong> any of the following things:</p>
+
+<ul>
+<li>The study of how to build computer hardware (this is "computer
+engineering").</li>
+
+<li>The practice of setting up computer systems and installing things on them
+(this is "information technology").</li>
+
+<li>The use of computer applications such as email clients, word processors and
+spreadsheet applications (this is "computer literacy").</li>
+</ul>
+
+
+<p>Instead, computer science is all about algorithms.  An <strong>algorithm</strong> is a detailed, step-by-step procedure for
+solving a particular problem.  Algorithms are essentially instructions that
+tell us how to solve a problem from beginning to end.  They are similar to
+recipes.  When you follow a recipe, you also perform the instructions given one
+by one.  The difference is that the result of your work when following a recipe
+is a food of some kind (hopefully cake).  The result of your work following an
+algorithm is a solution to a problem.</p>
+
+<p>The study of algorithms actually predates the existence of computers by
+thousands of years<a href="#note1" aria-describedby="footnote-label"
+id="back1" /></a>.
+
+
+
+One of the first known algorithms was described by the Greek mathematician
+Euclid in his book <em>Elements</em> around 300 BCE.  The algorithm was to find
+the greatest common divisor between two numbers.  For example, the greatest
+common divisor of 12 and 30 is 6 because 6 is the biggest number that goes into
+both 12 and 30 evenly.</p>
+
+<figure>
+<img src="images/euclid.jpg" alt="Euclid writing his book &quot;Elements&quot;"/>
+<figcaption>Euclid</figcaption>
+</figure>
+
+<p>Other mathematicians devised algorithms for solving other problems, such as
+adding, multiplying, factorizing, finding roots of equations, etc.  The word
+"algorithm" itself comes from the name of Muḥammad ibn Mūsā al-Khwārizmī, a
+Persian mathematician who wrote on algorithms for solving algebra an arithmetic
+problems.  The word "algebra" also comes from the title of one of
+al-Khwārizmī's books.</p>
+
+<figure>
+<img src="images/alhhwarizmi.jpg" alt="A statue of al-Khwārizmī thinking"/>
+<figcaption> Al-Khwarizmi
+(© Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA 4.0)</figcaption>
+</figure>
+
+<p>You actually have learned several of these sorts of mathematical algorithms
+yourself while in school.  For example, if I asked you to add 137 to 226, you
+could do so (even though you probably have never added these specific numbers
+before).  That's because you learned an algorithm as a child for adding numbers
+like this.  That algorithm will allow you to add any two numbers by following
+its step-by-step process.</p>
+
+<p>One really important aspect of algorithms is that you can use them to solve
+problems <em>whether or not you understand how the algorithm is working</em>.
+This was important in the past because it meant you only had to be really
+clever once, to come up with the algorithm in the first place.  After that you,
+and anyone else, could just follow the algorithm's instructions to solve new
+problems with it.  As a child, you didn't have to understand all of the logic
+behind the adding algorithm to use it.  Nowadays this is even more important
+because most algorithms are not followed by people, but by computers.
+Computers don't understand anything, but they can be made to follow the steps
+of an algorithm automatically.</p>
+
+<h3>1.2 Algorithm Design</h3>
+<hr />
+
+<p>One major part of computer science is <em>designing</em> algorithms.  As we
+will see throughout this book, there are many problems that can be solved with
+a good algorithm.  Designing algorithms can be a fun and challenging activity.
+It involves both sides of your brain in that it takes both logic and creativity
+to do.</p>
+
+<p>Let's look at an example of an algorithm to solve the "guess the number"
+game.  In the simplest version of this game, one player thinks of a number
+between 1 and some upper limit.  Then the other player guesses which number
+they picked until they get it.</p>
+
+<p>Let's say that Mark and Sofia are playing this game with an upper limit of
+10.  The game might go like this:</p>
+
+<pre><code class="ini">
+Mark: I'm thinking of a number between 1 and 10.
+Sofia: Is it 7?
+Mark: No.
+Sofia: Is it 3?
+Mark: No.
+Sofia: Is it 2?
+Mark: No.
+Sofia: Is it 8?
+Mark: Yes.
+</pre></code>
+
+<p>In this case, Sofia solved the problem by eventually guessing Mark's number.
+Now we'll consider writing an algorithm which will always solve the game, no
+matter what number Mark picks.</p>
+
+<p>Sofia tried numbers in a sort of random order until she hit on the right
+one.  Most people would do this, but it isn't really necessary.  Instead we
+could just start at 1, and then guess 2, and then 3 and so on until we get the
+right number.  This particular algorithm won't solve the problem the same way a
+person might, but that's OK.  An algorithm for doing this could be written
+as:</p>
+
+
+<b>Algorithm 1</b>
+<pre><code class="ini">
+1. Set G to 1.
+2. Ask if their number is G.
+3. If it was, then we are done!
+4. If it was not, then add 1 to G.
+5. Go back to step 2.
+</pre></code>
+
+
+<p>This algorithm<a href="#note2" aria-describedby="footnote-label" id="back2"
+/></a> works by keeping track of which number we are going to be guessing next,
+which we call "G".  This is a <strong>variable</strong>, which is a very
+important concept in programming.  A variable is a name that we give to a value
+which may change as the algorithm is run.  Here, G starts off at 1, but it will
+change later.</p>
+
+<p>In step 2, we ask the other player if their number is G or not.  Of course
+we don't ask them if they literally picked "G".  Only numbers are allowed in
+this game, not letters!  Instead the algorithm means that we should instead ask
+if their number is the <em>current value</em> of G, whatever that happens to
+be.  The first time it will be 1, but as we have said, G will change.</p>
+
+<p>In step 3 and 4, we are going to do different things based on whether or not
+the guess was correct.  If it was, then the algorithm is done.  If not, we add
+1 to the variable G.  When the algorithm first reaches this step, it will
+change G from 1 to 2.</p>
+
+<p>Step 5 is crucial here.  It tells us to go back to step 2.  This creates a
+<strong>loop</strong>, which is when an algorithm does the
+same step or steps multiple times.  Even though only step 2 makes a guess, the
+algorithm can keep on guessing numbers because of the loop.</p>
+
+<p>We'll now trace through the algorithm to see how it works.  Let's suppose
+that we pick 3 as our number and see if the algorithm can guess it.  The
+algorithm will go step by step as follows:</p>
+
+<ul>
+<li>It will start with step 1 and set G to 1.</li>
+<li>Next it will go onto step 2 and ask us if the number is G (currently 1).</li>
+<li>We will respond that no, it is not.</li>
+<li>The algorithm will then skip over step 3 (we aren't done yet) and go to step 4.</li>
+<li>In step 4, the algorithm will add 1 to G.  Now G is going to be 2.</li>
+<li>Step 5 will then move the algorithm back to step 2.</li>
+<li>Back at step 2, the algorithm will ask us if the number is G (which is now equal to 2).</li>
+<li>We will tell it no.</li>
+<li>The algorithm will again skip over step 3 and go to step 4.</li>
+<li>In step 4, the algorithm will again add 1 to G.  This changes it from 2 to 3.</li>
+<li>Step 5 sends the algorithm back to step 2 again.</li>
+<li>The algorithm will again ask us if the number is G (which is now 3).</li>
+<li>This time, we tell it yes, since our number was 3.</li>
+<li>The algorithm then sees this in step 3 and stops.</li>
+</ul>
+
+
+<p>One important part of working with algorithms is <em>testing</em> them.
+This involves stepping through the algorithm line by line like this to see how
+it's working.  Hopefully you're convinced that the algorithm will try every
+number until it gets the right one.</p>
+
+<p>Next we will look at a more interesting variation of this game.  In this
+variation, instead of just answering "no" for an incorrect guess, the player
+will either say that the guess was too low, or too high.  Again, consider an
+example with two players.  This time, the limit will be 100:</p>
+
+<pre><code class="ini">
+Mark: I'm thinking of a number between 1 and 100.
+Sofia: Is it 50?
+Mark: Too high.
+Sofia: Is it 25?
+Mark: Too low.
+Sofia: Is it 37?
+Mark: Too low.
+Sofia: Is it 44?
+Mark: Too high.
+Sofia: Is it 40?
+Mark: Yes.
+</pre></code>
+
+<p>This time, Sofia did not just guess numbers randomly until she hit on the
+right one.  By having the extra information, she's able to guess more
+intelligently.  Her first guess of 50 was the best she could have done to start
+with.  The reason is because that way, no matter what Mark answered, she had
+half the potential numbers eliminated.  When Mark said 50 was too high, Sofia
+knew the number must have been between 1 and 49.  Had Mark instead answered
+that 50 was too low, then Sofia would know the number had to be between 51 and
+100.  Either way, half the possibilities were cut out.</p>
+
+<p>Sofia used this trick again with her second guess.  When she knew the number
+was between 1 and 49, she guessed right in the middle, which gave her 25.  To
+get this "middle value", we can just add the numbers and divide by 2.  She kept
+on doing this until she hit on the right number.  This algorithm can be given
+like this:</p>
+
+<strong>Algorithm 2</strong>
+<pre><code class="ini">
+1. Set min to 1.
+2. Set max to 100.
+3. Set G to (max + min) ÷ 2 (rounding down if needed).
+4. Ask if their number is G.
+5. If it is, then we are done!
+6. If the guess was too high, set max to (G - 1).
+7. If the guess was too low, set min to (G + 1).
+8. Go back to step 3.
+</pre></code>
+
+<p>This algorithm is just bit more complicated than the last one.  Now we have
+three variables involved.  "min" is used to keep track of the smallest number
+the other player could be thinking of.  Likewise "max" keeps track of the
+biggest number it could be.  For example, if we have narrowed it down so we
+know the number is between 20 and 40, then min would be 20 and max would be 40.
+These variables will change as we narrow down the possibilities.  "G" is again
+used for the number we are going to guess.</p>
+
+<p>The algorithm starts by setting min and max to reflect the fact that the
+number could be anywhere between 1 and 100 to start with.  Then step 3 figures
+out which number to guess.  The first time we do this, we will get 100 plus 1,
+divided by 2, which gives 50.1.  The note about rounding down if needed is to
+make sure we always guess a whole number, in this case 50.</p>
+
+<p>After each guess, there are  3 possibilities.  If we got the guess right,
+then we are done, just like before.  If we guessed too high, then that means
+that we need to change our max variable.  We set it to whatever our last guess
+was, minus 1.  To see why, consider the starting case where min is 1, max is
+100, and G is 50.  If the guess of 50 was too high, then the number must be
+between 1 and 49.  So we 49 as the new max value.  Similar logic holds for when
+the guess was too low.</p>
+
+<p>Finally we go back to step 3 to pick a new guess again.  This algorithm will
+eventually guess the correct number for playing this version of the game.  I
+would encourage you to try it yourself once or twice to convince yourself that
+it works.</p>
+
+
+<h3>1.3 Algorithm Analysis</h3>
+<hr />
+
+<p>Another major part of computer science is <em>analyzing</em> algorithms.
+Oftentimes a problem will have more than one algorithm to solve it.  We then
+will want to compare the algorithms and see which takes less steps.  We now
+have two algorithms we can analyze.  Notice that we could use both algorithms
+for the second variant of the game (where the player answers too low or too
+high instead of just no).  The first algorithm would just guess starting at 1
+all the way up until it got the number.  But which algorithm is better?  And by
+how much?  These are the questions of algorithm analysis.</p>
+
+<p>When analyzing algorithms, we want to know how many steps they take in
+different cases.  We often consider the average case or the worst case.  The
+average case is helpful because it gives you an idea of how long the algorithm
+will usually take.  The worst case is helpful because it gives you a guarantee
+on how long it will take.  If it the algorithm performs well enough in the
+worst case, you know it will work well for you.  The best case is usually not
+very interesting.  Here we will focus on the worst case.</p>
+
+<p>Let's consider algorithm 1 first (the one that just starts at 1, then 2,
+then 3, etc.)  If we are playing the game between 1 and 100, what's the most
+number of guesses that the algorithm could take?  Clearly the worst case is
+that the other player chose 100 as his or her number, because that would be the
+algorithm's last guess.  In this case, we would have to make 100 guesses before
+we get it right.  If we were playing between 1 and 1,000 then we would need
+1,000 guesses in the worst case.</p>
+
+<p>Analyzing algorithm 2 is more complicated.  The worst case with this
+algorithm is that we never "get lucky" by guessing the number correctly until
+we are 100% sure of what it is.  We are only 100% sure when we have narrowed
+down the range to 1 number, and min and max are the same value.  Below is an
+example of when this could happen:</p>
+
+<pre><code class="ini">
+&gt; min = 1, max = 100.  Is your number 50?
+Too high.
+&gt; min = 1, max = 49.  Is your number 25?
+Too low.
+&gt; min = 26, max = 49.  Is your number 37?
+Too low.
+&gt; min = 38, max = 49.  Is your number 43?
+Too high.
+&gt; min = 38, max = 42.  Is your number 40?
+Too high.
+&gt; min = 38, max = 39.  Is your number 38?
+Too low.
+&gt; min = 39, max = 39.  Is your number 39?
+Yes.
+</pre></code>
+
+<p>As you can see, the algorithm was not lucky enough to get the number right
+until the very end when it had eliminated all the other possibilities.  In this
+worst case it took 7 guesses to get the number.  There are other worst case
+numbers, but they all take 7 guesses to reach.</p>
+
+<p>The number 7 here comes from the number of times we can cut the
+possibilities in half before we run out.  There were 100 possibilities to begin
+with, and with each guess we eliminate half of them.  If we repeatedly divide
+100 by 2 (rounding down because we eliminate the guessed number itself as
+well), then we get this sequence of numbers:</p>
+
+<pre><code class="ini">
+100
+50
+25
+12
+6
+3
+1
+</pre></code>
+
+<p>It took 7 guesses for this reason<a href="#note3"
+aria-describedby="footnote-label" id="back3"/></a>.  Below is a table showing
+the number of guesses needed in the worst case for both algorithms, based on
+the highest number the other player could pick:</p>
+
+<table style="border-collapse: collapse; width: 100%;" border="0">
+<tbody>
+<tr>
+<th>Highest Number</strong></td>
+<th>Algorithm 1 Guesses</strong></td>
+<th>Algorithm 2 Guesses</strong></td>
+</tr>
+<tr>
+<td>10</td>
+<td>10</td>
+<td>4</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1,000</td>
+<td>1,000</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1,000,000</td>
+<td>1,000,000</td>
+<td>20</td>
+</tr>
+<tr>
+<td>1,000,000,000</td>
+<td>1,000,000,000</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+
+<p>It is sort of amazing that we can ask algorithm 2 to guess a number between
+1 and 1 billion, and it will need only 30 guesses at most to get it!  Algorithm
+2 is not just a bit better for this problem, it's way better!  It's actually
+quite common in computer science for there to be huge differences in speed
+between different approaches like this.  Oftentimes the obvious solution is not
+very efficient, but a more clever one is.</p>
+
+<p>This book will spend more time on algorithm design than analysis, but it is
+an important part of computer science and we will touch on it from time to
+time.</p>
+
+
+<h3>1.4 Computers and Programs</h3>
+<hr />
+
+<p>Computer science is primarily the study of algorithms, but computers do play
+a role as well.  In this section we will talk about what computers are, what
+programs are, and how computers can run programs.</p>
+
+<p>It might seem a bit silly to define what a computer is, since you likely use
+a computer every day and clearly know what one is.  However, we will define a
+<strong>computer</strong> as any device that is capable of
+running algorithms automatically.  The earliest computers were created to run a
+handful of particular algorithms, and couldn't do anything else.</p>
+
+<p>One of the earliest such devices was Pascal's calculator, also called a
+Pascaline.  This device, created by the French mathematician Blaise Pascal in
+the mid-1600s, was capable of adding and subtracting numbers.  It could also do
+multiplication and division by means of repeated additions or subtractions.  A
+number of other mathematicians and inventors made similar mechanical devices,
+including Gottfried Wilhelm Leibniz.</p>
+
+<figure>
+<img src="images/pascaline.jpg"
+alt="Pascal's calculator is a bronze device with six numerical readouts and six dials." />
+<figcaption> Pascal's calculator (1649)
+(© Rama, Wikimedia Commons CC BY-SA 3.0 FR)</figcaption>
+</figure>
+
+<p>Another pioneer in early computers was the British mathematician and
+engineer Charles Babbage.  He designed the difference engine, which could
+compute polynomial values.  He completed a prototype of the difference engine
+in 1822.  The difference engine was mechanical and was operated with a hand
+crank.  He began working on a larger version which could operate on bigger
+numbers, with more precision.</p>
+
+<p>Before the full difference engine was completed, however, Babbage began
+working on a more ambitious project, the analytical engine.  Babbage's design
+of the analytical engine was a huge breakthrough in computer science, because
+it was the first design for a <em>programmable</em> computer.  Pascal's
+calculator, the difference engine, and every other computing device up until
+that point was designed to do one fixed task.  If you wanted it to solve a
+different problem, you had to build an entirely new machine.</p>
+
+<p>The analytical engine, on the other hand, was designed so that it could
+execute any algorithm at all.  It did this by taking the instructions that it
+should execute as input, along with data values to be used in the computation.
+These sets of instructions are the worlds first computer programs.  The
+analytical engine's programs themselves were created by punching holes in
+cards.  The machine would then read the cards in, and the patterns of holes
+would affect its behavior.</p>
+
+<figure>
+<img src="images/analytical.png"
+alt="On the left is a prototype for the analytical engine, on the right are some
+of the punched cards designed to give the machine its program" />
+<figcaption>Left: a model of part of the analytical engine
+(© Bruno Barral, Wikimedia Commons, CC BY-SA 2.5).
+Right: punched cards for use with the machine
+(© Karoly Lorentey, Wikiedia Commons, CC BY 2.0)</figcaption>
+</figure>
+
+<p>Babbage worked with Ada Lovelace, who was incidentally the daughter of the
+poet Lord Byron.  She worked on translating algorithms so that they could be
+executed by the analytical engine.  The first of these was a program to compute
+the Bernoulli numbers.  This was the first published computer program.  A
+<strong>program</strong> is an algorithm that is written
+specifically for a computer to execute.  Unlike Babbage and others, Ada
+believed the analytical engine to be capable of going beyond number crunching,
+including speculating that the engine could be used to create music.</p>
+
+<figure>
+<img src="images/babbageada.jpg"
+alt="On the left a photograph of Charles Babbage, on the right
+a painting of Ada Lovelace." />
+<figcaption>Left: Charles Babbage. Right: Ada Lovelace.</figcaption>
+</figure>
+
+<p>Unfortunately, the analytical engine was never completed, primarily due to a
+lack of funding.  A general-purpose computer was not actually completed until
+more than 100 years after the design of the analytical engine.  In the 1940s,
+there were several working computers developed, including by the German Konrad
+Zuse.</p>
+
+modern computers
+
+Basic comp. org.
+
+<p>Types of languages (machine, assembly, high-level)</p>
+
+
+
+<h3>1.5 Areas of computer science</h3>
+<hr />
+
+what you do with cs
+
+different areas
+
+Pie chart of what coders do
+
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Chapter Summary</strong>
+</div>
+<ul>
+ 	<li>First.</li>
+ 	<li>Second.</li>
+ 	<li>Third.</li>
+</ul>
+</div>
+
+<p>This is just here to test out the code highlights</p>
+
+<pre><code class="python">
+# chapter1/example1.py
+# this is an example program
+from graphics import *
+import math
+import random
+
+# program parameters
+WIDTH = 600
+HEIGHT = 600
+
+def setupPeople(window):
+    # make all the people
+    people = []
+    for i in range(POPULATION):
+        person = Person()
+        person.circle.setFill("blue")
+    return people
+
+stuff = {'red' : 0xf00, 'green' : 0x0f0, 'blue' : 0x00f}
+names = ["Bob", "Alice", "Clair"]
+
+# function to compute factorials
+def fact(x):
+    if x == 0:
+        return 1
+    else:
+        return x * fact(x - 1)
+
+class Dog:
+    def __init__(self):
+        self.legs = 4
+        self.greeting = "Woof Woof!"
+
+    def act(self):
+        print(self.greeting)
+
+for i in range(1, 11):
+    if i % 2 == 0:
+        print(i, "is even.")
+    else:
+        print(i, "is odd.")
+</code></pre>
+
+
+
+<footer>
+<h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="note1">Before the advent of computers, the study of
+algorithms was not called "computer science". It was just part of mathematics.
+After computers were invented, it split off into its own field.
+<a href="#back1" aria-label="Back to content">↩</a></li>
+
+<li id="note2">This algorithm is written in "pseudocode" which is
+not real computer code, but is similar to computer code. For most of this book
+we will use real code, but for these first examples, we just want to talk about
+the concepts in general.
+<a href="#back2" aria-label="Back to content">↩</a></li>
+
+<li id="note3">For the mathematically inclined, the worst case number of guesses has the
+following relationship with the number of possibilities we start with: $guesses
+= \lceil log_2(possibilites) \rceil$
+<a href="#back3" aria-label="Back to content">↩</a></li>
+</ol>
+</footer>
+
+
+

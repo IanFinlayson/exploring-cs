@@ -1,0 +1,3 @@
+# we use sass, so these are output files
+*.css
+.sass-cache

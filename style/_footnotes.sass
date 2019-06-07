@@ -1,0 +1,53 @@
+
+footer 
+  margin-top: 2em
+  border-top: .1em solid $color-fore
+  font-size: 90%
+
+footer ol 
+  padding-left: 20px
+
+[aria-describedby="footnote-label"] 
+  counter-increment: footnotes 
+  text-decoration: none 
+  color: inherit 
+  cursor: default 
+  outline: none 
+
+/**
+ * Actual numbered references
+ * 1. Display the current state of the counter (e.g. `[1]`)
+ * 2. Align text as superscript
+ * 3. Make the number smaller (since it's superscript)
+ * 4. Slightly offset the number from the text
+ * 5. Reset link styles on the number to show it's usable
+ */
+[aria-describedby="footnote-label"]::after 
+  content: '[' counter(footnotes) ']' 
+  vertical-align: super 
+  font-size: 0.6em 
+  margin-left: 2px 
+  color: $color-fore
+  cursor: pointer 
+
+/**
+ * Resetting the default focused styles on the number
+ */
+[aria-describedby="footnote-label"]:focus::after 
+  outline: thin dotted
+  outline-offset: 2px
+[aria-label="Back to content"] 
+  font-size: 0.8em
+
+
+/* highlight the footnote we clicked on */
+footer :target 
+  background: $color-light
+
+/* hidden stuff for accessibility */
+.visually-hidden 
+  position: absolute
+  clip: rect(0 0 0 0)
+  visibility: hidden
+  opacity: 0
+

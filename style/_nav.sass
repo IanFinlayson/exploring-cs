@@ -1,0 +1,65 @@
+/* the topnav bar styles */
+
+.topnav 
+    overflow: hidden
+    background-color: $color-lightgrey
+
+    /* 1/8 of 80% = the 10% margin on either side */
+    margin-left: -12.5%
+    margin-right: -12.5%
+    margin-bottom: 2rem
+
+.topnav a 
+    float: left
+    color: $color-base
+    text-align: center
+    padding: 14px 16px
+    text-decoration: none
+    font-size: 17px
+
+.topnav a:hover 
+    background-color: $color-lightgrey
+    color: black
+
+.topnav a.logo
+    float: right
+    color: $color-base
+    padding: 0rem
+    text-align: center
+
+
+
+/* used for the dropdown section menu */
+.dropdown
+    float: left
+    overflow: hidden
+
+.dropdown .dropbtn 
+    cursor: pointer
+    float: none
+    background-color: inherit
+    font-family: inherit 
+    position: relative
+    display: inline-block
+
+.dropdown-content
+    position: absolute
+    display: none
+    background-color: $color-lightgrey
+    min-width: 160px
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+    z-index: 1
+
+.dropdown-content a
+    float: none
+    padding: 12px 16px
+    text-decoration: none
+    display: block
+    text-align: left
+
+.dropdown-content a:hover
+    background-color: $color-medgrey
+
+.dropdown:hover .dropdown-content
+    display: block
+
