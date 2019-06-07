@@ -4,7 +4,7 @@
     /* get the target */
     $target = $_GET["page"];
 
-    echo "<a href=\"/\">Home</a>\n";
+    echo "<a href=\"preface\">← Preface</a>\n";
 
     /* only do sections if there are some and not home page */
     if ($target != "home" && (count($sections) > 1)) {
@@ -18,6 +18,10 @@
         echo "</div>";
         echo "</div>";
     }
+
+    echo "<a href=\"chapter2\">Chapter 2 →</a>\n";
 ?>
 </div>
+
+<div class="main">
 

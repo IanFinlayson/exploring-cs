@@ -3,11 +3,11 @@
 .topnav 
     overflow: hidden
     background-color: $color-lightgrey
-
-    /* 1/8 of 80% = the 10% margin on either side */
-    margin-left: -12.5%
-    margin-right: -12.5%
+    margin-left: -15%
     margin-bottom: 2rem
+    position: fixed
+    width: 100%
+    top: 0
 
 .topnav a 
     float: left
@@ -19,15 +19,13 @@
 
 .topnav a:hover 
     background-color: $color-lightgrey
-    color: black
+    color: $color-fore
 
 .topnav a.logo
     float: right
     color: $color-base
     padding: 0rem
     text-align: center
-
-
 
 /* used for the dropdown section menu */
 .dropdown
@@ -43,7 +41,7 @@
     display: inline-block
 
 .dropdown-content
-    position: absolute
+    position: fixed
     display: none
     background-color: $color-lightgrey
     min-width: 160px
@@ -62,4 +60,9 @@
 
 .dropdown:hover .dropdown-content
     display: block
+
+/* this makes the content start down a bit to make room
+ for the bar */
+.main
+    margin-top: 5em
 

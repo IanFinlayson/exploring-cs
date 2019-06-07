@@ -120,7 +120,7 @@ Sofia: Is it 2?
 Mark: No.
 Sofia: Is it 8?
 Mark: Yes.
-</pre></code>
+</code></pre>
 
 <p>In this case, Sofia solved the problem by eventually guessing Mark's number.
 Now we'll consider writing an algorithm which will always solve the game, no
@@ -141,7 +141,7 @@ as:</p>
 3. If it was, then we are done!
 4. If it was not, then add 1 to G.
 5. Go back to step 2.
-</pre></code>
+</code></pre>
 
 
 <p>This algorithm<a href="#note2" aria-describedby="footnote-label" id="back2"
@@ -211,7 +211,7 @@ Sofia: Is it 44?
 Mark: Too high.
 Sofia: Is it 40?
 Mark: Yes.
-</pre></code>
+</code></pre>
 
 <p>This time, Sofia did not just guess numbers randomly until she hit on the
 right one.  By having the extra information, she's able to guess more
@@ -238,7 +238,7 @@ like this:</p>
 6. If the guess was too high, set max to (G - 1).
 7. If the guess was too low, set min to (G + 1).
 8. Go back to step 3.
-</pre></code>
+</code></pre>
 
 <p>This algorithm is just bit more complicated than the last one.  Now we have
 three variables involved.  "min" is used to keep track of the smallest number
@@ -317,7 +317,7 @@ Too high.
 Too low.
 &gt; min = 39, max = 39.  Is your number 39?
 Yes.
-</pre></code>
+</code></pre>
 
 <p>As you can see, the algorithm was not lucky enough to get the number right
 until the very end when it had eliminated all the other possibilities.  In this
@@ -338,7 +338,7 @@ well), then we get this sequence of numbers:</p>
 6
 3
 1
-</pre></code>
+</code></pre>
 
 <p>It took 7 guesses for this reason<a href="#note3"
 aria-describedby="footnote-label" id="back3"/></a>.  Below is a table showing
