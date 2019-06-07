@@ -1,31 +1,37 @@
 /* the topnav bar styles */
 
 .topnav 
-    overflow: hidden
     background-color: $color-lightgrey
     margin-left: -15%
-    margin-bottom: 2rem
+    margin-bottom: 2em
     position: fixed
     width: 100%
     top: 0
+    border-bottom: 0.1em solid $color-fore
 
 .topnav a 
     float: left
     color: $color-base
     text-align: center
-    padding: 14px 16px
-    text-decoration: none
-    font-size: 17px
+    padding: 0.5em 0.5em
+    font-style: bold
+    font-size: 110%
 
 .topnav a:hover 
-    background-color: $color-lightgrey
+    background-color: $color-medgrey
     color: $color-fore
 
-.topnav a.logo
+.topnav a.righty
     float: right
     color: $color-base
-    padding: 0rem
     text-align: center
+    padding: 0.5em 0.5em
+    font-style: bold
+    font-size: 110%
+
+.topnav a.righty:hover 
+    background-color: $color-medgrey
+    color: $color-fore
 
 /* used for the dropdown section menu */
 .dropdown
@@ -34,14 +40,19 @@
 
 .dropdown .dropbtn 
     cursor: pointer
-    float: none
     background-color: inherit
     font-family: inherit 
-    position: relative
-    display: inline-block
+    float: none
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 
 .dropdown-content
-    position: fixed
+    float: none
+    position: absolute
+    top: 100%
+    left: 45%
     display: none
     background-color: $color-lightgrey
     min-width: 160px

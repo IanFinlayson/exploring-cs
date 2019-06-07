@@ -19,7 +19,7 @@
         echo "</div>";
     }
 
-    echo "<a href=\"chapter2\">Chapter 2 →</a>\n";
+    echo "<a class=\"righty\" href=\"chapter2\">Chapter 2 →</a>\n";
 ?>
 </div>
 
