@@ -1,7 +1,7 @@
-
-<h2>Chapter 1</h2>
+<!-- Chapter 1: The Road Ahead -->
+<h1>Chapter 1</h1>
 <hr />
-<h1>The Road Ahead</h1>
+<h2>The Road Ahead</h2>
 
 <div class="blackbox">
 <div class="blackbox-title">
@@ -47,7 +47,7 @@ algorithm is a solution to a problem.</p>
 
 <p>The study of algorithms actually predates the existence of computers by
 thousands of years<a href="#note1" aria-describedby="footnote-label"
-id="back1" /></a>.
+id="back1"></a>.
 
 
 
@@ -134,7 +134,7 @@ person might, but that's OK.  An algorithm for doing this could be written
 as:</p>
 
 
-<b>Algorithm 1</b>
+<strong>Algorithm 1</strong>
 <pre><code class="ini">
 1. Set G to 1.
 2. Ask if their number is G.
@@ -144,12 +144,12 @@ as:</p>
 </code></pre>
 
 
-<p>This algorithm<a href="#note2" aria-describedby="footnote-label" id="back2"
-/></a> works by keeping track of which number we are going to be guessing next,
-which we call "G".  This is a <strong>variable</strong>, which is a very
-important concept in programming.  A variable is a name that we give to a value
-which may change as the algorithm is run.  Here, G starts off at 1, but it will
-change later.</p>
+<p>This algorithm<a href="#note2" aria-describedby="footnote-label"
+id="back2"></a> works by keeping track of which number we are going to be
+guessing next, which we call "G".  This is a <strong>variable</strong>, which
+is a very important concept in programming.  A variable is a name that we give
+to a value which may change as the algorithm is run.  Here, G starts off at 1,
+but it will change later.</p>
 
 <p>In step 2, we ask the other player if their number is G or not.  Of course
 we don't ask them if they literally picked "G".  Only numbers are allowed in
@@ -341,44 +341,20 @@ well), then we get this sequence of numbers:</p>
 </code></pre>
 
 <p>It took 7 guesses for this reason<a href="#note3"
-aria-describedby="footnote-label" id="back3"/></a>.  Below is a table showing
+aria-describedby="footnote-label" id="back3"></a>.  Below is a table showing
 the number of guesses needed in the worst case for both algorithms, based on
 the highest number the other player could pick:</p>
 
-<table style="border-collapse: collapse; width: 100%;" border="0">
-<tbody>
-<tr>
-<th>Highest Number</strong></td>
-<th>Algorithm 1 Guesses</strong></td>
-<th>Algorithm 2 Guesses</strong></td>
-</tr>
-<tr>
-<td>10</td>
-<td>10</td>
-<td>4</td>
-</tr>
-<tr>
-<td>100</td>
-<td>100</td>
-<td>7</td>
-</tr>
-<tr>
-<td>1,000</td>
-<td>1,000</td>
-<td>10</td>
-</tr>
-<tr>
-<td>1,000,000</td>
-<td>1,000,000</td>
-<td>20</td>
-</tr>
-<tr>
-<td>1,000,000,000</td>
-<td>1,000,000,000</td>
-<td>30</td>
-</tr>
-</tbody>
+<div class="scrolly">
+<table>
+<tr><th>Highest Number</th> <th>Algorithm 1 Guesses</th> <th>Algorithm 2 Guesses</th></tr>
+<tr><td>10</td><td>10</td><td>4</td></tr>
+<tr><td>100</td><td>100</td><td>7</td></tr>
+<tr><td>1,000</td><td>1,000</td><td>10</td></tr>
+<tr><td>1,000,000</td><td>1,000,000</td><td>20</td></tr>
+<tr><td>1,000,000,000</td><td>1,000,000,000</td><td>30</td></tr>
 </table>
+</div>
 
 <p>It is sort of amazing that we can ask algorithm 2 to guess a number between
 1 and 1 billion, and it will need only 30 guesses at most to get it!  Algorithm
