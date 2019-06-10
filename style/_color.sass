@@ -3,9 +3,9 @@
 /* the main foreground and background colors, with 
  * some shades of grey in between   */
 $color-back: #fcfcfc !default
-$color-lightgrey: #eee !default
-$color-medgrey: #ccc !default
-$color-darkgrey: #666 !default
+$color-lightgrey: darken($color-back, 8%)
+$color-medgrey: darken($color-back, 20%)
+$color-darkgrey: darken($color-back, 60%)
 $color-fore: #333 !default
 
 /* the main "brand" color for the book, and some lighter shades of it */
@@ -13,6 +13,8 @@ $color-base: #cd321a !default
 $color-high: lighten($color-base, 15%)
 $color-light: lighten($color-base, 50%)
 
+/* a complementary color, used for code samples */
+$color-comp: #00979D !default
 
 
 
