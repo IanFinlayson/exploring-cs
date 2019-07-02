@@ -1,7 +1,7 @@
 <?php
     /* list of the chapters for making the nav bar */
-    $parts = array("preface", "chapter1", "chapter2");
-    $display = array("Preface", "Chapter 1", "Chapter 2");
+    $parts = array("title", "preface", "chapter1", "chapter2");
+    $display = array("Title", "Preface", "Chapter 1", "Chapter 2");
 
     /* get the target, scrubbing the leading "exploring-cs/" */
     $target = substr($_GET["page"], strlen("exploring-cs/"));
@@ -16,6 +16,8 @@
             $link = $parts[$idx - 1];
             $disp = $display[$idx - 1];
             echo "<a href=\"$link\">← $disp</a>\n";
+        } else {
+            echo "<a href=\"/exploring-cs\">← Home</a>\n";
         }
 
         /* only do sections if there are some and not home page */

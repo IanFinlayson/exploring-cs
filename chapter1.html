@@ -366,7 +366,7 @@ an important part of computer science and we will touch on it from time to
 time.</p>
 
 
-<h3>1.4 Computers and Programs</h3>
+<h3>1.4 What is a Computer?</h3>
 <hr />
 
 <p>Computer science is primarily the study of algorithms, but computers do play
@@ -445,25 +445,262 @@ a painting of Ada Lovelace." />
 <p>Unfortunately, the analytical engine was never completed, primarily due to a
 lack of funding.  A general-purpose computer was not actually completed until
 more than 100 years after the design of the analytical engine.  In the 1940s,
-there were several working computers developed, including by the German Konrad
-Zuse.</p>
+there were several working computers developed. These include the Z4 by the
+German Konrad Zuse, the Collossus developed in Great Britain to break coded
+messages, and the Eniac developed at the University of Pennsylvania to
+calculate ballistics trajectories.
 
-modern computers
+<figure>
+<img src="images/z4.jpg"
+alt="The Z4 computer as seen in a museum, it consists of banks of
+vacuum tubes, along with a control console" />
+<figcaption>The Z4 (1944)
+(© Clemens Pfeiffer, CC BY 2.5)</figcaption>
+</figure>
 
-Basic comp. org.
+<figure>
+<img src="images/colossus.jpg"
+alt="An old photograph of the Collossus depicting banks of
+electronics, a tape reel, and two women working with the machine" />
+<figcaption>The Collossus (1944)</figcaption>
+</figure>
 
-<p>Types of languages (machine, assembly, high-level)</p>
+
+<figure>
+<img src="images/eniac.jpg"
+alt="An old photograph of the Eniac showing rows electronics and
+cords, along with a man and a woman working with the machine" />
+<figcaption>The Eniac (1946)</figcaption>
+</figure>
+
+<p>Unlike the Analytical Engine, which was completely mechanical, these
+computers used electronic circuitry.  After these machines were successfully
+built and used, there was no turning back, and computers have been constantly
+built and improved upon until the present day.</p>
+
+<p>Despite being as large as rooms, these older computer are laughably limited
+compared to even the most basic of today's computers.  The Z4 ran at 40 Hz and
+had 512 bytes of memory.  The first iPhone, released in 2007, could run at 620
+MHz (15 million times faster), and came with at least 4 GB of memory (7 million
+times more).</p>
+
+<p>While these older computers were woefully slow and had tiny memories, they
+functioned in essentially the same way as every computer designed since.  They
+all consist of a processor, memory and some input/output devices.  Below is a
+simplified diagram of a computer system.</p>
+
+<figure>
+<img src="images/computer.png"
+alt="A CPU and memory are grouped together forming the core of a computer
+system.  They exchange information back and forth.  Input devices feed into
+the computer, which in turn writes to output devices." />
+<figcaption>A functional view of a computer</figcaption>
+</figure>
+
+<p>The <strong>CPU</strong> (which stands for central processing unit), is
+responsible for carrying out the instructions of a program.  Each instruction
+is very simple and precise.  For example, the following are examples of typical
+CPU instructions:</p>
 
 
+<ul>
+<li>Take the numbers in two memory cells add them together.  Put the
+answer in another memory cell.</li>
 
-<h3>1.5 Areas of computer science</h3>
+<li>Check if one memory cell is equal to another.  If so, jump to a different
+part of the program.</li>
+
+<li>Check if a certain key on the keyboard is pressed.  If so, set a memory
+cell to 1.  Otherwise, set it to 0.</li>
+</ul>
+
+<p>Although the individual instructions a CPU carries out are very basic,
+enough of them put together are able to accomplish great things.</p>
+
+<p>The <strong>memory</strong> of a computer is responsible for storing
+numbers.  Everything represented in a computer is done with numbers.  For
+instance, when you send an email, the text that you write must be stored inside
+the computer as well.  But, like everything else, this is done with numbers.
+The letters and punctuation symbols have specific numbers assigned to them.
+For instance when you type an 'A', the computer stores a 65.  When you type a
+period, the computer stores a 46.  When you type a space, the computer stores a
+32.</p>
+
+<p>Of course, the way that computers store numbers is in <em>binary</em>, which
+means they only use 1's and 0's.  We will not talk about how to convert
+back and forth between binary and decimal numbers.  Just know that any number
+can be stored in either binary or decimal, and they mean the same thing.</p>
+
+<p>Even images and sounds are stored inside a computer as numbers.  We will
+talk about how that is done in later chapters.</p>
+
+<p><strong>Input devices</strong> include touch screens, mice, keyboards, game
+controllers and so on.  These are connected to a computer system so that the
+user can influence the programs running on the computer.</p>
+
+<p>Likewise, <strong>output devices</strong> are connected to a computer so that
+the user can see what the computer is doing and see the result of the program
+which is running.  These include monitors, speakers, printers, and vibration
+units (which can vibrate to provide the user feedback).</p>
+
+<h3>1.5 Programming Languages</h3>
 <hr />
 
-what you do with cs
+<p>So the computer executes simple instructions, reads and writes its memory,
+gets input from the user, and gives the user output.  But where do the
+instructions come from?  They are actually stored inside the computer's memory
+as numbers too!</p>
+
+<p>As an example of a computer instruction, we can look at one of the steps
+of Algorithm 1 to solve the simple guess the number game:</p>
+
+<pre><code class="ini">
+add 1 to g.
+</code></pre>
+
+<p>Let's look at what this step would look like as a real computer instruction<a class="anchor" id="back4">&nbsp;</a><a href="#note4" aria-describedby="footnote-label"></a>.
+But first, we would need to decide what memory location to store <code>G</code>
+in.  Let's say we put it in location 7.</p>
+
+<p>This instruction would tell the CPU to add 1 to memory location 7:</p>
+
+<pre><code class="ini">
+          operation     destination   input   amount
+1110001   0100       0  0111          0111    00000001 0000
+</code></pre>
+
+<p>This is a <em>binary</em> number.  We'll just point out some of the parts
+of this.  The 0100 labeled "operation" tells the CPU what sort of thing
+it's doing.  0100 is the code for addition.  So it tells the CPU to add
+instead of subtract, multiply, or anything else.</p>
+
+<p>The first 0111 labeled "destination" tells the CPU where to put the result.
+0111 is binary for 7.  So it puts the answer in memory cell 7.  The second
+0111, labeled "input" tells the CPU what value to read in the addition.  This
+is also 7.  Lastly the 00000001 labeled "amount" tells the CPU how much to
+add.  In total the instruction tells the CPU to read memory cell 7, add 1 to
+it, and put the answer back in memory cell 7.</p>
+
+<p>The other, unlabelled parts just tell the CPU what type of instruction it
+is, and how to interpret the other fields.  All together the instruction is the
+following binary number:</p>
+
+<pre><code class="ini">
+11100010100001110111000000010000
+</code></pre>
+
+<p>In decimal, this is equal to:</p>
+
+<pre><code class="ini">
+3800526864
+</code></pre>
+
+<p>So the way computers work is by reading in these numbers.  The numbers tell
+them what they are supposed to do.  Part of the computer's memory is dedicated
+to storing these instruction numbers for the programs it runs.  It reads the
+instructions one by one and carries them out.  Programs stored as actual
+numbers like this are <strong>machine code</strong> programs.</p>
+
+<p>In case you are panicking right now, let me assure you that nobody actually
+writes programs this way!  Giving a computer a program by writing a sequence of
+numbers like this would be tedious beyond belief.</p>
+
+<p>Instead, we have created other languages which are easier for people to use.
+The first of these is <strong>assembly</strong> language, which is basically
+a human-readable version of machine code.  Rather than write "0100" for add,
+and "0111" for memory cell 7, we just write them out.  The instruction above
+written in assembly would look like this:</p>
+
+<pre><code class="armasm">
+add r7, r7, #1
+</code></pre>
+
+<p>The computer can't run this instruction directly, it must be translated into
+machine code.  That is done by a program called an <strong>assembler</strong>:</p>
+
+<figure>
+<img src="images/assembly.png"
+alt="An assembler converts assembly code into machine language." />
+<figcaption>An assembler converts assembly code into machine language.</figcaption>
+</figure>
+
+<p>The assembler converts each line of assembly code into the corresponding
+machine code instruction.  Then, the machine code program can be run on the
+computer system directly.</p>
+
+<p>We aren't dealing with numbers directly with assembly code, but it is still
+too tedious for most people.  In particular, we still have to keep track of
+where in memory are variables are stored.  Knowing that memory cell 7 is storing
+our guess variable, and knowing where the other variables are becomes too hard
+as we begin to write larger programs.</p>
+
+<p>Instead, we have developed <strong>high-level</strong> programming languages.
+These allow us to have names for our variables, instead of needing to remember
+which memory location they are in.  Here is what the instruction above might look
+like in Python, the high-level language used in this book:</p>
+
+<pre><code class="python">
+guess = guess + 1
+</code></pre>
+
+<p>High-level language code is also much more succinct than assembly or machine
+code.  One line of code in a language like Python can do the same work as many
+lines of machine code.  Of course this code must also be translated into
+machine code for the computer to execute.  That is done with a program called
+an <strong>interpreter</strong>.</p>
+
+<p>An interpreter takes code in a language like Python, and executes in line
+by line.  For each line it sees, it gives one or more lines of machine code
+to the computer:</p>
+
+<figure>
+<img src="images/interpreter.png"
+alt="An interpreter translates high-level code into machine code." />
+<figcaption>An interpreter translates high-level code into machine code.</figcaption>
+</figure>
+
+<p>Just like someone who interprets one spoken language into another, an
+interpreter program translates on the fly.  As the high-level program is being
+run, its code is being translated for the computer to execute.</p>
+
+
+
+<h3>1.6 What do you do with Computer Science?</h3>
+<hr />
+
+<p>We have seen that computer science is primarily about algorithms, but this
+section will address how algorithms can be used to solve real problems in the
+world.</p>
+
+<p>Computer science is an interesting field because it frequently works together
+with other fields.  For example:</p>
+
+<ul>
+<li>Computer scientists work with natural scientists in fields like physics,
+chemistry and biology to develop computer models of natural phenomenon.  It is
+often impractical to carry out experiments in real life, so computer models can
+be used.  For instance, a program might model the collision of two galaxies,
+the spread of a disease through a population, or the path of a river in the
+face of flooding.  These models allow scientists to test hypothesis and compare
+potential solutions to problems more easily than they otherwise could.</li>
+
+
+<li>social science</li>
+
+<li>business</li>
+
+</ul>
+
+work with others
+dual major
+
+"core" areas of cs
 
 different areas
 
-Pie chart of what coders do
+
+
+Pie chart of what coders do?
 
 
 <div class="blackbox">
@@ -472,58 +709,12 @@ Pie chart of what coders do
 </div>
 <div class="blackbox-contents">
 <ul>
- 	<li>First.</li>
- 	<li>Second.</li>
- 	<li>Third.</li>
+<li>First.</li>
+<li>Second.</li>
+<li>Third.</li>
 </ul>
 </div>
 </div>
-
-<p>This is just here to test out the code highlights</p>
-
-<pre><code class="python">
-# chapter1/example1.py
-# this is an example program
-from graphics import *
-import math
-import random
-
-# program parameters
-WIDTH = 600
-HEIGHT = 600
-
-def setupPeople(window):
-    # make all the people
-    people = []
-    for i in range(POPULATION):
-        person = Person()
-        person.circle.setFill("blue")
-    return people
-
-stuff = {'red' : 0xf00, 'green' : 0x0f0, 'blue' : 0x00f}
-names = ["Bob", "Alice", "Clair"]
-
-# function to compute factorials
-def fact(x):
-    if x == 0:
-        return 1
-    else:
-        return x * fact(x - 1)
-
-class Dog:
-    def __init__(self):
-        self.legs = 4
-        self.greeting = "Woof Woof!"
-
-    def act(self):
-        print(self.greeting)
-
-for i in range(1, 11):
-    if i % 2 == 0:
-        print(i, "is even.")
-    else:
-        print(i, "is odd.")
-</code></pre>
 
 
 
@@ -545,6 +736,12 @@ the concepts in general.
 following relationship with the number of possibilities we start with: $guesses
 = \lceil log_2(possibilites) \rceil$
 <a href="#back3" aria-label="Back to content">↩</a></li>
+
+<li id="note4">The instruction in this example is for ARM-based computer systems.
+These include almost all phones, tablets and other small computers.  Most laptops
+and desktops use a different format, but the ideas are the same.
+<a href="#back4" aria-label="Back to content">↩</a></li>
+
 </ol>
 </footer>
 

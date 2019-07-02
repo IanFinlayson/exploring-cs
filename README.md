@@ -1,2 +1,2 @@
 # exploring-cs
-An open introductory computer science textbook
+An open introductory computer science textbook.
