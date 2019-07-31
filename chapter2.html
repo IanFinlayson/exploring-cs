@@ -1,7 +1,7 @@
-<!-- Chapter 2: TITLE -->
+<!-- Chapter 2: Getting Started -->
 <h1>Chapter 2</h1>
 <hr />
-<h2>TITLE</h2>
+<h2>Getting Started</h2>
 
 <div class="blackbox">
 <div class="blackbox-title">
@@ -9,27 +9,300 @@
 </div>
 <div class="blackbox-contents">
 <ul>
- 	<li></li>
- 	<li></li>
- 	<li></li>
+ 	<li>Understand what an interpreter, IDE, and shell do.</li>
+ 	<li>Learn how to install Python on your computer.</li>
+ 	<li>Know how to write and run simple Python programs.</li>
+</ul>
+</div>
+</div>
+
+
+<h3>2.1 Interpreters and IDEs</h3>
+<hr />
+
+<p>As we learned in the last chapter, computers only directly understand
+programs written in machine code.  However, most people prefer to write
+programs written in a high-level language.  For this to work, we need an
+interpreter program to translate the code into what the computer
+understands.</p>
+
+<p>So in order to write programs, we have to install the interpreter for the
+language that we want to use.  Because we will be using Python, we need to
+install the Python interpreter.  If we just give Python programs straight to
+our computer, it won't know what to do with them.  We need to interpreter to
+run them.</p>
+
+<p>We will also be installing <i>another</i> program as well.  This program is
+something called an <strong>Integrated Development Environment (IDE)</strong>.
+An IDE is a program that lets you type in the program you are writing.  You
+could write your programs in any old program, but it's generally easier to
+use a program geared just for that purpose.  For example, an IDE will give
+you a button to pass your program to the interpreter, and make it easier to
+see when you have errors.</p>
+
+<p>The IDE we will be using here is a simple one called
+<strong>Thonny</strong>.  Thonny is easy to use and get started with.  It also
+includes Python with it, so you only need to install one thing.  The choice of
+IDE doesn't really matter too much, if you want to use a different one for some
+reason (for instance if you have one from another class), you can follow the
+rest of the book using that too.</p>
+
+<p>The rest of this chapter will guide you through setting up Python along with
+our IDE for whichever type of computer system you have.  Then, we will see how
+to use it to run some Python code!</p>
+
+
+<h3>2.2 Installing Python on Windows</h3>
+<hr />
+
+<p>To install Python along with Thonny on Windows computers, go to the <a
+href="https://thonny.org/">Thonny website</a>.  Then click the Windows link in
+the download box at the upper right.  Choose to save the file.  When the
+download is finished, run the installer program.</p>
+
+<p>Click next, select the agreement, choose where to install it, and wait for
+the installer to finish.  Once it is done, you should have Thonny, along with
+its Python interpreter installed.</p>
+
+
+
+
+<h3>2.3 Installing Python on Mac</h3>
+<hr />
+
+<p>To install Python along with Thonny on a Mac OSX computer, go to the <a
+href="https://thonny.org/">Thonny website</a>.  Then click the Mac link in
+the download box at the upper right.  That should download a .dmg file that
+includes the Thonny IDE as well as the Python interpreter.</p>
+
+<p>When the download has finished, you should see the Thonny icon in a window.
+Drag this icon into your applications folder to copy it to your computer.  You
+should then have it installed and be able launch Thonny from your Application
+menu to start programming.</p>
+
+
+<h3>2.4 Installing Python on Linux</h3>
+<hr />
+
+<p>While all recent versions of Linux come with Python, they do not come
+with Thonny.  To install it, open up a terminal and run the following
+command:</p>
+
+<pre><code class="bash">
+bash &lt;(wget -O - https://thonny.org/installer-for-linux)
+</code></pre>
+
+<p>Then hit Enter at the prompt to continue.</p>
+
+<p>That should download the latest version, and install it on your
+computer.  You should be able to find Thonny amongst your installed
+applications.  You could also launch it by running the command:</p>
+
+<pre><code class="bash">
+~/apps/thonny/bin/thonny
+</code></pre>
+
+
+
+<h3>2.5 The Shell Window</h3>
+<hr />
+
+<p>You should now have Python and Thonny installed.  When you run it, you
+should see a window something like this (It might look slightly different on
+your system):</p>
+
+<figure>
+<img src="images/thonny.png"
+alt="The main Thonny window has two parts, at the top is the area for
+writing a program, and at the bottom is the shell window for giving
+interactive commands." />
+<figcaption>The main Thonny window</figcaption>
+</figure>
+
+<p>The main window has two main parts.  The top is the file area.  This is
+where you will type in the program that you will create.  This is empty right
+now, and called "&lt;untitled&gt;".</p>
+
+<p>The bottom area is called the "Shell".  This is a window where you can
+pass Python code to the Python interpreter.  Any code you put in here will
+be run right away and the results will be given to you.  Here is an
+example:</p>
+
+<figure>
+<img src="images/shell.png"
+alt="The shell responds to the line '3 + 4' with an swer of 7.  It
+responds to the line of 'print(Hi!)' by printing the text 'Hi!'." />
+<figcaption>Some examples put into the shell window</figcaption>
+</figure>
+
+<p>As you can see, when we put '3 + 4' into the shell, it gives us the answer,
+7.  Likewise when we put in the command 'print("Hi!")', it prints what we told
+it to.  What's happening here is that these are small amounts of Python code.
+When we put them in, the shell window passes them to the Python interpreter,
+which runs them.  Any results are displayed back in the shell.</p>
+
+<p>Generally, the top file area is for writing a program that you will run all
+at once.  This window saves what you put there so you can run it over and over
+again as you work on a program.</p>
+
+<p>The bottom shell area is for trying things out and experimenting.  Unless
+you copy and paste it some place else, the things you put into the shell window
+are not saved.</p>
+
+<p>You should try the shell out to get a feel for how it works.</p>
+
+
+
+<h3>2.6 Our First Program</h3>
+<hr />
+
+<p>Now we are ready to write our first program.  The goal of the first
+program is just to print the text "Hello World" to the screen.
+<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>.
+The code for this program is the following:</p>
+
+<pre><code class="python">
+# this is our first program
+print("Hello World!")
+</code></pre>
+
+<p>You should type this program into the top window of Thonny.  Then
+we can run the program.  This can be done in one of three ways:</p>
+
+<ul>
+<li>Clicking the "Run" menu, then choosing "Run current script".</li>
+<li>Clicking the green play button (<img src="images/run.png" />).</li>
+<li>Hitting the F5 key.</li>
+</ul>
+
+<p>Before the program can run, it will ask you to save it.  When saving
+your program files, you should put them some place where you will be
+able to find them again.  You should also always name them something
+ending with the ".py" extension.</p>
+
+<p>Once the program is saved, it will run.  You should then see the results in
+the shell window:</p>
+
+<figure>
+<img src="images/prog.png"
+alt="The program text is in the file area, and the results appear
+in the shell area.  The result is that the text 'Hello World!' has
+been printed into the shell." />
+<figcaption>The results of running the program</figcaption>
+</figure>
+
+
+<h3>2.7 About the Program</h3>
+<hr />
+
+<p>Now that we have seen how to run the program, we will talk about the
+program itself a little bit.  This program consists of two lines.
+The first line says:</p>
+
+<pre><code class="python">
+# this is our first program
+</code></pre>
+
+<p>This line is a <strong>comment</strong>.  Any line that starts with the
+# symbol is a comment in Python
+<a class="anchor" id="back2">&nbsp;</a><a href="#note2" aria-describedby="footnote-label"></a>.
+When the interpreter gets a comment line, it completely ignores it, and moves
+on to the next line.  The purpose of comments is to leave little notes in the
+code, for any people that might be reading.  Comments are meant to explain
+things about the program.</p>
+
+<p>The second line of the program says:</p>
+
+<pre><code class="python">
+print("Hello World!")
+</code></pre>
+
+<p>This is the line that actually tells the Python interpreter to do something.
+Python comes with several command built in that cause it to do things.  One
+of these is <code>print</code>.  The parenthesis mark the things that will
+be printed.  In this case, it's just the message "Hello World!".</p>
+
+<p>Both the parenthesis and the quotation marks are needed for the program to
+work.  You can change the message inside the quotation marks to whatever
+you want though.  Try changing it so that it prints out your name.</p>
+
+
+
+<h3>2.8 When Things Go Wrong</h3>
+<hr />
+
+<p>We said that the parenthesis and quotes are needed, but what happens if we
+get rid of them?  In these cases, the Python interpreter will not be able to
+figure out what to do with the code, and will give us an error message.
+For instance, if we get rid of the quotation marks, we get this:</p>
+
+<figure>
+<img src="images/error0.png"
+alt="The program is missing quotation marks and gives the error
+'invalid syntax'" />
+<figcaption>Missing quotation marks</figcaption>
+</figure>
+
+<p>Here the program did not run successfully.  Instead, the shell gives us the
+error "SyntaxError: invalid syntax".  There is also an "Assistant" window which
+is a feature of Thonny to help us figure the error out.  In this case, it's not
+terribly helpful.  The specific problem here is that Python has no idea what to
+do with the exclamation mark since that doesn't mean anything in Python code.</p>
+
+<p>If we get rid of the parenthesis instead, we get a different error:</p>
+
+<figure>
+<img src="images/error1.png"
+alt='The program is missing parenthesis and gives the error
+"Missing parenthesis in call to print.  Did you mean print("Hello World!")?' />
+<figcaption>Missing parenthesis</figcaption>
+</figure>
+
+<p>Here the error is much easier to figure out.  It actually tells us what is
+missing and even suggests a fix for it.  Even though the two errors were pretty
+similar, one would be much easier to figure out.</p>
+
+<p>Errors can be stressful as a beginning programmer.  Even if your code is 99%
+correct, one mistake can prevent the interpreter from being able to figure it
+out.  As you get more experience with programming, they get easier and easier
+to fix.  In the meantime, you can always ask your friends or instructor for
+help.</p>
+
+<p>Now that we are able to write and run Python programs, we will begin delving
+into learning the language and starting to solve problems with it!</p>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Chapter Summary</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+ 	<li>An interpreter is a program that translates programs so that
+    they can be executed by the computer.  An IDE is a program that lets
+    you write programs and passes them to the interpreter.</li>
+ 	<li>The Thonny IDE can be installed on Windows, Mac, or Linux.  It has
+    a file window for writing programs, and a shell window for running commands
+    interactively.</li>
+ 	<li>Comments are lines starting with a # and are little notes that are
+    put into programs.</li>
 </ul>
 </div>
 </div>
 
 
 
-<h3>2.1 TODO</h3>
-<hr />
-
-
-Some text<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>.
-
-
 <footer>
 <h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
 <ol>
-<li id="note1">Footnote 1.
+<li id="note1">Having the first program print this message is something of a
+silly tradition.  It dates back at least to the 1978 book "The C Programming
+Language".
 <a href="#back1" aria-label="Back to content">↩</a></li>
+
+<li id="note2">I used to insist this symbol be called a "pound" or "hash"
+symbol, and become annoyed when it was called a "hashtag", but I've
+accepted it.  You can say that Python comments begin with hashtags.
+<a href="#back2" aria-label="Back to content">↩</a></li>
 </ol>
 </footer>
 
