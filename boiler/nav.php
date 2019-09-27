@@ -1,7 +1,7 @@
 <?php
     /* list of the chapters for making the nav bar */
-    $parts = array("title", "preface", "chapter1", "chapter2", "chapter3", "chapter4");
-    $display = array("Title", "Preface", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4");
+    $parts = array("title", "preface", "chapter1", "chapter2", "chapter3", "chapter4", "chapter5");
+    $display = array("Title", "Preface", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5");
 
     /* get the target, scrubbing the leading "exploring-cs/" */
     $target = substr($_GET["page"], strlen("exploring-cs/"));

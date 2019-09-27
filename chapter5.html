@@ -1,0 +1,464 @@
+<!-- Chapter 5: Making Decisions -->
+<h1>Chapter 5</h1>
+<hr />
+<h2>Making Decisions</h2>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Learning Objectives</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+ 	<li>Learn how to use if statements to make programs that make decisions.</li>
+ 	<li>Understand comparisons and how to make them.</li>
+ 	<li>Meet the boolean type and the boolean operations.</li>
+ 	<li>Learn how to use elif and else statements to create multi-way decisions.</li>
+</ul>
+</div>
+</div>
+
+
+<h3>5.1 Decisions in Algorithms</h3>
+<hr />
+
+<p>So far, our programs have all started on the first line and executed each
+line in sequence until the end of the program.  However, many algorithms have
+the need to make decisions and do different things at different times.</p>
+
+<p>For example, when we talked about algorithms back in chapter 1, we came up
+with the following for guessing a number when the player just answered "yes" or
+"no":</p>
+
+<strong>Algorithm 1</strong>
+<pre><code class="ini">
+1. Set G to 1.
+2. Ask if their number is G.
+3. If it was, then we are done!
+4. If it was not, then add 1 to G.
+5. Go back to step 2.
+</code></pre>
+
+<p>Here the algorithm needs to make a decision based on the information it has
+available to it.  If the guess was right, we do one thing.  Otherwise we do
+another.  Lots of algorithms have to do things like this.</p>
+
+<p>Another example is adding numbers.  When you are adding a column of numbers
+you have to make a decision on whether to carry or not.  You check if the
+column totals more than 9.  If so, you carry the tens place to the next
+column.</p>
+
+<p>In this chapter, we will talk about how to write Python programs that make
+decisions like this.
+
+
+
+<h3>5.2 If Statements</h3>
+<hr />
+
+<p>The way that we can make decisions like this in Python is with
+an <em>if statement</em>.  If statements in Python start with the
+word <code>if</code>, followed by some sort of condition, then a
+colon.</p>
+
+<p>A <strong>condition</strong> is something that might be either true or
+false.  For example, if we read in a number from the user, it might be
+bigger than 10, or it might not.  To check this, we could use the following
+if statement:</p>
+
+<pre><code class="python">
+if number &gt; 10:
+</code></pre>
+
+<p>After this line, we put all of the code that we want to happen when
+the condition is true.  For example, we can just print a message that
+the number is bigger than 10 with a program like this:</p>
+
+<pre><code class="python">
+number = int(input("Enter a number: "))
+if number &gt; 10:
+    print("That is bigger than 10.")
+</code></pre>
+
+<p>When Python runs this program it will check if the of the number being
+bigger than is true or not.  If it is, Python will execute the print statement.
+If the condition is false, that line will not be executed.</p>
+
+<p>If we run this program and put in a number bigger than, we will see the message
+like this:</p>
+
+<pre class="output">
+Enter a number: <span class="input">50</span>
+That is bigger than 10.
+</pre>
+
+<p>However, if we put in something smaller than 10, the program will
+<strong>not</strong> run the print message, and we will see nothing:</p>
+
+<pre class="output">
+Enter a number: <span class="input">5</span>
+</pre>
+
+
+<h3>5.3 Indentation and Spacing</h3>
+<hr />
+
+<p>Notice that the print message in the program above was indented.  Sometimes
+spaces don't matter in Python programs, but here these spaces before the print
+are actually really important.
+Python uses indentation to mark if lines are part of an if statement or not.</p>
+
+<p>For example, we can add some more message to the program above, and whether
+they are indented or not will determine if they are "part of" the if statement:</p>
+
+<pre><code class="python">
+number = int(input("Enter a number: "))
+if number &gt; 10:
+    print("That is bigger than 10.")
+    print("Good job putting such a big number!")
+print("Bye bye!")
+</code></pre>
+
+<p>The first two messages, the ones which are indented, will only be executed
+when the number is bigger than 10.  However, the message which says "Bye bye!"
+will be printed every single time the program runs &mdash; whether the
+condition is met or not.  That's because it's not indented, so it's not part
+of the if statement.</p>
+
+<p>For this to work, we need to indent our code correctly so Python can tell if
+it's part of an if statement or not.  Code should normally not be indented, but
+if it's part of an if, it should be. If you mix up indentation, Python will get
+confused.  For instance, code like this will not work:</p>
+
+<pre><code class="python">
+number = int(input("Enter a number: "))
+if number &gt; 10:
+    print("That is bigger than 10.")
+  print("In between")
+print("Bye bye!")
+</code></pre>
+
+<p>Here Python will be confused because it doesn't know what to do with the
+second message.  Is it part of the if block or not?</p>
+
+
+
+
+
+<h3>5.4 Comparisons</h3>
+<hr />
+
+<p>In the example above we used the <code>&gt;</code> operator to compare two
+numbers and decide which one was bigger.  Of course we can also check if
+something is less than something else.  Or if two things are equal or not.
+Python uses the following comparison operators:</p>
+
+<table>
+<tr><td><code>&lt;</code></td><td>Less than.</td></tr>
+<tr><td><code>&gt;</code></td><td>Greater than.</td></tr>
+<tr><td><code>&lt;=</code></td><td>Less than or equal to.</td></tr>
+<tr><td><code>&gt;=</code></td><td>Greater than or equal to.</td></tr>
+<tr><td><code>==</code></td><td>Equal to.</td></tr>
+<tr><td><code>!=</code></td><td>Not equal to.</td></tr>
+</table>
+
+<p>The <code>&lt;</code> and <code>&gt;</code> operators will be familiar to
+most people from math.  However Python is designed so its easy to type code on
+a regular keyboard.  So instead of the &le; &ge; and &ne; symbols, Python uses
+<code>&lt;=</code>, <code>&gt;=</code>, and <code>!=</code>.</p>
+
+<p>Also notice that to check if two things are equal, Python uses
+<strong>two</strong> equal signs.  That's because a single <code>=</code>
+is already used for something: assigning variables.  It's a pretty common
+mistake to forget to put the second equal sign in.</p>
+
+<p>For instance, if we want to read in a users age, and make sure that
+it is a positive number, we could do it with a comparison:</p>
+
+
+
+
+<h3>5.5 Example: Checking Input</h3>
+<hr />
+
+<p>One common use of if statements is to check if the input users
+enter makes sense or not.  For example, if we ask the user their
+age, they could enter a value that doesn't make sense like -7, or
+3000.</p>
+
+<p>We can use if statements to write a program which will check if
+the age given is too low or too high before going on to the rest of
+the program.  We will also give them another chance to put in their
+age correctly.</p>
+
+<p>For our purposes, let's say the age has to be between 5 and 125.
+Anything less than 5 we'll count as a mistake (we're assuming toddlers
+aren't going to use this program).  Also, anything over 125 will be
+counted as too old (assuming the person using the program hasn't
+broken the lifespan record by three years).</p>
+
+<p>We can do this with the following program:</p>
+
+<pre>
+<code class="python">
+age = int(input("What is your age? "))
+
+if age &lt; 5:
+    print("That is too young!  Try again.")
+    age = int(input("What is your age? "))
+
+if age &gt; 125:
+    print("That is too old!  Try again.")
+    age = int(input("What is your age? "))
+
+print("Your age is", age)
+</code>
+</pre>
+
+
+
+<!-- TODO usage of this program -->
+
+
+
+
+
+
+
+
+<h3>5.6 Booleans Types</h3>
+<hr />
+
+<p>Last chapter we talked about <strong>types</strong> in Python.  So
+far we have learned about strings, integers and floats.  But when we use if
+statements, we are actually using another type!</p>
+
+
+<p>It is called the <i>boolean</i> type.  Numbers and strings can have many,
+many different values, but a boolean can only have 2: True or False.</p>
+
+<!-- TODO add picture/info on boole -->
+
+<p>Boolean values are used to represent truth values: whether something is True
+or False.  They are named after English mathematician George Boole who developed a
+form of math based on True/False values which became influential in the development
+of computers.</p>
+
+<!-- TODO rewrite this sectiopn -->
+
+<p>To make a boolean, we can just assign a variable the values True or False.
+For instance, we could set whether we got the guess correct to False like
+this:</p>
+
+<pre>
+<code class="python">
+correct = False
+</code>
+</pre>
+
+
+<p>For another example, we can make a variable for whether or not it is
+snowing, and assign it the value False:</p>
+
+<pre>
+<code class="python">
+snowing = False
+</code>
+</pre>
+
+<p>We could also make a variable for whether it's raining and give it the value
+True:</p>
+
+<pre>
+<code class="python">
+raining = True
+</code>
+</pre>
+
+<p>Booleans are used for keeping track of information like whether certain conditions
+have been met, or whether events have occurred.</p>
+
+
+
+
+<h3>5.7 Boolean Operations</h3>
+
+<p>Sometimes we want to <i>combine</i> conditions.  Like if we want to see if
+it's a nice temperature, we would need to make sure the temperature is above a
+certain point <i>and also</i> below a certain point.</p>
+
+<p>We can do this with the boolean operators.</p>
+
+<p>Booleans can't be added or subtracted, but there are three operators that
+work with them.  They are <code>and</code>, <code>or</code> and
+<code>not</code>.</p>
+
+<p><code>and</code> takes 2 booleans and tells is if they are <i>both</i> True.
+For example, if we want to see if it's raining and snowing, we could use the
+following:</p>
+
+<pre>
+<code class="python">
+&gt;&gt;&gt; raining = True
+&gt;&gt;&gt; snowing = False
+&gt;&gt;&gt; raining and snowing
+False
+</code>
+</pre>
+
+<!-- TODO talk more about these -->
+
+
+
+
+<h3>5.8 Using Multiple Conditions</h3>
+<hr />
+
+<p>We can thus combine up multiple conditions with these boolean operators.
+For example, if we want to see if the temperature is in a nice range, we could
+use <code>and</code>:</p>
+
+<pre>
+<code class="python">
+temperature = int(input("What is the temperature? "))
+
+if temperature &gt; 50 and temperature &lt; 85:
+    print("It's a nice temperature!")
+</code>
+</pre>
+
+<p>We can combine up as many conditions as we want.  We can also use
+parenthesis to group things.  For instance, this rather complicated condition
+checks multiple things to decide if it's a nice day or not:</p>
+
+<pre>
+<code class="python">
+raining = True
+snowing = False
+temperature = int(input("What is the temperature? "))
+
+if temperature &gt; 50 and temperature &lt; 85 and not (raining or snowing):
+    print("It is a nice day!")
+</code>
+</pre>
+
+
+
+
+<h3>5.9 Two-Way Decisions</h3>
+<hr />
+
+<p>Oftentimes, we want to test a condition and, if it's true, do one thing, and
+if it's false, do another thing.  For example, if we want to print whether a
+message based on whether it's raining we could do this:</p>
+
+<pre><code class="python">
+raining = True
+
+if raining:
+    print("Bring an umbrella!")
+
+if not raining:
+    print("No need for an umbrella.")
+</code></pre>
+
+<p>However, because this is so common, there is a simpler way to do this using
+the "else" keyword:</p>
+
+<pre><code class="python">
+raining = True
+
+if raining:
+    print("Bring an umbrella!")
+else:
+    print("No need for an umbrella.")
+</code></pre>
+
+<p>With an if/else statement, if the if condition is true, than the code under
+the if line is executed.  Otherwise, the code under the else line is executed
+instead.</p>
+
+<p>It can never do <i>both</i> things.</p>
+
+
+
+<h3>5.10 Multi-Way Decisions</h3>
+<hr />
+
+<p>We can also write if statements with more than 2 options using the "elif"
+keyword.  This stands for "else if".  When Python executes a multi-way
+decision, it checks each condition in order.  Once it finds one condition that
+is true, it executes the statements under it and then goes to the end of the
+chain.</p>
+
+
+<p>For example, we can write a program which will print messages
+based on the temperature with three cases like this:</p>
+
+
+<pre><code class="python">
+temperature = int(input("What is the temperature? "))
+
+if temperature &lt; 50:
+    print("It's cold!")
+elif temperature &lt; 80:
+    print("It's medium.")
+else:
+    print("It's hot!")
+</code></pre>
+
+<p>In this program, it will always print exactly one of these messages.
+The conditions are checked one by one.  As soon as one is found to be
+true, Python will execute the code under it and stop.</p>
+
+<p>For example, if the temperature is 40, then it will find the first
+condition to be true and print "It's cold!".  Even though the second
+condition is also true, it won't print any other message.</p>
+
+<p>There's no limit to how many <code>elif</code> statements we can
+include.</p>
+
+
+<!--Foot note 1<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>.-->
+
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Chapter Summary</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+ 	<li>Python if statements allow us to write programs which do
+    different things according to a condition.</li>
+ 	<li>The indentation of code is important as it indicates what
+    lines we always do, and what lines are part of an if statement.</li>
+ 	<li>We can use comparison operators to make decisions based on
+    variables in our programs.</li>
+ 	<li>The boolean type represents a True or False value.  They can be
+    combined with the boolean operators: and, or, and not.</li>
+ 	<li>We can use the <code>else</code> statement to create a two-way
+    decision.  This makes the program do one thing when the condition is
+    True, and a different thing when the condition is False.</li>
+ 	<li>The <code>elif</code> statement can be used when we have more
+    than two cases in our program.  Python will do the first condition
+    that is True.</li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+<!--
+<footer>
+<h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
+<ol>
+
+<li id="note1">Footnote 1 text
+<a href="#back1" aria-label="Back to content">↩</a></li>
+
+</ol>
+</footer>
+-->
+
+
