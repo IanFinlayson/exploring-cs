@@ -1,0 +1,621 @@
+<!-- Chapter 6: Going Back Again -->
+<h1>Chapter 6</h1>
+<hr />
+<h2>Going Back Again</h2>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Learning Objectives</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+ 	<li>Learn how to write while loops to repeat code while some condition is True.</li>
+ 	<li>Understand infinite loops, and know how to stop a program with an infinite loop.</li>
+ 	<li>Learn how for loops work, and how to use them to loop through strings.</li>
+ 	<li>Learn how to use the range command to create sequences of numbers that can be used with for loops.</li>
+</ul>
+</div>
+</div>
+
+
+
+<h3>6.1 Repeating Steps</h3>
+<hr />
+
+<p>Many algorithms are built on the concept of a <i>loop</i> where you
+repeat some steps of the algorithm multiple times.  For example:</p>
+
+<ul>
+<li>On a shampoo bottle, it says "Lather, rinse, and repeat".</li>
+<li>In our "guess the number" algorithm, we have to keep on guessing
+until we guess the number right.</li>
+<li>In adding and subtracting algorithms you learned in grade school
+you must keep going for every digit of the number.</li>
+</ul>
+
+<p>With loops we will be able to write programs that do these kinds of
+things, and repeat some part of the program over again.</p>
+
+<p>As a first example, consider the "guess the number" game.  We
+could in theory just use if statements to guess all the numbers:</p>
+
+<pre><code class="python">
+if input("Did you guess 1? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 2? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 3? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 4? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 5? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 6? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 7? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 8? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 9? ") == "yes":
+    print("Got it!")
+elif input("Did you guess 10? ") == "yes":
+    print("Got it!")
+</code></pre>
+
+<p>However, this is clearly kind of repetitive.  It also isn't sustainable, if
+we wanted to write a program that would guess a number from 1 to 100, that
+would be a lot of typing!  Instead we should use a loop.</p>
+
+
+<h3>6.2 While Loops</h3>
+<hr />
+
+<p>The simplest loop in Python is the while loop.  The while loop looks
+a lot like an if statement.  It starts with the word <code>while</code>,
+and then it has a condition, followed by a colon.  Then there are some
+statements indented over.  These statements are called the <strong>loop
+body</strong>.</p>
+
+<p>The following is a simple example of a program with a
+while loop:</p>
+
+<pre><code class="python">
+number = 1
+while number &lt;= 10:
+    print(number)
+    number = number + 1
+</code></pre>
+
+<p>The way a while loop works is sort of similar to an if statement too.  When
+this program is run, we start by setting the number variable to 1.  Next we
+check if that variable is less than or equal to 10.  If so we do the statements
+indented under the loop.</p>
+
+<p>The difference is that, after we're done those statements, <em>we go back to
+the top</em>.  It will check the condition another time.  If it's
+<em>still</em> True, it does the loop again.  It will keep on doing it over and
+over again until the condition is False.</p>
+
+<p>In this particular case, the program will find that the condition is true
+the first time, so it will print the number, and then add one to it.
+Now the number is 2.  This is still less than or equal to 10, so it does
+the loop body again.  It keeps going on like this until the number variable
+is bigger than 10.  So the output will be this:</p>
+
+<pre class="output">
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 
+</pre>
+
+<p>We can now use a while loop to implement the simple version of the "guess a
+number" game as follows:</p>
+
+<pre><code class="python">
+# start by asking for 1
+number = 1
+answer = input("Did you guess 1?")
+
+# keep doing the loop until the answer is yes
+while answer != "yes":
+    number = number + 1
+    answer = input("Did you guess " + str(number) + "?")
+
+# when we are done the loop it means we got it
+print("Got it!")
+</code></pre>
+
+<p>This program will keep looping until the user enters "yes".  At that
+point, the condition becomes False and so the loop exits.</p>
+
+<p>There's quite a bit going on in this code, so let's go through it.</p>
+
+<ul>
+<li>First, we need to ask them the first question, whether their
+number was 1 or not.  We do this so that the variable answer is
+defined for the start of the loop.</li>
+
+<li>We then have the loop condition which checks if their answer was not
+"yes".  If it wasn't we go into the loop.  If it was, then we got it on
+the first try, and skip over the whole loop.</li>
+
+<li>Inside, we add 1 to the number variable.  This is how we change the
+thing we guess from 1, to 2, to 3, etc.</li>
+
+<li>We also ask them if the latest number is their guess or not.  Doing
+so is a little tricky.  Unlike <code>print</code>, the <code>input</code>
+command doesn't let us pass it numbers, only a string.  So we have to
+convert number to a string with the <code>str</code> command, and join
+it to the rest of the question.</li>
+
+<li>The code after the while loop, which prints "Got it!", will only
+happen once the condition becomes False.  For this program that means
+that answer <em>was</em> yes.</li>
+
+</ul>
+
+
+
+<h3>6.3 Example: Checking Input</h3>
+<hr />
+
+<p>We've talked about how to use if statements to check if user input is valid.
+For instance, this program will check if the user enters a negative number for
+their age:</p>
+
+<pre><code class="python">
+# program that checks for bad data once
+age = int(input("How old are you? "))
+
+if age &lt; 0:
+    print("Hey, your age can't be negative!")
+    age = int(input("How old are you for real? "))
+
+print("You are", age, "years old.")
+</code></pre>
+
+<p>However, if someone puts in a negative number twice in a row, then
+the bad input will still get through.  We could of course repeat the
+check again to make <em>really</em> sure:</p>
+
+<pre><code class="python">
+# (silly) program that checks for bad data twice
+age = int(input("How old are you? "))
+
+if age &lt; 0:
+    print("Hey, your age can't be negative!")
+    age = int(input("How old are you for real? "))
+
+if age &lt; 0:
+    print("Hey, your age STILL can't be negative!")
+    age = int(input("How old are you for real? "))
+
+print("You are", age, "years old.")
+</code></pre>
+
+<p>Of course now, they can put in a negative number <em>three</em> times.
+Clearly this is not a great way of approaching this.  A better way would be to
+use a loop.</p>
+
+<p>In this case, we will want to keep on asking them, over and over again,
+until they eventually put in valid data.  Maybe this is the first try, or maybe
+it's the hundredth.</p>
+
+<p>We can do it by simply replacing <code>if</code> with <code>while</code>.
+Now, the program will <i>keep</i> asking the user for data until it is
+greater than or equal to 0.  Now the program looks like this:</p>
+
+<pre><code class="python">
+# program that checks for bad data over and over
+age = int(input("How old are you? "))
+
+while age &lt; 0:
+    print("Hey, your age can't be negative!")
+    age = int(input("How old are you for real? "))
+
+print("You are", age, "years old.")
+</code></pre>
+
+<p>Below is an example run of this program, where the user messes up
+by entering a negative age a few times in a row:</p>
+
+<pre class="output">
+How old are you? <span class="input">-5</span>
+Hey, your age can't be negative!
+How old are you for real? <span class="input">-2</span>
+Hey, your age can't be negative!
+How old are you for real? <span class="input">-7</span>
+Hey, your age can't be negative!
+How old are you for real? <span class="input">-1000</span>
+Hey, your age can't be negative!
+How old are you for real? <span class="input">34</span>
+You are 34 years old.
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h3>6.4 Infinite Loops</h3>
+<hr />
+
+<p>One danger when creating loops is that the condition might <i>never</i>
+become True.  For example, there's a mistake in the program below which causes
+this:</p>
+
+
+<pre><code class="python">
+number = 1
+
+while number &lt; 10:
+    print(number)
+    numer = number + 1
+
+print("All done!")
+</code></pre>
+
+
+<p>Here we mistyped "number" as "numer".  So when we run the addition, it
+doesn't change number to be bigger.  Instead it makes a <em>new</em> variable.
+Because of our typo, the variable <code>number</code> never reaches 10, so the
+condition stays 10 forever.  This is called an <i>infinite loop</i> and is a
+common programming mistake.</p>
+
+<p>If you run this program, it will never stop running.  It will just continue
+on forever.  Or until you stop it, which is probably what you will want to do.
+An infinite loop in Thonny, by hitting the stop button (<img
+src="images/stop.png">), or by choosing "Stop/Restart backend" from the "Run"
+menu.</p>
+
+
+
+
+
+<h3>6.5 Example: Running Total</h3>
+<hr />
+
+<p>Let's write a program that will compute a running total of numbers.
+The way this will work is that you will put in numbers to the program,
+and it will add them all together, and show you the sum after each one.
+You can then stop the program by entering a 0 (there's no reason to add
+0 normally since it won't change anything).</p>
+
+<p>Below is an example of a run of this program, so you can see how it
+should work before we dive into some code:</p>
+
+<pre class="output">
+What's the first number? <span class="input">7</span>
+7
+Next: <span class="input">12</span>
+19
+Next: <span class="input">-5</span>
+14
+Next: <span class="input"> 2</span>
+16
+Next: <span class="input"> 0</span>
+The total is 16
+</pre>
+
+<p>The code which solves this problem is given below:</p>
+
+<pre><code class="python">
+# get the first number
+number = int(input("What's the first number? "))
+total = number
+
+# keep going until they enter 0
+while number != 0:
+    print(total)
+    number = int(input("Next: "))
+    total = total + number
+
+# print the final result
+print("The total is", total)
+</code></pre>
+
+<p>We start by getting the first number from the user.  The "number" variable
+is used to store the thing they just entered.  The "total" variable is used to
+keep track of the running sum.  It starts as the same as the number first
+entered.</p>
+
+<p>The condition for this while loop is "number != 0".  So we will keep going
+as long as the number they entered wasn't 0.</p>
+
+<p>Inside the loop, we do a few things.  First we print out the total so the
+user can see it change for each number they enter.  Then we get the next number.
+Lastly we add it to the total variable.</p>
+
+<p>After the loop, we just print out the total sum.</p>
+
+<p>This kind of program would be <em>impossible</em> to write without a loop.
+Even if we wanted to copy and paste a bunch of code, we couldn't because we
+don't know ahead of time how many numbers the user will want to add.</p>
+
+
+
+<h3>6.6 For Loops</h3>
+<hr />
+
+<p>There is another type of loop in Python called a "for" loop.  A for loop is
+similar to a while loop in that it lets you do some piece of code over and over
+again.  But it is different in that it loops through every element in a
+<em>sequence</em> of some kind.</p>
+
+<p>The only type of sequence we have seen so far is a string.  A string is a
+sequence of characters (which could be letters, digits, punctuation, etc.).  Below
+is a for loop that just prints each character one by one:</p>
+
+
+<pre><code class="python">
+name = input("What's your name? ")
+
+for letter in name:
+    print(letter)
+</code></pre>
+
+<p>The for loop looks a bit different from the while loop.  Instead of the condition,
+we have the word <code>for</code> followed by a variable name.  The variable name
+above is "letter".  Then we have the word <code>in</code>, followed by the sequence
+we are using.  In this case, that's the string name.</p>
+
+<p>When you run a for loop, it makes the variable (letter in this case) equal to
+each thing in the sequence one-by-one.  It then runs the loop body on it.  So
+if we enter, let's say "Amy" as the name, then it will first set letter to "A".
+It will then run the loop body on "A".  Next it will run the loop body again, but
+with letter equal to "m".  Lastly it will run the loop body with letter as "y".
+Then it will stop.</p>
+
+<p>The result of running this program can be seen below:</p>
+
+<pre class="output">
+What's your name? <span class="input">Amy</span>
+A
+m
+y
+</pre>
+
+<p>The result of this program is that it prints the name out vertically.</p>
+
+<p>Every for loop could be replaced by a while loop that does the same thing.
+In the example above, we could have written a while loop to count up to the
+length of the string, and used indexes to get the letters out.</p>
+
+<p>But for loops have a few benefits when looping through a sequence:</p>
+
+<ul>
+<li>It's much harder to accidentally make an infinite for loop.</li>
+<li>For loops are a little easier to read.</li>
+</ul>
+
+
+
+
+
+
+<h3>6.7 The range Command</h3>
+<hr />
+
+<p>For loops can be used to loop through any <em>sequence</em>.  A string is
+just one type of sequence.  There are several others in Python.  The next one
+that we will look at is a <em>range</em>.</p>
+
+<p>The <code>range</code> command is used to create a sequence of numbers.
+For example, we could use <code>range</code> to make a sequence of numbers
+from 1 through 10.  Or a sequence of numbers from 25 down to 5.</p>
+
+<p>We can combine <code>range</code> with a for loop to write code that
+does something for each number in the sequence.</p>
+
+
+<p>If we pass <code>range</code> 1 number, it will give us a sequence from
+0 up to (but not including) that number.  For example, if we pass 10:</p>
+
+<pre><code class="python">
+for i in range(10):
+    print(i)
+</code></pre>
+
+<p>Then range will give us a sequence of numbers going from 0 through 9.
+Instead of starting at 1, range starts at 0 &mdash; just like string indices.
+If we run this program, we will get:</p>
+
+<pre class="output">
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+
+<p>Just like the for loop with a string, this for loop sets our variable
+(called "i")  to each thing in the sequence one by one.  It then runs the loop
+body once for each value.</p>
+
+<p>If we don't want to start on 0, we can also pass range a starting point.  To
+do that, we have to pass two numbers.  The first is the start and the second is
+1 past the ending point.</p>
+
+<p>For example, if we want to make a range of numbers from 5 through 10, including
+both end points, we could do it like this:</p>
+
+<pre><code class="python">
+for i in range(5, 11):
+    print(i)
+</code></pre>
+
+<p>This program will print the numbers from 5 to 10:</p>
+
+<pre class="output">
+5
+6
+7
+8
+9
+10
+</pre>
+
+<p>Lastly, we can pass <em>three</em> numbers into <code>range</code>.  The
+first two are the same as before.  The last number we pass in will be used as
+<em>step</em> between each.  For example, if we want to go through even numbers
+from 2 through 10, we could pass a step of 2:</p>
+
+<pre><code class="python">
+for i in range(2, 11, 2):
+    print(i)
+</code></pre>
+
+<p>This gives us the following:</p>
+
+<pre class="output">
+2
+4
+6
+8
+10
+</pre>
+
+<p>The step is just the amount that you add to each number to go on to
+the next one.</p>
+
+<p>We could also pass a negative number for the step to go <em>backwards</em>:</p>
+
+<pre><code class="python">
+for i in range(10, 0, -1):
+    print(i)
+</code></pre>
+
+<p>This gives us the following:</p>
+
+<pre class="output">
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+</pre>
+
+
+<h3>6.8 Example: Temperature Table</h3>
+<hr />
+
+<p>As an example of a for loop with a range, let's write a program which gives
+us a table of Celsius temperatures with the equivalent Fahrenheit temperature.
+Rather than read in one, and print out the other, we will just print a whole
+table.  That way the user can see how the two relate.</p>
+
+<p>One part of this is converting one temperature from Fahrenheit to Celsius.
+We can do this by subtracting 32 from the Fahrenheit temperature and then
+multiplying by $\frac{5}{9}$.</p>
+
+<p>The next part is doing this for a bunch of temperatures.  To be helpful,
+let's make the range of temperatures start at the lowest Fahrenheit temperature
+it's likely to be.  Here in Virginia, it's rare that it gets below 0°, or above
+100° Fahrenheit.  We can therefore use 0 as the starting point to range, and
+101 as the ending point (remember it has to be just <em>past</em> the value we
+want to end at.</p>
+
+<p>It will also be nicer if we don't print <em>every</em> temperature from
+0° to 100°.  100 lines of output will probably be too much.  Instead, we will
+go in increments of 5°.  To do this, we can just pass 5 for the last thing
+to <code>range</code>.</p>
+
+<p>The whole program, then, is given below:</p>
+
+<pre><code class="python">
+# loop from 0 to 100, going 5 at a time
+for far in range(0, 101, 5):
+    # do the conversion, and round it
+    cel = (far - 32) * 5/9
+    cel = round(cel, 2)
+
+    # print one line of the table
+    print(far, "degrees F =", cel, "degrees C")
+</code></pre>
+
+<p>Here our loop variable is called "far" (short for Fahrenheit).  It is given
+all the values in the sequence of numbers we make with range.  First it's 0, then
+5, then 10, all the way to 100.</p>
+
+<p>For each time through the loop, we do all of the commands on the loop body.
+This converts to a Celsius temperature, rounds it, and prints out the two
+temperatures that are equivalent.</p>
+
+<p>The output from this program is given below:</p>
+
+<pre class="output">
+0 degrees F = -17.78 degrees C
+5 degrees F = -15.0 degrees C
+10 degrees F = -12.22 degrees C
+15 degrees F = -9.44 degrees C
+20 degrees F = -6.67 degrees C
+25 degrees F = -3.89 degrees C
+30 degrees F = -1.11 degrees C
+35 degrees F = 1.67 degrees C
+40 degrees F = 4.44 degrees C
+45 degrees F = 7.22 degrees C
+50 degrees F = 10.0 degrees C
+55 degrees F = 12.78 degrees C
+60 degrees F = 15.56 degrees C
+65 degrees F = 18.33 degrees C
+70 degrees F = 21.11 degrees C
+75 degrees F = 23.89 degrees C
+80 degrees F = 26.67 degrees C
+85 degrees F = 29.44 degrees C
+90 degrees F = 32.22 degrees C
+95 degrees F = 35.0 degrees C
+100 degrees F = 37.78 degrees C
+</pre>
+
+<p>There are other types of sequences that for loops work with.  We will see a
+few more as we go.  We will also see lots more examples of solving problems
+with loops.  Almost all algorithms use looping in some fashion.</p>
+
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Chapter Summary</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+ 	<li>Many algorithms use looping, which is repeating some steps of the algorithm
+        multiple times.</li>
+ 	<li>While loops are based on a condition.  They check if the condition is True.
+        If it is, they run the code in the loop body.  They then check the condition
+        again.  They will keep doing this until the condition is False.</li>
+ 	<li>It is possible to make a loop where the condition will never become True.
+        This is called an infinite loop, and usually is a mistake.</li>
+ 	<li>A for loop is used to do something with every part of a sequence.</li>
+ 	<li>A string is a sequence.  If you want to do something with every character
+        in a string, a for loop works best.</li>
+ 	<li>We can also create sequences of numbers with the <code>range</code> command.
+        <code>range</code> can be given a starting point, an ending point, and the
+        amount to increase or decrease by.</li>
+</ul>
+</div>
+</div>
+
+
+
+

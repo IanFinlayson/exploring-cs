@@ -214,208 +214,295 @@ print("Your age is", age)
 </code>
 </pre>
 
+<p>Because the lines of code which scold the user for entering bad data
+are indented under the if line, they will only happen when the conditions
+are true.  If the user enters good data, they will never be done.
+For example if we put in 20, this happens:</p>
 
+<pre class="output">
+What is your age? <span class="input">20</span>
+Your age is 20
+</pre>
 
-<!-- TODO usage of this program -->
+<p>However, if we put in too low of a number, the condition in the first if
+statement <em>will</em> be true.  When that happens, the scolding and getting a
+new age will happen:</p>
 
+<pre class="output">
+What is your age? <span class="input">2</span>
+That is too young!  Try again.
+What is your age? <span class="input">20</span>
+Your age is 20
+</pre>
 
+<p>Likewise, if we put in an age which is over 125, the second
+if statement will have a true condition:</p>
 
+<pre class="output">
+What is your age? <span class="input">750</span>
+That is too old!  Try again.
+What is your age? <span class="input">75</span>
+Your age is 75
+</pre>
 
+<p>There's one flaw in this program which is that if you
+give a bad answer <em>twice</em>, then it will just accept it.
+For example:</p>
 
+<pre class="output">
+What is your age? <span class="input">750</span>
+That is too old!  Try again.
+What is your age? <span class="input">750</span>
+Your age is 750
+</pre>
 
+<p>In order to fix this, we will need to learn how to repeat some
+code over and over again.  That's the topic of the next chapter!</p>
 
 
 <h3>5.6 Booleans Types</h3>
 <hr />
 
 <p>Last chapter we talked about <strong>types</strong> in Python.  So
-far we have learned about strings, integers and floats.  But when we use if
+far we have learned about strings, integers and floats.  Last chapter
+we saw how these work and how to use them.  But when we use if
 statements, we are actually using another type!</p>
 
-
-<p>It is called the <i>boolean</i> type.  Numbers and strings can have many,
-many different values, but a boolean can only have 2: True or False.</p>
-
-<!-- TODO add picture/info on boole -->
+<p>It is called the <em>boolean</em> type.  Numbers and strings can have many,
+many different values.  In fact there are essentially infinitely many different
+values an integer or string can have.  A boolean, on the other hand,
+can have only two different values: True or False.</p>
 
 <p>Boolean values are used to represent truth values: whether something is True
-or False.  They are named after English mathematician George Boole who developed a
-form of math based on True/False values which became influential in the development
-of computers.</p>
+or False.  For example, a condition like <code>age &lt;5</code> has a boolean
+value.  Either the age is less than 5 (in which case it's True), or it isn't less
+than 5 (in which case it's False).</p>
 
-<!-- TODO rewrite this sectiopn -->
+<p>The somewhat unusual name "boolean", which Python shortens to "bool" comes
+from the English mathematician George Boole.  Boole developed a form of math
+based on True/False values which became influential in the development of
+computers.</p>
 
-<p>To make a boolean, we can just assign a variable the values True or False.
-For instance, we could set whether we got the guess correct to False like
-this:</p>
+<figure>
+<img src="images/boole.jpg" alt="A portrait of George Boole"/>
+<figcaption>George Boole, circa 1860</figcaption>
+</figure>
 
-<pre>
-<code class="python">
-correct = False
-</code>
+<p>We often use booleans like the programs above.  We do a comparison
+which has a True/False value, and put it right into the if statement.
+But booleans are normal types which means we can put them into variables
+too.</p>
+
+<p>For instance, we can assign a variable to be True or False:</p>
+
+<pre class="output">
+&gt;&gt;&gt; done = False
+&gt;&gt;&gt; type(done)
+&lt;class 'bool'&gt;
 </pre>
 
+<p>We could also put the result of a condition into a variable:</p>
 
-<p>For another example, we can make a variable for whether or not it is
-snowing, and assign it the value False:</p>
-
-<pre>
-<code class="python">
-snowing = False
-</code>
+<pre class="output">
+&gt;&gt;&gt; valid = length &gt;= 0
+&gt;&gt;&gt; valid
+True
 </pre>
 
-<p>We could also make a variable for whether it's raining and give it the value
-True:</p>
-
-<pre>
-<code class="python">
-raining = True
-</code>
-</pre>
-
-<p>Booleans are used for keeping track of information like whether certain conditions
-have been met, or whether events have occurred.</p>
-
+<p>Booleans are used for keeping track of information like whether certain
+conditions have been met, or whether events have occurred.  We will find uses
+for using boolean variables like this next chapter.</p>
 
 
 
 <h3>5.7 Boolean Operations</h3>
-
-<p>Sometimes we want to <i>combine</i> conditions.  Like if we want to see if
-it's a nice temperature, we would need to make sure the temperature is above a
-certain point <i>and also</i> below a certain point.</p>
-
-<p>We can do this with the boolean operators.</p>
-
-<p>Booleans can't be added or subtracted, but there are three operators that
-work with them.  They are <code>and</code>, <code>or</code> and
-<code>not</code>.</p>
-
-<p><code>and</code> takes 2 booleans and tells is if they are <i>both</i> True.
-For example, if we want to see if it's raining and snowing, we could use the
-following:</p>
-
-<pre>
-<code class="python">
-&gt;&gt;&gt; raining = True
-&gt;&gt;&gt; snowing = False
-&gt;&gt;&gt; raining and snowing
-False
-</code>
-</pre>
-
-<!-- TODO talk more about these -->
-
-
-
-
-<h3>5.8 Using Multiple Conditions</h3>
 <hr />
 
-<p>We can thus combine up multiple conditions with these boolean operators.
-For example, if we want to see if the temperature is in a nice range, we could
-use <code>and</code>:</p>
+<p>Remember that a type determines what sorts of things you can do with
+something.  If you've got a string, you can find the length, or join it
+to another string.  If you've got an integer, you can add or subtract it.
+If you have a boolean, there are things you can do to it too.</p>
 
-<pre>
-<code class="python">
-temperature = int(input("What is the temperature? "))
+<p>Booleans actually have just three operations:</p>
 
-if temperature &gt; 50 and temperature &lt; 85:
-    print("It's a nice temperature!")
-</code>
+<ul>
+<li>not</li>
+<li>and</li>
+<li>or</li>
+</ul>
+
+<p>The simplest of these is <code>not</code>.  This operator just
+reverses the boolean you give it.  If you have a boolean which is
+True, then you apply <code>not</code> to it, you get False.  Here's
+an example:</p>
+
+<pre class="output">
+&gt;&gt;&gt; valid = length &gt;= 0
+&gt;&gt;&gt; valid
+True
+&gt;&gt;&gt; not valid
+False
 </pre>
 
-<p>We can combine up as many conditions as we want.  We can also use
-parenthesis to group things.  For instance, this rather complicated condition
-checks multiple things to decide if it's a nice day or not:</p>
+<p>If <code>valid</code> is True, then <code>not valid</code> is the opposite
+of that: False.</p>
 
-<pre>
-<code class="python">
-raining = True
-snowing = False
-temperature = int(input("What is the temperature? "))
+<p>The next operator is <code>and</code>.  This combines two booleans
+and tells you if they are <strong>both</strong> True.  For example,
+we could use this in an if statement for checking if our age is within
+the 5 through 125 range:</p>
 
-if temperature &gt; 50 and temperature &lt; 85 and not (raining or snowing):
-    print("It is a nice day!")
-</code>
-</pre>
+<pre><code class="python">
+age = int(input("What is your age? "))
+
+if age &gt;= 5 and age &lt;= 125:
+    print("Your age is valid.")
+</code></pre>
+
+<p>Here we are combining up two boolean values.  The first is the value we get
+from <code>age &gt;=5</code>.  This will either be True or False.  The second
+is <code>age &lt; 125</code>.  When we combine them with <code>and</code>, we
+are going to end up with True if both parts are True.  If either part (or both
+parts) are False, then we get False.</p>
+
+<p>The last operator is <code>or</code>.  Like <code>and</code>, it combines up
+two booleans and gives you a new one.  Whereas <code>and</code> checks if
+<strong>both</strong> sides are True, <code>or</code> checks if
+<strong>either</strong> one is.</p>
+
+<p>We could use this to write a program to detect when the age is
+<em>invalid</em>:</p>
+
+<pre><code class="python">
+age = int(input("What is your age? "))
+
+if age &lt; 5 or age &gt; 125:
+    print("Your age is NOT valid.")
+</code></pre>
+
+<p>Notice how we use the or to combine up the two cases into one if statement.
+Before we had the boolean operators at our disposal, we had to do this with
+two separate if statements.  Now, we can combine it into one line.</p>
 
 
 
-
-<h3>5.9 Two-Way Decisions</h3>
+<h3>5.8 Two-Way Decisions</h3>
 <hr />
 
 <p>Oftentimes, we want to test a condition and, if it's true, do one thing, and
-if it's false, do another thing.  For example, if we want to print whether a
-message based on whether it's raining we could do this:</p>
+if it's false, do another thing.  For example, if we want to write some code
+which tells us how to get dressed based on the temperature, we could do something
+like this:</p>
 
 <pre><code class="python">
-raining = True
+temp = float(input("What temperature is it out? "))
 
-if raining:
-    print("Bring an umbrella!")
+if temp &lt; 80:
+    print("You should wear pants.")
 
-if not raining:
-    print("No need for an umbrella.")
+if temp &gt;= 80:
+    print("You should wear shorts.")
 </code></pre>
 
-<p>However, because this is so common, there is a simpler way to do this using
-the "else" keyword:</p>
+<p>This program checks if it's less than 80 degrees and tells the user to wear
+pants in that case.  It then checks the opposite: if it's not less than 80 out,
+then it must be greater than or equal to 80 degrees.  Here it says to wear
+shorts.</p>
+
+<p>It's so common to want to do this, that there is a simpler way, using an
+<code>else</code> statement.  That would look like this:</p>
 
 <pre><code class="python">
-raining = True
+temp = float(input("What temperature is it out? "))
 
-if raining:
-    print("Bring an umbrella!")
+if temp &lt; 80:
+    print("You should wear pants.")
 else:
-    print("No need for an umbrella.")
+    print("You should wear shorts.")
 </code></pre>
 
-<p>With an if/else statement, if the if condition is true, than the code under
+<p>Here, it will check if the temperature is less than 80.  If so, it does
+the first print message, telling us to wear pants.  If the condition was False,
+then it does the "else" part of the code &mdash; the print which tells
+us to wear shorts instead.</p>
+
+<p>With an if/else statement, if the if condition is True, than the code under
 the if line is executed.  Otherwise, the code under the else line is executed
 instead.</p>
 
-<p>It can never do <i>both</i> things.</p>
+<p>It can never do <em>both</em> things.</p>
 
 
 
-<h3>5.10 Multi-Way Decisions</h3>
+<h3>5.9 Multi-Way Decisions</h3>
 <hr />
 
-<p>We can also write if statements with more than 2 options using the "elif"
-keyword.  This stands for "else if".  When Python executes a multi-way
-decision, it checks each condition in order.  Once it finds one condition that
-is true, it executes the statements under it and then goes to the end of the
-chain.</p>
+<p>Sometimes we have more than one condition we want to check, and handle each
+one differently.  We can do this using Python's "elif" statement.  This stands for
+"else if", and allows us to chain together multiple conditions.</p>
 
-
-<p>For example, we can write a program which will print messages
-based on the temperature with three cases like this:</p>
-
+<p>For example, imagine we want to expand our clothing-recommender program
+to include cold weather.  We could do it like this:</p>
 
 <pre><code class="python">
-temperature = int(input("What is the temperature? "))
+temp = float(input("What temperature is it out? "))
 
-if temperature &lt; 50:
-    print("It's cold!")
-elif temperature &lt; 80:
-    print("It's medium.")
+if temp &lt; 60:
+    print("Wear a coat.")
+elif temp &lt; 80:
+    print("You should wear pants.")
 else:
-    print("It's hot!")
+    print("You should wear shorts.")
 </code></pre>
 
-<p>In this program, it will always print exactly one of these messages.
-The conditions are checked one by one.  As soon as one is found to be
-true, Python will execute the code under it and stop.</p>
+<p>Here we recommend a coat when it's less than 60 degrees, pants when it's
+less than 80, and shorts otherwise.</p>
 
-<p>For example, if the temperature is 40, then it will find the first
-condition to be true and print "It's cold!".  Even though the second
-condition is also true, it won't print any other message.</p>
+<p>The way this works is that Python checks each condition in order.  Once it
+finds one condition that is true, it executes the statements under it and then
+goes to the end of the chain.</p>
+
+<p>This is important because it means <strong>only one</strong> of the parts
+will ever run.  For example, in the above program, if we put in 50, it will
+do this:</p>
+
+<pre class="output">
+What temperature is it out? <span class="input">50</span>
+Wear a coat.
+</pre>
+
+<p>Here the first condition was True, so it tells us to bring a coat.
+Even though the second condition is True as well, it doesn't tell
+us to wear pants.  As soon as one case in the chain is True, it stops.</p>
 
 <p>There's no limit to how many <code>elif</code> statements we can
-include.</p>
+include.  If we want, we can expand it even more:</p>
+
+<pre><code class="python">
+temp = float(input("What temperature is it out? "))
+
+if temp &lt; 10:
+    print("It's super cold, maybe stay home?")
+elif temp &lt; 30:
+    print("Wear a snowsuit")
+elif temp &lt; 60:
+    print("Wear a coat.")
+elif temp &lt; 80:
+    print("You should wear pants.")
+elif temp &lt; 95:
+    print("You should wear shorts.")
+else:
+    print("It's super hot, maybe stay home?")
+</code></pre>
+
+<p>It will still only give us one message, no matter what temperature we
+put in.</p>
+
+<p>Next chapter we will continue talking about booleans and conditions.
+We have seen how they can be used to make decisions with if statements.
+Next we will see how they can be used to repeat code over again with
+loops.</p>
+
 
 
 <!--Foot note 1<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>.-->
