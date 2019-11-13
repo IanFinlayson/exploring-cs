@@ -1,0 +1,842 @@
+<!-- Chapter 9: Graphics and Objects -->
+<h1>Chapter 9</h1>
+<hr />
+<h2>Graphics and Objects</h2>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Learning Objectives</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+    <li>Learn how to install and use libraries that don't come with Python</li>
+    <li>Understand the idea of an object, and learn how to call functions on objects</li>
+    <li>Learn how to create graphics windows</li>
+    <li>Understand the coordinate system used in graphics programs</li>
+    <li>Learn how colors are created in a computer program</li>
+    <li>Be able to create various graphics objects such as points, circles, lines and rectangles</li>
+    <li>Learn how to handle mouse and keyboard input in a graphics program</li>
+</ul>
+</div>
+</div>
+
+
+
+<h3>9.1 Functions and Objects</h3>
+
+<p>Thus far, when we have made use of things built-in to Python,
+or in libraries, we have called <em>functions</em>.  These include:</p>
+
+<ul>
+<li>print</li>
+<li>len</li>
+<li>round</li>
+<li>math.sqrt</li>
+<li>random.randint</li>
+</ul>
+
+<p>A function does some task for us.  Usually we give it some kind of information,
+and then it uses that in doing its job.  For example, we can give the <code>len</code>
+function a string, and then it tells us how long it is.  With <code>math.sqrt</code>,
+we give it a number, and it tells us what the square root is.</p>
+
+<p>There's another way of calling on things built-in to Python, or on
+libraries, which is called objects.  An object is a type of variable
+that essentially contains functions inside of it.  When you have a regular
+variable, like an integer, you can do operations on it (like + and *), and pass
+it into functions (like print or round), but
+it doesn't have any functions of its own.</p>
+
+<p>An example of an object we have already seen is string variables.
+In the example where we check if a password is valid, we had code that looks
+like this:</p>
+
+<pre><code class="python">
+# check each chatacter to see if it's in these categories
+for char in password:
+    if char.isupper():
+        upper = True
+    elif char.islower():
+        lower = True
+    elif char.isdigit():
+        digit = True
+</code></pre>
+
+<p>The syntax for calling a function on an object is that you put the name
+of the object variable first, then a ".", and then the name of the function.
+Like usual, we can pass information inside the parenthesis (but here we
+don't need to).  Just like with libraries, the "." means that the thing on
+the right is part of the thing on the left.  In this case, these functions
+are part of the string object we call them on.</p>
+
+<p>So we are calling these functions<a class="anchor" id="back1">&nbsp;</a><a
+href="#note1" aria-describedby="footnote-label"></a> on the string object
+called "char".  Objects in Python are just like regular variables, except
+they have functions we can call "on them".  The neat thing is that libraries
+can add <em>new objects</em>, which essentially allow us to create new sorts
+of variables with new operations.</p>
+
+<p>So far, we have only seen 4 types: integers, floats, booleans, and strings.
+The graphics library we will be learning today is built with objects.  So
+it will allow us to make variables of new types including Point, Line, Circle
+and more.  The main idea behind an object is that it's a new sort of variable
+we can use, and we use it by calling its functions.</p>
+
+
+<h3>9.2 Setting up the Graphics Library</h3>
+<hr />
+
+<p>When we give Python the command to import the math library, it works because
+math comes with Python and the interpreter knows where to find it.  However we
+can also use libraries that are developed by others and don't come with Python.</p>
+
+<p>This can be done lots of different ways.  The simplest way is just to download
+the library file and put it in the same folder that our program is in.  The
+following instructions show how to download and set up the graphics library
+we will use:</p>
+
+<ol>
+<li>Download the library from <a
+href="https://mcsp.wartburg.edu/zelle/python/graphics.py">this address</a>.  It
+is just a regular .py file.  You could read the code if you want, but it uses
+many things we haven't gotten to, and is a bit cryptic.</li>
+
+<li>Save the graphics.py file in the same location where you will create a program.
+In order to be able to import the library, Python needs to be able to find the file.
+There are several ways to do this, but the simplest is just to put it in the same
+folder where your program will go.</li>
+
+<li>Import the library using the name of the file (without the .py).  So for the
+graphics library, we should be able to use <code>import graphics</code>.  If
+this works, nothing should happen on the import line.  If Python can't find the
+library with that name you will get an error message.</li>
+</ol>
+
+
+
+<h3>9.3 Creating Windows</h3>
+<hr />
+
+<p>The first graphic object we'll look at is a window.  A window is a container
+for all of the other graphical things we'll see.  We can create a window with the
+GraphWin function like this:</p>
+
+<pre><code class="python">
+import graphics
+window = graphics.GraphWin()
+</code></pre>
+
+<p>When you run this program, you should see something like the following:</p>
+
+<figure>
+<img src="images/window1.png"
+alt="The small window is titled 'Graphics Windows'" />
+<figcaption>The window that appears</figcaption>
+</figure>
+
+
+<p>The window is an object.  Objects remember things about themselves.  String objects
+remember what letters are inside them, and GraphWin objects remember how big they are,
+what their titles are and so on.</p>
+
+<p>We can change the title and size of the window by passing them into the
+GraphWin function, which the following program does:</p>
+
+<pre><code class="python">
+import graphics
+
+# set the title, width, and height
+window = graphics.GraphWin("My Cool Program!", 800, 600)
+</code></pre>
+
+<p>When we run this program, the window that pops up will be bigger.  The
+default size is 200 pixels wide and 200 pixels tall.  The new window will be
+800 wide and 600 tall.  We'll talk more about pixels below.  It will also have
+our title in the top bar, like this:</p>
+
+<figure>
+<img src="images/window2.png"
+alt="The small window is titled 'Graphics Windows'" />
+<figcaption>A larger window, with a customized title</figcaption>
+</figure>
+
+<p>In addition to remembering things about themselves, objects also have
+functions that we can call on them.  One of these for the GraphWin object
+is the "close" function.  This function makes the window disappear, just
+as if you clicked on the 'X' button to close it yourself.</p>
+
+<p>The following program will close the window after sleeping for 1
+second:</p>
+
+<pre><code class="python">
+import graphics
+import time
+
+# make a window
+window = graphics.GraphWin("My Cool Program!", 800, 600)
+
+# pause for 1 second
+time.sleep(1.0)
+
+# close the window
+window.close()
+</code></pre>
+
+
+
+
+<h3>9.4 Drawing Points</h3>
+<hr />
+
+<p>Just making windows of various sizes, and with various titles is pretty
+exciting<a class="anchor" id="back2">&nbsp;</a><a
+href="#note2" aria-describedby="footnote-label"></a>, but we will want to
+also actually draw something inside the window.  The simplest thing that
+we can draw is a single point.</p>
+
+<p>The Point represents one pixel in the window.  The term "pixel" stands for
+"picture element".  It refers to one tiny dot that forms the graphics display
+of your computer screen.  If we make the window 800 pixels wide, and 600 tall,
+then there are a total of $800 \times 600 = 480000$ pixels inside our window.
+We can draw one of them using a Point.</p>
+
+<p>A Point has an x location and a y location which are specified when
+the Point object is created.  These control where in the window
+the point will show up.  We can create a point that will show up at
+location (100, 100) with the following code:</p>
+
+<pre><code class="python">
+point1 = graphics.Point(100, 100)
+</code></pre>
+
+<p>The point can then be drawn onto our window using the draw function.  This function
+takes the window to use for drawing as a parameter.  The program below creates
+a window and then draws a single point onto it:</p>
+
+<pre><code class="python">
+import graphics
+
+# make the window
+window = graphics.GraphWin("Point Example", 300, 300)
+
+# make the point
+point1 = graphics.Point(150, 150)
+
+# now draw the point onto the window
+point1.draw(window)
+</code></pre>
+
+<p>The window will now look like this:</p>
+
+<figure>
+<img src="images/point.png"
+alt="The window now has a black point drawn right in the center" />
+<figcaption>We now have a point drawn right in the center</figcaption>
+</figure>
+
+<p>You may have to squint to see it, but there will be a dark colored
+point right in the middle of the window.</p>
+
+
+<h3>9.5 The Coordinate System</h3>
+<hr />
+
+<p>I promise we will get to draw things slightly more exciting than points,
+but first we need to talk about the coordinate system used in computer
+graphics.  What does it mean when we pass the 150 in as the point's x
+location?</p>
+
+<p>Graphics systems typically use a coordinate system that is different from
+that used by mathematics.  In graphics, the origin, (0, 0) is at the upper left
+corner of the window.  The first coordinate, the X coordinate, increases as we
+go from left to right.  The second, or Y, coordinate increases as we go from
+top to bottom (which is normally the opposite in math).</p>
+
+<p>This image illustrates the coordinate system:</p>
+
+<figure>
+<img src="images/coords.png"
+alt="The upper left corner is the origin (0, 0).  The upper right
+corner is at (399, 0).  The lower left corner is at (0, 299).  The
+bottom right corner i at (399, 299)." />
+<figcaption>The graphics coordinate system</figcaption>
+</figure>
+
+<p>This image shows the coordinates of each of the four corners of the window.
+Notice that, like string indices, we start counting at pixel 0 and not pixel 1.
+Here, the window is 400 by 300 pixels large.  That means there are 120,000 pixels.
+Each of these pixels has a color, so next we need to discuss how colors work.</p>
+
+
+
+
+<h3>9.6 Colors</h3>
+<hr />
+
+<p>When we drew the point above, it was drawn in black.  Graphics programs
+would look quite boring if we could only use that one color.  So of course
+we can change the color of our points.</p>
+
+<p>Colors can be specified in two ways.  The first is as a string with the
+color name.  There are hundreds of names that are recognized including "red",
+"light blue", "azure" and many others.  A complete list is <a
+href="http://www.science.smith.edu/dftwiki/index.php/Tk_Color_Names#List_of_color_names_supported_by_Zelle.27s_graphics.py_library">available
+here</a>.</p>
+
+<p>We can use colors to change the background color of our window by
+calling the <code>setBackground</code> function.  We can also change
+the color of our points by calling the <code>setFill</code> function
+on the point.  The following program uses some more interesting
+colors:</p>
+
+<pre><code class="python">
+import graphics
+
+# make a purple window
+window = graphics.GraphWin("Colors!", 400, 300)
+window.setBackground("mediumpurple3")
+
+# one point is orange
+p1 = graphics.Point(100, 100)
+p1.setFill("darkorange")
+p1.draw(window)
+
+# one is sky blue
+p2 = graphics.Point(200, 200)
+p2.setFill("LightSkyBlue2")
+p2.draw(window)
+
+# one is light green
+p3 = graphics.Point(300, 150)
+p3.setFill("PaleGreen")
+p3.draw(window)
+</code></pre>
+
+<p>This program looks like this:</p>
+
+<figure>
+<img src="images/colors.png"
+alt="This window has three points of different colors in it" />
+<figcaption>Three points in different colors</figcaption>
+</figure>
+
+<p>While there are lots of colors with names to choose from, we actually
+are <em>not</em> limited to that list.  Instead we can choose any color possible<a class="anchor" id="back3">&nbsp;</a><a
+href="#note3" aria-describedby="footnote-label"></a>.
+As we have discussed, in a computer, everything is actually stored as numbers.
+This includes colors as well.
+A color is actually made of three numbers: one for red, green and blue
+<a class="anchor" id="back4">&nbsp;</a><a
+href="#note4" aria-describedby="footnote-label"></a>.</p>
+
+<p>If there is a specific color we want that is not one of the named colors
+that are recognized, we can specify the red, green, and blue components of a
+color directly using the <code>color_rgb</code> function.  The red, green and
+blue component are numbers ranging from 0 to 255.</p>
+
+<p>The higher a number, the more intense that color will
+be.  The lower it is, the less intense.  Imagine that we make a color with 15 for red,
+150 for green, and 230 for blue.  This color will have very little red, a medium
+amount of green, and lots of blue.  Altogether it will combine to produce a nice
+cyan color.</p>
+
+<p>The following program lets you play around with making colors this way.
+It asks the user for the red, green, and blue components, then makes a color
+from them.  Finally, it sets the window's background to this color.</p>
+
+<pre><code class="python">
+import graphics
+
+# ask for the color components
+red = int(input("Red: "))
+green = int(input("Green: "))
+blue = int(input("Blue: "))
+
+# make a custom color from this
+my_color = graphics.color_rgb(red, green, blue)
+
+# make a window with this as the background
+window = graphics.GraphWin("Colors!", 400, 300)
+window.setBackground(my_color)
+</code></pre>
+
+<p>I'd recommend playing with this program a little bit to get a feel for how the colors work.</p>
+
+
+
+<h3>9.7 Circles</h3>
+<hr />
+
+<p>Now that we have spent some time learning about the graphics coordinate system,
+and about how colors work, we can look at some more types of objects that can be
+drawn.  The first one we will handle is Circles.</p>
+
+<p>A circle is created with a center location (which is a Point object),
+and a radius.  For example, we can create a circle which is centered at
+location (100, 100), and with a radius of 30 pixels like so:</p>
+
+<pre><code class="python">
+circle = graphics.Circle(graphics.Point(100, 100), 30)
+circle.draw(window)
+</code></pre>
+
+<p>Notice that, just like points, we have to draw the circle to some window in
+order for it to show up somewhere.</p>
+
+<p>A circle also has two different colors associated with it.  One is the "fill"
+color, which is the color inside the circle.  The other is the "outline" color
+which is the color of the border.</p>
+
+<p>The following program draws a circle to a window:</p>
+
+<pre><code class="python">
+import graphics
+
+# make a window
+window = graphics.GraphWin("Circles!", 400, 300)
+window.setBackground("black")
+
+# make a circle and draw it
+circ = graphics.Circle(graphics.Point(200, 150), 50)
+circ.setOutline("yellow")
+circ.setFill("purple")
+circ.draw(window)
+</code></pre>
+
+<p>This program will look something like this:</p>
+
+<figure>
+<img src="images/circle.png"
+alt="There is a circle in the middle of the black window.  It's outline is yellow
+and it is purple on the inside" />
+<figcaption>The circle we drew</figcaption>
+</figure>
+
+
+
+<h3>9.8 Lines</h3>
+<hr />
+
+<p>The next graphical object we will discuss is a line.  A line is created
+by connecting two points in the window.  When creating a point, we specify
+the two Point objects that serves as the ends.</p>
+
+<p>A line also has a fill color which determines what color the line shows
+up as.  The following program creates a couple lines:</p>
+
+<pre><code class="python">
+from graphics import *
+
+# make the window
+window = GraphWin("Lines!", 400, 300)
+
+# make the two lines
+line1 = Line(Point(50, 50), Point(350, 250))
+line1.setFill("green")
+line1.draw(window)
+
+line2 = Line(Point(50, 250), Point(350, 50))
+line2.setFill("red")
+line2.draw(window)
+</code></pre>
+
+<p>Notice that this program uses the <code>from graphics import *</code>
+form of the import command in order to avoid having to type "graphics."
+each time we use something from the graphics library.  This gets to be a
+bit much with the graphics library.  We would need "graphics." three
+times to create the Line (one for the line and one for each of the
+two points).</p>
+
+<p>This program's output will look like this:</p>
+
+<figure>
+<img src="images/lines.png"
+alt="There are two lines in an 'X' pattern.  One is red and one is green." />
+<figcaption>Two lines</figcaption>
+</figure>
+
+
+
+
+<h3>9.9 Rectangles</h3>
+<hr />
+
+<p>Rectangles can also be created using two points.  Here the two points are
+two corners, and the rectangle is created around them.  Line circles, rectangles
+have an outline color as well as a fill color.</p>
+
+<p>The following program demonstrates drawing a rectangle.</p>
+
+<pre><code class="python">
+from graphics import *
+
+# make the window
+window = GraphWin("Rectangle!", 400, 300)
+
+# make a rectangle
+r = Rectangle(Point(100, 100), Point(300, 200))
+r.setOutline("black")
+r.setFill("blue")
+r.draw(window)
+</code></pre>
+
+
+<figure>
+<img src="images/rect.png"
+alt="A blue rectangle with a black outline is in the middle of the window" />
+<figcaption>A rectangles</figcaption>
+</figure>
+
+
+
+
+
+<h3>9.10 Movement</h3>
+<hr />
+
+<p>We have now seen lots of different shapes and things that we can draw.
+These will allow us to create scenes in our window, but anything we draw so far
+will just be static, and fixed in place.  If we want to make a game, or
+anything else that's interactive, we will need to see how to move these objects
+around.</p>
+
+<p>We can do just that by calling an object's <code>move</code> function.  This
+takes two parameters.  The first is how much to move it in the x direction, and
+the second is how much to move it in the y direction.  These numbers can be
+positive or negative.  A negative number given for the first parameter will
+move the object <em>left</em>, while passing a positive number will move the
+object <em>right</em>.  Likewise, passing a negative number for the second
+parameter moves the object <em>up</em> and a positive moves it <em>down</em>
+(remember that this is the opposite from math).</p>
+
+<p>We can also move an object horizontally and vertically at the same time.
+For instance the following snippet of code will move a circle object 7 pixels
+to the left, and 3 pixels down:</p>
+
+<pre><code class="python">
+circle.move(-7, 3)
+</code></pre>
+
+<p>This function moves the circle all at once.  One moment it was wherever we
+put it originally, and the next it's in its new location.  It doesn't gradually
+move it.  If we do want to gradually move it (as we often will), we will need
+to use a loop to move it little by little.</p>
+
+<p>The following program does this by moving a circle down and to the right little
+by little.  The loop keeps calling the move function with a very small amount of
+movement, many times.</p>
+
+<pre><code class="python">
+from graphics import *
+
+# make the window
+window = GraphWin("Moving Ball", 300, 300)
+
+# make a circle
+circle = Circle(Point(25, 25), 25)
+circle.setFill("blue")
+circle.draw(window)
+
+# move the ball 25,000 times
+for i in range(25000):
+    # by a very small amount each time
+    circle.move(.01, .01)
+</code></pre>
+
+
+<p>This program moves a circle from the upper-left corner of the screen to the
+lower-right.  It does this by moving the ball by a tiny amount (one
+one-hundredth of a pixel), many times.  Notice that we don't have to put
+integers into the move function, floats work too.  The larger the numbers, the
+faster the ball will move.  If we put 1 in for each, it moves almost too fast
+to see.</p>
+
+
+
+
+
+<h3>9.11 Text</h3>
+<hr />
+
+<p>We have two more different things that we can draw in the graphics window.  The
+first that we will talk about is text.  This will allow us to write messages onto
+the window.  We can't just use the <code>print</code> function for this purpose,
+because it sends its text to the shell, not the graphics window.</p>
+
+<p>To make a text object, we pass in a point around which the text is centered,
+and the message that it should display.  We can then draw it to the screen.</p>
+
+<p>These objects have several functions for changing their properties:</p>
+
+<ul>
+<li><code>setTextColor</code>: sets the color the text appears in.</li>
+<li><code>setSize</code>: sets the point size of the text, which can be between 5 and 36.</li>
+<li><code>setStyle</code>: sets the font style to one of "normal", "bold", "italic" or "bold italic".</li>
+<li><code>setFace</code>: sets the font face to one of "arial", "courier", "helvetica" or "times roman".</li>
+<li><code>setText</code>: sets the message that the text displays.</li>
+</ul>
+
+<p>This program creates two messages and sets some of the properties of the two
+text objects:</p>
+
+<pre><code class="python">
+from graphics import *
+import time
+
+# make the window
+window = GraphWin("Text example", 500, 300)
+
+# create a text object
+text1 = Text(Point(250, 150), "This is BIG message")
+text1.setSize(36)
+text1.setStyle("bold italic")
+text1.setTextColor("red")
+text1.setFace("arial")
+text1.draw(window)
+
+# make another message
+text2 = Text(Point(250, 200), "this is a small one")
+text2.setSize(8)
+text2.setFace("times roman")
+text2.setTextColor("blue")
+text2.draw(window)
+</code></pre>
+
+
+<p>And this one produces a result like this:</p>
+
+<figure>
+<img src="images/text.png"
+alt="A large red message saying 'This is a BIG message' appears in the middle of the window.
+Just under it is a small blue message saying 'this is a small one'" />
+<figcaption>Two Text objects</figcaption>
+</figure>
+
+
+
+
+
+<h3>9.12 Images</h3>
+<hr />
+
+<p>The last type of object we will learn to draw is images.
+We can use the shapes and colors we have seen so far to draw lots of pretty things, but we can
+also use pre-made images in our programs.  This is done using an Image object,
+which takes the center of the image as a point, and the name of the file the image is stored in.  The
+graphics library supports PPM and GIF images:</p>
+
+<p>The following program creates an image by loading in a file:</p>
+
+<pre><code class="python">
+from graphics import *
+import time
+
+# make the window
+window = GraphWin("Text example", 400, 300)
+
+# load an image
+img = Image(Point(200, 150), "umw.gif")
+img.draw(window)
+</code></pre>
+
+<p>For this to work, you must have a file called <a
+href="images/umw.gif">umw.gif</a> in the same directory as the program.</p>
+
+<p>The program then looks like this:</p>
+
+<figure>
+<img src="images/image.png"
+alt="The windows contains a picture of the UMW eagle logo" />
+<figcaption>Loading an image</figcaption>
+</figure>
+
+
+
+
+<h3>9.13 Mouse Input</h3>
+<hr />
+
+<p>So far we have seen how to draw lots of different things including shapes,
+text and images.  Making an interactive program or game will require all of
+these things, but it will also require user input.</p>
+
+<p>Just like we can't really use <code>print</code> with the graphics library, we
+also can't really use the <code>input</code> command either.  We can, but the
+input will not come from the graphics window.  It will come from the shell window.
+If we want to get user input from the graphics window, we have to use the graphics
+library.</p>
+
+<p>We will start with mouse input, and then talk about keyboard input next.</p>
+In order to get mouse input, we can use the "getMouse" function of the window
+object.  This returns a Point object representing the location in the window
+the user clicked.</p>
+
+<p>getMouse actually returns a Point object.  We can then call the Point's getX and
+getY function to get the coordinates.</p>
+
+<p>The following program calls getMouse to see where the user clicked, and then
+prints the coordinates of the click to the shell:</p>
+
+<pre><code class="python">
+from graphics import *
+
+# make a window
+window = GraphWin()
+
+# get a mouse click
+location = window.getMouse()
+
+# print out the coordinates of the click and close the window
+print("Click at (", location.getX(), ",", location.getY(), ")")
+window.close()
+</code></pre>
+
+<p>Notice that this function will pause the whole program until the user clicks
+the mouse.  If we want to check if the user has clicked the mouse without
+pausing the whole program, we can use the "checkMouse" function instead.  The
+next version of this program uses this function.  We now have to call
+checkMouse in a loop because it will not wait for the click.  We have to call
+it over and over until the use <em>does</em> click somewhere.</p>
+
+<pre><code class="python">
+from graphics import *
+window = GraphWin()
+
+while True:
+    location = window.checkMouse()
+    if location != None:
+        print("Click at (", location.getX(), ",", location.getY(), ")")
+</code></pre>
+
+
+<p>If the user has clicked the mouse since the last time either getMouse or
+checkMouse were called, then this function returns that point.  Otherwise it
+returns "None" which is a Python value meaning no value at all was
+produced.</p>
+
+
+
+
+
+<h3>9.14 Keyboard Input</h3>
+<hr />
+
+<p>In addition to mouse input, we can also get keyboard input.  There are two
+functions for this: "getKey" and "checkKey".  The first one waits for a key to
+be pressed, and the second just checks if one is.  These are analagous to the
+"getMouse" and "checkMouse" functions we looked at above.</p>
+
+<p>getKey and checkKey both return a string representing what key was pressed.
+This program prints the keys out so that we can see what they are:</p>
+
+<pre><code class="python">
+from graphics import *
+
+window = GraphWin("Window", 400, 403)
+
+# tell them to press a key
+message = Text(Point(200, 100), "Press a key")
+message.setSize(18)
+message.draw(window)
+
+while True:
+    # wait for a key press
+    key = window.getKey()
+
+    # if it was escape, quit the program
+    if key == "Escape":
+        break
+
+    # print the key to the screen
+    message.setText("You pressed '" + key + "'")
+
+window.close()
+</code></pre>
+
+<p>We can use this method of keyboard input to write programs that
+will respond to user input.</p>
+
+
+<h3>9.15 Conclusion</h3>
+<hr />
+
+<p>This chapter gave you an introduction to the graphics library.  We covered how
+coordinates and colors work (which apply to all computer graphics systems).  We
+also talked about how to download and set up the library, and talked about
+lots of different things you can do with it, including opening windows, drawing
+shapes and images, and getting input.</p>
+
+<p>As many things as we discussed, we didn't actually talk about everything that
+this library can do.  There are some functions of different objects we didn't cover,
+as well as a few whole objects.
+A list of all of the objects and function available can be <a
+href="http://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html">found
+here</a>.</p>
+
+<p>We also didn't really have any large examples, as this chapter was long enough as
+it is.  We will see a few larger programs using the graphics library in coming chapters.</p>
+
+<div class="blackbox">
+<div class="blackbox-title">
+<strong>Chapter Summary</strong>
+</div>
+<div class="blackbox-contents">
+<ul>
+    <li>Python libraries can include functions, which we can call upon to carry out some task.
+        They can also contain <em>objects</em> which give us new types of variables to create.</li>
+    <li>We can install a new library that don't come with Python by downloading the .py file and placing
+        it in the same folder as our program.</li>
+    <li>To draw graphics we first need a window to put them in, which can be done with the GraphWin object.</li>
+    <li>In computer graphics, the coordinates system has the origin in the upper left-hand corner.
+        The X coordinate increases as you go right, and the Y coordinate increases as you go down.</li>
+    <li>Colors can be specified by name or by giving the three components of a color: red, green, and blue.</li>
+    <li>The graphics library allows us to draw lots of different shaped
+        including points, circles, lines and rectangles.</li>
+    <li>Strings can be printed to the screen using the Text object, which allows for different
+        colors, fonts and sizes.</li>
+    <li>Images can be drawn to the screen using an Image object.  The image file has to be in the
+        same folder as the program.</li>
+    <li>Any of the graphics objects can be moved with the <code>move</code> method.</li>
+    <li>We can detect mouse clicks using the GraphWin object's getMouse and checkMouse
+        functions.  Both of these return a Point object telling us where the user clicked.
+        The difference is that the "get" version waits for the user to click the mouse,
+        while the "check" version returns right away.</li>
+    <li>Similarly we can detect keyboard presses with the getKey and checkKey functions.
+        These return a string which tells us the name of the key pressed.  The "get"
+        version waits for a key to be pressed while the "check" version returns immediately.</li>
+</ul>
+</div>
+</div>
+
+<footer>
+<h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
+<ol>
+
+<li id="note1">Sometimes people call functions that are part of an object by
+a different name, which is "methods".  I just call them all functions because
+I think that name is clearer and they are so similar that I don't think they really
+need separate names.  But if you hear the term method, that's what it means:
+a function inside an object, like isupper and islower are part of string objects.
+<a href="#back1" aria-label="Back to content">↩</a></li>
+
+<li id="note2">Literally minutes of fun!
+<a href="#back2" aria-label="Back to content">↩</a></li>
+
+<li id="note3">With this color scheme, there are actually over 16 million colors
+we could create.  The human eye can only discern about 10 million different colors.
+So while theoretically there's really no limit on the number of colors, we can
+practically make any color we can imagine.
+<a href="#back3" aria-label="Back to content">↩</a></li>
+
+<li id="note4">In school you learned that red, yellow and blue are the three
+primary colors.  That's true in a <em>subtractive</em> model of color, such
+as you get when mixing paints together.  But there are other models of color,
+such as the <em>additive</em> model wherein you combine colored lights.  In
+this model red, green, and blue are the three primary colors.  Shining a red
+light and a green light together actually makes a yellow light!
+<a href="#back4" aria-label="Back to content">↩</a></li>
+
+
+</ol>
+</footer>
+
