@@ -2,7 +2,7 @@
 
 .topnav 
     background-color: $color-lightgrey
-    /* because we have 70% width */
+    // because we have 70% width
     margin-left: -15%
     margin-bottom: 2em
     position: fixed
@@ -34,7 +34,7 @@
     background-color: $color-medgrey
     color: $color-fore
 
-/* used for the dropdown section menu */
+// used for the dropdown section menu
 .dropdown
     float: left
     overflow: hidden
@@ -48,12 +48,13 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
+    text-align: center
 
 .dropdown-content
     float: none
     position: absolute
     top: 100%
-    left: 44%
+    left: calc(50% - 3em)
     display: none
     background-color: $color-lightgrey
     min-width: 4em
@@ -74,8 +75,7 @@
 .dropdown:hover .dropdown-content
     display: block
 
-/* this makes the content start down a bit to make room
- for the bar */
+// this makes the content start down a bit to make room for the bar
 .main
     margin-top: 4em
 
