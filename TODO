@@ -1,3 +1,5 @@
+- Add Euclid's algorithm to chapter on loops. 
+
  - Be consistent with whether algorithms/programs are in titled boxes or not
 
  - Maybe get rid of flowcharts from chapter 7?
@@ -35,9 +37,7 @@
 
  - Make cyber chapter
 
- - Make sure to use gender-diverse pronouns in examples and text.  Like "if the
- programmer wants to check for this *she* can use an if statement"
+ - Section in intro on the low barrier to entry of CS, compare to bio, chem, even humanities you need more to get started
 
- - Section in intro on the low barrier to entry of CS, compare to
- bio, chem, even humanities you need more to get started
+ - Replace the figures with svg ones...
 

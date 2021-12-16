@@ -35,17 +35,18 @@ engineering").</li>
 (this is "information technology").</li>
 
 <li>The use of computer applications such as email clients, word processors and
-spreadsheet applications (this is "computer literacy").</li>
+spreadsheets (this is "computer literacy").</li>
 </ul>
 
 
-<p>Instead, computer science is all about algorithms.  An <strong>algorithm</strong> is a detailed, step-by-step procedure for
-solving a particular problem.  Algorithms are essentially instructions that
-tell us how to solve a problem from beginning to end.  They are similar to
-recipes.  When you follow a recipe, you also perform the instructions given one
-by one.  The difference is that the result of your work when following a recipe
-is a food of some kind (hopefully cake).  The result of your work following an
-algorithm is a solution to a problem.</p>
+<p>Instead, computer science is all about algorithms.  An
+<strong>algorithm</strong> is a detailed, step-by-step procedure for solving a
+particular problem.  Algorithms are essentially instructions that tell us how
+to solve a problem from beginning to end.  They are similar to recipes.  When
+you follow a recipe, you also perform the instructions given one by one.  The
+difference is that the result of your work when following a recipe is a food of
+some kind (hopefully cake).  The result of your work following an algorithm is
+a solution to a problem.</p>
 
 <p>The study of algorithms actually predates the existence of computers by
 thousands of years<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>.
@@ -53,7 +54,7 @@ One of the first known algorithms was described by the Greek mathematician
 Euclid in his book <em>Elements</em> around 300 BCE.  The algorithm was to find
 the greatest common divisor between two numbers.  For example, the greatest
 common divisor of 12 and 30 is 6 because 6 is the biggest number that goes into
-both 12 and 30 evenly.</p>
+both 12 and 30 evenly.  We'll take a look at Euclid's algorithm in Chapter 6.</p>
 
 <figure>
 <img src="images/euclid.jpg" alt="Euclid writing his book &quot;Elements&quot;"/>
@@ -127,7 +128,7 @@ matter what number Mark picks.</p>
 <p>Sofia tried numbers in a sort of random order until she hit on the right
 one.  Most people would do this, but it isn't really necessary.  Instead we
 could just start at 1, and then guess 2, and then 3 and so on until we get the
-right number.  This particular algorithm won't solve the problem the same way a
+right number.  So this particular algorithm won't solve the problem the same way a
 person might, but that's OK.  An algorithm for doing this could be written
 as:</p>
 
@@ -143,11 +144,14 @@ as:</p>
 
 
 <p>This algorithm<a class="anchor" id="back2">&nbsp;</a><a href="#note2"
-aria-describedby="footnote-label"></a> works by keeping track of
-which number we are going to be guessing next, which we call "G".  This is a
+aria-describedby="footnote-label"></a> works by keeping track of which number
+we are going to be guessing next, which we call "G".  This is a
 <strong>variable</strong>, which is a very important concept in programming.  A
 variable is a name that we give to a value which may change as the algorithm is
-run.  Here, G starts off at 1, but it will change later.</p>
+run.  They are like variables in math, but are used somewhat differently.  In
+math, you often have to solve for a variable which has one value that you just
+need to find.  In computer science, variables change values as the algorithm
+progresses.  Here, G starts off at 1, but it will change.</p>
 
 <p>In step 2, we ask the other player if their number is G or not.  Of course
 we don't ask them if they literally picked "G".  Only numbers are allowed in
@@ -169,7 +173,7 @@ algorithm can keep on guessing numbers because of the loop.</p>
 that we pick 3 as our number and see if the algorithm can guess it.  The
 algorithm will go step by step as follows:</p>
 
-<ul>
+<ol>
 <li>It will start with step 1 and set G to 1.</li>
 <li>Next it will go onto step 2 and ask us if the number is G (currently 1).</li>
 <li>We will respond that no, it is not.</li>
@@ -184,13 +188,17 @@ algorithm will go step by step as follows:</p>
 <li>The algorithm will again ask us if the number is G (which is now 3).</li>
 <li>This time, we tell it yes, since our number was 3.</li>
 <li>The algorithm then sees this in step 3 and stops.</li>
-</ul>
+</ol>
 
 
 <p>One important part of working with algorithms is <em>testing</em> them.
 This involves stepping through the algorithm line by line like this to see how
 it's working.  Hopefully you're convinced that the algorithm will try every
 number until it gets the right one.</p>
+
+<h2>1.3 Another Version of the Game</h2>
+<hr />
+
 
 <p>Next we will look at a more interesting variation of this game.  In this
 variation, instead of just answering "no" for an incorrect guess, the player
@@ -239,17 +247,18 @@ like this:</p>
 </code></pre>
 
 <p>This algorithm is just bit more complicated than the last one.  Now we have
-three variables involved.  "min" is used to keep track of the smallest number
-the other player could be thinking of.  Likewise "max" keeps track of the
-biggest number it could be.  For example, if we have narrowed it down so we
-know the number is between 20 and 40, then min would be 20 and max would be 40.
-These variables will change as we narrow down the possibilities.  "G" is again
-used for the number we are going to guess.</p>
+three variables involved.  <code>min</code> is used to keep track of the
+smallest number the other player could be thinking of.  Likewise
+<code>max</code> keeps track of the biggest number it could be.  For example,
+if we have narrowed it down so we know the number is between 20 and 40, then
+min would be 20 and max would be 40.  These variables will change as we narrow
+down the possibilities.  <code>G</code> is once again used for the number we
+are going to guess.</p>
 
 <p>The algorithm starts by setting min and max to reflect the fact that the
 number could be anywhere between 1 and 100 to start with.  Then step 3 figures
 out which number to guess.  The first time we do this, we will get 100 plus 1,
-divided by 2, which gives 50.1.  The note about rounding down if needed is to
+divided by 2, which gives 50.5.  The note about rounding down if needed is to
 make sure we always guess a whole number, in this case 50.</p>
 
 <p>After each guess, there are  3 possibilities.  If we got the guess right,
@@ -265,8 +274,14 @@ eventually guess the correct number for playing this version of the game.  I
 would encourage you to try it yourself once or twice to convince yourself that
 it works.</p>
 
+<p>The things these two algorithms are doing, such as changing variables,
+checking different conditions, and going back to previous steps, are the same
+things pretty much all the algorithms we will look at in this book will do.
+You'll see that we can use these building blocks to solve all kinds of interesting
+problems.</p>
 
-<h2>1.3 Algorithm Analysis</h2>
+
+<h2>1.4 Algorithm Analysis</h2>
 <hr />
 
 <p>Another major part of computer science is <em>analyzing</em> algorithms.
@@ -287,7 +302,7 @@ worst case, you know it will work well for you.  The best case is usually not
 very interesting.  Here we will focus on the worst case.</p>
 
 <p>Let's consider algorithm 1 first (the one that just starts at 1, then 2,
-then 3, etc.)  If we are playing the game between 1 and 100, what's the most
+then 3, etc.).  If we are playing the game between 1 and 100, what's the most
 number of guesses that the algorithm could take?  Clearly the worst case is
 that the other player chose 100 as his or her number, because that would be the
 algorithm's last guess.  In this case, we would have to make 100 guesses before
@@ -338,8 +353,9 @@ well), then we get this sequence of numbers:</p>
 1
 </code></pre>
 
-<p>It took 7 guesses for this reason<a class="anchor" id="back3">&nbsp;</a><a href="#note3"
-aria-describedby="footnote-label"></a>.  Below is a table showing
+<p>Because we can cut 100 in half 7 times before we hit 1, our algorithm takes
+7 guesses in the worst case<a class="anchor" id="back3">&nbsp;</a><a
+href="#note3" aria-describedby="footnote-label"></a>.  Below is a table showing
 the number of guesses needed in the worst case for both algorithms, based on
 the highest number the other player could pick:</p>
 
@@ -356,17 +372,20 @@ the highest number the other player could pick:</p>
 
 <p>It is sort of amazing that we can ask algorithm 2 to guess a number between
 1 and 1 billion, and it will need only 30 guesses at most to get it!  Algorithm
-2 is not just a bit better for this problem, it's way better!  It's actually
-quite common in computer science for there to be huge differences in speed
-between different approaches like this.  Oftentimes the obvious solution is not
-very efficient, but a more clever one is.</p>
+2 is not just a bit better for this problem, it's way better.  If you were to follow
+Algorithm 2 with a billion as the highest number, you'd be done in a few minutes.
+If you used Algorithm 1, and you guess one number per second (with no breaks for
+eating and sleeping), it would take you more than 31 <em>years</em>.</p>
 
-<p>This book will spend more time on algorithm design than analysis, but it is
+<p>It's actually pretty common in computer science for there to be huge
+differences in speed between different approaches like this.  Oftentimes the
+obvious solution is not very efficient, but a more clever one is.
+This book will spend more time on algorithm design than analysis, but it is
 an important part of computer science and we will touch on it from time to
 time.</p>
 
 
-<h2>1.4 What is a Computer?</h2>
+<h2>1.5 What is a Computer?</h2>
 <hr />
 
 <p>Computer science is primarily the study of algorithms, but computers do play
@@ -411,7 +430,7 @@ different problem, you had to build an entirely new machine.</p>
 <p>The analytical engine, on the other hand, was designed so that it could
 execute any algorithm at all.  It did this by taking the instructions that it
 should execute as input, along with data values to be used in the computation.
-These sets of instructions are the worlds first computer programs.  The
+These sets of instructions are the world's first computer programs.  The
 analytical engine's programs themselves were created by punching holes in
 cards.  The machine would then read the cards in, and the patterns of holes
 would affect its behavior.</p>
@@ -478,7 +497,7 @@ computers used electronic circuitry.  After these machines were successfully
 built and used, there was no turning back, and computers have been constantly
 built and improved upon until the present day.</p>
 
-<p>Despite being as large as rooms, these older computer are laughably limited
+<p>Despite being as large as rooms, these older computer were laughably limited
 compared to even the most basic of today's computers.  The Z4 ran at 40 Hz and
 had 512 bytes of memory.  The first iPhone, released in 2007, could run at 620
 MHz (15 million times faster), and came with at least 4 GB of memory (7 million
@@ -524,41 +543,37 @@ the computer as well.  But, like everything else, this is done with numbers.
 The letters and punctuation symbols have specific numbers assigned to them.
 For instance when you type an 'A', the computer stores a 65.  When you type a
 period, the computer stores a 46.  When you type a space, the computer stores a
-32.</p>
+32<a class="anchor" id="back4">&nbsp;</a><a href="#note4" aria-describedby="footnote-label"></a>.</p>
 
 <p>Of course, the way that computers store numbers is in <em>binary</em>, which
 means they only use 1's and 0's.  We will not talk about how to convert
 back and forth between binary and decimal numbers.  Just know that any number
-can be stored in either binary or decimal, and they mean the same thing.</p>
-
-<p>Even images and sounds are stored inside a computer as numbers.  We will
+can be stored in either binary or decimal, and they mean the same thing.  
+Even images and sounds are stored inside a computer as numbers.  We will
 talk about how that is done in later chapters.</p>
 
 <p><strong>Input devices</strong> include touch screens, mice, keyboards, game
 controllers and so on.  These are connected to a computer system so that the
-user can influence the programs running on the computer.</p>
-
-<p>Likewise, <strong>output devices</strong> are connected to a computer so that
+user can influence the programs running on the computer.  
+Likewise, <strong>output devices</strong> are connected to a computer so that
 the user can see what the computer is doing and see the result of the program
 which is running.  These include monitors, speakers, printers, and vibration
 units (which can vibrate to provide the user feedback).</p>
 
-<h2>1.5 Programming Languages</h2>
+<h2>1.6 Programming Languages</h2>
 <hr />
 
 <p>So the computer executes simple instructions, reads and writes its memory,
 gets input from the user, and gives the user output.  But where do the
 instructions come from?  They are actually stored inside the computer's memory
-as numbers too!</p>
-
-<p>As an example of a computer instruction, we can look at one of the steps
-of Algorithm 1 to solve the simple guess the number game:</p>
+as numbers too!  As an example of a computer instruction, we can look at one of
+the steps of Algorithm 1 to solve the simple guess the number game:</p>
 
 <pre><code class="ini">
 add 1 to g.
 </code></pre>
 
-<p>Let's look at what this step would look like as a real computer instruction<a class="anchor" id="back4">&nbsp;</a><a href="#note4" aria-describedby="footnote-label"></a>.
+<p>Let's look at what this step would look like as a real computer instruction<a class="anchor" id="back5">&nbsp;</a><a href="#note5" aria-describedby="footnote-label"></a>.
 But first, we would need to decide what memory location to store <code>G</code>
 in.  Let's say we put it in location 7.</p>
 
@@ -595,7 +610,7 @@ following binary number:</p>
 3800526864
 </code></pre>
 
-<p>So the way computers work is by reading in these numbers.  The numbers tell
+<p>So the way computers work is by reading in these numbers, which tell
 them what they are supposed to do.  Part of the computer's memory is dedicated
 to storing these instruction numbers for the programs it runs.  It reads the
 instructions one by one and carries them out.  Programs stored as actual
@@ -636,7 +651,7 @@ as we begin to write larger programs.</p>
 
 <p>Instead, we have developed <strong>high-level</strong> programming languages.
 These allow us to have names for our variables, instead of needing to remember
-which memory location they are in.  Here is what the instruction above might look
+which memory location they are in.  Here is what the instruction above looks
 like in Python, the high-level language used in this book:</p>
 
 <pre><code class="python">
@@ -665,12 +680,12 @@ run, its code is being translated for the computer to execute.</p>
 
 
 
-<h2>1.6 What do you do with Computer Science?</h2>
+<h2>1.7 What do you do with Computer Science?</h2>
 <hr />
 
 <p>We have seen that computer science is primarily about algorithms, but this
 section will address how algorithms are used in a variety of areas to solve
-real problems in the world.</p>
+problems in the world.</p>
 
 <p>Computer science is an interesting field because it frequently works together
 with other fields.  For example:</p>
@@ -696,19 +711,25 @@ farms, and keep track of information in schools and hospitals.  They are behind
 all of the web sites and apps that you use, and provide entertainment in the
 form of video games and special effects used in movies.</li> </ul>
 
-<p>No matter what area of work you are interested in, you can be sure that
-computer scientists work in that field.  All of this makes computer science an
-interesting and rewarding field of study.  Because so many different fields
-rely on computer programs, a computer scientist can work in a variety of
-different areas over the course of their career.</p>
-
 <p>Some computer scientists work in "pure" computer science.  These include
-people who work on operating systems or the interpreters that make languages like
-Python work.  But the vast majority work with people in some other area.</p>
+people who work on operating systems or the interpreters that make languages
+like Python work.  But the vast majority work with people in some other area.
+Because so many different fields rely on programs, a computer scientist can
+work in a variety of different areas over the course of their career.  All of
+this makes computer science an interesting and rewarding field of study.  No
+matter what you're interested in, computer science can combine with it in some
+way.</p>
 
-<p>Computer science also makes a great second major or minor, because it can
-provide benefits to a wide variety of fields.  We will look at some examples of
-this over the course of this book.</p>
+<p>Computer science also has a lower "barrier of entry" than most other fields.
+You don't need any special equipment or materials.  You can use just about any sort
+of computer to write your programs (some people assume you need a powerful or specific
+type of machine, but that's not the case).  It is also a field where you should
+feel free to experiment.  Unlike a chemistry student mixing up chemicals, there's
+really not much you can do while programming that will cause any harm to you or your
+computer.</p>
+
+
+
 
 <div class="blackbox">
 <div class="blackbox-title">
@@ -719,7 +740,7 @@ this over the course of this book.</p>
 <li>Computer science is the study of algorithms.  An algorithm is a set of
 directions for solving a problem.  Algorithms must be precise enough that
 someone can use it to solve problems without needing to understand
-how it is working.</li>
+how it's working.</li>
 
 <li>A computer is a device which can carry out the steps of an algorithm
 automatically.  The oldest computers could only solve problems they were
@@ -759,10 +780,14 @@ following relationship with the number of possibilities we start with: $guesses
 = \lceil log_2(possibilities) \rceil$
 <a href="#back3" aria-label="Back to content">↩</a></li>
 
-<li id="note4">The instruction in this example is for ARM-based computer systems.
+<li id="note4">These numbers are defined by the ASCII (American Standard Code for Information Interchange)
+code.  Computer scientists do not need to remember these!
+<a href="#back4" aria-label="Back to content">↩</a></li>
+
+<li id="note5">The instruction in this example is for ARM-based computer systems.
 These include almost all phones, tablets and other small computers.  Most laptops
 and desktops use a different format, but the ideas are the same.
-<a href="#back4" aria-label="Back to content">↩</a></li>
+<a href="#back5" aria-label="Back to content">↩</a></li>
 
 </ol>
 </footer>
