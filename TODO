@@ -1,7 +1,3 @@
-After Fall 2019:
- - Split chapter 2 into chapters 1 (what is IDE and interpreter?, installing)
-    and chapter 3 (hello world, comments, prints, etc.)
-
  - Be consistent with whether algorithms/programs are in titled boxes or not
 
  - Maybe get rid of flowcharts from chapter 7?
@@ -15,8 +11,33 @@ After Fall 2019:
 
  - make sure screenshots have consistent title bar look
 
- - use "method" instead of "function" when applicable??
+ - use "method" instead of "function" when applicable
 
  - add break to chapter on loops?  I use it in chapter10 example
 
  - make inline code tag styling more distinctive, and be consistent with them
+
+ - collapse most of the examples into the sections above.  Instead of 10+
+   sections, we should be at like 7 or 8
+
+ - In functions chapter, use something besides Pong in motivating example!
+
+ - add something to 11 about the mechanics of function calls - pausing execution
+   and then jumping back and such.
+
+ - in 11 I say we've seen even/odd checks....but have we?
+
+ - in 11 add music "chorus" example for functions? could do happy b-day for parameters
+
+ - AI chapter explaining approaches including neural networks, also cyber chapter, and others???
+
+ - switch graphics to PyGame
+
+ - Make cyber chapter
+
+ - Make sure to use gender-diverse pronouns in examples and text.  Like "if the
+ programmer wants to check for this *she* can use an if statement"
+
+ - Section in intro on the low barrier to entry of CS, compare to
+ bio, chem, even humanities you need more to get started
+
