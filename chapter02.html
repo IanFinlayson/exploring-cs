@@ -21,27 +21,27 @@
 <hr />
 
 <p>As we learned in the last chapter, computers only directly understand
-programs written in machine code.  However, most people prefer to write
-programs written in a high-level language.  For this to work, we need an
-interpreter program to translate the code into what the computer
-understands.</p>
+programs written in machine code.  However, nearly all programs are written in
+a high-level language.  For this to work, we need an interpreter program to
+translate the code into what the computer understands.</p>
 
-<p>So in order to write programs, we have to install the interpreter for the
+<p>So in order to run our programs, we have to install the interpreter for the
 language that we want to use.  Because we will be using Python, we need to
 install the Python interpreter.  If we just give Python programs straight to
 our computer, it won't know what to do with them.  We need to interpreter to
 run them.</p>
 
-<p>We will also be installing <i>another</i> program as well.  This program is
-something called an <strong>Integrated Development Environment (IDE)</strong>.
-An IDE is a program that lets you type in the program you are writing.  You
-could write your programs in any old program, but it's generally easier to
-use a program geared just for that purpose.  For example, an IDE will give
-you a button to pass your program to the interpreter, and make it easier to
-see when you have errors.</p>
+<p>We will also be installing <em>another</em> program along with an
+interpreter.  This program is something called an <strong>Integrated
+Development Environment (IDE)</strong>.  An IDE is a program that lets you type
+in the program you are writing.  You could write your programs in any old
+program, but it's generally much easier to use a program geared just for that
+purpose.  For example, an IDE will give you a button to pass your program to
+the interpreter, highlight keywords in the language and make it easier to see
+when you have errors.</p>
 
 <p>The IDE we will be using here is a simple one called
-<strong>Thonny</strong>.  Thonny is easy to use and get started with.  It also
+<strong>Thonny</strong>, which is easy to use and get started with.  It also
 includes Python with it, so you only need to install one thing.  The choice of
 IDE doesn't really matter too much, if you want to use a different one for some
 reason (for instance if you have one from another class), you can follow the
@@ -72,7 +72,7 @@ its Python interpreter installed.</p>
 
 <p>To install Python along with Thonny on a Mac OSX computer, go to the <a
 href="https://thonny.org/">Thonny website</a>.  Then click the Mac link in
-the download box at the upper right.  That should download a .dmg file that
+the download box at the upper right.  That should download a .pkg file that
 includes the Thonny IDE as well as the Python interpreter.</p>
 
 <p>When the download has finished, you should see the Thonny icon in a window.
@@ -108,8 +108,7 @@ applications.  You could also launch it by running the command:</p>
 <hr />
 
 <p>You should now have Python and Thonny installed.  When you run it, you
-should see a window something like this (It might look slightly different on
-your system):</p>
+should see a window something like this:</p>
 
 <figure>
 <img src="images/thonny.png"
@@ -123,7 +122,7 @@ interactive commands." />
 where you will type in the program that you will create.  This is empty right
 now, and called "&lt;untitled&gt;".</p>
 
-<p>The bottom area is called the "Shell".  This is a window where you can
+<p>The bottom area is called the <strong>Shell</strong>.  This is a window where you can
 pass Python code to the Python interpreter.  Any code you put in here will
 be run right away and the results will be given to you.  Here is an
 example:</p>
@@ -135,21 +134,23 @@ responds to the line of 'print(Hi!)' by printing the text 'Hi!'." />
 <figcaption>Some examples put into the shell window</figcaption>
 </figure>
 
-<p>As you can see, when we put '3 + 4' into the shell, it gives us the answer,
-7.  Likewise when we put in the command 'print("Hi!")', it prints what we told
+<p>As you can see, when we put <code>3 + 4</code> into the shell, it gives us the answer,
+7.  Likewise when we put in the command <code>print("Hi!")</code>, it prints what we told
 it to.  What's happening here is that these are small amounts of Python code.
 When we put them in, the shell window passes them to the Python interpreter,
-which runs them.  Any results are displayed back in the shell.</p>
+which runs them.  Any results are displayed back in the shell.  It is called
+a "shell" because it sort of surrounds the Python interpreter and acts as our
+interface to it.</p>
 
 <p>Generally, the top file area is for writing a program that you will run all
 at once.  This window saves what you put there so you can run it over and over
-again as you work on a program.</p>
+again as you work on a program.  The bottom shell area is for trying things out
+and experimenting.  Unless you copy and paste it some place else, the things
+you put into the shell window are not saved.</p>
 
-<p>The bottom shell area is for trying things out and experimenting.  Unless
-you copy and paste it some place else, the things you put into the shell window
-are not saved.</p>
-
-<p>You should try the shell out to get a feel for how it works.</p>
+<p>As you can see from the first example in the screenshot above, the shell
+can work as a calculator.  Try putting a few other simple math expressions
+in and see how the shell gives you results back.</p>
 
 
 
@@ -207,9 +208,11 @@ The first line says:</p>
 # symbol is a comment in Python
 <a class="anchor" id="back2">&nbsp;</a><a href="#note2" aria-describedby="footnote-label"></a>.
 When the interpreter gets a comment line, it completely ignores it, and moves
-on to the next line.  The purpose of comments is to leave little notes in the
-code, for any people that might be reading.  Comments are meant to explain
-things about the program.</p>
+on to the next line.  The sole purpose of comments is to leave little notes in
+the code, for any people reading.  They are meant to explain things about how
+the program works.  This program is so short and simple that the comment is not
+really needed, but as we work on more complex programs, they'll become more
+helpful.</p>
 
 <p>The second line of the program says:</p>
 
@@ -218,9 +221,10 @@ print("Hello World!")
 </code></pre>
 
 <p>This is the line that actually tells the Python interpreter to do something.
-Python comes with several command built in that cause it to do things.  One
-of these is <code>print</code>.  The parenthesis mark the things that will
-be printed.  In this case, it's just the message "Hello World!".</p>
+Python comes with lots of commands called <strong>functions</strong> built in
+that cause it to do different things.  One of these is <code>print</code>.  The
+parenthesis mark the things that will be printed.  In this case, it's just the
+message "Hello World!".</p>
 
 <p>Both the parenthesis and the quotation marks are needed for the program to
 work.  You can change the message inside the quotation marks to whatever
@@ -244,7 +248,7 @@ alt="The program is missing quotation marks and gives the error
 </figure>
 
 <p>Here the program did not run successfully.  Instead, the shell gives us the
-error "SyntaxError: invalid syntax".  There is also an "Assistant" window which
+error <code>SyntaxError: invalid syntax</code>.  There is also an "Assistant" window which
 is a feature of Thonny to help us figure the error out.  In this case, it's not
 terribly helpful.  The specific problem here is that Python has no idea what to
 do with the exclamation mark since that doesn't mean anything in Python code.</p>
@@ -295,7 +299,7 @@ into learning the language and starting to solve problems with it!</p>
 <h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
 <ol>
 <li id="note1">Having the first program print this message is something of a
-silly tradition.  It dates back at least to the 1978 book "The C Programming
+silly tradition in computer science.  It dates back at least to the 1978 book "The C Programming
 Language".
 <a href="#back1" aria-label="Back to content">↩</a></li>
 
