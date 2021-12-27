@@ -23,7 +23,8 @@
 
 <p>So far, our programs have all started on the first line and executed each
 line in sequence until the end of the program.  However, many algorithms have
-the need to make decisions and do different things at different times.</p>
+the need to make decisions and do different things under different
+conditions.</p>
 
 <p>For example, when we talked about algorithms back in chapter 1, we came up
 with the following for guessing a number when the player just answered "yes" or
@@ -45,7 +46,7 @@ another.  Lots of algorithms have to do things like this.</p>
 <p>Another example is adding numbers.  When you are adding a column of numbers
 you have to make a decision on whether to carry or not.  You check if the
 column totals more than 9.  If so, you carry the tens place to the next
-column.</p>
+column.  If not, you don't.</p>
 
 <p>In this chapter, we will talk about how to write Python programs that make
 decisions like this.
@@ -79,9 +80,9 @@ if number &gt; 10:
     print("That is bigger than 10.")
 </code></pre>
 
-<p>When Python runs this program it will check if the of the number being
-bigger than is true or not.  If it is, Python will execute the print statement.
-If the condition is false, that line will not be executed.</p>
+<p>When Python runs this program, it will check if the condition of the number
+being bigger than 10 is true or not.  If it is, Python will execute the print
+statement.  If the condition is false, that print line will not be executed.</p>
 
 <p>If we run this program and put in a number bigger than, we will see the message
 like this:</p>
@@ -102,10 +103,10 @@ Enter a number: <span class="input">5</span>
 <h2>5.3 Indentation and Spacing</h2>
 <hr />
 
-<p>Notice that the print message in the program above was indented.  Sometimes
-spaces don't matter in Python programs, but here these spaces before the print
-are actually really important.
-Python uses indentation to mark if lines are part of an if statement or not.</p>
+<p>Notice that the print message in the program above was indented over to the
+right.  Sometimes spaces don't matter in Python programs, but here these spaces
+before the print are actually really important.  Python uses indentation to
+mark if lines are part of an if statement or not.</p>
 
 <p>For example, we can add some more message to the program above, and whether
 they are indented or not will determine if they are "part of" the if statement:</p>
@@ -130,6 +131,7 @@ if it's part of an if, it should be. If you mix up indentation, Python will get
 confused.  For instance, code like this will not work:</p>
 
 <pre><code class="python">
+# error, messed up indentation!
 number = int(input("Enter a number: "))
 if number &gt; 10:
     print("That is bigger than 10.")
@@ -142,8 +144,6 @@ second message.  Is it part of the if block or not?</p>
 
 
 
-
-
 <h2>5.4 Comparisons</h2>
 <hr />
 
@@ -153,12 +153,12 @@ something is less than something else.  Or if two things are equal or not.
 Python uses the following comparison operators:</p>
 
 <table>
-<tr><td><code>&lt;</code></td><td>Less than.</td></tr>
-<tr><td><code>&gt;</code></td><td>Greater than.</td></tr>
-<tr><td><code>&lt;=</code></td><td>Less than or equal to.</td></tr>
-<tr><td><code>&gt;=</code></td><td>Greater than or equal to.</td></tr>
-<tr><td><code>==</code></td><td>Equal to.</td></tr>
-<tr><td><code>!=</code></td><td>Not equal to.</td></tr>
+<tr><td><code>&lt;</code></td><td>Less than</td></tr>
+<tr><td><code>&gt;</code></td><td>Greater than</td></tr>
+<tr><td><code>&lt;=</code></td><td>Less than or equal to</td></tr>
+<tr><td><code>&gt;=</code></td><td>Greater than or equal to</td></tr>
+<tr><td><code>==</code></td><td>Equal to</td></tr>
+<tr><td><code>!=</code></td><td>Not equal to</td></tr>
 </table>
 
 <p>The <code>&lt;</code> and <code>&gt;</code> operators will be familiar to
@@ -171,24 +171,17 @@ a regular keyboard.  So instead of the &le; &ge; and &ne; symbols, Python uses
 is already used for something: assigning variables.  It's a pretty common
 mistake to forget to put the second equal sign in.</p>
 
-<p>For instance, if we want to read in a users age, and make sure that
-it is a positive number, we could do it with a comparison:</p>
-
-
 
 
 <h2>5.5 Example: Checking Input</h2>
 <hr />
 
-<p>One common use of if statements is to check if the input users
-enter makes sense or not.  For example, if we ask the user their
-age, they could enter a value that doesn't make sense like -7, or
-3000.</p>
-
-<p>We can use if statements to write a program which will check if
-the age given is too low or too high before going on to the rest of
-the program.  We will also give them another chance to put in their
-age correctly.</p>
+<p>One common use of if statements is to check if the input users enter makes
+sense or not.  For example, if we ask the user their age, they could enter a
+value that doesn't make sense like -7, or 3000.  We can use if statements to
+write a program which will check if the age given is too low or too high before
+going on to the rest of the program.  We will also give them another chance to
+put in their age correctly.</p>
 
 <p>For our purposes, let's say the age has to be between 5 and 125.
 Anything less than 5 we'll count as a mistake (we're assuming toddlers
@@ -257,7 +250,7 @@ Your age is 750
 </pre>
 
 <p>In order to fix this, we will need to learn how to repeat some
-code over and over again.  That's the topic of the next chapter!</p>
+code over and over again.  That'll be the topic of the next chapter!</p>
 
 
 <h2>5.6 Booleans Types</h2>
@@ -266,17 +259,16 @@ code over and over again.  That's the topic of the next chapter!</p>
 <p>Last chapter we talked about <strong>types</strong> in Python.  So
 far we have learned about strings, integers and floats.  Last chapter
 we saw how these work and how to use them.  But when we use if
-statements, we are actually using another type!</p>
+statements, we are actually using another type.</p>
 
 <p>It is called the <em>boolean</em> type.  Numbers and strings can have many,
 many different values.  In fact there are essentially infinitely many different
 values an integer or string can have.  A boolean, on the other hand,
-can have only two different values: True or False.</p>
-
-<p>Boolean values are used to represent truth values: whether something is True
-or False.  For example, a condition like <code>age &lt;5</code> has a boolean
-value.  Either the age is less than 5 (in which case it's True), or it isn't less
-than 5 (in which case it's False).</p>
+can have only two different values: <code>True</code> or <code>False</code>.
+Boolean values are used to represent whether conditions are true or not.  A
+condition like <code>age &lt; 5</code> has a boolean value.  Either the age is
+less than 5 (in which case it's True), or it isn't less than 5 (in which case
+it's False).</p>
 
 <p>The somewhat unusual name "boolean", which Python shortens to "bool" comes
 from the English mathematician George Boole.  Boole developed a form of math
@@ -428,9 +420,7 @@ us to wear shorts instead.</p>
 
 <p>With an if/else statement, if the if condition is True, than the code under
 the if line is executed.  Otherwise, the code under the else line is executed
-instead.</p>
-
-<p>It can never do <em>both</em> things.</p>
+instead.  It can never do <em>both</em> things.</p>
 
 
 
@@ -438,8 +428,9 @@ instead.</p>
 <hr />
 
 <p>Sometimes we have more than one condition we want to check, and handle each
-one differently.  We can do this using Python's "elif" statement.  This stands for
-"else if", and allows us to chain together multiple conditions.</p>
+one differently.  We can do this using Python's <code>elif</code> statement.
+This stands for "else if", and allows us to chain together multiple
+conditions.</p>
 
 <p>For example, imagine we want to expand our clothing-recommender program
 to include cold weather.  We could do it like this:</p>
@@ -460,11 +451,9 @@ less than 80, and shorts otherwise.</p>
 
 <p>The way this works is that Python checks each condition in order.  Once it
 finds one condition that is true, it executes the statements under it and then
-goes to the end of the chain.</p>
-
-<p>This is important because it means <strong>only one</strong> of the parts
-will ever run.  For example, in the above program, if we put in 50, it will
-do this:</p>
+goes to the end of the chain.  This is important because it means <strong>only
+one</strong> of the parts will ever run.  For example, in the above program, if
+we put in 50, it will do this:</p>
 
 <pre class="output">
 What temperature is it out? <span class="input">50</span>
