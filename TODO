@@ -17,9 +17,7 @@
 
  - add break to chapter on loops?  I use it in chapter10 example
 
- - make inline code tag styling more distinctive, and be consistent with them
-
- - collapse most of the examples into the sections above.  Instead of 10+
+ - collapse some of the examples into the sections above.  Instead of 10+
    sections, we should be at like 7 or 8
 
  - In functions chapter, use something besides Pong in motivating example!
@@ -35,9 +33,5 @@
 
  - switch graphics to PyGame
 
- - Make cyber chapter
-
- - Section in intro on the low barrier to entry of CS, compare to bio, chem, even humanities you need more to get started
-
- - Replace the figures with svg ones...
+ - Replace the figures with svg ones
 
