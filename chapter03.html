@@ -11,7 +11,7 @@
 <ul>
  	<li>Become comfortable writing programs which print messages to the screen.</li>
  	<li>Learn how to get user input into a program.</li>
- 	<li>Understand how to create variables, and some of the rules for using them.</li>
+ 	<li>Understand how to create variables, and the rules for using them.</li>
 </ul>
 </div>
 </div>
@@ -52,12 +52,13 @@ Hello World!
 Bye bye!
 </pre>
 
-<p>In this book, we will display code in the blocks with a light grey
-background, and what the programs output with a darker background.</p>
+<p>By the way, in this book, we will display code in the blocks with a light
+grey background, and what the programs output with a darker background like
+this.</p>
 
-<p>As you can see, this program prints three lines of output, one for
-each of our three print statements.  We will look at more things we can
-do with print statements in a bit, but first we will look at input.</p>
+<p>As you can see, this program prints three lines of output, one for each of
+our three print statements.  We will look at more things we can do with print
+statements in a bit, but first let's look at getting user input.</p>
 
 
 
@@ -73,7 +74,7 @@ what the program is doing, or what values it is calculating with.</p>
 parenthesis.  In the case of input, this message is a question to give the
 user, called a <strong>prompt</strong>.</p>
 
-<p>Here is an example of how the <code>input</code> command works<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>:</p>
+<p>Here is an example of how <code>input</code> works<a class="anchor" id="back1">&nbsp;</a><a href="#note1" aria-describedby="footnote-label"></a>:</p>
 
 <pre><code class="python">
 input("How are you feeling today? ")
@@ -90,17 +91,18 @@ alt="The shell window at the bottom of Thonny is where you put input in." />
 <figcaption>Giving the program input</figcaption>
 </figure>
 
-<p>As you can see, Thonny also colors what we are typing in blue, and what
-the program outputs as black.</p>
+<p>As you can see, Thonny colors what we are typing in blue, and what the
+program prints as black.  Here the input we gave the program was the words
+"Pretty Good".</p>
 
 <p>We can only type one line of text.  As soon as we hit enter, Python moves on
 from the input instruction.  In this case, there is no next instruction so the
 program finishes.</p>
 
-<p>This program does not actually <em>do anything</em> with the input we give it.
-In the program above, whatever the user types in can't really affect the program
-at all.  The program is ignoring whatever input the user gives it.  In order to
-do something with input, we must put it into a <i>variable</i>.</p>
+<p>This program does not actually <em>do anything</em> with the input we give
+it.  In the program above, whatever the user types in can't really affect the
+program at all.  In order to do something with input, we must put it into a
+<em>variable</em>.</p>
 
 
 
@@ -118,8 +120,8 @@ track of it.</p>
 
 <p>The way that a variable is created in Python is by putting the name on the
 left hand side, then an equals sign, and finally the thing that you want to
-save.  For instance, if we want to save our user's input in a variable, we
-could do it like this:</p>
+store in the variable.  For instance, if we want to save our user's input in a
+variable, we could do it like this:</p>
 
 <pre><code class="python">
 answer = input("How are you feeling today? ")
@@ -127,8 +129,8 @@ answer = input("How are you feeling today? ")
 
 <p>Now when we run this program, it will ask us the question, and wait for us
 to enter a response.  It will then save whatever we give it into the variable
-called "answer".  We can now change the program so that it prints it back to
-us:</p>
+called <code>answer</code>.  We can now change the program so that it prints it
+back to us:</p>
 
 <pre><code class="python">
 answer = input("How are you feeling today? ")
@@ -144,8 +146,9 @@ You said
 pretty good
 </pre>
 
-<p>The text that we typed in is in bold-face so that you can see what the program's
-input is.</p>
+<p>The text that we typed in is a different so that you can see what the
+user types in this example.  The white text is what the program itself is
+printing out.</p>
 
 <p>There are a couple of things to note about this program.  First, we
 have saved the input we typed into the variable called <code>answer</code>.
@@ -156,10 +159,10 @@ line of code is worth talking about:</p>
 print(answer)
 </code></pre>
 
-<p>Notice how this did not actually print "answer".  When we print a variable,
-it doesn't print the variable's <em>name</em>, it prints the variable's
-<em>value</em>.  Whatever got stored in the variable (which is whatever we
-typed in), gets printed here.</p>
+<p>Notice how this did not actually print the word "answer".  When we print a
+variable, it doesn't print the variable's <em>name</em>, it prints the
+variable's <em>value</em>.  Whatever got stored in the variable (which is
+whatever we typed in), gets printed here.</p>
 
 <p>Also, notice how there are no quotation marks around "answer" in the print
 command.  If we put quotation marks in, it <em>would</em> actually have printed
@@ -167,9 +170,9 @@ out the word "answer".  We have to use quotation marks to print some message
 out exactly, and no quotation marks when we want to get the thing stored in a
 variable.</p>
 
-<p>There are some rules for making variables.  The name of a variable has to be
-made of letters, numbers and underscore characters.   They cannot begin with a
-number and cannot have spaces in them.</p>
+<p>There are some rules for naming our variables.  The name of a variable has
+to be made of letters, numbers and underscore characters.   They cannot begin
+with a number and cannot have spaces in them.</p>
 
 <p>These are examples of legal variable names:</p>
 
@@ -193,15 +196,16 @@ Python.  That means that you should not name a variable <code>print</code> or
 and we will see them as we go.</p>
 
 <p>Notice that Thonny colors <code>print</code> and <code>input</code>
-differently than other things.  If the variable you want shows up colored like
-this, then it means something special and you should pick another name!</p>
+differently than other things.  If the new variable you just made also shows up
+colored like this, then it means something special and you should pick another
+name!</p>
 
 
 <h2>3.3 More on Printing</h2>
 <hr />
 
-<p>In the program above, we printed two messages on two different lines, which
-looks kind of weird.  Instead, we can put them in one line, and only use one
+<p>In the program above, we printed our message on two different lines, which
+looks kind of weird.  Instead, we can print it on one line, using just one
 print instruction.  To do that, we can pass the message and the variable to
 print on one line, separated by a comma.  That would look like this:</p>
 
@@ -210,7 +214,7 @@ answer = input("How are you feeling today? ")
 print("You said", answer)
 </code></pre>
 
-<p>When we run this program, it will look like this:</p>
+<p>When we run this program, it gives us this:</p>
 
 <pre class="output">
 How are you feeling today? <span class="input">pretty good</span>
@@ -256,8 +260,6 @@ You said pretty good. Bye!
 now there isn't one put in automatically.  Some people aren't too bothered about
 details like this, but I like to get the spacing to look exactly right for the
 program's output.</p>
-
-
 
 
 
@@ -309,8 +311,8 @@ for you that day, but not in any other situation.</p>
 
 <p>What we want is to have the program do the right thing in <em>every</em>
 situation.  For that, we need to put the name and the day into variables.  We
-will need one for each thing.  One variable generally keeps track of one piece
-of information.</p>
+will need one for each thing.  One variable generally keeps track of just one
+piece of information.</p>
 
 <p>We will start by asking the user their name and storing the result into a
 variable:</p>
@@ -346,8 +348,9 @@ thing to wish them a good day:</p>
 print("Have a great ", day, "!", sep="")
 </code></pre>
 
-<p>Below is the whole program, with a comment at the top.  It's a good idea
-to put a comment at the top explaining what the point of the program is.</p>
+<p>Below is the whole program, with a comment at the top.  It's usually a good
+idea to put a comment at the top of your code explaining what the point of the
+program is.</p>
 
 <pre><code class="python">
 # this program gives the user a custom greeting
@@ -359,8 +362,8 @@ print("Have a great ", day, "!", sep="")
 </code></pre>
 
 <p>Notice the program also has a blank line in it.  Blank lines are ignored
-just like comments are.  In longer programs, it's common to put a blank line
-between sections &mdash; kind of like paragraphs in a paper.</p>
+just like comments are.  It's common in programs to put a blank line between
+different sections of code &mdash; kind of like paragraphs in a paper.</p>
 
 <p>Below is an example run &mdash; though of course what it prints exactly
 depends on what you tell it!</p>
