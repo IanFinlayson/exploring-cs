@@ -24,13 +24,14 @@
 
 <p>Just like us, programs need to keep track of information as they are solving
 problems or making decisions. They do this by storing data inside of variables.
-Last chapter, we saw how to create variables and also how to read them from the
-user and print them to the screen.  We actually saw how to do this with only
-one type of data.</p>
+Last chapter, we saw how to create variables and also how to read input from the
+user and store it in variables.  We didn't talk about this, but we did it using
+one type of data, called the string type.</p>
 
 <p>Python actually provides multiple types of data.  A <strong>type</strong> is
 something associated with a variable that determines what sorts of things you
-can do with it.  To use a variable, you need to know what type it has.</p>
+can do with it.  To be able to use a variable, you need to know what type it
+has.</p>
 
 <p>For example, you probably have a first name like "Anne", and a last name,
 like "Smith".  In Python, these are called <em>strings</em>.  You can do some
@@ -54,10 +55,10 @@ We will also talk about some of the operations we can do with these.</p>
 <h2>4.2 Strings</h2>
 <hr />
 
-<p>The first type that we will look into is the <i>string</i> type.  A string
-is some text inside of a program.  For instance a message, name, address,
-email, password, URL etc. are all textual and would be stored as strings in a
-Python program.</p>
+<p>The first type that we will look into is the <strong>string</strong> type.
+A string is some text inside of a program.  For instance a message, name,
+address, email, password, URL etc. are all textual and would be stored as
+strings in a Python program.</p>
 
 <p>Strings can be created by enclosing text inside of double quotes:</p>
 
@@ -68,7 +69,7 @@ print(name)
 </code>
 </pre>
 
-<p>Strings can actually be enclosed inside of single quotes instead:</p>
+<p>Strings can also be enclosed inside of single quotes instead:</p>
 
 <pre>
 <code class="python">
@@ -78,7 +79,7 @@ print(name)
 </pre>
 
 <p>There is usually no difference between the two ways of making strings.
-The exception is when a string <i>contains</i> a quote.
+The exception is when a string <em>contains</em> a quote.
 For example, this program is just not going to work:</p>
 
 <pre>
@@ -89,9 +90,10 @@ print(answer)
 </pre>
 
 <p>The problem here (which you can see from the way the code is highlighted) is
-that when Python sees the " at the start of "yes", it thinks that the string is
-over.  Then it gets really confused because it can't figure out what to do with
-the yes.  To fix this, we can use single quotes instead:</p>
+that when Python sees the <code>"</code> at the start of <code>"yes"</code>, it
+thinks that the string is over.  Then it gets really confused because it can't
+figure out what to do with the yes.  To fix this, we can use single quotes
+instead:</p>
 
 <pre>
 <code class="python">
@@ -101,7 +103,7 @@ print(answer)
 </pre>
 
 <p>Now this is OK because Python knows that the string is not over until it
-sees the second ' symbol.  This goes the other way too.  For example this
+sees the second <code>'</code> symbol.  This goes the other way too.  For example this
 program has an error:</p>
 
 <pre>
@@ -117,6 +119,9 @@ print('You can't enter a negative number!')
 print("You can't enter a negative number!")
 </code>
 </pre>
+
+<p>Personally, I always use the double-quotes unless the string I am
+writing needs to have double-quotes in it.</p>
 
 
 <h2>4.3 Joining Strings</h2>
@@ -174,12 +179,12 @@ fullName = first + " " + last
 <hr />
 
 
-<p>A string is a sequence of one or more <i>characters</i>.  A character is
+<p>A string is a sequence of one or more <em>characters</em>.  A character is
 just a single symbol of text, such as a letter, numeral, punctuation or space.
-For instance, the string string "Hello World!" has 12 characters: 10 letters, a
+For instance, the string string <code>"Hello World!"</code> has 12 characters: 10 letters, a
 space, and an exclamation mark.</p>
 
-<p>We can get the length of a string by using the <code>len</code> command.
+<p>We can get the length of a string by using the <code>len</code> function.
 The following program will get a string from the user and then print how
 long it is:</p>
 
@@ -200,7 +205,7 @@ That string has 17 characters.
 </pre>
 
 <p>We can also get any individual characters out of a string if we
-want to.  Each character in a string has an <i>index</i>.  The index starts
+want to.  Each character in a string has an <em>index</em>.  The index starts
 at 0 and goes up by 1 for each character.  For instance, the string "Hello"
 has these indices:</p>
 
@@ -253,11 +258,12 @@ example, the positions of everything on the screen are stored as numbers.</p>
 <p>Python actually has a few different types of numbers for different
 situations.</p>
 
-<p>The first is the integer, or int type.  Integers are numbers that have no
-fractional component.  For example, an int can be equal to 3, or 4, but not 3.5.
-Integers can be positive or negative.  Some languages have limits on how big an
-integer can be, but Python allows integers to be as big as they need to
-be<a class="anchor" id="back2">&nbsp;</a><a href="#note2" aria-describedby="footnote-label"></a>.
+<p>The first is the integer, or <code>int</code> type.  Integers are numbers
+that have no fractional component.  For example, an int can be equal to 3, or
+4, but not 3.5.  Integers can be positive or negative.  Some languages have
+limits on how big an integer can be, but Python allows integers to be as big as
+they need to be<a class="anchor" id="back2">&nbsp;</a><a href="#note2"
+aria-describedby="footnote-label"></a>.
 
 
 <p>We can create an integer just by putting a number into a program.  We can
@@ -272,27 +278,13 @@ birthYear = 1998
 
 <p>Integers cannot have any fractional component.  So if we make a number that
 does have a fraction in it, Python gives it a different type, called a
-<em>float</em><a class="anchor" id="back3">&nbsp;</a><a href="#note3" aria-describedby="footnote-label"></a>:</p>
+<code>float</code><a class="anchor" id="back3">&nbsp;</a><a href="#note3" aria-describedby="footnote-label"></a>:</p>
 
 <pre>
 <code class="python">
 size = 10.2
 </code>
 </pre>
-
-<p>We can check on the type of something in Python by using the <code>type</code>
-command.  For example, we could use the shell window to check the types of the two
-numbers we created above:</p>
-
-<pre class="output">
-&gt;&gt;&gt; birthYear = 1998
-&gt;&gt;&gt; size = 10.2
-&gt;&gt;&gt; type(birthYear)
-&lt;class 'int'&gt;
-&gt;&gt;&gt; type(size)
-&lt;class 'float'&gt;
-</pre>
-
 
 <p>A float is a number which can have a fractional part.  That fractional part
 might be 0 though.  For example, if you make a variable equal to 3.0, then it
@@ -301,12 +293,13 @@ to 0.</p>
 
 <p>You may wonder why not just have all numbers be floats, since they can have
 fractional parts, but also can be set to numbers without a fractional part.
-The reason is that floats don't store numbers exactly, they only store
+The reason is that floats don't store numbers exactly; they only store
 approximations of them.  The reason for this is that some numbers, like Pi, would
 require infinite memory to store exactly.</p>
 
 <p>We can see this effect by giving Python certain computations like the
-following:</p>
+following (the &gt;&gt;&gt; indicates that line is typed into the shell
+window):</p>
 
 <pre>
 <code class="python">
@@ -315,37 +308,43 @@ following:</p>
 </code>
 </pre>
 
-<p>Notice that the answer should really be 0.3, but Python gives us a number that
+<p>Of course the answer should really be 0.3, but Python gives us a number that
 is almost, but not exactly, 0.3.  This might seem like a flaw in Python, but it
 just comes from the fact that there are infinitely many real numbers between 0
-and 1 &mdash; we can't store them all perfectly, that's just life.</p>
+and 1 &mdash; we can't store them all perfectly in a computer.  That's just
+life.  The small amount of imprecision we get with floats is normally not an
+issue.</p>
 
 
 <p>As a rule of thumb, you should use integers when a number won't have a
 fractional component, because integers are exact.  When a number might have a
-fraction, you just have to use a float.</p>
+fraction, you have to use a float.</p>
 
 
 <h2>4.6 Number Input</h2>
 <hr />
 
 <p>To read in a float from the user, we can't just use the <code>input</code>
-command.  This always gives us a string, even if the user types in a number.
+function.  This always gives us a string, even if the user types in a number.
 You can see this in the following shell example, where we read in a variable
-and then check its type:</p>
+and then check its type.  The <code>type</code> function returns the type
+of what you give it:</p>
 
-<pre class="output">
+<pre>
+<code class="python">
 &gt;&gt;&gt; num = input("Enter a number ")
 Enter a number <strong>7</strong>
 &gt;&gt;&gt; type(num)
 &lt;class 'str'&gt;
+</code>
 </pre>
 
 <p>This is probably confusing, because 7 obviously <em>is</em> a number.  But
 strings can contain digits too.  For instance, if you are reading in an
-address, it might be something like "1301 College Avenue".  So strings can
-contain numbers inside of them.  This one just happens to contain only a number.
-Python doesn't automatically set the type based on what the user types in.</p>
+address, it might be something like <code>"1301 College Avenue"</code>.  So
+strings can contain numbers inside of them.  This one just happens to contain
+only a number.  Python doesn't automatically set the type based on what the
+user types in.</p>
 
 <p>Now because it's a string, we can't really use it like a number.  For example,
 if we try to add this variable to another number, we will get an error.</p>
@@ -377,9 +376,8 @@ line, the program won't continue.</p>
 
 <p>Once we have numbers inside a Python program, there are lots of things
 we can do with them.  We saw that + can be used to join together strings.
-With numbers it adds them together.  For example, the following program
-reads two float numbers from the user and then adds them together,
-displaying the result:</p>
+With numbers it adds them together.  The following program reads two float
+numbers from the user and then adds them together, displaying the result:</p>
 
 <pre>
 <code class="python">
@@ -392,11 +390,11 @@ print("The total is", total)
 </pre>
 
 <p>This program reads in the two numbers from the user, and stores them in
-variables called "num1" and "num2".  It then adds them together using the +
-operation.  Because these are numbers, this results in getting the sum of the
-two.  This is why types are important &mdash; if they were strings it would
-have joined them.  The result of the addition is stored in the variable called
-"total" which is then printed to the screen.</p>
+variables called <code>num1</code> and <code>num2</code>.  It then adds them
+together using the + operation.  Because these are numbers, this results in
+getting the sum of the two.  This is why types are important &mdash; if they
+were strings it would have joined them.  The result of the addition is stored
+in the variable called "total" which is then printed to the screen.</p>
 
 <p>Of course Python has other operations besides just addition.  Below is a list
 of some operators that Python supports:</p>
@@ -441,8 +439,9 @@ of the price of the meal.  This can sometimes be tricky to figure out<a class="a
 so let's write a program to figure it out for us!</p>
 
 <p>The program should start off by asking the user how much their meal cost.
-To do that, we will need to use the <code>input</code> combined with the <code>float</code>
-command to read in a number that may have a fractional part:</p>
+To do that, we will need to use <code>input</code> combined with the
+<code>float</code> function to read in a number that may have a fractional
+part:</p>
 
 <pre>
 <code class="python">
@@ -470,9 +469,9 @@ cost * 1.15
 </code>
 </pre>
 
-<p>This line of code doesn't really do anything.  It multiplies cost by 1.15, but it
-doesn't do anything with the answer.  In order to make use of a result like this, we
-have to put it into a variable.</p>
+<p>This line of code doesn't really do anything.  It multiplies cost by 1.15,
+but it doesn't save the answer anywhere.  In order to make use of a result
+like this, we have to put it into a variable.</p>
 
 <p>Now that we have the amount with a tip added in, we can print it for the user:</p>
 
@@ -512,13 +511,13 @@ The amount with 15% tip is 37.26
 <p>This program would be quite helpful in figuring out how
 much to tip a server, but we can make it even better.  What
 if someone wants to tip 20% instead?  We could of course just
-change the "1.15" in the program to "1.20" instead.</p>
+change the <code>1.15</code> in the program to <code>1.20</code> instead.</p>
 
 <p>But it would be even better if we asked the user how much they
 want to tip and then use that amount instead of a pre-determined
 amount.</p>
 
-<p>To start we will ask them <strong>two</strong> questions instead
+<p>So to start let's ask them <strong>two</strong> questions instead
 of just one:</p>
 
 <pre>
@@ -529,15 +528,15 @@ percentage = int(input("How much do you want to tip? "))
 </code>
 </pre>
 
-<p>Now we have two variables.  The first one (<code>cost</code>) will
-store the cost of the meal before tipping.  The second one
-(<code>percentage</code>) will store the percentage the user wants
+<p>Now we have two variables.  The first one, <code>cost</code>, will
+store the cost of the meal before tipping.  The second one,
+<code>percentage</code>, will store the percentage the user wants
 to tip.</p>
 
 <p>Now we need to do a little bit of math.  The first thing we need
 to do is to divide the percentage they entered by 100.  That way we
-can go from "15" to the ".15" that we need.  (The word
-"percent" actually means divided by 100).</p>
+can go from 15 to the .15 that we need.  The word
+"percent" actually means divided by 100.</p>
 
 <p>Next we need to add 1 to this number.  That way we go from the
 .15 to the 1.15 we used in the first program.  Except now it will work
@@ -586,8 +585,8 @@ The amount with tip is 49.68
 <h2>4.10 Rounding</h2>
 <hr />
 
-<p>One last thing before we close out this chapter.  I sort of carefully
-chose the inputs to the last program so that it looked right.  If I picked
+<p>One last thing before we close out this chapter.  I sort of carefully chose
+the inputs to the last program so that the output looked right.  If we had picked
 other things, it would not look as nice.  For example:</p>
 
 <pre class="output">
@@ -596,13 +595,13 @@ How much do you want to tip? <span class="input">17</span>
 The amount with tip is 43.5357
 </pre>
 
-<p>That just looks weird when we are talking about money.  We always round
+<p>That just looks weird when we're talking about money.  We always round
 money to the nearest cent.  We would not expect to see something like this,
 so let's talk about how to fix it.</p>
 
 
 <p>The best way is to round the result to 2 decimal places.  This is done with
-the <code>round</code> command, which takes the number we want to round and how
+the <code>round</code> function, which takes the number we want to round and how
 many decimal places to round to.  We can try this in the shell</p>
 
 <pre>
@@ -612,7 +611,7 @@ many decimal places to round to.  We can try this in the shell</p>
 </code>
 </pre>
 
-<p><code>round</code> always rounds to the <i>nearest</i> place.  For instance
+<p><code>round</code> always rounds to the <em>nearest</em> place.  For instance
 <code>round(4.7, 0)</code> rounds up to 5, while <code>round(4.3, 0)</code>
 will round down to 4.</p>
 
@@ -638,11 +637,9 @@ print("The amount with tip is", rounded)
 <p>This is a pretty advanced program!  It takes two pieces of input, uses four
 variables, and does some sort of tricky math.  It even makes sure that the
 output looks like the user would expect.  Even better it actually solves
-a real-life problem most of us can appreciate.  If you followed what we have done
+a real-life problem most of us can appreciate.  If you followed what we've done
 here, then great job!</p>
 
-<p>Next chapter we will look at programs that do different things in different
-scenarios.</p>
 
 
 <div class="blackbox">
@@ -657,10 +654,10 @@ scenarios.</p>
         together, and you can get the individual characters out of them.</li>
  	<li>There are two types of numbers in Python.  Integers are for numbers
         which can't have a fractional part, and floats are numbers which can.</li>
- 	<li>The <code>input</code> command gives us strings by default.  We can
-        read in numbers by using the <code>int</code> or <code>float</code> commands.</li>
+ 	<li>The <code>input</code> function gives us strings by default.  We can
+        read in numbers by using the <code>int</code> or <code>float</code> function.</li>
  	<li>Both types of numbers let us use math operators on them, to perform calculations.</li>
- 	<li>The <code>round</code> command is used to round numbers in Python.</li>
+ 	<li>The <code>round</code> function is used to round numbers in Python.</li>
 </ul>
 </div>
 </div>
