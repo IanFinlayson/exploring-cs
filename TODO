@@ -1,17 +1,8 @@
-- Add Euclid's algorithm to chapter on loops. 
-
- - Be consistent with whether algorithms/programs are in titled boxes or not
-
  - Maybe get rid of flowcharts from chapter 7?
 
  - Add constants like pi to chapter 8?
 
  - Move the discussion of functions and objects from 9 into 8.
-
- - go through and make sure all the code things are in code tags.
-   Also, change the CSS to make them clearer (maybe a background color?)
-
- - make sure screenshots have consistent title bar look
 
  - use "method" instead of "function" when applicable
 
@@ -26,8 +17,6 @@
    and then jumping back and such.
 
  - in 11 I say we've seen even/odd checks....but have we?
-
- - in 11 add music "chorus" example for functions? could do happy b-day for parameters
 
  - AI chapter explaining approaches including neural networks, also cyber chapter, and others???
 
