@@ -233,12 +233,12 @@ of the password.  The more possible characters might be in the password, the
 harder it is to guess, and the longer the password is, the harder it is to
 guess.  It is calculated as:</p>
 
-<p>$E = log_2(C^L)$</p>
+<p>E = log<sub>2</sub>(C<sup>L</sup>)</p>
 
 <p>Where:<br />
-$C =$ the number of possible unique characters available<br />
-$L =$ the length of the password<br />
-$E =$ the password entropy</p>
+C = the number of possible unique characters available<br />
+L = the length of the password<br />
+E = the password entropy</p>
 
 <p>In order to write this program, we need to somehow calculate a logarithm
 with a base of 2.  Python's math library actually has a function that

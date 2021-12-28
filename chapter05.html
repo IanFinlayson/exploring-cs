@@ -267,12 +267,12 @@ values an integer or string can have.  A boolean, on the other hand,
 can have only two different values: <code>True</code> or <code>False</code>.
 Boolean values are used to represent whether conditions are true or not.  A
 condition like <code>age &lt; 5</code> has a boolean value.  Either the age is
-less than 5 (in which case it's True), or it isn't less than 5 (in which case
-it's False).</p>
+less than 5 (in which case it's true), or it isn't less than 5 (in which case
+it's false).</p>
 
 <p>The somewhat unusual name "boolean", which Python shortens to "bool" comes
 from the English mathematician George Boole.  Boole developed a form of math
-based on True/False values which became influential in the development of
+based on true/false values which became influential in the development of
 computers.</p>
 
 <figure>
@@ -281,11 +281,11 @@ computers.</p>
 </figure>
 
 <p>We often use booleans like the programs above.  We do a comparison
-which has a True/False value, and put it right into the if statement.
+which has a true/false value, and put it right into the if statement.
 But booleans are normal types which means we can put them into variables
 too.</p>
 
-<p>For instance, we can assign a variable to be True or False:</p>
+<p>For instance, we can assign a variable to be <code>True</code> or <code>False</code>:</p>
 
 <pre class="output">
 &gt;&gt;&gt; done = False
@@ -325,7 +325,7 @@ If you have a boolean, there are things you can do to it too.</p>
 
 <p>The simplest of these is <code>not</code>.  This operator just
 reverses the boolean you give it.  If you have a boolean which is
-True, then you apply <code>not</code> to it, you get False.  Here's
+true, then you apply <code>not</code> to it, you get false.  Here's
 an example:</p>
 
 <pre class="output">
@@ -336,11 +336,11 @@ True
 False
 </pre>
 
-<p>If <code>valid</code> is True, then <code>not valid</code> is the opposite
-of that: False.</p>
+<p>If <code>valid</code> is true, then <code>not valid</code> is the opposite
+of that: false.</p>
 
 <p>The next operator is <code>and</code>.  This combines two booleans
-and tells you if they are <strong>both</strong> True.  For example,
+and tells you if they are <strong>both</strong> true.  For example,
 we could use this in an if statement for checking if our age is within
 the 5 through 125 range:</p>
 
@@ -352,14 +352,14 @@ if age &gt;= 5 and age &lt;= 125:
 </code></pre>
 
 <p>Here we are combining up two boolean values.  The first is the value we get
-from <code>age &gt;=5</code>.  This will either be True or False.  The second
+from <code>age &gt;=5</code>.  This will either be true or false.  The second
 is <code>age &lt; 125</code>.  When we combine them with <code>and</code>, we
-are going to end up with True if both parts are True.  If either part (or both
-parts) are False, then we get False.</p>
+are going to end up with true if both parts are true.  If either part (or both
+parts) are false, then we get false.</p>
 
 <p>The last operator is <code>or</code>.  Like <code>and</code>, it combines up
 two booleans and gives you a new one.  Whereas <code>and</code> checks if
-<strong>both</strong> sides are True, <code>or</code> checks if
+<strong>both</strong> sides are true, <code>or</code> checks if
 <strong>either</strong> one is.</p>
 
 <p>We could use this to write a program to detect when the age is
@@ -414,11 +414,11 @@ else:
 </code></pre>
 
 <p>Here, it will check if the temperature is less than 80.  If so, it does
-the first print message, telling us to wear pants.  If the condition was False,
+the first print message, telling us to wear pants.  If the condition was false,
 then it does the "else" part of the code &mdash; the print which tells
 us to wear shorts instead.</p>
 
-<p>With an if/else statement, if the if condition is True, than the code under
+<p>With an if/else statement, if the if condition is true, than the code under
 the if line is executed.  Otherwise, the code under the else line is executed
 instead.  It can never do <em>both</em> things.</p>
 
@@ -460,9 +460,9 @@ What temperature is it out? <span class="input">50</span>
 Wear a coat.
 </pre>
 
-<p>Here the first condition was True, so it tells us to bring a coat.
-Even though the second condition is True as well, it doesn't tell
-us to wear pants.  As soon as one case in the chain is True, it stops.</p>
+<p>Here the first condition was true, so it tells us to bring a coat.
+Even though the second condition is true as well, it doesn't tell
+us to wear pants.  As soon as one case in the chain is true, it stops.</p>
 
 <p>There's no limit to how many <code>elif</code> statements we can
 include.  If we want, we can expand it even more:</p>
@@ -509,14 +509,14 @@ loops.</p>
     lines we always do, and what lines are part of an if statement.</li>
  	<li>We can use comparison operators to make decisions based on
     variables in our programs.</li>
- 	<li>The boolean type represents a True or False value.  They can be
+ 	<li>The boolean type represents a true or false value.  They can be
     combined with the boolean operators: and, or, and not.</li>
  	<li>We can use the <code>else</code> statement to create a two-way
     decision.  This makes the program do one thing when the condition is
-    True, and a different thing when the condition is False.</li>
+    true, and a different thing when the condition is false.</li>
  	<li>The <code>elif</code> statement can be used when we have more
     than two cases in our program.  Python will do the first condition
-    that is True.</li>
+    that is true.</li>
 </ul>
 </div>
 </div>
