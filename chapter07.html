@@ -78,9 +78,11 @@ while num != 0:
     num = int(input("Enter next number: "))
 </code></pre></li>
 
-<p>Recall that the % operator checks the remainder of a division. If the
-remainder when dividing by 2 is 0, it means there is no remainder, so
-the number is even.</p>
+<p>The <code>%</code> operator is new, so we need to explain that first.  What this
+does is checks the remainder of a division.  For instance if we divide 13 by 5,
+we get 2 with a remainder of 3.  So <code>13 % 5</code> is equal to
+<code>3</code>.  If the remainder when dividing by 2 is 0, it means there is no
+remainder, so the number is even.</p>
 
 <p>Here the if/else is <em>nested</em> inside of the loop.  Every time the loop
 is done, we check the if condition and do either the if part or the else part.
@@ -102,7 +104,7 @@ see more examples of nested control structures as we go along.</p>
 <p>Now that we know how to nest if statements with loops, we can
 finally tackle a Python version of the "Guess the Number" algorithm
 we looked at way back in Chapter 1.  The algorithm is given again
-below:</p>
+in pseudocode:</p>
 
 <pre><code class="ini">
 1. Set min to 1.
@@ -122,7 +124,7 @@ these statements too.</p>
 <p>The Python code to solve this problem is below:</p>
 
 <pre><code class="python">
-#set initial values for these variables
+# set initial values for our variables
 min = 1
 max = 100
 done = False
@@ -147,19 +149,19 @@ print("Got it!")
 </code></pre>
 
 <p>There are some things to point out about this program.  First, we are using
-a boolean variable, called "done" to keep track of whether or not to exit the
+a boolean variable, called <code>done</code> to keep track of whether or not to exit the
 loop.  The variable starts off as False, and we set it to True when we find
 the user's number.  Because our condition tells us to keep looping while
 we are not done, the loop will keep going until we guess right.</p>
 
 <p>Another thing to point out is that we solve the problem of rounding down by
-calling the <code>int</code> command.  We have used this command to change a
+calling the <code>int</code> function.  We have used this function to change a
 string (like "12") into an integer (like 12).  It can also be used to change a
 float number (like 12.5) into an integer (like 12).  The <code>round</code>
-command could be used to round to the <em>nearest</em> whole number, but not
-to always round down like we want.</p>
+function could be used to round to the <em>nearest</em> whole number, but not
+to always round down like we want here.</p>
 
-<p>We are also calling the <code>str</code> command to convert the variable
+<p>We are also calling the <code>str</code> function to convert the variable
 G into a string.  The reason for this is that <code>input</code> doesn't
 allow us to pass multiple things to be printed like <code>print</code> does.
 We have to pass 1 string.  We do this by joining the different parts of
@@ -172,8 +174,17 @@ right or not is nested inside the while loop.  You can tell this because
 it is indented over.  We need to do this because we need to do the test
 for <em>every</em> guess we make, not just one.</p>
 
-<p>You should try running this program a few times to make sure you
-understand how it's working!</p>
+<p>Here is an example run of this program:</p>
+
+
+<pre class="output">
+Is your number 50? <span class="input">too high</span>
+Is your number 25? <span class="input">too low</span>
+Is your number 37? <span class="input">too high</span>
+Is your number 31? <span class="input">too low</span>
+Is your number 34? <span class="input">yes</span>
+Got it!
+</pre>
 
 
 <h2>7.4 Example: Password Strength</h2>
@@ -181,7 +192,7 @@ understand how it's working!</p>
 
 <p>Let's look at another example now.  Many websites require user passwords
 to meet certain standards.  For example, our university has the following
-requires that passwords:</p>
+requirements for passwords:</p>
 
 <ul>
 <li>Be at least 8 characters long</li>
@@ -191,22 +202,28 @@ requires that passwords:</p>
 </ul>
 
 <p>We already know how to check if the string is long enough with
-the <code>len</code> command.  The other ones are a bit trickier
+the <code>len</code> function.  The other ones are a bit trickier
 though.  The approach we will take is to loop through the entire
 password one character at a time.  For each character, we will check
 if it is one of the three things we need to look for.</p>
 
-<p>We can do that using the <code>isupper</code>, <code>islower</code>,
-and <code>isdigit</code> checks on the character.  We haven't talked
-about doing these yet.  We can do this by giving the character we
-are looking at, then the '.', and then the command.  These each return
-True if the character is, or False if it is not.</p>
+<p>To do this, we need a little bit of syntax we haven't seen yet.
+Things like <code>print</code>, <code>input</code>, <code>round</code>,
+etc. are called <em>functions</em>.  There is a similar concept in Python
+called a <strong>method</strong> which is like a function, but is called
+on a variable.  To call a method, you give the variable, then a <code>.</code>
+then the name of the method, and finally parenthesis.</code>
 
-<p>In doing this, we need to keep track of whether <em>any</em> of the
-characters are in one of these three categories or not.  We will do this
-by having a boolean variable for each category.  For instance, we can have
-a variable called "upper" which starts at False.  Then, when we see an
-upper-case character, we will set it to True.</p>
+<p>String variables have several methods we can call.  The ones we need now are
+called <code>isupper</code>, <code>islower</code>, and <code>isdigit</code>.
+These each return true if the string contains only upper-case letters, lower-case
+letters or digits respectively.</p>
+
+<p>In doing this, we also need to keep track of whether <em>any</em> of the
+symbols in the password are in one of these three categories or not.  We will
+do this by having a boolean variable for each category.  For instance, we can
+have a variable called <code>upper</code> which starts at false.  Then, when we
+see an upper-case character, we will set it to true.</p>
 
 <p>The code for solving this problem is given below:</p> 
 
@@ -252,17 +269,16 @@ not long enough.</p>
 <p>The rest of the program is in the <code>else</code> statement.  That
 means the rest of the checks only happen when the password <em>is</em>
 long enough.  We start by making one variable for each category we have to
-check, and setting them all to False.  We will assume we don't have any
+check, and setting them all to false.  We will assume we don't have any
 of these until we see one.</p>
 
-<p>Next, we loop through every character in the string with a for loop
-(remember that this for loop is inside the else statement).  For each
-character, we check if it's a upper-case letter, lower-case letter or
-digit.  In each case we set the corresponding variable to True.</p>
+<p>Next, we loop through every character in the string with a for loop.  For
+each character, we check if it's a upper-case letter, lower-case letter or
+digit.  In each case we set the corresponding variable to true.</p>
 
 <p>When we are done going through the loop, we will have checked
 every single character in the password.  If any of our three boolean
-variables is still False, that means that type of thing must not have
+variables is still false, that means that type of thing must not have
 been present in the password.</p>
 
 <p>We then finish up by checking those three variables in an if/elif/else
@@ -304,7 +320,7 @@ like this:</p>
 <pre><code class="ini">
 for each row:
     for each column:
-        print the number at this location
+        print this row number times this column number
 </code></pre>
 
 <p>Because the column loop is nested inside the row loop, it will be done
@@ -314,28 +330,35 @@ a total of 100 numbers printed out.</p>
 <p>The Python code for this program is below:</p>
 
 <pre><code class="python">
+# read the size of the table
+size = int(input("What size table would you like? "))
+
 # loop through each row
-for x in range(1, 11):
+for row in range(1, size + 1):
     # loop through each column
-    for y in range(1, 11):
+    for col in range(1, size + 1):
         # print one 'cell' of the table
-        print(x * y, end="\t")
+        print(row * col, end="\t")
     # go to the next line after this row is done
     print()
 </code></pre>
 
 <p>There are a couple things to notice here.  First, we have our nested loops.
 Each loop goes through the numbers 1 to 10.  We also have to give them a
-different variable (x and y in this case).  We couldn't use "i" for both
-because then one would overwrite the other.</p>
+different variable (<code>row</code> and <code>col</code> in this case).  We
+couldn't use "i" for both because then one would overwrite the other.</p>
 
-<p>The print that outputs the number uses the two variables x and y multiplied
-together.  We don't want each number to be on a line all by itself, so we have
-to tell Python not to end with a new line.  Instead we pass
-<code>end="\t"</code>.  The "\t" is a <em>tab character</em>.  By putting a tab
-after each character, we make sure the numbers line up nicely in columns.  We
-could have used a space and it would have worked, just looked a little
-messier.</p>
+<p>Also we pass <code>size + 1</code> as the end point to the <code>range</code>
+function.  That allows us to loop more or less depending on how big of a table
+the user requested.</p>
+
+<p>The print that outputs the number uses the two variables <code>row</code>
+and <code>col</code> multiplied together.  We don't want each number to be on a
+line all by itself, so we have to tell Python not to end with a new line.
+Instead we pass <code>end="\t"</code>.  The <code>"\t"</code> is a <em>tab
+character</em>.  By putting a tab after each character, we make sure the
+numbers line up nicely in columns.  We could have used a space and it would
+have worked, just looked a little messier.</p>
 
 <p>Then we have the funky looking line that calls <code>print()</code> with
 nothing at all between the parenthesis.  The purpose of this is to go down to
@@ -345,7 +368,7 @@ next line so the next row has room.  That's what that second print
 accomplishes.</p>
 
 <p>Nested loops can be tricky because you have to keep track of where you are
-in both at the same time.  This example shows how they can be used.</p>
+in both at the same time.</p>
 
 
 
@@ -353,7 +376,7 @@ in both at the same time.  This example shows how they can be used.</p>
 <hr />
 
 <p>As we mentioned in Chapter 1, computer science is not really the study of
-computers, it is the study of algorithms.  The main thing that computer
+computers &mdash; it is the study of algorithms.  The main thing that computer
 scientists do is come up with algorithms to solve various problems.  Usually
 they write the algorithms in a programming language like Python, but coming
 up with the algorithm in the first place is usually the hard part.</p>
@@ -363,8 +386,8 @@ that takes a bunch of time and practice.  That said, there are some techniques
 for breaking down a problem so that you can go about solving it.  This section
 will give some advice for doing this.</p>
 
-<p>The following are steps steps that I think are good to go through when
-tackling a new problem:</p>
+<p>The following are steps that I think are good to go through when tackling a
+new problem:</p>
 
 <ol>
 
@@ -423,7 +446,7 @@ easier to fix than programs in a full programming language.</p></li>
 <p>Once we are confident our basic algorithm is working, we can start putting
 it into actual code in a programming language (we'll use Python of course).
 Now instead of focusing on the problem itself, we will focus on the language's
-syntax and things like whether to make variables ints or floats.</p></li>
+syntax and finding all the functions we need.</p></li>
 
 
 <li><p><strong>Test the code</strong></p>
@@ -435,7 +458,7 @@ by hand and get the right answers.</p>
 <p>Another benefit of splitting our problem-solving steps into two parts
 is that we should not have to fix problems with the actual algorithm any
 more (those should have been caught in step 5).  Any problems now should
-be with translating our English steps into pseudocode.</p></li>
+be with translating our pseudocode steps into actual Python code.</p></li>
 </ol>
 
 <p>Experienced programmers will often skip steps 4 and 5, and jump right into
@@ -458,7 +481,7 @@ they worked.  If the hours worked are over 40, then the person is paid "time
 and a half" for their overtime.</p>
 
 <p>It's worth pointing out that the problem of solving one specific case of
-this problem (like if you worked 30 hours and make 8 dollars per hour) is just
+this problem (like if you worked 30 hours and make 12 dollars per hour) is just
 a math problem.  It becomes a computer science problem when we want to solve it
 <em>in general</em>.  With the right algorithm, we could solve any case of this
 problem at all &mdash; no matter what the inputs are, our algorithm will give
@@ -483,9 +506,9 @@ earned.</p>
 
 <p>For this problem, we should solve an example where the person doesn't get
 overtime and one where they do.  Let's start with the case where they
-don't get overtime.  Say they work for 20 hours, and make 12 dollars
+don't get overtime.  Say they work for 30 hours, and make 12 dollars
 per hour.  In this case, we should just multiply the two numbers together
-to get 20×12 = 240.</p>
+to get 30×12 = 360.</p>
 
 <p>In the case where the employee <em>does</em> get overtime, we have to
 do something extra.  Let's say they work 45 hours and make 10 dollars per
@@ -497,7 +520,7 @@ So in total we have 40×10 + 5×15 = 475.</p>
 <li><p><strong>Write the basic steps</strong></p>
 
 <p>We should use the steps we took solving the problem above to guide us in
-writing them out in English.  We will have identified the two main cases in
+writing them out in pseudocode.  We will have identified the two main cases in
 this problem, and might come up with something as straightforward as the
 following:</p>
 
@@ -577,7 +600,7 @@ flowchart is that it makes the control flow statements really clear.  In this
 case, you can see the decision (which is typically shown with a diamond shape
 in a flowchart), with branches for the "yes" and "no" cases.</p>
 
-<p>Flowcharts also make loops really clear.  We can make a flowchart for the 
+<p>Flowcharts also make loops easy to spot.  We can make a flowchart for the 
 problem of reading a valid age from the user.  The steps in the following
 algorithm keep asking the user for an age until they put in something that's
 not negative:</p>
@@ -591,17 +614,9 @@ because there is an arrow pointing back to a previous step." />
 
 <p>You can see the loop in this algorithm because of the arrow that's pointing
 back to a previous step (that's the arrow pointing from the "Read age again"
-step back around to the decision).  Flowcharts can be helpful as you are
+step back around to the decision).  Making flowcharts can be helpful as you are
 working on an algorithm, as they can help you understand the order that
 the steps need to be done in.</p>
-
-
-
-
-
-
-
-
 
 <div class="blackbox">
 <div class="blackbox-title">
@@ -611,7 +626,7 @@ the steps need to be done in.</p>
 <ul>
     <li>If, elif and else statements, along with our loop statements
         form Python's "control flow" statements.  These allow us to
-        control the order that program commands are done in.</li>
+        control the order that program instructions are done in.</li>
     <li>These control flow statements can be combined, or nested,
         any way we like.  We can put a loop inside of an if statement,
         or an if statement inside of a loop for example.  This ability
@@ -644,7 +659,7 @@ the steps need to be done in.</p>
 writing my "basic steps" as comments in my program files.  Then I read through
 and make sure the steps make sense before jumping into the code.  Then, I add
 the code, but leave the comments in to explain how the code is working.  I find
-this method works really well for me.  <a href="#back1" aria-label="Back to
+this method works well.  <a href="#back1" aria-label="Back to
 content">↩</a></li>
 
 </ol>
