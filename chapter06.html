@@ -9,10 +9,10 @@
 </div>
 <div class="blackbox-contents">
 <ul>
- 	<li>Learn how to write while loops to repeat code while some condition is True.</li>
+ 	<li>Learn how to write while loops to repeat code while some condition is true.</li>
  	<li>Understand infinite loops, and know how to stop a program with an infinite loop.</li>
  	<li>Learn how for loops work, and how to use them to loop through strings.</li>
- 	<li>Learn how to use the range command to create sequences of numbers that can be used with for loops.</li>
+ 	<li>Learn how to use the range function to create sequences of numbers that can be used with for loops.</li>
 </ul>
 </div>
 </div>
@@ -22,7 +22,7 @@
 <h2>6.1 Repeating Steps</h2>
 <hr />
 
-<p>Many algorithms are built on the concept of a <i>loop</i> where you
+<p>Many algorithms are built on the concept of a <strong>loop</strong> where you
 repeat some steps of the algorithm multiple times.  For example:</p>
 
 <ul>
@@ -93,8 +93,8 @@ indented under the loop.</p>
 
 <p>The difference is that, after we're done those statements, <em>we go back to
 the top</em>.  It will check the condition another time.  If it's
-<em>still</em> True, it does the loop again.  It will keep on doing it over and
-over again until the condition is False.</p>
+<em>still</em> true, it does the loop again.  It will keep on doing it over and
+over again until the condition is false.</p>
 
 <p>In this particular case, the program will find that the condition is true
 the first time, so it will print the number, and then add one to it.
@@ -133,12 +133,12 @@ print("Got it!")
 </code></pre>
 
 <p>This program will keep looping until the user enters "yes".  At that
-point, the condition becomes False and so the loop exits.</p>
+point, the condition becomes false and so the loop exits.</p>
 
 <p>There's quite a bit going on in this code, so let's go through it.</p>
 
 <ul>
-<li>First, we need to ask them the first question, whether their
+<li>First, we need to ask them the first question: whether their
 number was 1 or not.  We do this so that the variable answer is
 defined for the start of the loop.</li>
 
@@ -146,17 +146,17 @@ defined for the start of the loop.</li>
 "yes".  If it wasn't we go into the loop.  If it was, then we got it on
 the first try, and skip over the whole loop.</li>
 
-<li>Inside, we add 1 to the number variable.  This is how we change the
-thing we guess from 1, to 2, to 3, etc.</li>
+<li>Inside the loop body, we add 1 to the number variable.  This is how we
+change the thing we guess from 1, to 2, to 3, etc.</li>
 
 <li>We also ask them if the latest number is their guess or not.  Doing
 so is a little tricky.  Unlike <code>print</code>, the <code>input</code>
-command doesn't let us pass it numbers, only a string.  So we have to
-convert number to a string with the <code>str</code> command, and join
+function doesn't let us pass it numbers, only a string.  So we have to
+convert number to a string with the <code>str</code> function, and join
 it to the rest of the question.</li>
 
 <li>The code after the while loop, which prints "Got it!", will only
-happen once the condition becomes False.  For this program that means
+happen once the condition becomes false.  For this program that means
 that answer <em>was</em> yes.</li>
 
 </ul>
@@ -202,14 +202,12 @@ print("You are", age, "years old.")
 
 <p>Of course now, they can put in a negative number <em>three</em> times.
 Clearly this is not a great way of approaching this.  A better way would be to
-use a loop.</p>
-
-<p>In this case, we will want to keep on asking them, over and over again,
-until they eventually put in valid data.  Maybe this is the first try, or maybe
-it's the hundredth.</p>
+use a loop.  In this case, we will want to keep on asking them, over and over
+again, until they eventually put in valid data.  Maybe this is the first try,
+or maybe it's the hundredth.</p>
 
 <p>We can do it by simply replacing <code>if</code> with <code>while</code>.
-Now, the program will <i>keep</i> asking the user for data until it is
+Now, the program will <em>keep</em> asking the user for data until it is
 greater than or equal to 0.  Now the program looks like this:</p>
 
 <pre><code class="python">
@@ -235,8 +233,8 @@ How old are you for real? <span class="input">-7</span>
 Hey, your age can't be negative!
 How old are you for real? <span class="input">-1000</span>
 Hey, your age can't be negative!
-How old are you for real? <span class="input">34</span>
-You are 34 years old.
+How old are you for real? <span class="input">27</span>
+You are 27 years old.
 </pre>
 
 
@@ -251,8 +249,8 @@ You are 34 years old.
 <h2>6.4 Infinite Loops</h2>
 <hr />
 
-<p>One danger when creating loops is that the condition might <i>never</i>
-become True.  For example, there's a mistake in the program below which causes
+<p>One danger when creating loops is that the condition might <em>never</em>
+become true.  For example, there's a mistake in the program below which causes
 this:</p>
 
 
@@ -270,12 +268,12 @@ print("All done!")
 <p>Here we mistyped "number" as "numer".  So when we run the addition, it
 doesn't change number to be bigger.  Instead it makes a <em>new</em> variable.
 Because of our typo, the variable <code>number</code> never reaches 10, so the
-condition stays 10 forever.  This is called an <i>infinite loop</i> and is a
-common programming mistake.</p>
+condition stays false forever.  This is called an <em>infinite loop</em> and is
+a common programming mistake.</p>
 
 <p>If you run this program, it will never stop running.  It will just continue
 on forever.  Or until you stop it, which is probably what you will want to do.
-An infinite loop in Thonny, by hitting the stop button (<img
+You can do this in Thonny by hitting the stop button (<img
 src="images/stop.png">), or by choosing "Stop/Restart backend" from the "Run"
 menu.</p>
 
@@ -297,13 +295,13 @@ should work before we dive into some code:</p>
 
 <pre class="output">
 What's the first number? <span class="input">7</span>
-7
+Running total is 7
 Next: <span class="input">12</span>
-19
+Running total is 19
 Next: <span class="input">-5</span>
-14
+Running total is 14
 Next: <span class="input"> 2</span>
-16
+Running total is 16
 Next: <span class="input"> 0</span>
 The total is 16
 </pre>
@@ -317,7 +315,7 @@ total = number
 
 # keep going until they enter 0
 while number != 0:
-    print(total)
+    print("Running total is", total)
     number = int(input("Next: "))
     total = total + number
 
@@ -325,12 +323,12 @@ while number != 0:
 print("The total is", total)
 </code></pre>
 
-<p>We start by getting the first number from the user.  The "number" variable
-is used to store the thing they just entered.  The "total" variable is used to
-keep track of the running sum.  It starts as the same as the number first
-entered.</p>
+<p>We start by getting the first number from the user.  The <code>number</code>
+variable is used to store the thing they just entered.  The <code>total</code>
+variable is used to keep track of the running sum.  It starts as the same as
+the number first entered.</p>
 
-<p>The condition for this while loop is "number != 0".  So we will keep going
+<p>The condition for this while loop is <code>number != 0</code>.  So we will keep going
 as long as the number they entered wasn't 0.</p>
 
 <p>Inside the loop, we do a few things.  First we print out the total so the
@@ -339,19 +337,20 @@ Lastly we add it to the total variable.</p>
 
 <p>After the loop, we just print out the total sum.</p>
 
-<p>This kind of program would be <em>impossible</em> to write without a loop.
-Even if we wanted to copy and paste a bunch of code, we couldn't because we
-don't know ahead of time how many numbers the user will want to add.</p>
+<p>This kind of program would be <em>impossible</em> to write without a loop of
+some kind.  Even if we wanted to copy and paste a bunch of code, we couldn't
+because we don't know ahead of time how many numbers the user will want to
+add.</p>
 
 
 
 <h2>6.6 For Loops</h2>
 <hr />
 
-<p>There is another type of loop in Python called a "for" loop.  A for loop is
-similar to a while loop in that it lets you do some piece of code over and over
-again.  But it is different in that it loops through every element in a
-<em>sequence</em> of some kind.</p>
+<p>There is another type of loop in Python called a <strong>for loop</strong>.
+A for loop is similar to a while loop in that it lets you do some piece of code
+over and over again.  But it is different in that it loops through every
+element in a <em>sequence</em> of some kind.</p>
 
 <p>The only type of sequence we have seen so far is a string.  A string is a
 sequence of characters (which could be letters, digits, punctuation, etc.).  Below
@@ -365,17 +364,19 @@ for letter in name:
     print(letter)
 </code></pre>
 
-<p>The for loop looks a bit different from the while loop.  Instead of the condition,
-we have the word <code>for</code> followed by a variable name.  The variable name
-above is "letter".  Then we have the word <code>in</code>, followed by the sequence
-we are using.  In this case, that's the string name.</p>
+<p>The for loop looks a bit different from the while loop.  Instead of the
+condition, we have the word <code>for</code> followed by a variable name.  The
+variable name above is <code>letter</code>.  Then we have the word
+<code>in</code>, followed by the sequence we are using.  In this case, that's
+the string <code>name</code>.</p>
 
-<p>When you run a for loop, it makes the variable (letter in this case) equal to
-each thing in the sequence one-by-one.  It then runs the loop body on it.  So
-if we enter, let's say "Amy" as the name, then it will first set letter to "A".
-It will then run the loop body on "A".  Next it will run the loop body again, but
-with letter equal to "m".  Lastly it will run the loop body with letter as "y".
-Then it will stop.</p>
+<p>When you run a for loop, it makes the variable (<code>letter</code> in this
+case) equal to each thing in the sequence one-by-one.  It then runs the loop
+body on it.  So if we enter, let's say "Amy" as the name, then it will first
+set <code>letter</code> to "A".  It will then run the loop body on "A".  Next
+it will run the loop body again, but with <code>letter</code> equal to "m".
+Lastly it will run the loop body with <code>letter</code> as "y".  Then it will
+stop.</p>
 
 <p>The result of running this program can be seen below:</p>
 
@@ -390,13 +391,14 @@ y
 
 <p>Every for loop could be replaced by a while loop that does the same thing.
 In the example above, we could have written a while loop to count up to the
-length of the string, and used indexes to get the letters out.</p>
+length of the string, and used indices to get the letters out.</p>
 
 <p>But for loops have a few benefits when looping through a sequence:</p>
 
 <ul>
 <li>It's much harder to accidentally make an infinite for loop.</li>
-<li>For loops are a little easier to read.</li>
+<li>For loops are a little easier to read.  They make our intention of looping
+through a sequence more obvious.</li>
 </ul>
 
 
@@ -404,19 +406,18 @@ length of the string, and used indexes to get the letters out.</p>
 
 
 
-<h2>6.7 The range Command</h2>
+<h2>6.7 The range Function</h2>
 <hr />
 
 <p>For loops can be used to loop through any <em>sequence</em>.  A string is
 just one type of sequence.  There are several others in Python.  The next one
 that we will look at is a <em>range</em>.</p>
 
-<p>The <code>range</code> command is used to create a sequence of numbers.
-For example, we could use <code>range</code> to make a sequence of numbers
-from 1 through 10.  Or a sequence of numbers from 25 down to 5.</p>
-
-<p>We can combine <code>range</code> with a for loop to write code that
-does something for each number in the sequence.</p>
+<p>The <code>range</code> function is used to create a sequence of numbers.
+For example, we could use <code>range</code> to make a sequence of numbers from
+1 through 10.  Or a sequence of numbers from 25 down to 5.  We can then combine
+<code>range</code> with a for loop to write code that does something for each
+number in the sequence.</p>
 
 
 <p>If we pass <code>range</code> 1 number, it will give us a sequence from
@@ -428,8 +429,10 @@ for i in range(10):
 </code></pre>
 
 <p>Then range will give us a sequence of numbers going from 0 through 9.
-Instead of starting at 1, range starts at 0 &mdash; just like string indices.
-If we run this program, we will get:</p>
+Instead of starting at 1, range starts at 0 &mdash; just like string indices<a
+class="anchor" id="back1">&nbsp;</a><a href="#note1"
+aria-describedby="footnote-label"></a>.  If we run this program, we will
+get:</p>
 
 <pre class="output">
 0
@@ -445,8 +448,8 @@ If we run this program, we will get:</p>
 </pre>
 
 <p>Just like the for loop with a string, this for loop sets our variable
-(called "i")  to each thing in the sequence one by one.  It then runs the loop
-body once for each value.</p>
+(called <code>i</code>)  to each thing in the sequence one by one.  It then
+runs the loop body once for each value.</p>
 
 <p>If we don't want to start on 0, we can also pass range a starting point.  To
 do that, we have to pass two numbers.  The first is the start and the second is
@@ -521,13 +524,13 @@ for i in range(10, 0, -1):
 <hr />
 
 <p>As an example of a for loop with a range, let's write a program which gives
-us a table of Celsius temperatures with the equivalent Fahrenheit temperature.
+us a table of Celsius temperatures with their equivalent Fahrenheit temperatures.
 Rather than read in one, and print out the other, we will just print a whole
 table.  That way the user can see how the two relate.</p>
 
 <p>One part of this is converting one temperature from Fahrenheit to Celsius.
 We can do this by subtracting 32 from the Fahrenheit temperature and then
-multiplying by $\frac{5}{9}$.</p>
+multiplying by <sup>5</sup>&#8260;<sub>9</sub>.</p>
 
 <p>The next part is doing this for a bunch of temperatures.  To be helpful,
 let's make the range of temperatures start at the lowest Fahrenheit temperature
@@ -541,7 +544,7 @@ want to end at.</p>
 go in increments of 5°.  To do this, we can just pass 5 for the last thing
 to <code>range</code>.</p>
 
-<p>The whole program, then, is given below:</p>
+<p>The program, then, is given below:</p>
 
 <pre><code class="python">
 # loop from 0 to 100, going 5 at a time
@@ -554,9 +557,9 @@ for far in range(0, 101, 5):
     print(far, "degrees F =", cel, "degrees C")
 </code></pre>
 
-<p>Here our loop variable is called "far" (short for Fahrenheit).  It is given
-all the values in the sequence of numbers we make with range.  First it's 0, then
-5, then 10, all the way to 100.</p>
+<p>Here our loop variable is called <code>far</code> (short for Fahrenheit).
+It is given all the values in the sequence of numbers we make with range.
+First it's 0, then 5, then 10, all the way to 100.</p>
 
 <p>For each time through the loop, we do all of the commands on the loop body.
 This converts to a Celsius temperature, rounds it, and prints out the two
@@ -601,21 +604,34 @@ with loops.  Almost all algorithms use looping in some fashion.</p>
 <ul>
  	<li>Many algorithms use looping, which is repeating some steps of the algorithm
         multiple times.</li>
- 	<li>While loops are based on a condition.  They check if the condition is True.
+ 	<li>While loops are based on a condition.  They check if the condition is true.
         If it is, they run the code in the loop body.  They then check the condition
-        again.  They will keep doing this until the condition is False.</li>
- 	<li>It is possible to make a loop where the condition will never become True.
+        again.  They will keep doing this until the condition is false.</li>
+ 	<li>It is possible to make a loop where the condition will never become true.
         This is called an infinite loop, and usually is a mistake.</li>
  	<li>A for loop is used to do something with every part of a sequence.</li>
  	<li>A string is a sequence.  If you want to do something with every character
         in a string, a for loop works best.</li>
- 	<li>We can also create sequences of numbers with the <code>range</code> command.
+ 	<li>We can also create sequences of numbers with the <code>range</code> function.
         <code>range</code> can be given a starting point, an ending point, and the
         amount to increase or decrease by.</li>
 </ul>
 </div>
 </div>
 
+
+
+
+<footer>
+<h2 class="visually-hidden" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="note1">It might seem weird at first, but we count starting at 0 in
+computer science.  The reason has to do with the fact that memory addresses are
+calculated based on an offset past the start of something.  So the first symbol
+in a string is stored 0 bytes past the beginning.
+<a href="#back1" aria-label="Back to content">↩</a></li>
+</ol>
+</footer>
 
 
 
