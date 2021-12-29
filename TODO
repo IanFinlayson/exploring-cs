@@ -1,18 +1,11 @@
- - Maybe get rid of flowcharts from chapter 7?
-
- - Add constants like pi to chapter 8?
-
- - Move the discussion of functions and objects from 9 into 8.
-
+ - move discussion of string methods from 7 (pw example) to 4 (string type)
+ 
  - use "method" instead of "function" when applicable
 
- - In functions chapter, use something besides Pong in motivating example!
+ - In functions chapter, use something besides Pong in motivating example?
 
  - add something to 11 about the mechanics of function calls - pausing execution
    and then jumping back and such.
-
- - in 11 I say we've seen even/odd checks....but have we? YES! In chapter 7
-
 
  - switch graphics to PyGame
 
