@@ -107,7 +107,7 @@ write <code>math.sqrt</code> every time instead of just <code>sqrt</code>.</p>
 which looks like this:</p>
 
 <pre><code class="python">
-from math import sqrt 
+from math import sqrt
 </code></pre>
 
 <p>This tells Python that we want to use the <code>sqrt</code> function from the math
@@ -392,54 +392,78 @@ You win!
 <h2>8.7 Third-Party Libraries</h2>
 <hr />
 
-<p>The math and random libraries both come with Python.  If you have Python installed,
-you can import them and start using them right away.  In this section we'll talk about
-how to use libraries that Python <em>doesn't</em> come with.  These are sometimes called
-"third-party" libraries since some other person besides you and the language designers
-created them.</p>
+<p>The math and random libraries both come with Python.  If you have Python
+installed, you can import them and start using them right away.  In this
+section we'll talk about how to use libraries that Python <em>doesn't</em> come
+with.  These are sometimes called "third-party" libraries since some other
+person besides you and the language designers created them.</p>
 
-<p>Python programmers who want to share a library they created with the world do so
-on the <a href="https://pypi.org/">Python Package Index (PyPI)</a>.  This is a
-common repository for sharing code in a placer everyone can find it.  Most of the
-widely used libraries on PyPI are very complex, with many of them having entire textbooks
-devoted just to them.</p>
+<p>Python programmers who want to share a library they created with the world
+do so on the <a href="https://pypi.org/">Python Package Index (PyPI)</a>.  This
+is a common repository for sharing code in a placer everyone can find it.  Most
+of the widely used libraries on PyPI are very complex, with many of them having
+entire textbooks devoted just to them.</p>
 
-<p>As an example of one simple third-party library, we will talk about the "emoji"
-library, which you can read about on the <a href="https://pypi.org/project/emoji/">PyPI emjoi page</a>.
-This library solves the very important problem of letting coders get emojis into their
-programs based on their codes.  To be able to use it, we first must install it.  Luckily,
-Thonny makes this very easy.</p>
+<p>As an example of one simple third-party library, we will talk about the
+"art" library, which you can read about on the <a
+href="https://pypi.org/project/art/">PyPI art page</a>.  This library solves
+the very important problem of printing messages in fancier "ASCII art" fonts.
+To be able to use it, we first must install it.  Luckily, Thonny makes this
+very easy.</p>
 
-<p>Start by clicking "Tools" on the toolbar, and then "Manage Packages...".  That pulls up
-a window that looks something like this:</p>
+<p>Start by clicking "Tools" on the toolbar, and then "Manage Packages...".
+That pulls up a window that looks something like this:</p>
 
-TODO
+<figure>
+<img src="images/pkgs1.png"
+alt="The screen shows a list of packages installed, along with
+a search bar where one can search for new packages to install." />
+<figcaption>The Manage Packages Screen</figcaption>
+</figure>
 
-<p>Now we can search PyPI for the emjoi package.  There are several results, so
-click on the one that just says "emjoi":</p>
 
-TODO
+<p>Now we can search PyPI for the art package.  There are several results, so
+click on the one that just says "art":</p>
+
+<figure>
+<img src="images/pkgs2.png"
+alt="This screen shows the result of searching for the 'art' package.
+There are several results with the one just called 'art' being the
+one we want." />
+<figcaption>The Search Results for "art"</figcaption>
+</figure>
 
 <p>That brings you to this page.  Click "Install" to install the package:</p>
 
-TODO
+<figure>
+<img src="images/pkgs3.png"
+alt="This screen shows details on the art package, including a short description,
+the version and the home page.  There is also a button to install the package." />
+<figcaption>The art Package Screen</figcaption>
+</figure>
 
-<p>We should now have the library and be ready to use it.  Let's try it out with
-just a simple program:</p>
+<p>We should now have the library and be ready to use it.  It comes with
+several functions you can read about on its home page.  For now let's just call
+the <code>art.tprint</code> function which takes a string and prints it out
+in a fancy ASCII art font:</p>
 
 <pre>
 <code class="python">
-import emoji
+import art
 
-output = emoji.emojize("Python is fun :snake:")
-print(output)
+# print the message in a fancy way
+art.tprint("Hello!")
 </code>
 </pre>
 
 <p>That gives us this exciting output:</p>
 
 <pre class="output">
-Python is fun 🐍
+ _   _        _  _         _
+| | | |  ___ | || |  ___  | |
+| |_| | / _ \| || | / _ \ | |
+|  _  ||  __/| || || (_) ||_|
+|_| |_| \___||_||_| \___/ (_)
 </pre>
 
 
