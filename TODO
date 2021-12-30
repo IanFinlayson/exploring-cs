@@ -1,5 +1,3 @@
- - move discussion of string methods from 7 (pw example) to 4 (string type)
- 
  - use "method" instead of "function" when applicable
 
  - In functions chapter, use something besides Pong in motivating example?
