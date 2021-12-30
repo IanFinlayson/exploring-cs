@@ -245,9 +245,48 @@ string is sometimes necessary.  For example, if a string has several things in
 it, like a first name and a last name, you may need to look at each character
 to see where the first name ends and the last name begins.</p>
 
+<h2>4.5 String Methods</h2>
+<hr />
+
+<p>There are other things we can do with strings, but first we need to talk
+about a new term.  We have seen several functions <code>print</code> and
+<code>input</code> which are called <em>functions</em>.  There is a similar
+concept in Python called a <strong>method</strong> which is like a function,
+but is called on a variable.  To call a method, you give the variable, then a
+<code>.</code> then the name of the method, and finally parenthesis.</code>
+
+<p>For instance, strings have a method called <code>upper</code> which
+gives back a version of the string in all capital letters.  We can call this
+method like this:</p>
+
+<pre>
+<code class="python">
+mesg = input("Enter a message: ")
+
+allcaps = mesg.upper()
+print(allcaps)
+</code>
+</pre>
+
+<p>Here we get a string from the user with <code>input</code>.  Then we call
+the <code>upper</code> method on that string.  This gives us back a new string
+with all the lower-case letters swapped for capital ones.  We then print that
+out.  Here's an example run:</p>
+
+<pre class="output">
+Enter a message: <span class="input">hello there.</span>
+HELLO THERE.
+</pre>
+
+<p>There is also a method called <code>lower</code> which gives us the
+all lower-case version.  There are a few more helpful methods that we will
+see in examples later in this book.  The important thing to take note of
+here is that these methods only make sense on strings.  Numbers, or other
+types of data can't be lower-case or upper-case.  So the type of thing you
+have is important.</p>
 
 
-<h2>4.5 Numbers</h2>
+<h2>4.6 Numbers</h2>
 <hr />
 
 <p>Many programs work with numerical data, so numbers are another important
@@ -321,7 +360,7 @@ fractional component, because integers are exact.  When a number might have a
 fraction, you have to use a float.</p>
 
 
-<h2>4.6 Number Input</h2>
+<h2>4.7 Number Input</h2>
 <hr />
 
 <p>To read in a float from the user, we can't just use the <code>input</code>
@@ -370,7 +409,7 @@ line, the program won't continue.</p>
 
 
 
-<h2>4.7 Doing Math</h2>
+<h2>4.8 Doing Math</h2>
 <hr />
 
 
@@ -429,7 +468,7 @@ overridden with parenthesis.</p>
 
 
 
-<h2>4.8 Example: Tips</h2>
+<h2>4.9 Example: Tips</h2>
 <hr />
 
 <p>As an example of working with numbers, let's write a program that can figure
@@ -504,9 +543,6 @@ How much was the bill? <span class="input">32.40</span>
 The amount with 15% tip is 37.26
 </pre>
 
-
-<h2>4.9 Variable Tip</h2>
-<hr />
 
 <p>This program would be quite helpful in figuring out how
 much to tip a server, but we can make it even better.  What

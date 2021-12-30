@@ -207,17 +207,11 @@ though.  The approach we will take is to loop through the entire
 password one character at a time.  For each character, we will check
 if it is one of the three things we need to look for.</p>
 
-<p>To do this, we need a little bit of syntax we haven't seen yet.
-Things like <code>print</code>, <code>input</code>, <code>round</code>,
-etc. are called <em>functions</em>.  There is a similar concept in Python
-called a <strong>method</strong> which is like a function, but is called
-on a variable.  To call a method, you give the variable, then a <code>.</code>
-then the name of the method, and finally parenthesis.</code>
-
-<p>String variables have several methods we can call.  The ones we need now are
-called <code>isupper</code>, <code>islower</code>, and <code>isdigit</code>.
+<p>In order to do this, we will need a couple new string methods.
+These are <code>isupper</code>, <code>islower</code>, and <code>isdigit</code>.
 These each return true if the string contains only upper-case letters, lower-case
-letters or digits respectively.</p>
+letters or digits respectively.  We'll call these on each letter to see what
+sort of character it is.</p>
 
 <p>In doing this, we also need to keep track of whether <em>any</em> of the
 symbols in the password are in one of these three categories or not.  We will
