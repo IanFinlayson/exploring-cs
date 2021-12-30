@@ -9,7 +9,7 @@
 </div>
 <div class="blackbox-contents">
 <ul>
-    <li>Understand the purpose for list variables in Python.</li>
+    <li>Understand the purpose of list variables in Python.</li>
     <li>Learn how to create lists of data, and index them to get values out.</li>
     <li>Learn how to loop through lists with for loops.</li>
     <li>Be able to add values to a list.</li>
@@ -51,9 +51,10 @@ average = total / 10
 
 <p>This hopefully seems a little bit tedious and repetitive.  We have to make
 10 different variables and do the same thing with all of them.  Here, it's not
-<em>too</em> bad with 10.  But imagine if we had even more numbers we wanted to keep
-track.  For instance, imagine you <em>teaching</em> a course and wanted to store
-all 10 quiz grades from 25 students.  That would be a lot of variables!</p>
+<em>too</em> bad with 10.  But imagine if we had even more numbers we wanted to
+keep track.  For instance, imagine you're <em>teaching</em> a course and wanted
+to store all 10 quiz grades from 25 students.  That would be a lot of
+variables!</p>
 
 <p>There is a better way of doing this which is to use a <strong>list</strong>.
 A list is a collection of multiple pieces of data that are stored together
@@ -77,15 +78,6 @@ quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
 names = ["Bob", "Alice", "Joe", "Mary"]
 </code></pre>
 
-<p>Or a list of graphical objects like lines:</p>
-
-<pre><code class="python">
-from graphics import *
-lines = [Line(Point(0, 0), Point(0, 10)),
-         Line(Point(10, 0), Point(10, 10)),
-         Line(Point(20, 0), Point(20, 10)),
-         Line(Point(30, 0), Point(30, 10))]
-</code></pre>
 
 <p>Each of these lists stores <em>all</em> of the values inside them.
 Lists provide a convenient way to store a bunch of things together with
@@ -97,9 +89,8 @@ one name to access them.</p>
 <hr />
 
 <p>Once we have created a list, we can access each thing in the list.  To do
-this, we can use the position of each element we want to access.</p>
-
-<p>Like strings, the first thing in the list is at position 0.  The second
+this, we can use the position of each element we want to access.
+Like strings, the first thing in the list is at position 0.  The second
 element is at position 1, and so on.  Starting at position 1 is a common
 mistake in programming.</p>
 
@@ -150,10 +141,10 @@ elif month == 3:
 # and so on...
 </code></pre>
 
-<p>This can actually be done with less code (and more efficiently) using lists.
-We can make a list of all the month names.  We could then <em>index</em> the list
-with the month number.  We will have to subtract 1 from the index because month
-numbers start at 1, but list numbers start at 0.</p>
+<p>But this can actually be done with less code (and more efficiently) using
+lists.  We can make a list of all the month names.  We could then
+<em>index</em> the list with the month number.  We will have to subtract 1 from
+the index because month numbers start at 1, but list numbers start at 0.</p>
 
 <pre><code class="python">
 # get our input
@@ -207,29 +198,40 @@ for quiz in quizzes:
     print(quiz)
 </code></pre>
 
-<p>The for loop assigns each thing in the list to "quiz", one by one, and
-executes the lines under the for loop on it.  In this case, it will print
-all of the quiz scores to the screen one by one.  By changing the code in
+<p>The for loop assigns each thing in the list to <code>quiz</code>, one by
+one, and executes the lines under the for loop on it.  In this case, it will
+print all of the quiz scores to the screen one by one.  By changing the code in
 the loop, we can do different things with each item.</p>
 
 <p>To add all of the quiz scores together, we can do the following:</p>
 
 <pre><code class="python">
+# our list of quiz scores
 quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
 
+# figure out the total score
 total = 0
 for quiz in quizzes:
     total = total + quiz
 
+# find the average and print it
 average = total / len(quizzes)
 print("Your average score is", average)
 </code></pre>
 
-<p>This is much easier than having to add all 10 variables by typing them all
-out!  We also can add more quiz scores to the list without having to redo the
-code to find the average.  This example also shows using the <code>len</code>
-function to find the length of a list &mdash; this works the same way it
-does for strings.</p>
+<p>The <code>total</code> variable here is worth talking about a little bit.
+We set it to 0 before the loop and then also set it inside the loop.  What
+we set it to there is <code>total + quiz</code>.  So the first thing it's equal
+to is 0, then we set it to that 0 plus the first quiz value, so it becomes
+88.  Then the next time through the loop, we set it to the 88 it is now plus
+the 94, resulting in total storing 182.  This kind of "accumulation" loop is
+common in coding.</p>
+
+<p>This is much less code than having to add all 10 variables by typing them
+all out!  We also can add more quiz scores to the list without having to redo
+the code to find the average.  This example also shows using the
+<code>len</code> function to find the length of a list &mdash; this works the
+same way it does for strings.</p>
 
 
 
@@ -328,12 +330,12 @@ Got it!
 <hr />
 
 <p>One very helpful thing we can do with strings is to call their
-<code>split</code> function, which splits the string into parts by some
+<code>split</code> method, which splits the string into parts by some
 separator (which we get to choose).  This can allow us to go through each word
 of a sentence, for example.</p>
 
 <p>The following program does just that.  It asks the user to input a sentence.
-It then calls the <code>split</code> function to split it based on spaces.  This
+It then calls the <code>split</code> method to split it based on spaces.  This
 gives us back a list variable (which we call words).  We can then do what we want
 to with those individual words.  Here we just print them out.</p>
 
@@ -366,13 +368,9 @@ dog
 
 
 
-
-<h2>9.8 Example: Reading lists of Numbers</h2>
-<hr />
-
-<p>Above we talked about a program to calculate our quiz
-average for a class.  In this program we "hard-coded" our
-quiz scores into the program with the following line of code:</p>
+<p>We can use this to improve our quiz grade averaging program.  In this
+program we "hard-coded" our quiz scores into the program with the following
+line of code:</p>
 
 <pre><code class="python">
 quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
@@ -409,7 +407,7 @@ print("Average is", total / len(quizzes))
 </code></pre>
 
 <p>One wrinkle here is that our list is actually storing strings,
-because that's what the <code>split</code> function returns to us.
+because that's what the <code>split</code> method returns to us.
 So when we do the adding we have got to convert the numbers to
 int first.</p>
 
@@ -425,7 +423,7 @@ the average.</p>
 
 
 
-<h2>9.9 Adding to a List</h2>
+<h2>9.8 Adding to a List</h2>
 <hr />
 
 <p>So far we have looked at making lists all in one go, either by getting the
@@ -437,7 +435,7 @@ names = ["Bob", "Alice", "Joe", "Mary"]
 </code></pre>
 
 <p>But what if we want to add an item to a list that already exists?  This can
-be done with the <code>append</code> list function.  For instance, this code
+be done with the <code>append</code> list method.  For instance, this code
 will add two new names to the list:</p>
 
 <pre><code class="python">
@@ -449,12 +447,9 @@ names.append("Beatrice")
 As we will see, there are lots of cases where being able to add to a list is handy.</p>
 
 
-<h2>9.10 Inserting into a List</h2>
-<hr />
-
-<p>The append function adds items on to the <em>end</em> of the list.  If we
-wanted to add an item somewhere else, we can use the insert function instead.
-This function takes two parameters.  The first is the index we want to insert
+<p>The <code>append</code> method adds items on to the <em>end</em> of the list.  If we
+wanted to add an item somewhere else, we can use the <code>insert</code> method instead.
+This method takes two parameters.  The first is the index we want to insert
 at.  The second parameter is the item we would like to insert.</p>
 
 <p>The following code starts by making an empty list, and then inserting
@@ -468,16 +463,14 @@ names.insert(1, "James")
 print(names)
 </code></pre>
 
-<p>This example will print ['Alice', 'James', 'Bob'].</p>
+<p>This example will print <code>['Alice', 'James', 'Bob']</code>.</p>
 
 <p>When "Bob" is inserted
-at position 0, it's the only one, so the list is ["Bob"].</p>
-
-<p>Then, when "Alice" is inserted at location 0, the list becomes ["Alice",
-"Bob"].</p>
-
-<p>Finally, when "James" is inserted at location 1, he is inserted between Alice
-and Bob to make the list ["Alice", "James", "Bob"].</p>
+at position 0, it's the only one, so the list is <code>["Bob"]</code>.
+Then, when "Alice" is inserted at location 0, the list becomes <code>["Alice",
+"Bob"]</code>.
+Finally, when "James" is inserted at location 1, he is inserted between Alice
+and Bob to make the list <code>["Alice", "James", "Bob"]</code>.</p>
 
 <p>If we care about the <em>order</em> of the list, insert lets us choose where
 to put new items.</p>
@@ -485,11 +478,11 @@ to put new items.</p>
 
 
 
-<h2>9.11 Reading in a List</h2>
+<h2>9.9 Reading in a List</h2>
 <hr />
 
 <p>We've seen one way to read in a list in Python, using the <code>split</code>
-function.  Here we ask the user to enter all the values on one line, with
+method.  Here we ask the user to enter all the values on one line, with
 some separator like a space or comma.  This works well sometimes, but there
 are some downsides.  One is that it reads it all in as strings, and another
 is that it might be inconvenient if there's a lot of items to read.</p>
@@ -551,6 +544,11 @@ print(quizzes)
 </code></pre>
 
 
+<p>Note in this example that we need to read in a quiz grade twice.  The first
+time is done before the loop to make sure that the <code>item</code> variable
+is defined before we test it in our while condition.  Then we read it again
+inside the loop to make sure it can happen for every quiz the user wants to
+enter.</p>
 
 
 
