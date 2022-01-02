@@ -1,12 +1,6 @@
- - use "method" instead of "function" when applicable
-
- - In functions chapter, use something besides Pong in motivating example?
-
- - add something to 11 about the mechanics of function calls - pausing execution
-   and then jumping back and such.
-
  - switch graphics to PyGame
 
  - Replace the figures with svg ones
 
  - AI chapter explaining approaches including neural networks, also cyber chapter, and others???
+ 
