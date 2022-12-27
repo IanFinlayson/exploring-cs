@@ -164,12 +164,19 @@ names ("AnneSmith"), which is then printed out.</p>
 
 <p>We can add as many strings together as we want.  For example, we can make it
 so there is a space between the users first and last name by joining a space in
-between like this:</p>
+between them.  The program with this fix is here:</p>
 
+<strong>Program 4.1</strong>
 <pre>
 <code class="python">
+# read the names from the user
+first = input("What is your first name? ")
+last = input("What is your last name? ")
+
 # join them together in a new variable, with a space
 fullName = first + " " + last
+
+print(fullName)
 </code>
 </pre>
 
@@ -188,6 +195,7 @@ space, and an exclamation mark.</p>
 The following program will get a string from the user and then print how
 long it is:</p>
 
+<strong>Program 4.2</strong>
 <pre>
 <code class="python">
 # program to print the length of the user's input
@@ -224,6 +232,7 @@ brackets.</p>
 <p>For example, we can write a program that prints out the first letter of our
 input like this:</p>
 
+<strong>Program 4.3</strong>
 <pre>
 <code class="python">
 # program to print just the first letter of the user's input
@@ -418,6 +427,7 @@ we can do with them.  We saw that + can be used to join together strings.
 With numbers it adds them together.  The following program reads two float
 numbers from the user and then adds them together, displaying the result:</p>
 
+<strong>Program 4.4</strong>
 <pre>
 <code class="python">
 # this program adds two numbers given by the user
@@ -523,6 +533,7 @@ print("The amount with tip is", total)
 <p>This will print out the full amount with tip added in, which we have just calculated.
 The whole program with comments added is below:</p>
 
+<strong>Program 4.5</strong>
 <pre>
 <code class="python">
 # read in the starting cost
@@ -590,6 +601,7 @@ total = cost * (1 + percentage/100)
 <p>Notice that we used parenthesis to make sure to do the addition before the
 multiplication.  The new and improved version of the program is below:</p>
 
+<strong>Program 4.6</strong>
 <pre>
 <code class="python">
 # read in the starting cost and tip amount
@@ -653,6 +665,7 @@ will round down to 4.</p>
 
 <p>The program with this fix in place would look like this:</p>
 
+<strong>Program 4.7</strong>
 <pre>
 <code class="python">
 # read in the starting cost and tip amount

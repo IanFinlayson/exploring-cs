@@ -1,6 +1,20 @@
- - switch graphics to PyGame
+ - talk about tuples some place (used in graphics)
+
+ - replace coordinate window picture in chapter 11
+
+ - put in chapter on files 
+
+ - put in something on modulus operator 
 
  - Replace the figures with svg ones
 
  - AI chapter explaining approaches including neural networks, also cyber chapter, and others???
+ 
+ - Maybe make a way to read the book section-by-section instead of chapter by chapter??
+ 
+ - put in challenge problems at end of each chapter (except 2 I guess)
+    also "test your undestanding questions"
+
+ - look and see if there's a chance to use "Program 4.2" instead of "the program from eariler"
+ or similar now that we have program titles.
  
