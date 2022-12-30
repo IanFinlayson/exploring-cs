@@ -89,6 +89,10 @@ process_page() {
 
     # convert this page into temp
     pandoc -o ./temp.html $1.md
+    
+    # start by dumping in the boilerplate preamble, and building the navbar
+    cat boiler/preamble.html >> html/$1.html
+    produce_navbar $1 >> html/$1.html
 
     # we need to fix an issue where the back links from the footnotes are obscured by the navbar
     # to do this, we put in a hidden <a> with the anchor class just before the real one.  The
@@ -97,11 +101,12 @@ process_page() {
     # into: <a class="anchor" id="fnref1">&nbsp;</a><a href="#fn1" class="footnote-ref" role="doc-noteref">
     sed -i 's/<a href="#fn\([0-9]\+\)" class="footnote-ref" id="fnref[0-9]\+" role="doc-noteref">/<a class="anchor" id="fnref\1">\&nbsp;<\/a><a href="#fn\1" class="footnote-ref" role="doc-noteref">/' ./temp.html
     
+    # ALSO we have the same issue with the links to the section headings, so we apply the same fix
+    # change: <h2 id="example-password-strength">7.4 Example: Password Strength</h2>
+    # into: <a class="anchor" id="example-password-strength">&nbsp;</a><h2>7.4 Example: Password Strength</h2>
+    sed -i 's/<h2 id="\([^"]*\)">\([^<]*\)<\/h2>/<a class="anchor" id="\1">\&nbsp;<\/a><h2>\2<\/h2>/' ./temp.html
 
-
-    # build page from boiler plates with content in middle
-    cat boiler/preamble.html >> html/$1.html
-    produce_navbar $1 >> html/$1.html
+    # now dump the content, followed by postamble
     cat ./temp.html >> html/$1.html
     cat boiler/postamble.html >> html/$1.html
 
