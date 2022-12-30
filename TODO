@@ -1,3 +1,22 @@
+Markdown Conversion:
+    - output blocks
+    - algorithm blocks
+    - python shell blocks
+    - put in section anchors for the <h2> links so they aren't blocked by navbar :\
+    - maybe do the thing where the footnotes are highlighted...hopefully
+    - go through md and get rid of any junk
+    - replace in the exploring-cs directory & do the git update!
+
+
+
+
+
+
+
+
+
+
+
  - talk about tuples some place (used in graphics)
 
  - replace coordinate window picture in chapter 11

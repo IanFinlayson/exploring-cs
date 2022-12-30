@@ -1,0 +1,132 @@
+#!/bin/bash
+
+produce_navbar() {
+
+    # list of the chapters for making the nav bar
+    parts=("title" "preface" "chapter01" "chapter02" "chapter03" "chapter04" "chapter05" "chapter06" "chapter07" "chapter08" "chapter09" "chapter10" "chapter11")
+    display=("Title" "Preface" "Chapter 1" "Chapter 2" "Chapter 3" "Chapter 4" "Chapter 5" "Chapter 6" "Chapter 7" "Chapter 8" "Chapter 9" "Chapter 10" "Chapter 11")
+    titles=("Exploring Computer Science" "Exploring Computer Science" "The Road Ahead" "Getting Started" "First Programs" "Types and Operations" "Making Decisions" "Going Back Again" "Algorithms" "Using Libraries" "Lists" "Functions" "Graphics Programming")
+
+    # get the target, scrubbing the leading "exploring-cs/"
+    target=$1
+
+    # find index of the thingy we're doing
+    idx="0"
+    for i in "${!parts[@]}"; do
+        if [[ "${parts[$i]}" = "${target}" ]]; then
+            idx="${i}"
+        fi
+    done
+    
+    # write the title and close out the header
+    echo "<title>${display[$idx]}: ${titles[$idx]}</title>"
+    echo "</head>"
+    echo "<body onload=\"iansetup()\">"
+
+    # start the nav bar
+    echo "<div class=\"topnav\">"
+
+    # find the back part and put it in the navbar
+    if [ $idx -ge 1 ]
+    then
+        back=$(($idx - 1))
+        link=${parts[$back]}
+        disp=${display[$back]}
+        echo "<a href=\"$link\">← $disp</a>"
+    else
+        echo "<a href=\"/exploring-cs\">← Home</a>"
+    fi
+
+    # dump just the sections into a text file
+    grep "<h2 id=\"[^\"]*\">[^<]*</h2>" temp.html > sections.txt
+
+    # get the number of sections we've got
+    sectioncount=$(wc -l sections.txt | awk '{print $1;}')
+
+    # only do sections if there are some
+    if [ $sectioncount -gt 1 ]
+    then
+        # print the dropdown for contents in this page
+        echo "<div class=\"dropdown\">"
+        echo "<a class=\"dropbtn\">Contents ▼</a>"
+        echo "<div class=\"dropdown-content\">"
+
+        # go through each section we got
+        cat sections.txt | while read line 
+        do
+            # do something with $line here
+            regex="<h2 id=\"([^\"]*)\">([^<]*)</h2>"
+            [[ $line =~ $regex ]]
+            id="${BASH_REMATCH[1]}"
+            name="${BASH_REMATCH[2]}"
+            echo "<a href=\"#$id\">$name</a>" 
+        done
+        
+        # finish the drop down part
+        echo "</div>"
+        echo "</div>"
+    fi
+    rm -f sections.txt
+
+    # find the next part (if we're not at end) and dump its link in
+    length=${#parts[@]}
+    if [ $idx -lt $(($length - 1)) ]
+    then
+        next=$(($idx + 1))
+        link=${parts[$next]}
+        disp=${display[$next]}
+        echo "<a class=\"righty\" href=\"$link\">$disp →</a>"
+    fi
+
+    # finish up and start the main content
+    echo "</div>"
+    echo "<div class=\"main\">"
+}
+
+process_page() {
+    # remove temp file and old html (if it exists)
+    rm -f ./temp.html html/$1.html
+
+    # convert this page into temp
+    pandoc -o ./temp.html $1.md
+
+    # we need to fix an issue where the back links from the footnotes are obscured by the navbar
+    # to do this, we put in a hidden <a> with the anchor class just before the real one.  The
+    # CSS makes this anchor above the other by the height of the navbar
+    # change: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref">
+    # into: <a class="anchor" id="fnref1">&nbsp;</a><a href="#fn1" class="footnote-ref" role="doc-noteref">
+    sed -i 's/<a href="#fn\([0-9]\+\)" class="footnote-ref" id="fnref[0-9]\+" role="doc-noteref">/<a class="anchor" id="fnref\1">\&nbsp;<\/a><a href="#fn\1" class="footnote-ref" role="doc-noteref">/' ./temp.html
+    
+
+
+    # build page from boiler plates with content in middle
+    cat boiler/preamble.html >> html/$1.html
+    produce_navbar $1 >> html/$1.html
+    cat ./temp.html >> html/$1.html
+    cat boiler/postamble.html >> html/$1.html
+
+    # clean up
+    rm -f ./temp.html 
+}
+
+mkdir -p html
+process_page title
+process_page preface
+process_page chapter01
+process_page chapter02
+process_page chapter03
+process_page chapter04
+process_page chapter05
+process_page chapter06
+process_page chapter07
+process_page chapter08
+process_page chapter09
+process_page chapter10
+process_page chapter11
+
+# make a link to the images directory so html pages can refer to them
+if [ ! -L html/images ]
+then
+    cd html && ln -s ../images ./images && cd ..
+fi
+

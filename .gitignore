@@ -1,3 +1,7 @@
 # we use sass, so these are output files
 *.css
 .sass-cache
+
+# the entire html directory is auto-generated from the markdown
+html/
+

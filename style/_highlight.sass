@@ -1,57 +1,29 @@
-/* based off of Arduino Light theme */
-
-$color-keys: $color-comp
-$color-lits: $color-base !default
-
-.hljs 
-    display: block
-    overflow-x: auto
-    padding: 0.1em
-    background: $color-lightgrey
-    border: .07em solid $color-fore
-    padding: 0.5em
-    border-radius: 0.5em 0.5em 0.5em 0.5em
-
-.hljs,
-.hljs-subst 
+// the lines are all in anchor tags, so this is the "not special" highlighting
+a.sourceLine
     color: $color-fore
+    text-decoration: none
+    &:focus,
+    &:hover
+        color: $color-fore
 
-.hljs-keyword,
-.hljs-attribute,
-.hljs-selector-tag,
-.hljs-doctag,
-.hljs-name 
-    color: $color-keys
+.im,
+.cf,
+.kw
+    color: $color-comp
 
-.hljs-type,
-.hljs-string,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-quote,
-.hljs-template-tag,
-.hljs-deletion 
-    color: $color-lits
+.va,
+.fl,
+.dv,
+    color: $color-high2
 
-.hljs-title,
-.hljs-section 
-    color: $color-fore
-
-.hljs-comment 
+.co
     color: $color-darkgrey
     font-style: italic
 
-.hljs-meta-keyword 
-    color: $color-keys
+.bu
+    color: $color-high1
 
-.hljs-emphasis 
-    font-style: italic
+.st
+    color: $color-base
 
-.hljs-strong 
-    font-weight: bold
-
-.hljs-function 
-    color: $color-fore
-
-.hljs-number 
-    color: $color-lits
 
