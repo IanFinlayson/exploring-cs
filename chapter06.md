@@ -117,7 +117,7 @@ variable is bigger than 10. So the output will be this:
 7
 8
 9
-10 
+10
 ```
 
 We can now use a while loop to implement the simple version of the
@@ -227,15 +227,15 @@ Below is an example run of this program, where the user messes up by
 entering a negative age a few times in a row:
 
 ``` {.output}
-How old are you? -5
+How old are you? INPUTSTART-5INPUTEND
 Hey, your age can't be negative!
-How old are you for real? -2
+How old are you for real? INPUTSTART-2INPUTEND
 Hey, your age can't be negative!
-How old are you for real? -7
+How old are you for real? INPUTSTART-7INPUTEND
 Hey, your age can't be negative!
-How old are you for real? -1000
+How old are you for real? INPUTSTART-1000INPUTEND
 Hey, your age can't be negative!
-How old are you for real? 27
+How old are you for real? INPUTSTART27INPUTEND
 You are 27 years old.
 ```
 
@@ -285,15 +285,15 @@ Below is an example of a run of this program, so you can see how it
 should work before we dive into some code:
 
 ``` {.output}
-What's the first number? 7
+What's the first number? INPUTSTART7INPUTEND
 Running total is 7
-Next: 12
+Next: INPUTSTART12INPUTEND
 Running total is 19
-Next: -5
+Next: INPUTSTART-5INPUTEND
 Running total is 14
-Next:  2
+Next:  INPUTSTART2INPUTEND
 Running total is 16
-Next:  0
+Next:  INPUTSTART0INPUTEND
 The total is 16
 ```
 
@@ -374,7 +374,7 @@ stop.
 The result of running this program can be seen below:
 
 ``` {.output}
-What's your name? Amy
+What's your name? INPUTSTARTAmyINPUTEND
 A
 m
 y

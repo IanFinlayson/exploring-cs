@@ -31,16 +31,18 @@ calculate your grade in a class. We might want to store all of our
 grades into the program. Let\'s say we have 10 quiz grades in the class.
 We might write code like this:
 
-    quiz1 = 88
-    quiz2 = 94
-    quiz3 = 76
-    quiz4 = 100
-    quiz5 = 92
-    quiz6 = 89
-    quiz7 = 95
-    quiz8 = 85
-    quiz9 = 79
-    quiz10 = 99
+``` {.python}
+quiz1 = 88
+quiz2 = 94
+quiz3 = 76
+quiz4 = 100
+quiz5 = 92
+quiz6 = 89
+quiz7 = 95
+quiz8 = 85
+quiz9 = 79
+quiz10 = 99
+```
 
 Then we might want to add up all of these grades to figure out our
 average:
@@ -115,11 +117,13 @@ we say that we are *indexing* the list.
 If we use an index that is too big for our list, Python will give us an
 error message:
 
-    >>> print(names[4])
-    Traceback (most recent call last):
-      File "<pyshell#1>", line 1, in 
-        print(names[4])
-    IndexError: list index out of range
+``` {.output}
+>>> print(names[4])
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in 
+    print(names[4])
+IndexError: list index out of range
+```
 
 9.4 Example: Dates
 ------------------
@@ -170,8 +174,8 @@ the name \"May\" out of the list.
 Below is an example of this program running:
 
 ``` {.output}
-What is the month? 6
-What is the day? 22
+What is the month? INPUTSTART6INPUTEND
+What is the day? INPUTSTART22INPUTEND
 It is June 22
 ```
 
@@ -315,13 +319,13 @@ numbers.
 An example run of this program is below:
 
 ``` {.output}
-Did you guess 6? no
-Did you guess 8? no
-Did you guess 4? no
-Did you guess 2? no
-Did you guess 5? no
-Did you guess 1? no
-Did you guess 7? yes
+Did you guess 6? INPUTSTARTnoINPUTEND
+Did you guess 8? INPUTSTARTnoINPUTEND
+Did you guess 4? INPUTSTARTnoINPUTEND
+Did you guess 2? INPUTSTARTnoINPUTEND
+Did you guess 5? INPUTSTARTnoINPUTEND
+Did you guess 1? INPUTSTARTnoINPUTEND
+Did you guess 7? INPUTSTARTyesINPUTEND
 Got it!
 ```
 
@@ -356,7 +360,7 @@ for word in words:
 Below is an example run of this program:
 
 ``` {.output}
-Enter a sentence: the quick brown fox jumps over the lazy dog
+Enter a sentence: INPUTSTARTthe quick brown fox jumps over the lazy dogINPUTEND
 the
 quick
 brown
@@ -413,7 +417,7 @@ we have got to convert the numbers to int first.
 Below is an example of this program being run:
 
 ``` {.output}
-Enter quiz grades separated by commas: 92,78,88,70,100,94
+Enter quiz grades separated by commas: INPUTSTART92,78,88,70,100,94INPUTEND
 Average is 87.0
 ```
 

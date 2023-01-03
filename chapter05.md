@@ -35,12 +35,12 @@ up with the following for guessing a number when the player just
 answered \"yes\" or \"no\":
 
 **Algorithm 1**
-```
-    1. Set G to 1.
-    2. Ask if their number is G.
-    3. If it was, then we are done!
-    4. If it was not, then add 1 to G.
-    5. Go back to step 2.
+``` {.algorithm}
+1. Set G to 1.
+2. Ask if their number is G.
+3. If it was, then we are done!
+4. If it was not, then add 1 to G.
+5. Go back to step 2.
 ```
 
 Here the algorithm needs to make a decision based on the information it
@@ -92,7 +92,7 @@ If we run this program and put in a number bigger than, we will see the
 message like this:
 
 ``` {.output}
-Enter a number: 50
+Enter a number: INPUTSTART50INPUTEND
 That is bigger than 10.
 ```
 
@@ -100,7 +100,7 @@ However, if we put in something smaller than 10, the program will
 **not** run the print message, and we will see nothing:
 
 ``` {.output}
-Enter a number: 5
+Enter a number: INPUTSTART5INPUTEND
 ```
 
 5.3 Indentation and Spacing
@@ -221,7 +221,7 @@ are true. If the user enters good data, they will never be done. For
 example if we put in 20, this happens:
 
 ``` {.output}
-What is your age? 20
+What is your age? INPUTSTART20INPUTEND
 Your age is 20
 ```
 
@@ -230,9 +230,9 @@ statement *will* be true. When that happens, the scolding and getting a
 new age will happen:
 
 ``` {.output}
-What is your age? 2
+What is your age? INPUTSTART2INPUTEND
 That is too young!  Try again.
-What is your age? 20
+What is your age? INPUTSTART20INPUTEND
 Your age is 20
 ```
 
@@ -240,9 +240,9 @@ Likewise, if we put in an age which is over 125, the second if statement
 will have a true condition:
 
 ``` {.output}
-What is your age? 750
+What is your age? INPUTSTART750INPUTEND
 That is too old!  Try again.
-What is your age? 75
+What is your age? INPUTSTART75INPUTEND
 Your age is 75
 ```
 
@@ -250,9 +250,9 @@ There\'s one flaw in this program which is that if you give a bad answer
 *twice*, then it will just accept it. For example:
 
 ``` {.output}
-What is your age? 750
+What is your age? INPUTSTART750INPUTEND
 That is too old!  Try again.
-What is your age? 750
+What is your age? INPUTSTART750INPUTEND
 Your age is 750
 ```
 
@@ -456,7 +456,7 @@ means **only one** of the parts will ever run. For example, in the above
 program, if we put in 50, it will do this:
 
 ``` {.output}
-What temperature is it out? 50
+What temperature is it out? INPUTSTART50INPUTEND
 Wear a coat.
 ```
 

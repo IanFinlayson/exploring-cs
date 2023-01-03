@@ -107,14 +107,16 @@ Now that we know how to nest if statements with loops, we can finally
 tackle a Python version of the \"Guess the Number\" algorithm we looked
 at way back in Chapter 1. The algorithm is given again in pseudocode:
 
-    1. Set min to 1.
-    2. Set max to 100.
-    3. Set G to (max + min) ÷ 2 (rounding down if needed).
-    4. Ask if their number is G.
-    5. If it is, then we are done!
-    6. If the guess was too high, set max to (G - 1).
-    7. If the guess was too low, set min to (G + 1).
-    8. Go back to step 3.
+``` {.algorithm}
+1. Set min to 1.
+2. Set max to 100.
+3. Set G to (max + min) ÷ 2 (rounding down if needed).
+4. Ask if their number is G.
+5. If it is, then we are done!
+6. If the guess was too high, set max to (G - 1).
+7. If the guess was too low, set min to (G + 1).
+8. Go back to step 3.
+```
 
 Notice that we have a loop (steps 3 through 8) with an if/elif/else
 statement inside of it (steps 5 through 7). So our program will need to
@@ -176,11 +178,11 @@ for *every* guess we make, not just one.
 Here is an example run of this program:
 
 ``` {.output}
-Is your number 50? too high
-Is your number 25? too low
-Is your number 37? too high
-Is your number 31? too low
-Is your number 34? yes
+Is your number 50? INPUTSTARTtoo highINPUTEND
+Is your number 25? INPUTSTARTtoo lowINPUTEND
+Is your number 37? INPUTSTARTtoo highINPUTEND
+Is your number 31? INPUTSTARTtoo lowINPUTEND
+Is your number 34? INPUTSTARTyesINPUTEND
 Got it!
 ```
 
@@ -518,12 +520,14 @@ Let\'s go through the steps outlined above:
     two main cases in this problem, and might come up with something as
     straightforward as the following:
 
-        1. Read in the hours
-        2. Read in the wage
-        3. If they worked 40 hours or less, pay will be (hours * wage)
-        4. Otherwise, pay will be:
-             40 * wage +  (hours - 40) * (wage * 1.5)
-        5. Print out the pay
+    ``` {.algorithm}
+    1. Read in the hours
+    2. Read in the wage
+    3. If they worked 40 hours or less, pay will be (hours * wage)
+    4. Otherwise, pay will be:
+         40 * wage +  (hours - 40) * (wage * 1.5)
+    5. Print out the pay
+    ```
 
 5.  **Test the steps**
 
@@ -541,15 +545,17 @@ Let\'s go through the steps outlined above:
     can go through and translate it into Python code. In this case, we
     can write something like this:
 
-        hours = float(input("How many hours did you work? "))
-        wage = float(input("What is your hourly wage? "))
+    ``` {.python}
+    hours = float(input("How many hours did you work? "))
+    wage = float(input("What is your hourly wage? "))
 
-        if hours <= 40:
-            pay = hours * wage
-        else:
-            pay = 40 * wage +  (hours - 40) * (wage * 1.5)
+    if hours <= 40:
+        pay = hours * wage
+    else:
+        pay = 40 * wage +  (hours - 40) * (wage * 1.5)
 
-        print("Your pay will be", pay)
+    print("Your pay will be", pay)
+    ````
 
 7.  **Test the code**
 

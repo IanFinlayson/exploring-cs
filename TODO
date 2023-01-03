@@ -1,8 +1,5 @@
 Markdown Conversion:
-    - output blocks (input really)
-        Done through chapter 4
-
-    - python shell blocks
+    - python shell blocks with >>> in them
     - maybe do the thing where the footnotes are highlighted...hopefully
     - go through md and get rid of any junk
     - make a better build system

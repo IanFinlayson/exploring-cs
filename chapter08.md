@@ -255,8 +255,8 @@ Let\'s try the program out. First we will figure out the password
 entropy of a 4-digit pin number:
 
 ``` {.output}
-How many characters are available? 10
-How long is the password required to be? 4
+How many characters are available? INPUTSTART10INPUTEND
+How long is the password required to be? INPUTSTART4INPUTEND
 The entropy of this is 13.287712379549449
 ```
 
@@ -265,8 +265,8 @@ try the scheme of needing 8 characters for a password, and pulling from
 lower-case letters, upper-case letters, and digits:
 
 ``` {.output}
-How many characters are available? 62
-How long is the password required to be? 8
+How many characters are available? INPUTSTART62INPUTEND
+How long is the password required to be? INPUTSTART8INPUTEND
 The entropy of this is 47.633570483095
 ```
 
@@ -371,7 +371,7 @@ the random number to decide which of the three things the computer
 should play. Here is an example run where we were lucky enough to win:
 
 ``` {.output}
-Rock, Paper, or Scissors? Paper
+Rock, Paper, or Scissors? INPUTSTARTPaperINPUTEND
 Computer throws Rock
 You win!
 ```
