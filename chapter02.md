@@ -93,7 +93,9 @@ While all recent versions of Linux come with Python, they do not come
 with Thonny. To install it, open up a terminal and run the following
 command:
 
-    bash <(wget -O - https://thonny.org/installer-for-linux)
+``` {.algorithm}
+bash <(wget -O - https://thonny.org/installer-for-linux)
+```
 
 Then hit Enter at the prompt to continue.
 
@@ -101,7 +103,9 @@ That should download the latest version, and install it on your
 computer. You should be able to find Thonny amongst your installed
 applications. You could also launch it by running the command:
 
-    ~/apps/thonny/bin/thonny
+``` {.algorithm}
+~/apps/thonny/bin/thonny
+```
 
 2.5 The Shell Window
 --------------------

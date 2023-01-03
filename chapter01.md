@@ -127,13 +127,13 @@ problem the same way a person might, but that\'s OK. An algorithm for
 doing this could be written as:
 
 **Algorithm 1**
-
-    1. Set G to 1.
-    2. Ask if their number is G.
-    3. If it was, then we are done!
-    4. If it was not, then add 1 to G.
-    5. Go back to step 2.
-
+``` {.algorithm}
+1. Set G to 1.
+2. Ask if their number is G.
+3. If it was, then we are done!
+4. If it was not, then add 1 to G.
+5. Go back to step 2.
+```
 This algorithm[^2] works by keeping track of
 which number we are going to be guessing next, which we call \"G\". This
 is a **variable**, which is a very important concept in programming. A
@@ -229,14 +229,16 @@ This algorithm can be given like this:
 
 **Algorithm 2**
 
-    1. Set min to 1.
-    2. Set max to 100.
-    3. Set G to (max + min) ÷ 2 (rounding down if needed).
-    4. Ask if their number is G.
-    5. If it is, then we are done!
-    6. If the guess was too high, set max to (G - 1).
-    7. If the guess was too low, set min to (G + 1).
-    8. Go back to step 3.
+``` {.algorithm}
+1. Set min to 1.
+2. Set max to 100.
+3. Set G to (max + min) ÷ 2 (rounding down if needed).
+4. Ask if their number is G.
+5. If it is, then we are done!
+6. If the guess was too high, set max to (G - 1).
+7. If the guess was too low, set min to (G + 1).
+8. Go back to step 3.
+```
 
 This algorithm is just bit more complicated than the last one. Now we
 have three variables involved. `min` is used to keep track of the
@@ -527,7 +529,9 @@ computer\'s memory as numbers too! As an example of a computer
 instruction, we can look at one of the steps of Algorithm 1 to solve the
 simple guess the number game:
 
-    add 1 to g.
+``` {.algorithm}
+add 1 to g.
+```
 
 Let\'s look at what this step would look like as a real computer
 instruction[^5]. But first, we would need to
@@ -536,8 +540,10 @@ location 7.
 
 This instruction would tell the CPU to add 1 to memory location 7:
 
-              operation     destination   input   amount
-    1110001   0100       0  0111          0111    00000001 0000
+``` {.algorithm}
+          operation     destination   input   amount
+1110001   0100       0  0111          0111    00000001 0000
+```
 
 This is a *binary* number. We\'ll just point out some of the parts of
 this. The 0100 labeled \"operation\" tells the CPU what sort of thing
@@ -556,11 +562,15 @@ The other, unlabelled parts just tell the CPU what type of instruction
 it is, and how to interpret the other fields. All together the
 instruction is the following binary number:
 
-    11100010100001110111000000010000
+``` {.algorithm}
+11100010100001110111000000010000
+```
 
 In decimal, this is equal to:
 
-    3800526864
+``` {.algorithm}
+3800526864
+```
 
 So the way computers work is by reading in these numbers, which tell
 them what they are supposed to do. Part of the computer\'s memory is
@@ -578,7 +588,9 @@ human-readable version of machine code. Rather than write \"0100\" for
 add, and \"0111\" for memory cell 7, we just write them out. The
 instruction above written in assembly would look like this:
 
-    add r7, r7, #1
+``` {.algorithm}
+add r7, r7, #1
+```
 
 The computer can\'t run this instruction directly, it must be translated
 into machine code. That is done by a program called an **assembler**:
@@ -601,7 +613,9 @@ allow us to have names for our variables, instead of needing to remember
 which memory location they are in. Here is what the instruction above
 looks like in Python, the high-level language used in this book:
 
-    guess = guess + 1
+``` {.algorithm}
+guess = guess + 1
+```
 
 High-level language code is also much more succinct than assembly or
 machine code. One line of code in a language like Python can do the same

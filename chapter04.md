@@ -149,8 +149,8 @@ print(fullName)
 Below is an example of this program being run:
 
 ``` {.output}
-What is your first name? Anne
-What is your last name? Smith
+What is your first name? INPUTSTARTAnneINPUTEND
+What is your last name? INPUTSTARTSmithINPUTEND
 AnneSmith
 ```
 
@@ -205,7 +205,7 @@ print("That string has", length, "characters.")
 Below is an example run of this program:
 
 ``` {.output}
-Enter a string: Hello out there!!
+Enter a string: INPUTSTARTHello out there!!INPUTEND
 That string has 17 characters.
 ```
 
@@ -237,7 +237,7 @@ print(first)
 Here is an example of this program running:
 
 ``` {.output}
-Enter a string: Hello out there!!
+Enter a string: INPUTSTARTHello out there!!INPUTEND
 H
 ```
 
@@ -277,7 +277,7 @@ the lower-case letters swapped for capital ones. We then print that out.
 Here\'s an example run:
 
 ``` {.output}
-Enter a message: hello there.
+Enter a message: INPUTSTARThello there.INPUTEND
 HELLO THERE.
 ```
 
@@ -536,7 +536,7 @@ print("The amount with 15% tip is", total)
 Below is an example of running this program:
 
 ``` {.output}
-How much was the bill? 32.40
+How much was the bill? INPUTSTART32.40INPUTEND
 The amount with 15% tip is 37.26
 ```
 
@@ -600,8 +600,8 @@ print("The amount with tip is", total)
 And here is an example of running it:
 
 ``` {.output}
-How much was the bill? 41.40
-How much do you want to tip? 20
+How much was the bill? INPUTSTART41.40INPUTEND
+How much do you want to tip? INPUTSTART20INPUTEND
 The amount with tip is 49.68
 ```
 
@@ -615,8 +615,8 @@ chose the inputs to the last program so that the output looked right. If
 we had picked other things, it would not look as nice. For example:
 
 ``` {.output}
-How much was the bill? 37.21
-How much do you want to tip? 17
+How much was the bill? INPUTSTART37.21INPUTEND
+How much do you want to tip? INPUTSTART17INPUTEND
 The amount with tip is 43.5357
 ```
 

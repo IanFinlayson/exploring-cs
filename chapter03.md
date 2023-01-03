@@ -141,12 +141,12 @@ print(answer)
 Here is an example of the output of this program:
 
 ``` {.output}
-How are you feeling today? pretty good
+How are you feeling today? INPUTSTARTpretty goodINPUTEND
 You said
 pretty good
 ```
 
-The text that we typed in is a different so that you can see what the
+The text that we typed is in a different color so that you can see what the
 user types in this example. The white text is what the program itself is
 printing out.
 
@@ -214,7 +214,7 @@ print("You said", answer)
 When we run this program, it gives us this:
 
 ``` {.output}
-How are you feeling today? pretty good
+How are you feeling today? INPUTSTARTpretty goodINPUTEND
 You said pretty good
 ```
 
@@ -231,7 +231,7 @@ print("You said", answer, ". Bye!")
 Now the program prints this:
 
 ``` {.output}
-How are you feeling today? pretty good
+How are you feeling today? INPUTSTARTpretty goodINPUTEND
 You said pretty good . Bye!
 ```
 
@@ -252,7 +252,7 @@ print("You said ", answer, ". Bye!", sep="")
 And it will output the following:
 
 ``` {.output}
-How are you feeling today? pretty good
+How are you feeling today? INPUTSTARTpretty goodINPUTEND
 You said pretty good. Bye!
 ```
 
@@ -368,8 +368,8 @@ Below is an example run --- though of course what it prints exactly
 depends on what you tell it!
 
 ``` {.output}
-What is your name? Mary
-What day is it? Friday
+What is your name? INPUTSTARTMaryINPUTEND
+What day is it? INPUTSTARTFridayINPUTEND
 Hello Mary!
 Have a great Friday!
 ```
