@@ -2,6 +2,7 @@
 *.css
 .sass-cache
 
-# the entire html directory is auto-generated from the markdown
+# the entire html and pdf directories are auto-generated from the markdown
 html/
+pdf/
 
