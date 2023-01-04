@@ -18,10 +18,25 @@ process_page() {
     # clean up
     rm -f ./temp.tex 
     
-    # TODO convert the latex into a pdf
+    # convert the latex into a pdf
+    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
+    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
+    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
+    
+    # remove unneeded output files
+    rm pdf/*.aux pdf/*.log
 }
 
+# make the pdf directory if it's not there
 mkdir -p pdf
+
+# make a link to the images directory so html pages can refer to them
+if [ ! -L pdf/images ]
+then
+    cd pdf && ln -s ../images ./images && cd ..
+fi
+
+# render all the pages from markdown -> tex -> pdf
 process_page title
 process_page preface
 process_page chapter01
@@ -36,9 +51,4 @@ process_page chapter09
 process_page chapter10
 process_page chapter11
 
-# make a link to the images directory so html pages can refer to them
-if [ ! -L pdf/images ]
-then
-    cd pdf && ln -s ../images ./images && cd ..
-fi
 
