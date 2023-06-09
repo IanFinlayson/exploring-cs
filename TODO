@@ -3,12 +3,10 @@ Markdown Conversion:
     - maybe do the thing where the footnotes are highlighted...hopefully
     - go through md and get rid of any junk
     - make a better build system
+    - do we really need to escape all quotes??
 
 
-
-
-
-
+I say in chapter 1 we look at Euclid's algorithm, but we never do!
 
 
 

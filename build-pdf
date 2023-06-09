@@ -7,9 +7,13 @@ process_page() {
     # start by dumping in the boilerplate preamble, and building the navbar
     cat boiler/preamble.tex >> pdf/$1.tex
 
+    # get rid of the hypertargets which we don't need
+    echo "replacin"
+    sed -i 's/^\\hypertarget{[^}]*}//' pdf/$1.tex
+    
     # TODO we need special formatting for input inside of pre output blocks, so we made some thingies
-    #sed -i 's/INPUTSTART/<span class="input">/' ./temp.tex
-    #sed -i 's/INPUTEND/<\/span>/' ./temp.tex
+    #sed -i 's/INPUTSTART/<span class="input">/' pdf/$1.tex
+    #sed -i 's/INPUTEND/<\/span>/' pdf/$1.tex
 
     # now dump the content, followed by postamble
     cat ./temp.tex >> pdf/$1.tex
@@ -37,18 +41,18 @@ then
 fi
 
 # render all the pages from markdown -> tex -> pdf
-process_page title
-process_page preface
+#process_page title
+#process_page preface
 process_page chapter01
-process_page chapter02
-process_page chapter03
-process_page chapter04
-process_page chapter05
-process_page chapter06
-process_page chapter07
-process_page chapter08
-process_page chapter09
-process_page chapter10
-process_page chapter11
+#process_page chapter02
+#process_page chapter03
+#process_page chapter04
+#process_page chapter05
+#process_page chapter06
+#process_page chapter07
+#process_page chapter08
+#process_page chapter09
+#process_page chapter10
+#process_page chapter11
 
 
