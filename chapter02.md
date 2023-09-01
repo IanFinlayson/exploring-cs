@@ -61,8 +61,9 @@ will see how to use it to run some Python code!
 ------------------------------------------------------------------------
 
 To install Python along with Thonny on Windows computers, go to the
-[Thonny website](https://thonny.org/). Then click the Windows link in
-the download box at the upper right. Choose to save the file. When the
+[Thonny website](https://thonny.org/). Hover over the Windows link in
+the download box at the upper right. Click the top link which is labeled
+"Installer with 64-bit Python". Choose to save the file. When the
 download is finished, run the installer program.
 
 Click next, select the agreement, choose where to install it, and wait
@@ -75,9 +76,9 @@ along with its Python interpreter installed.
 ------------------------------------------------------------------------
 
 To install Python along with Thonny on a Mac OSX computer, go to the
-[Thonny website](https://thonny.org/). Then click the Mac link in the
-download box at the upper right. That should download a .pkg file that
-includes the Thonny IDE as well as the Python interpreter.
+[Thonny website](https://thonny.org/). Hover over the the Mac link in the
+download box at the upper right. Click the link to the .pkg file and download
+it to your computer.
 
 When the download has finished, you should see the Thonny icon in a
 window. Drag this icon into your applications folder to copy it to your
