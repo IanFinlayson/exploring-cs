@@ -2,13 +2,12 @@
 
 process_page() {
     # convert this page into temp
-    pandoc -o ./temp.tex $1.md
+    pandoc --template=boiler/template.latex -o ./temp.tex $1.md
     
-    # start by dumping in the boilerplate preamble, and building the navbar
+    # start by dumping in the boilerplate preamble
     cat boiler/preamble.tex >> pdf/$1.tex
 
     # get rid of the hypertargets which we don't need
-    echo "replacin"
     sed -i 's/^\\hypertarget{[^}]*}//' pdf/$1.tex
     
     # TODO we need special formatting for input inside of pre output blocks, so we made some thingies
@@ -31,7 +30,8 @@ process_page() {
     rm pdf/*.aux pdf/*.log
 }
 
-# make the pdf directory if it's not there
+# make a fresh pdf output directory
+rm -rf pdf
 mkdir -p pdf
 
 # make a link to the images directory so html pages can refer to them

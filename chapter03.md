@@ -322,7 +322,7 @@ Next, we need to ask them for the other piece of information we need,
 the day of the week:
 
 ``` {.python}
-    day = input("What day is it? ")
+day = input("What day is it? ")
 ```
 
 Now we have these two variables, which we have called `name` and `day`.
