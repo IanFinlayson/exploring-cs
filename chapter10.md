@@ -18,7 +18,7 @@ Functions {#functions .sub}
 -   Understand the purpose of parameters and how to write functions that
     use them.
 -   Understand the purpose of return values and how to use them.
--   Learn what \"scope\" is and how it affects variables in functions.
+-   Learn what "scope" is and how it affects variables in functions.
 :::
 :::
 
@@ -26,7 +26,7 @@ Functions {#functions .sub}
 ------------------------
 
 We have been calling functions in Python ever since the very first
-\"Hello World!\" program:
+"Hello World!" program:
 
 ``` {.python}
 print("Hello World!")
@@ -35,7 +35,7 @@ print("Hello World!")
 Here we are calling the `print` function and asking it to print the
 given message to the screen for us. Every function has a job to do. The
 job of the print function is to print thins to the screen. When we
-\"call\" a function, we ask it to do its job.
+"call" a function, we ask it to do its job.
 
 Functions can have **parameters**, which are the things between the
 parenthesis. Parameters allow us to pass data to a function to control
@@ -56,7 +56,7 @@ information back to us. So here, 144.0 is the parameter, and the return
 value will be 12.
 
 Not all functions return values. If we try to print the return value
-from the `print` function, we\'ll get the value \"None\":
+from the `print` function, we'll get the value "None":
 
 ``` {.python}
 >>> x = print("Hello")
@@ -82,7 +82,7 @@ make them easier to understand and write.
 Another reason is to decrease repetitive code. Imagine you were writing
 a Program that reads in the size of a rectangle so it can compute the
 area and perimeter. It needs the width and height to do this, and both
-numbers should be greater than zero. We should make sure that\'s the
+numbers should be greater than zero. We should make sure that's the
 case, so our code to read these values might look like this:
 
 ``` {.python}
@@ -107,7 +107,7 @@ Having repetitive code in programs is not ideal. For one, we have to
 write more code. A basic tenet of programming is to not do more work
 than you have to. Another, even bigger, reason is that now we have to
 *maintain* the code in two places. If we want to, say, make it so that
-it doesn\'t crash the program when a letter is accidentally entered,
+it doesn't crash the program when a letter is accidentally entered,
 then would have to make that change in *two* places. As we write larger
 programs that take longer to debug, having repetitive code like this is
 a bad idea.
@@ -122,7 +122,7 @@ width = readPositive("Width: ")
 height = readPositive("Height: ")
 ```
 
-We pass in the prompts, because that was the one thing that\'s really
+We pass in the prompts, because that was the one thing that's really
 different. Of course we have to create the `readPositive` function for
 this to work. So we will see how to make functions next.
 
@@ -156,9 +156,9 @@ def greet():
     print("Hello!")
 ```
 
-Here the function\'s name is `greet`, and it takes no parameters. The
+Here the function's name is `greet`, and it takes no parameters. The
 body of the function is the code that will be run when the function gets
-called. This function doesn\'t return anything either.
+called. This function doesn't return anything either.
 
 If we run this program, nothing actually happens. Defining a function
 does not run the code inside it. It just says what *would* happen should
@@ -196,8 +196,8 @@ flip them around, Python would give us an error message.
 Suppose we want to personalize the greet function so that it greets
 people by name. To do this, the function will need to know the name of
 the person it is supposed to greet. To send information into a function,
-we use parameters. In this case, we\'ll add a parameter to the function
-that for the person\'s name:
+we use parameters. In this case, we'll add a parameter to the function
+that for the person's name:
 
 ``` {.python}
 def greet(name):
@@ -206,7 +206,7 @@ def greet(name):
 
 Now this function takes one parameter called `name`. Inside the
 function, we can refer to `name` when we need that information. In this
-case, we just print it out. Notice that the function isn\'t *setting*
+case, we just print it out. Notice that the function isn't *setting*
 the `name` variable anywhere. The function just assumes it has been set
 to something already.
 
@@ -235,7 +235,7 @@ Parameters let us pass information into the function to change the way
 it works. The function above just prints out its name variable, but that
 will be different based on what was passed in.
 
-We have to get the number of parameters right, or Python won\'t be able
+We have to get the number of parameters right, or Python won't be able
 to call the function. If we pass the `greet` function zero parameters,
 or more than one parameter, then Python will complain:
 
@@ -251,7 +251,7 @@ Traceback (most recent call last):
 TypeError: greet() takes exactly 1 positional argument (2 given)
 ```
 
-As another example, let\'s write a function that will print a countdown
+As another example, let's write a function that will print a countdown
 from a starting point. Sometimes we will want the function to print out
 a countdown starting at 10 and going down to 1. Sometimes we will want
 to start at just 5 instead.
@@ -310,7 +310,7 @@ seen functions that produce return values such as `input` and
 The value we return can be any value in a Python program such as a
 constant, variable or expression.
 
-For example, let\'s say we want to write a function to calculate the
+For example, let's say we want to write a function to calculate the
 area of a rectangle. To do this, the information we need is the width
 and height of the rectangle. Because we need to know this to do our
 task, these should be parameters into the function. The result of our
@@ -324,8 +324,8 @@ def rectangleArea(width, height):
 ```
 
 The return statement sends back the value of the `area` variable which
-was computed. When we call this function, we\'ll need to save the value
-it gives us into a variable. If we don\'t than the result it gives us
+was computed. When we call this function, we'll need to save the value
+it gives us into a variable. If we don't than the result it gives us
 will be lost (just like we have to store the value that `input` gives us
 into a variable). The following bit of code calls the function above and
 then prints the result of it:
@@ -354,7 +354,7 @@ variable first. We have actually been doing this same thing with the
 age = int(input("Enter your age: "))
 ```
 
-Here the `input` function\'s return value (a string) is passed directly
+Here the `input` function's return value (a string) is passed directly
 to the `int` function, which then returns us the integer version of that
 string.
 
@@ -394,7 +394,7 @@ will have its return statement executed.
 
 While we can have multiple `return` statements, we can only ever execute
 one of them for each function. As soon as we reach the `return`
-statement, we leave the function and don\'t do anything else. For
+statement, we leave the function and don't do anything else. For
 example, this program has a statement after the `return`:
 
 ``` {.python}
@@ -404,7 +404,7 @@ def rectangleArea(width, height):
     print("Hello!")    # will never be printed
 ```
 
-This will never print the \"Hello!\" message, because Python leaves the
+This will never print the "Hello!" message, because Python leaves the
 function as soon as the `return` is done. No statements after that will
 be executed.
 
@@ -427,8 +427,8 @@ else:
     print("Your age is odd")
 ```
 
-What\'s going on is that the modulus operator divides the age variable
-by 2, and checks the remainder. If it\'s 0, then the age is evenly
+What's going on is that the modulus operator divides the age variable
+by 2, and checks the remainder. If it's 0, then the age is evenly
 divided by 2, so it must be even. How this code works is not exactly
 clear. To help make this easier to read and understand, we can write
 functions called `isEven` and `isOdd` to perform these calculations:
@@ -453,8 +453,8 @@ a boolean True or False value. Now we can call them whenever we want to
 know if a number is even or odd, instead of having to write out the
 modulus expression directly.
 
-As another example, let\'s say we want to write our own version of
-Python\'s `max` function? Given a list of numbers, it should return the
+As another example, let's say we want to write our own version of
+Python's `max` function? Given a list of numbers, it should return the
 biggest item out of it.
 
 This function will take the list as a parameter. The return value should
@@ -471,10 +471,10 @@ def max(values):
 ```
 
 Here we loop through the list and keep track of the biggest item that we
-have seen so far. Once we\'ve gone through the whole thing, we return
+have seen so far. Once we've gone through the whole thing, we return
 the biggest.
 
-Finally, let\'s write the code for the `readPositive` function we talked
+Finally, let's write the code for the `readPositive` function we talked
 about earlier. To do this, we will make the prompt for the user a
 parameter, then read values until one is positive, and then use a
 `return` to send it back to the user. This might look like this:
@@ -534,7 +534,7 @@ print(message)
 ```
 
 The scope of the `message` variable is only inside the hello function
-because that\'s where it was made. If we made `message` outside of the
+because that's where it was made. If we made `message` outside of the
 function, this would be OK:
 
 ``` {.python}
@@ -555,7 +555,7 @@ inside of functions in the program.
 Variables created outside of a function are called **global** and
 variables inside of a function are called **local**. So the scope of a
 global variable is the whole program, and the scope of a local variable
-is just the function it\'s in.
+is just the function it's in.
 
 The reason Python works this way is to try to keep programs more
 organized. If our program has a bunch of functions in it, that all make
@@ -570,12 +570,12 @@ program, you need to use a `return` to send it back.
 10.8 Designing Programs with Functions
 --------------------------------------
 
-When writing programs that are long and complicated, it\'s a good idea
+When writing programs that are long and complicated, it's a good idea
 to break the program up into functions. We start the program by thinking
 about what pieces we need. We then make functions for each of the pieces
-and write them one by one. This is sometimes called a \"divide and
-conquer\" approach because we divide the program into parts and
-\"conquer\" them one by one.
+and write them one by one. This is sometimes called a "divide and
+conquer" approach because we divide the program into parts and
+"conquer" them one by one.
 
 In general each function should do one specific job. If a piece of code
 does more than one thing, you should consider splitting it up into

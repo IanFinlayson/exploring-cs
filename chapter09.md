@@ -28,7 +28,7 @@ Lists {#lists .sub}
 Imagine that we were writing a program where we wanted to store a large
 amount of data. For example, imagine we were writing a program to figure
 calculate your grade in a class. We might want to store all of our
-grades into the program. Let\'s say we have 10 quiz grades in the class.
+grades into the program. Let's say we have 10 quiz grades in the class.
 We might write code like this:
 
 ``` {.python}
@@ -54,8 +54,8 @@ average = total / 10
 
 This hopefully seems a little bit tedious and repetitive. We have to
 make 10 different variables and do the same thing with all of them.
-Here, it\'s not *too* bad with 10. But imagine if we had even more
-numbers we wanted to keep track. For instance, imagine you\'re
+Here, it's not *too* bad with 10. But imagine if we had even more
+numbers we wanted to keep track. For instance, imagine you're
 *teaching* a course and wanted to store all 10 quiz grades from 25
 students. That would be a lot of variables!
 
@@ -130,9 +130,9 @@ IndexError: list index out of range
 
 ------------------------------------------------------------------------
 
-Let\'s say we want to write a program that converts a numerical date
+Let's say we want to write a program that converts a numerical date
 into one using words for the month. For example, we can put in 3 for the
-month and 25 for the day and it will print out \"March 25\". We could do
+month and 25 for the day and it will print out "March 25". We could do
 it with if statements like this:
 
 ``` {.python}
@@ -169,7 +169,7 @@ print("It is", monthName, day)
 This program works by taking in the month as a number. It then subtracts
 one from this number and uses it to index the list. So if the month
 number is 5, it subtracts 1 to get 4. It then uses 4 as the index to get
-the name \"May\" out of the list.
+the name "May" out of the list.
 
 Below is an example of this program running:
 
@@ -226,10 +226,10 @@ print("Your average score is", average)
 
 The `total` variable here is worth talking about a little bit. We set it
 to 0 before the loop and then also set it inside the loop. What we set
-it to there is `total + quiz`. So the first thing it\'s equal to is 0,
+it to there is `total + quiz`. So the first thing it's equal to is 0,
 then we set it to that 0 plus the first quiz value, so it becomes 88.
 Then the next time through the loop, we set it to the 88 it is now plus
-the 94, resulting in total storing 182. This kind of \"accumulation\"
+the 94, resulting in total storing 182. This kind of "accumulation"
 loop is common in coding.
 
 This is much less code than having to add all 10 variables by typing
@@ -261,7 +261,7 @@ print("Got it!")
 ```
 
 This program does in fact eventually guess the number the user is
-thinking of, but it doesn\'t guess them in a very human-like manner.
+thinking of, but it doesn't guess them in a very human-like manner.
 Only a robot would guess in order like that. Another way is to guess the
 numbers randomly, instead of in order:
 
@@ -281,18 +281,18 @@ print("Got it!")
 ```
 
 Now the program no longer guesses the numbers in order, but it still
-doesn\'t guess them very well. Now each guess is random with no memory
+doesn't guess them very well. Now each guess is random with no memory
 of what the previous guesses were. It could even guess the same number
-twice in a row. What we\'d like is for the number to guess the numbers
+twice in a row. What we'd like is for the number to guess the numbers
 from 1 to 10 in random order without repeating itself.
 
-We can do this using a list of numbers to guess and then \"shuffling\"
+We can do this using a list of numbers to guess and then "shuffling"
 the list. The idea here is that we will make a list to store all of the
 numbers 1 through 10. Then we call the `random.shuffle` function which
 takes a list and shuffles it randomly.
 
 We then loop through this shuffled list and guess the numbers in it one
-by one. Now the program will guess them in a random way, but it won\'t
+by one. Now the program will guess them in a random way, but it won't
 ever guess the same number twice.
 
 The code to do this is below:
@@ -309,7 +309,7 @@ for number in guesses:
           break
 ```
 
-There\'s something else new in this program which is the `break`
+There's something else new in this program which is the `break`
 command. This exits out of the loop immediately when we run it. By doing
 the break when we get the number right, we cause the loop to exit early,
 when it might not have gone through all of the numbers yet. Without
@@ -373,21 +373,21 @@ dog
 ```
 
 We can use this to improve our quiz grade averaging program. In this
-program we \"hard-coded\" our quiz scores into the program with the
+program we "hard-coded" our quiz scores into the program with the
 following line of code:
 
 ``` {.python}
 quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
 ```
 
-Let\'s say that our program was so super helpful that we wanted to share
+Let's say that our program was so super helpful that we wanted to share
 it with our friends. We would not necessarily want them to have to edit
 our code to put in their own grades. So instead we should make it so the
 program asks you for the quiz grades.
 
 There are a couple of ways to do this, but one is to make the program
 read them in on one line and then split them up. We can use any kind of
-separator we want to separate the numbers. Let\'s say we want to use a
+separator we want to separate the numbers. Let's say we want to use a
 comma.
 
 The following program does this by asking the user to enter their quiz
@@ -411,7 +411,7 @@ print("Average is", total / len(quizzes))
 ```
 
 One wrinkle here is that our list is actually storing strings, because
-that\'s what the `split` method returns to us. So when we do the adding
+that's what the `split` method returns to us. So when we do the adding
 we have got to convert the numbers to int first.
 
 Below is an example of this program being run:
@@ -468,9 +468,9 @@ print(names)
 
 This example will print `['Alice', 'James', 'Bob']`.
 
-When \"Bob\" is inserted at position 0, it\'s the only one, so the list
-is `["Bob"]`. Then, when \"Alice\" is inserted at location 0, the list
-becomes `["Alice", "Bob"]`. Finally, when \"James\" is inserted at
+When "Bob" is inserted at position 0, it's the only one, so the list
+is `["Bob"]`. Then, when "Alice" is inserted at location 0, the list
+becomes `["Alice", "Bob"]`. Finally, when "James" is inserted at
 location 1, he is inserted between Alice and Bob to make the list
 `["Alice", "James", "Bob"]`.
 
@@ -482,11 +482,11 @@ put new items.
 
 ------------------------------------------------------------------------
 
-We\'ve seen one way to read in a list in Python, using the `split`
+We've seen one way to read in a list in Python, using the `split`
 method. Here we ask the user to enter all the values on one line, with
 some separator like a space or comma. This works well sometimes, but
 there are some downsides. One is that it reads it all in as strings, and
-another is that it might be inconvenient if there\'s a lot of items to
+another is that it might be inconvenient if there's a lot of items to
 read.
 
 Another way to input a list from the user is to read in each value
@@ -520,7 +520,7 @@ for i in range(count):
     quizzes.append(item)
 ```
 
-2.  Have a certain value reserved to mean \"I\'m done now\". A value
+2.  Have a certain value reserved to mean "I'm done now". A value
     used in this manner is called a *sentinel* value. If we are entering
     numbers that should always be positive, like quiz grades, then we
     can use -1 as the sentinel.

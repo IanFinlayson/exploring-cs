@@ -61,7 +61,7 @@ background like this.
 
 As you can see, this program prints three lines of output, one for each
 of our three print statements. We will look at more things we can do
-with print statements in a bit, but first let\'s look at getting user
+with print statements in a bit, but first let's look at getting user
 input.
 
 3.2 Input
@@ -86,7 +86,7 @@ input("How are you feeling today? ")
 
 When we run this program, it will print the prompt to the screen for us,
 and then wait for us to type something in. To give the program the input
-it\'s waiting for, we have to type into the shell window at the bottom
+it's waiting for, we have to type into the shell window at the bottom
 of the screen. When you type something in and hit enter, it will take
 the input:
 
@@ -94,14 +94,14 @@ the input:
 
 As you can see, Thonny colors what we are typing in blue, and what the
 program prints as black. Here the input we gave the program was the
-words \"Pretty Good\".
+words "Pretty Good".
 
 We can only type one line of text. As soon as we hit enter, Python moves
 on from the input instruction. In this case, there is no next
 instruction so the program finishes.
 
 This program does not actually *do anything* with the input we give it.
-In the program above, whatever the user types in can\'t really affect
+In the program above, whatever the user types in can't really affect
 the program at all. In order to do something with input, we must put it
 into a *variable*.
 
@@ -121,7 +121,7 @@ so we can keep track of it.
 The way that a variable is created in Python is by putting the name on
 the left hand side, then an equals sign, and finally the thing that you
 want to store in the variable. For instance, if we want to save our
-user\'s input in a variable, we could do it like this:
+user's input in a variable, we could do it like this:
 
 ``` {.python}
 answer = input("How are you feeling today? ")
@@ -159,14 +159,14 @@ code is worth talking about:
 print(answer)
 ```
 
-Notice how this did not actually print the word \"answer\". When we
-print a variable, it doesn\'t print the variable\'s *name*, it prints
-the variable\'s *value*. Whatever got stored in the variable (which is
+Notice how this did not actually print the word "answer". When we
+print a variable, it doesn't print the variable's *name*, it prints
+the variable's *value*. Whatever got stored in the variable (which is
 whatever we typed in), gets printed here.
 
-Also, notice how there are no quotation marks around \"answer\" in the
+Also, notice how there are no quotation marks around "answer" in the
 print command. If we put quotation marks in, it *would* actually have
-printed out the word \"answer\". We have to use quotation marks to print
+printed out the word "answer". We have to use quotation marks to print
 some message out exactly, and no quotation marks when we want to get the
 thing stored in a variable.
 
@@ -183,7 +183,7 @@ These are examples of legal variable names:
 And these are not legal:
 
 -   `full-price` (the - symbol is not allowed)
--   `2_times_price` (can\'t start with a number)
+-   `2_times_price` (can't start with a number)
 -   `price in dollars` (no spaces are allowed)
 
 Variables also should not be named something that already means
@@ -220,7 +220,7 @@ You said pretty good
 
 There is no limit to how many things we can print like this --- we can
 just keep adding things and putting commas between them. Like if we want
-to also print \"Bye!\" so the user knows the program is done, we could
+to also print "Bye!" so the user knows the program is done, we could
 add that in:
 
 ``` {.python}
@@ -239,7 +239,7 @@ Notice that Python automatically puts a space between the things that we
 are printing. This is often helpful, but in this case makes the output
 look kind of weird since there is a space before our period. When we
 want to avoid this, we can also give the text `sep=""` to print. This
-tells Python to separate the things it\'s printing with nothing at all.
+tells Python to separate the things it's printing with nothing at all.
 Now the program looks like this:
 
 **Program 3.1**
@@ -256,18 +256,18 @@ How are you feeling today? INPUTSTARTpretty goodINPUTEND
 You said pretty good. Bye!
 ```
 
-Note that we had to now put a space between \"You said\" and the
-variable because now there isn\'t one put in automatically. Some people
-aren\'t too bothered about details like this, but I like to get the
-spacing to look exactly right for the program\'s output.
+Note that we had to now put a space between "You said" and the
+variable because now there isn't one put in automatically. Some people
+aren't too bothered about details like this, but I like to get the
+spacing to look exactly right for the program's output.
 
 3.4 Example: Greeting Program
 -----------------------------
 
 ------------------------------------------------------------------------
 
-Now let\'s create a slightly longer program which will need two
-variables. We\'ll talk about how the program will behave first, and then
+Now let's create a slightly longer program which will need two
+variables. We'll talk about how the program will behave first, and then
 talk about how to write it.
 
 We want the program to ask the user for two things:
@@ -276,7 +276,7 @@ We want the program to ask the user for two things:
 2.  What day of the week it is
 
 It will then give them a personalized greeting wishing them to have a
-good day. For example, if we put in \"Nicole\" and \"Thursday\", then it
+good day. For example, if we put in "Nicole" and "Thursday", then it
 would print this:
 
 ``` {.output}
@@ -284,7 +284,7 @@ Hello Nicole!
 Have a great Thursday!
 ```
 
-However, if we put in \"Tim\" and \"Monday\" when the program asks our
+However, if we put in "Tim" and "Monday" when the program asks our
 name and what day it is, then it will print this:
 
 ``` {.output}
@@ -293,7 +293,7 @@ Have a great Monday!
 ```
 
 This is an important point in programming --- what the program does will
-depend on the input given to it. It means that we can\'t just write the
+depend on the input given to it. It means that we can't just write the
 program like this:
 
 ``` {.python}
@@ -302,8 +302,8 @@ print("Have a great Thursday!")
 ```
 
 If we did, then it works if your name is Nicole, and it happens to be
-Thursday, but it won\'t work in any other case. You also can\'t just
-replace \"Nicole\" and \"Thursday\" with your own name and day. If you
+Thursday, but it won't work in any other case. You also can't just
+replace "Nicole" and "Thursday" with your own name and day. If you
 do, it will work for you that day, but not in any other situation.
 
 What we want is to have the program do the right thing in *every*
@@ -333,7 +333,7 @@ that whatever answers they gave to those questions will be repeated:
 print("Hello ", name, "!", sep="")
 ```
 
-This will print \"Hello \", followed by the user\'s name, and then an
+This will print "Hello ", followed by the user's name, and then an
 exclamation point, with no spaces in between (so the exclamation shows
 up right after their name).
 
@@ -344,7 +344,7 @@ the same thing to wish them a good day:
 print("Have a great ", day, "!", sep="")
 ```
 
-Below is the whole program, with a comment at the top. It\'s usually a
+Below is the whole program, with a comment at the top. It's usually a
 good idea to put a comment at the top of your code explaining what the
 point of the program is.
 
@@ -360,7 +360,7 @@ print("Have a great ", day, "!", sep="")
 ```
 
 Notice the program also has a blank line in it. Blank lines are ignored
-just like comments are. It\'s common in programs to put a blank line
+just like comments are. It's common in programs to put a blank line
 between different sections of code --- kind of like paragraphs in a
 paper.
 

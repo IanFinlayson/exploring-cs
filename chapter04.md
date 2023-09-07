@@ -29,7 +29,7 @@ Just like us, programs need to keep track of information as they are
 solving problems or making decisions. They do this by storing data
 inside of variables. Last chapter, we saw how to create variables and
 also how to read input from the user and store it in variables. We
-didn\'t talk about this, but we did it using one type of data, called
+didn't talk about this, but we did it using one type of data, called
 the string type.
 
 Python actually provides multiple types of data. A **type** is something
@@ -37,12 +37,12 @@ associated with a variable that determines what sorts of things you can
 do with it. To be able to use a variable, you need to know what type it
 has.
 
-For example, you probably have a first name like \"Anne\", and a last
-name, like \"Smith\". In Python, these are called *strings*. You can do
-some things with strings like join them together, to get \"Anne Smith\".
-Or see how many letters they have. Other things don\'t make sense to do
-with strings. For example, you can\'t subtract strings --- that just
-doesn\'t make any sense.
+For example, you probably have a first name like "Anne", and a last
+name, like "Smith". In Python, these are called *strings*. You can do
+some things with strings like join them together, to get "Anne Smith".
+Or see how many letters they have. Other things don't make sense to do
+with strings. For example, you can't subtract strings --- that just
+doesn't make any sense.
 
 You also have a birth year, like 1998. You can do different things with
 that piece of information. For example, you *can* subtract it from other
@@ -93,7 +93,7 @@ print(answer)
 The problem here (which you can see from the way the code is
 highlighted) is that when Python sees the `"` at the start of `"yes"`,
 it thinks that the string is over. Then it gets really confused because
-it can\'t figure out what to do with the yes. To fix this, we can use
+it can't figure out what to do with the yes. To fix this, we can use
 single quotes instead:
 
 
@@ -155,9 +155,9 @@ AnneSmith
 ```
 
 This program has three variables, which are all strings. The first
-contains the input the user gave for the first name (\"Anne\" in this
-example), the second contains the last name (\"Smith\"), and the third
-is created by joining the two names (\"AnneSmith\"), which is then
+contains the input the user gave for the first name ("Anne" in this
+example), the second contains the last name ("Smith"), and the third
+is created by joining the two names ("AnneSmith"), which is then
 printed out.
 
 We can add as many strings together as we want. For example, we can make
@@ -211,7 +211,7 @@ That string has 17 characters.
 
 We can also get any individual characters out of a string if we want to.
 Each character in a string has an *index*. The index starts at 0 and
-goes up by 1 for each character. For instance, the string \"Hello\" has
+goes up by 1 for each character. For instance, the string "Hello" has
 these indices:
 
 ![The indices of a string](images/string-index.png)
@@ -274,7 +274,7 @@ print(allcaps)
 Here we get a string from the user with `input`. Then we call the
 `upper` method on that string. This gives us back a new string with all
 the lower-case letters swapped for capital ones. We then print that out.
-Here\'s an example run:
+Here's an example run:
 
 ``` {.output}
 Enter a message: INPUTSTARThello there.INPUTEND
@@ -285,7 +285,7 @@ There is also a method called `lower` which gives us the all lower-case
 version. There are a few more helpful methods that we will see in
 examples later in this book. The important thing to take note of here is
 that these methods only make sense on strings. Numbers, or other types
-of data can\'t be lower-case or upper-case. So the type of thing you
+of data can't be lower-case or upper-case. So the type of thing you
 have is important.
 
 4.6 Numbers
@@ -334,7 +334,7 @@ fractional part equal to 0.
 
 You may wonder why not just have all numbers be floats, since they can
 have fractional parts, but also can be set to numbers without a
-fractional part. The reason is that floats don\'t store numbers exactly;
+fractional part. The reason is that floats don't store numbers exactly;
 they only store approximations of them. The reason for this is that some
 numbers, like Pi, would require infinite memory to store exactly.
 
@@ -350,11 +350,11 @@ window):
 Of course the answer should really be 0.3, but Python gives us a number
 that is almost, but not exactly, 0.3. This might seem like a flaw in
 Python, but it just comes from the fact that there are infinitely many
-real numbers between 0 and 1 --- we can\'t store them all perfectly in a
-computer. That\'s just life. The small amount of imprecision we get with
+real numbers between 0 and 1 --- we can't store them all perfectly in a
+computer. That's just life. The small amount of imprecision we get with
 floats is normally not an issue.
 
-As a rule of thumb, you should use integers when a number won\'t have a
+As a rule of thumb, you should use integers when a number won't have a
 fractional component, because integers are exact. When a number might
 have a fraction, you have to use a float.
 
@@ -363,7 +363,7 @@ have a fraction, you have to use a float.
 
 ------------------------------------------------------------------------
 
-To read in a float from the user, we can\'t just use the `input`
+To read in a float from the user, we can't just use the `input`
 function. This always gives us a string, even if the user types in a
 number. You can see this in the following shell example, where we read
 in a variable and then check its type. The `type` function returns the
@@ -380,10 +380,10 @@ This is probably confusing, because 7 obviously *is* a number. But
 strings can contain digits too. For instance, if you are reading in an
 address, it might be something like `"1301 College Avenue"`. So strings
 can contain numbers inside of them. This one just happens to contain
-only a number. Python doesn\'t automatically set the type based on what
+only a number. Python doesn't automatically set the type based on what
 the user types in.
 
-Now because it\'s a string, we can\'t really use it like a number. For
+Now because it's a string, we can't really use it like a number. For
 example, if we try to add this variable to another number, we will get
 an error.
 
@@ -397,13 +397,13 @@ num1 = int(input("Enter an integer "))
 num2 = float(input("Enter a float "))
 ```
 
-The first example will read in the user\'s input and convert it to an
+The first example will read in the user's input and convert it to an
 integer. The second will convert it into a float. If the user puts in
 something that is not correct, the program will stop with an error. For
-example, if we put in \"3.5\" for the first line, or \"banana\" for
-either line, the program won\'t continue.
+example, if we put in "3.5" for the first line, or "banana" for
+either line, the program won't continue.
 
-We\'ll learn how to catch these sorts of errors and handle them later
+We'll learn how to catch these sorts of errors and handle them later
 on.
 
 4.8 Doing Math
@@ -433,7 +433,7 @@ variables called `num1` and `num2`. It then adds them together using the
 + operation. Because these are numbers, this results in getting the sum
 of the two. This is why types are important --- if they were strings it
 would have joined them. The result of the addition is stored in the
-variable called \"total\" which is then printed to the screen.
+variable called "total" which is then printed to the screen.
 
 Of course Python has other operations besides just addition. Below is a
 list of some operators that Python supports:
@@ -468,11 +468,11 @@ be overridden with parenthesis.
 
 ------------------------------------------------------------------------
 
-As an example of working with numbers, let\'s write a program that can
+As an example of working with numbers, let's write a program that can
 figure the amount that you should tip a server at a restaurant. When the
-bill comes at a restaurant, it\'s expected that diners will give a tip
+bill comes at a restaurant, it's expected that diners will give a tip
 between 15 and 20 percent of the price of the meal. This can sometimes
-be tricky to figure out[^5], so let\'s write a
+be tricky to figure out[^5], so let's write a
 program to figure it out for us!
 
 The program should start off by asking the user how much their meal
@@ -504,8 +504,8 @@ write a line like this:
 cost * 1.15
 ```
 
-This line of code doesn\'t really do anything. It multiplies cost by
-1.15, but it doesn\'t save the answer anywhere. In order to make use of
+This line of code doesn't really do anything. It multiplies cost by
+1.15, but it doesn't save the answer anywhere. In order to make use of
 a result like this, we have to put it into a variable.
 
 Now that we have the amount with a tip added in, we can print it for the
@@ -548,7 +548,7 @@ instead? We could of course just change the `1.15` in the program to
 But it would be even better if we asked the user how much they want to
 tip and then use that amount instead of a pre-determined amount.
 
-So to start let\'s ask them **two** questions instead of just one:
+So to start let's ask them **two** questions instead of just one:
 
 
 ``` {.python}
@@ -563,7 +563,7 @@ percentage the user wants to tip.
 
 Now we need to do a little bit of math. The first thing we need to do is
 to divide the percentage they entered by 100. That way we can go from 15
-to the .15 that we need. The word \"percent\" actually means divided by
+to the .15 that we need. The word "percent" actually means divided by
 100.
 
 Next we need to add 1 to this number. That way we go from the .15 to the
@@ -620,9 +620,9 @@ How much do you want to tip? INPUTSTART17INPUTEND
 The amount with tip is 43.5357
 ```
 
-That just looks weird when we\'re talking about money. We always round
+That just looks weird when we're talking about money. We always round
 money to the nearest cent. We would not expect to see something like
-this, so let\'s talk about how to fix it.
+this, so let's talk about how to fix it.
 
 The best way is to round the result to 2 decimal places. This is done
 with the `round` function, which takes the number we want to round and
@@ -662,7 +662,7 @@ This is a pretty advanced program! It takes two pieces of input, uses
 four variables, and does some sort of tricky math. It even makes sure
 that the output looks like the user would expect. Even better it
 actually solves a real-life problem most of us can appreciate. If you
-followed what we\'ve done here, then great job!
+followed what we've done here, then great job!
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -675,7 +675,7 @@ followed what we\'ve done here, then great job!
 -   The string type is for storing text. Strings can be joined together,
     and you can get the individual characters out of them.
 -   There are two types of numbers in Python. Integers are for numbers
-    which can\'t have a fractional part, and floats are numbers which
+    which can't have a fractional part, and floats are numbers which
     can.
 -   The `input` function gives us strings by default. We can read in
     numbers by using the `int` or `float` function.
@@ -693,13 +693,13 @@ Footnotes {#footnote-label .visually-hidden}
 
 [^2]: Of course, a computer has a set amount of memory, and a big enough
     number could in theory need more memory than you have, but that
-    isn\'t really an issue in practice.
+    isn't really an issue in practice.
 
-[^3]: These numbers are called \"floats\" because they have a
-    \"floating\" decimal point. That means the decimal can appear in any
+[^3]: These numbers are called "floats" because they have a
+    "floating" decimal point. That means the decimal can appear in any
     position, for example 10.0, 1.0, 0.1, and .01 are all valid numbers.
     Some languages (not Python) also have fixed point numbers, where the
-    decimal can\'t move.
+    decimal can't move.
     
 [^4]: The `^` is used for an operation called XOR, which is used for
     dealing with binary numbers.

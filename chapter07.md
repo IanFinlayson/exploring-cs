@@ -33,7 +33,7 @@ In this chapter we will look at some more examples of these control flow
 statements, and learn some new things we can do with them. In
 particular, we will talk about *nesting* if and else statements and
 loops together. Doing this will allow us to write more complex problems
-and solve some problems we couldn\'t otherwise solve.
+and solve some problems we couldn't otherwise solve.
 
 With these tools, we can also start to tackle some more interesting
 problems. So this chapter will also talk about some techniques for
@@ -52,13 +52,13 @@ them up together. We can do that by *nesting* them together. For
 example, we can put an if/else statement inside of a loop. Or a loop
 inside of an if statement. Or even a loop inside of another loop.
 
-As a first example, let\'s look at a program to read numbers from the
+As a first example, let's look at a program to read numbers from the
 user and tell the user if each number is even or odd. The user would be
 able to enter as many numbers as they want, and enter 0 to quit.
 
 To do this, we will need a while loop to keep reading in the numbers. We
 will also need an if/else statement to check if the number is even or
-not. The if/else can\'t be *after* the loop, because it needs to check
+not. The if/else can't be *after* the loop, because it needs to check
 every single number read in. Instead it has to be *inside* the loop.
 
 The code for doing this is below:
@@ -89,7 +89,7 @@ Here the if/else is *nested* inside of the loop. Every time the loop is
 done, we check the if condition and do either the if part or the else
 part. Remember that the indentation is what tells us what part of the
 code is part of the loop. Since the if and else statements are indented,
-they are part of the loop. That\'s what *nesting* means in computer
+they are part of the loop. That's what *nesting* means in computer
 science --- that something is part of something else.
 
 There is no restriction on nesting like this. We could instead put a
@@ -104,7 +104,7 @@ along.
 ------------------------------------------------------------------------
 
 Now that we know how to nest if statements with loops, we can finally
-tackle a Python version of the \"Guess the Number\" algorithm we looked
+tackle a Python version of the "Guess the Number" algorithm we looked
 at way back in Chapter 1. The algorithm is given again in pseudocode:
 
 ``` {.algorithm}
@@ -152,23 +152,23 @@ print("Got it!")
 There are some things to point out about this program. First, we are
 using a boolean variable, called `done` to keep track of whether or not
 to exit the loop. The variable starts off as False, and we set it to
-True when we find the user\'s number. Because our condition tells us to
+True when we find the user's number. Because our condition tells us to
 keep looping while we are not done, the loop will keep going until we
 guess right.
 
 Another thing to point out is that we solve the problem of rounding down
 by calling the `int` function. We have used this function to change a
-string (like \"12\") into an integer (like 12). It can also be used to
+string (like "12") into an integer (like 12). It can also be used to
 change a float number (like 12.5) into an integer (like 12). The `round`
 function could be used to round to the *nearest* whole number, but not
 to always round down like we want here.
 
 We are also calling the `str` function to convert the variable G into a
-string. The reason for this is that `input` doesn\'t allow us to pass
+string. The reason for this is that `input` doesn't allow us to pass
 multiple things to be printed like `print` does. We have to pass 1
 string. We do this by joining the different parts of our questions, but
 we can only join strings with the + operator --- not integers. So we use
-`str` to convert from a number (like 12) into a string (like \"12\").
+`str` to convert from a number (like 12) into a string (like "12").
 
 And crucially the if statement chain for testing if we got our guess
 right or not is nested inside the while loop. You can tell this because
@@ -191,7 +191,7 @@ Got it!
 
 ------------------------------------------------------------------------
 
-Let\'s look at another example now. Many websites require user passwords
+Let's look at another example now. Many websites require user passwords
 to meet certain standards. For example, our university has the following
 requirements for passwords:
 
@@ -209,7 +209,7 @@ to look for.
 In order to do this, we will need a couple new string methods. These are
 `isupper`, `islower`, and `isdigit`. These each return true if the
 string contains only upper-case letters, lower-case letters or digits
-respectively. We\'ll call these on each letter to see what sort of
+respectively. We'll call these on each letter to see what sort of
 character it is.
 
 In doing this, we also need to keep track of whether *any* of the
@@ -254,19 +254,19 @@ else:
 ```
 
 This is the longest program we have seen so far! It also has a few
-nested statements, so let\'s go through it carefully so we can be sure
+nested statements, so let's go through it carefully so we can be sure
 to understand it. The program starts by reading in your password. Next
 it does the check to see if it is at least 8 characters. If not, it
-gives you a message saying it\'s not long enough.
+gives you a message saying it's not long enough.
 
 The rest of the program is in the `else` statement. That means the rest
 of the checks only happen when the password *is* long enough. We start
 by making one variable for each category we have to check, and setting
-them all to false. We will assume we don\'t have any of these until we
+them all to false. We will assume we don't have any of these until we
 see one.
 
 Next, we loop through every character in the string with a for loop. For
-each character, we check if it\'s a upper-case letter, lower-case letter
+each character, we check if it's a upper-case letter, lower-case letter
 or digit. In each case we set the corresponding variable to true.
 
 When we are done going through the loop, we will have checked every
@@ -291,7 +291,7 @@ with nested loops is the problem of printing out a times table. A times
 table is a table which shows what one number multiplied by another is.
 You probably had to memorize this table in grade school.
 
-Let\'s say we want to print a 10 by 10 times table like the following:
+Let's say we want to print a 10 by 10 times table like the following:
 
 ``` {.output}
 1   2   3   4   5   6   7   8   9   10   
@@ -338,15 +338,15 @@ for row in range(1, size + 1):
 
 There are a couple things to notice here. First, we have our nested
 loops. Each loop goes through the numbers 1 to 10. We also have to give
-them a different variable (`row` and `col` in this case). We couldn\'t
-use \"i\" for both because then one would overwrite the other.
+them a different variable (`row` and `col` in this case). We couldn't
+use "i" for both because then one would overwrite the other.
 
 Also we pass `size + 1` as the end point to the `range` function. That
 allows us to loop more or less depending on how big of a table the user
 requested.
 
 The print that outputs the number uses the two variables `row` and `col`
-multiplied together. We don\'t want each number to be on a line all by
+multiplied together. We don't want each number to be on a line all by
 itself, so we have to tell Python not to end with a new line. Instead we
 pass `end="\t"`. The `"\t"` is a *tab character*. By putting a tab after
 each character, we make sure the numbers line up nicely in columns. We
@@ -357,7 +357,7 @@ Then we have the funky looking line that calls `print()` with nothing at
 all between the parenthesis. The purpose of this is to go down to the
 next line. Each time we print a number, we end with a tab. Then after
 one row is done (after the inner for loop has finished), we need to go
-down to the next line so the next row has room. That\'s what that second
+down to the next line so the next row has room. That's what that second
 print accomplishes.
 
 Nested loops can be tricky because you have to keep track of where you
@@ -393,7 +393,7 @@ tackling a new problem:
 2.  **Identify the outputs**
 
     For most problems, there is also some kind of solution that you are
-    looking for. If we don\'t have the output we are looking for firmly
+    looking for. If we don't have the output we are looking for firmly
     in mind, it will be hard to hit upon the right algorithm. Listing
     the outputs our algorithm is expected to produce will make sure we
     know our goal.
@@ -401,9 +401,9 @@ tackling a new problem:
 3.  **Solve a few examples by hand**
 
     Next you should solve a few examples of the problem just by hand. If
-    you can\'t solve the problem with example inputs, then you have no
+    you can't solve the problem with example inputs, then you have no
     hope of coming up with an algorithm that can solve it in general.
-    When doing this, it\'s good to try examples of the different
+    When doing this, it's good to try examples of the different
     situations that could arise.
 
     By working through a few concrete examples, you are doing two
@@ -416,16 +416,16 @@ tackling a new problem:
 
     Based on what you learned working the example problems, you can now
     sketch out the algorithm. But rather than jump right into Python
-    code, it\'s often helpful to start with righting down the basic
+    code, it's often helpful to start with righting down the basic
     steps in English first.
 
-    The main reason for this is because it\'s easier to focus on just
+    The main reason for this is because it's easier to focus on just
     the algorithm and not the details of a programming language. For
-    example, you don\'t need to worry about deciding whether things
+    example, you don't need to worry about deciding whether things
     should be int or float, or making sure parenthesis line up right.
 
     This English like description of an algorithm is sometimes called
-    \"pseudocode\" because it is sort of like computer code, but not
+    "pseudocode" because it is sort of like computer code, but not
     really in any actual language. The main benefit of this is that it
     lets us focus on the algorithm without being distracted by details
     of Python syntax.
@@ -443,9 +443,9 @@ tackling a new problem:
 6.  **Write the actual code**
 
     Once we are confident our basic algorithm is working, we can start
-    putting it into actual code in a programming language (we\'ll use
+    putting it into actual code in a programming language (we'll use
     Python of course). Now instead of focusing on the problem itself, we
-    will focus on the language\'s syntax and finding all the functions
+    will focus on the language's syntax and finding all the functions
     we need.
 
 7.  **Test the code**
@@ -474,19 +474,19 @@ problem[^1].
 
 ------------------------------------------------------------------------
 
-As an example of applying these steps, let\'s solve the problem of
+As an example of applying these steps, let's solve the problem of
 figuring out how much somebody is paid given their hourly rate and the
 number of hours they worked. If the hours worked are over 40, then the
-person is paid \"time and a half\" for their overtime.
+person is paid "time and a half" for their overtime.
 
-It\'s worth pointing out that the problem of solving one specific case
+It's worth pointing out that the problem of solving one specific case
 of this problem (like if you worked 30 hours and make 12 dollars per
 hour) is just a math problem. It becomes a computer science problem when
 we want to solve it *in general*. With the right algorithm, we could
 solve any case of this problem at all --- no matter what the inputs are,
 our algorithm will give us the right answer.
 
-Let\'s go through the steps outlined above:
+Let's go through the steps outlined above:
 
 1.  **Identify the inputs**
 
@@ -501,16 +501,16 @@ Let\'s go through the steps outlined above:
 3.  **Solve a few examples by hand**
 
     For this problem, we should solve an example where the person
-    doesn\'t get overtime and one where they do. Let\'s start with the
-    case where they don\'t get overtime. Say they work for 30 hours, and
+    doesn't get overtime and one where they do. Let's start with the
+    case where they don't get overtime. Say they work for 30 hours, and
     make 12 dollars per hour. In this case, we should just multiply the
     two numbers together to get 30×12 = 360.
 
     In the case where the employee *does* get overtime, we have to do
-    something extra. Let\'s say they work 45 hours and make 10 dollars
+    something extra. Let's say they work 45 hours and make 10 dollars
     per hour. Now we need to give them 10 dollars for each of the 40
     regular hours they are working. We also need to pay them extra for
-    the hours they work over 40. In this case that\'s 5 hours at 15
+    the hours they work over 40. In this case that's 5 hours at 15
     dollars per hour. So in total we have 40×10 + 5×15 = 475.
 
 4.  **Write the basic steps**
@@ -564,7 +564,7 @@ Let\'s go through the steps outlined above:
     it the inputs we tested in step 3 to make sure it gets the same
     result that we got.
 
-Because this problem isn\'t *terribly* difficult, many of you could
+Because this problem isn't *terribly* difficult, many of you could
 probably have jumped straight into code. The point of this section is to
 give an example of solving problems this way. These steps will be
 helpful to at least think about when you encounter trickier problems.
@@ -589,20 +589,20 @@ The flowchart shows the algorithm in a slightly more graphical way. Each
 box in the chart displays one step of the algorithm. The nice thing
 about a flowchart is that it makes the control flow statements really
 clear. In this case, you can see the decision (which is typically shown
-with a diamond shape in a flowchart), with branches for the \"yes\" and
-\"no\" cases.
+with a diamond shape in a flowchart), with branches for the "yes" and
+"no" cases.
 
 Flowcharts also make loops easy to spot. We can make a flowchart for the
 problem of reading a valid age from the user. The steps in the following
 algorithm keep asking the user for an age until they put in something
-that\'s not negative:
+that's not negative:
 
 ![A flowchart showing the steps of reading a valid age from the
 user.](images/flow2.png)
 
-You can see the loop in this algorithm because of the arrow that\'s
-pointing back to a previous step (that\'s the arrow pointing from the
-\"Read age again\" step back around to the decision). Making flowcharts
+You can see the loop in this algorithm because of the arrow that's
+pointing back to a previous step (that's the arrow pointing from the
+"Read age again" step back around to the decision). Making flowcharts
 can be helpful as you are working on an algorithm, as they can help you
 understand the order that the steps need to be done in.
 
@@ -613,7 +613,7 @@ understand the order that the steps need to be done in.
 
 ::: {.blackbox-contents}
 -   If, elif and else statements, along with our loop statements form
-    Python\'s \"control flow\" statements. These allow us to control the
+    Python's "control flow" statements. These allow us to control the
     order that program instructions are done in.
 -   These control flow statements can be combined, or nested, any way we
     like. We can put a loop inside of an if statement, or an if
@@ -627,7 +627,7 @@ understand the order that the steps need to be done in.
     4.  Write the steps needed in plain English
     5.  Test these steps and look for problems with them
     6.  Translate your algorithm into code
-    7.  Test the code you\'ve written
+    7.  Test the code you've written
 -   You can use pseudocode or flowcharts to work on the general solution
     to a problem before diving into code.
 -   To get better at algorithmic problem solving, you need to practice
@@ -639,7 +639,7 @@ Footnotes {#footnote-label .visually-hidden}
 ---------
 
 [^1]: When I personally am writing programs, I will often start by
-    writing my \"basic steps\" as comments in my program files. Then I
+    writing my "basic steps" as comments in my program files. Then I
     read through and make sure the steps make sense before jumping into
     the code. Then, I add the code, but leave the comments in to explain
     how the code is working. I find this method works well.

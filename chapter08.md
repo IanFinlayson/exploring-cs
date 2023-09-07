@@ -26,7 +26,7 @@ Using Libraries {#using-libraries .sub}
 
 ------------------------------------------------------------------------
 
-Python comes with some built-in functions that we\'ve used in our
+Python comes with some built-in functions that we've used in our
 programs. These include things like `print`, `input`, `round`, and
 `len`. We can use any of these directly in a Python program without
 needing to do anything special.
@@ -47,7 +47,7 @@ Sharing work with other people and building off of what others have done
 is a big part of computer science. This makes it possible to make cooler
 things than if everyone had to work alone.
 
-Lastly in this chapter, we\'ll talk about how to look up documentation
+Lastly in this chapter, we'll talk about how to look up documentation
 on libraries so you can learn how to use them.
 
 8.2 The import Statement
@@ -85,9 +85,9 @@ The import of math has to be before we actually use anything from the
 math library. Usually people put import lines all at the top of a
 program, so we make sure things are imported before we use them.
 
-Also note that we don\'t just call `sqrt` directly, we have to put the
+Also note that we don't just call `sqrt` directly, we have to put the
 name of the library first, followed by a `.`, followed by the name of
-the function we\'re using. The reason for this is to help keep things
+the function we're using. The reason for this is to help keep things
 organized. The math library has over 50 things in it, and if we are
 using lots of libraries in one program, it could be hard to know what
 things are coming from where. When we see `math.sqrt`, we know that the
@@ -98,7 +98,7 @@ sqrt function comes from the math library which we imported above.
 
 ------------------------------------------------------------------------
 
-Sometimes we want to use some functions from a library and we don\'t
+Sometimes we want to use some functions from a library and we don't
 want to have to put the name of the library and the `.` before the name
 of the functions every single time. For example, imagine we are writing
 a program that had to do lots and lots of square roots. It might get
@@ -126,7 +126,7 @@ print("The square root of", num, "is", root)
 ```
 
 Notice that we now *can* just say `sqrt` instead of having to put
-`math.sqrt`. However, now we can\'t use anything from the math library
+`math.sqrt`. However, now we can't use anything from the math library
 *except* for sqrt. If we wanted to be able to call upon multiple things
 from the math library (like the `sin` function for calculating the sine
 of an angle), we could add it to the from statement like this:
@@ -137,11 +137,11 @@ from math import sqrt, sin
 ```
 
 Now we could call upon the `sqrt` or the `sin` functions, both without
-using `math.`. But we couldn\'t call upon any of the other things in the
+using `math.`. But we couldn't call upon any of the other things in the
 math library.
 
 If we really want to be able to use *everything*, from math, and we
-don\'t want to type `math.` for any of it, we can do so like this:
+don't want to type `math.` for any of it, we can do so like this:
 
 
 ``` {.python}
@@ -152,7 +152,7 @@ The `*` means everything. So now we can call upon the `sqrt` and `sin`
 functions, along with everything else in math, without needing the
 `math.` beforehand.
 
-Generally it\'s a good idea to stick with the first version of import
+Generally it's a good idea to stick with the first version of import
 most of the time. That makes your code clearer since everyone can tell
 what library everything we use is part of. There are cases, however,
 when one program uses lots and lots of things from one library where
@@ -164,7 +164,7 @@ using the other form is more convenient.
 ------------------------------------------------------------------------
 
 So the math library has lots of things we might want to use in it. But
-how do we find out all what\'s in there? And how do we learn how to use
+how do we find out all what's in there? And how do we learn how to use
 those things? The answer is that we read the documentation. The Python
 website has pages of documentation for every one of the libraries that
 it comes with. The page for the [math library is available
@@ -187,17 +187,17 @@ Return the square root of *x*.
 :::
 
 To read this, we would see that the name of the function is `sqrt`. We
-would see that it\'s part of the math library, so we need to put `math.`
+would see that it's part of the math library, so we need to put `math.`
 before using it (unless we use the from style of import). We also see
 that there is one thing inside of the parenthesis. Then the description
 of the function says that it returns to us the square root of that thing
 (which it calls `x`).
 
-Another important question is \"How does one know what libraries Python
-even comes with?\" The answer to that question is that Python also
+Another important question is "How does one know what libraries Python
+even comes with?" The answer to that question is that Python also
 includes a list of all the libraries that it comes with. [You can find
 that page here](https://docs.python.org/3/library/). It starts listing
-the \"built-in\" things such as `print`, `len`, etc. The it lists all of
+the "built-in" things such as `print`, `len`, etc. The it lists all of
 the things you can import into Python, grouped in categories.
 
 8.5 Example: Password Entropy
@@ -205,7 +205,7 @@ the things you can import into Python, grouped in categories.
 
 ------------------------------------------------------------------------
 
-As an example of using the math library, let\'s look at the problem of
+As an example of using the math library, let's look at the problem of
 figuring out how difficult a password would be to guess based on how
 long the password is, and how many characters might be in it. This is
 related to the problem we looked at last week of checking that a
@@ -227,7 +227,7 @@ L = the length of the password\
 E = the password entropy
 
 In order to write this program, we need to somehow calculate a logarithm
-with a base of 2. Python\'s math library actually has a function that
+with a base of 2. Python's math library actually has a function that
 does exactly this. [You can read about it
 here](https://docs.python.org/3/library/math.html#math.log2). We can use
 this function to write a program to calculate the password entropy:
@@ -251,7 +251,7 @@ with the normal `import math` line to pull in the math library. Then
 when we needed to do the logarithm, we call the function we need with
 `math.` before it.
 
-Let\'s try the program out. First we will figure out the password
+Let's try the program out. First we will figure out the password
 entropy of a 4-digit pin number:
 
 ``` {.output}
@@ -260,7 +260,7 @@ How long is the password required to be? INPUTSTART4INPUTEND
 The entropy of this is 13.287712379549449
 ```
 
-The higher the number, the harder the password would be to guess. Let\'s
+The higher the number, the harder the password would be to guess. Let's
 try the scheme of needing 8 characters for a password, and pulling from
 lower-case letters, upper-case letters, and digits:
 
@@ -302,16 +302,16 @@ print("Your random number is", num)
 
 Random numbers are used for all sorts of things in programs. They are
 used for games that give you random interactions (for example, some
-games give you random \"loot\" when you defeat enemies). Also some
+games give you random "loot" when you defeat enemies). Also some
 algorithms use random numbers as an important part of how they work.
 
 In actual fact, computers cannot really give us truly random numbers.
 The values that `randint` provides actually are produced from
 mathematical sequences. They *seem* random, but are in fact not. These
-numbers are called \"pseudo-random\" for that reason[^1].
+numbers are called "pseudo-random" for that reason[^1].
 
-Now that we can use random numbers, we can write a simple \"Rock, Paper,
-Scissors\" game. In this game, two players each pick one of the three
+Now that we can use random numbers, we can write a simple "Rock, Paper,
+Scissors" game. In this game, two players each pick one of the three
 possible throws from the name of the game. There are then rules for
 determining the winner based on the two throws where:
 
@@ -321,8 +321,8 @@ determining the winner based on the two throws where:
 
 In order to write this program, we will do three main things:
 
-1.  Get the user\'s throw by asking them in an input statement
-2.  Get the computer\'s throw by choosing a random number
+1.  Get the user's throw by asking them in an input statement
+2.  Get the computer's throw by choosing a random number
 3.  Compare the two and determine a winner
 
 The code for this program is below:
@@ -383,8 +383,8 @@ You win!
 
 The math and random libraries both come with Python. If you have Python
 installed, you can import them and start using them right away. In this
-section we\'ll talk about how to use libraries that Python *doesn\'t*
-come with. These are sometimes called \"third-party\" libraries since
+section we'll talk about how to use libraries that Python *doesn't*
+come with. These are sometimes called "third-party" libraries since
 some other person besides you and the language designers created them.
 
 Python programmers who want to share a library they created with the
@@ -394,28 +394,28 @@ find it. Most of the widely used libraries on PyPI are very complex,
 with many of them having entire textbooks devoted just to them.
 
 As an example of one simple third-party library, we will talk about the
-\"art\" library, which you can read about on the [PyPI art
+"art" library, which you can read about on the [PyPI art
 page](https://pypi.org/project/art/). This library solves the very
-important problem of printing messages in fancier \"ASCII art\" fonts.
+important problem of printing messages in fancier "ASCII art" fonts.
 To be able to use it, we first must install it. Luckily, Thonny makes
 this very easy.
 
-Start by clicking \"Tools\" on the toolbar, and then \"Manage
-Packages\...\". That pulls up a window that looks something like this:
+Start by clicking "Tools" on the toolbar, and then "Manage
+Packages\...". That pulls up a window that looks something like this:
 
 ![The Manage Packages Screen](images/pkgs1.png)
 
 Now we can search PyPI for the art package. There are several results,
-so click on the one that just says \"art\":
+so click on the one that just says "art":
 
-![The Search Results for \"art\"](images/pkgs2.png)
+![The Search Results for "art"](images/pkgs2.png)
 
-That brings you to this page. Click \"Install\" to install the package:
+That brings you to this page. Click "Install" to install the package:
 
 ![The art Package Screen](images/pkgs3.png)
 
 We should now have the library and be ready to use it. It comes with
-several functions you can read about on its home page. For now let\'s
+several functions you can read about on its home page. For now let's
 just call the `art.tprint` function which takes a string and prints it
 out in a fancy ASCII art font:
 
@@ -445,7 +445,7 @@ That gives us this exciting output:
 The functions and things that can be used in Python come in three broad
 categories:
 
-1.  Python has some \"built-in\" things that can be used without having
+1.  Python has some "built-in" things that can be used without having
     to import anything. Those can be seen [on this
     page](https://docs.python.org/3/library/functions.html), and include
     `print`, `len`, `round` and so on.
@@ -480,7 +480,7 @@ by others as a part of your program.
     but we must specify the name of the library and a . before each
     thing we use from it.
 -   There is another form of import we can use which starts with the
-    keyword \"from\". This form allows us to import things from a
+    keyword "from". This form allows us to import things from a
     library without needing to put the name of the library and the .
     before each thing.
 -   Each library has a page of documentation which shows you all of the
@@ -494,6 +494,6 @@ Footnotes {#footnote-label .visually-hidden}
 ---------
 
 [^1]: There have been cases where programmers use this fact to figure out
-    the algorithms behind \"random\" gambling games like slot machines
+    the algorithms behind "random" gambling games like slot machines
     and predict when the games will produce a payout.
     

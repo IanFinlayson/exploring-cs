@@ -11,7 +11,7 @@ as a means to learn about developing algorithms and solving problems. In
 particular, we will not spend too much time talking about
 Python-specific features. We will also not always do things in the most
 Python-specific way. For example, we will look at how to solve some
-problems \"by hand\" that could be done just by calling Python methods.
+problems "by hand" that could be done just by calling Python methods.
 The goal of this book is to teach you the core ideas of computer science
 which are independent of any particular language.
 

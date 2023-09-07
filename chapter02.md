@@ -32,13 +32,13 @@ understands.
 So in order to run our programs, we have to install the interpreter for
 the language that we want to use. Because we will be using Python, we
 need to install the Python interpreter. If we just give Python programs
-straight to our computer, it won\'t know what to do with them. We need
+straight to our computer, it won't know what to do with them. We need
 to interpreter to run them.
 
 We will also be installing *another* program along with an interpreter.
 This program is something called an **Integrated Development Environment
 (IDE)**. An IDE is a program that lets you type in the program you are
-writing. You could write your programs in any old program, but it\'s
+writing. You could write your programs in any old program, but it's
 generally much easier to use a program geared just for that purpose. For
 example, an IDE will give you a button to pass your program to the
 interpreter, highlight keywords in the language and make it easier to
@@ -46,7 +46,7 @@ see when you have errors.
 
 The IDE we will be using here is a simple one called **Thonny**, which
 is easy to use and get started with. It also includes Python with it, so
-you only need to install one thing. The choice of IDE doesn\'t really
+you only need to install one thing. The choice of IDE doesn't really
 matter too much, if you want to use a different one for some reason (for
 instance if you have one from another class), you can follow the rest of
 the book using that too.
@@ -120,7 +120,7 @@ should see a window something like this:
 
 The main window has two main parts. The top is the file area. This is
 where you will type in the program that you will create. This is empty
-right now, and called \"\<untitled\>\".
+right now, and called "\<untitled\>".
 
 The bottom area is called the **Shell**. This is a window where you can
 pass Python code to the Python interpreter. Any code you put in here
@@ -131,10 +131,10 @@ example:
 
 As you can see, when we put `3 + 4` into the shell, it gives us the
 answer, 7. Likewise when we put in the command `print("Hi!")`, it prints
-what we told it to. What\'s happening here is that these are small
+what we told it to. What's happening here is that these are small
 amounts of Python code. When we put them in, the shell window passes
 them to the Python interpreter, which runs them. Any results are
-displayed back in the shell. It is called a \"shell\" because it sort of
+displayed back in the shell. It is called a "shell" because it sort of
 surrounds the Python interpreter and acts as our interface to it.
 
 Generally, the top file area is for writing a program that you will run
@@ -153,7 +153,7 @@ expressions in and see how the shell gives you results back.
 ------------------------------------------------------------------------
 
 Now we are ready to write our first program. The goal of the first
-program is just to print the text \"Hello World\" to the screen [^1].
+program is just to print the text "Hello World" to the screen [^1].
 The code for this program is the
 following:
 
@@ -166,14 +166,14 @@ print("Hello World!")
 You should type this program into the top window of Thonny. Then we can
 run the program. This can be done in one of three ways:
 
--   Clicking the \"Run\" menu, then choosing \"Run current script\".
+-   Clicking the "Run" menu, then choosing "Run current script".
 -   Clicking the green play button (![](images/run.png)).
 -   Hitting the F5 key.
 
 Before the program can run, it will ask you to save it. When saving your
 program files, you should put them some place where you will be able to
 find them again. You should also always name them something ending with
-the \".py\" extension.
+the ".py" extension.
 
 Once the program is saved, it will run. You should then see the results
 in the shell window:
@@ -199,7 +199,7 @@ gets a comment line, it completely ignores it, and moves on to the next
 line. The sole purpose of comments is to leave little notes in the code,
 for any people reading. They are meant to explain things about how the
 program works. This program is so short and simple that the comment is
-not really needed, but as we work on more complex programs, they\'ll
+not really needed, but as we work on more complex programs, they'll
 become more helpful.
 
 The second line of the program says:
@@ -211,8 +211,8 @@ print("Hello World!")
 This is the line that actually tells the Python interpreter to do
 something. Python comes with lots of commands called **functions** built
 in that cause it to do different things. One of these is `print`. The
-parenthesis mark the things that will be printed. In this case, it\'s
-just the message \"Hello World!\".
+parenthesis mark the things that will be printed. In this case, it's
+just the message "Hello World!".
 
 Both the parenthesis and the quotation marks are needed for the program
 to work. You can change the message inside the quotation marks to
@@ -233,11 +233,11 @@ this:
 ![Missing quotation marks](images/error0.png)
 
 Here the program did not run successfully. Instead, the shell gives us
-the error `SyntaxError: invalid syntax`. There is also an \"Assistant\"
+the error `SyntaxError: invalid syntax`. There is also an "Assistant"
 window which is a feature of Thonny to help us figure the error out. In
-this case, it\'s not terribly helpful. The specific problem here is that
+this case, it's not terribly helpful. The specific problem here is that
 Python has no idea what to do with the exclamation mark since that
-doesn\'t mean anything in Python code.
+doesn't mean anything in Python code.
 
 If we get rid of the parenthesis instead, we get a different error:
 
@@ -279,10 +279,10 @@ Footnotes {#footnote-label .visually-hidden}
 
 [^1]: Having the first program print this message is something of a silly
     tradition in computer science. It dates back at least to the 1978
-    book \"The C Programming Language\".
+    book "The C Programming Language".
 
-[^2]: I used to insist this symbol be called a \"pound\" or \"hash\"
-    symbol, and become annoyed when it was called a \"hashtag\", but
-    I\'ve accepted it. You can say that Python comments begin with
+[^2]: I used to insist this symbol be called a "pound" or "hash"
+    symbol, and become annoyed when it was called a "hashtag", but
+    I've accepted it. You can say that Python comments begin with
     hashtags.
 

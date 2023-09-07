@@ -31,8 +31,8 @@ Going Back Again {#going-back-again .sub}
 Many algorithms are built on the concept of a **loop** where you repeat
 some steps of the algorithm multiple times. For example:
 
--   On a shampoo bottle, it says \"Lather, rinse, and repeat\".
--   In our \"guess the number\" algorithm, we have to keep on guessing
+-   On a shampoo bottle, it says "Lather, rinse, and repeat".
+-   In our "guess the number" algorithm, we have to keep on guessing
     until we guess the number right.
 -   In adding and subtracting algorithms you learned in grade school you
     must keep going for every digit of the number.
@@ -40,7 +40,7 @@ some steps of the algorithm multiple times. For example:
 With loops we will be able to write programs that do these kinds of
 things, and repeat some part of the program over again.
 
-As a first example, consider the \"guess the number\" game. We could in
+As a first example, consider the "guess the number" game. We could in
 theory just use if statements to guess all the numbers:
 
 ``` {.python}
@@ -66,7 +66,7 @@ elif input("Did you guess 10? ") == "yes":
     print("Got it!")
 ```
 
-However, this is clearly kind of repetitive. It also isn\'t sustainable,
+However, this is clearly kind of repetitive. It also isn't sustainable,
 if we wanted to write a program that would guess a number from 1 to 100,
 that would be a lot of typing! Instead we should use a loop.
 
@@ -96,8 +96,8 @@ When this program is run, we start by setting the number variable to 1.
 Next we check if that variable is less than or equal to 10. If so we do
 the statements indented under the loop.
 
-The difference is that, after we\'re done those statements, *we go back
-to the top*. It will check the condition another time. If it\'s *still*
+The difference is that, after we're done those statements, *we go back
+to the top*. It will check the condition another time. If it's *still*
 true, it does the loop again. It will keep on doing it over and over
 again until the condition is false.
 
@@ -121,7 +121,7 @@ variable is bigger than 10. So the output will be this:
 ```
 
 We can now use a while loop to implement the simple version of the
-\"guess a number\" game as follows:
+"guess a number" game as follows:
 
 **Program 6.2**
 
@@ -139,25 +139,25 @@ while answer != "yes":
 print("Got it!")
 ```
 
-This program will keep looping until the user enters \"yes\". At that
+This program will keep looping until the user enters "yes". At that
 point, the condition becomes false and so the loop exits.
 
-There\'s quite a bit going on in this code, so let\'s go through it.
+There's quite a bit going on in this code, so let's go through it.
 
 -   First, we need to ask them the first question: whether their number
     was 1 or not. We do this so that the variable answer is defined for
     the start of the loop.
 -   We then have the loop condition which checks if their answer was not
-    \"yes\". If it wasn\'t we go into the loop. If it was, then we got
+    "yes". If it wasn't we go into the loop. If it was, then we got
     it on the first try, and skip over the whole loop.
 -   Inside the loop body, we add 1 to the number variable. This is how
     we change the thing we guess from 1, to 2, to 3, etc.
 -   We also ask them if the latest number is their guess or not. Doing
-    so is a little tricky. Unlike `print`, the `input` function doesn\'t
+    so is a little tricky. Unlike `print`, the `input` function doesn't
     let us pass it numbers, only a string. So we have to convert number
     to a string with the `str` function, and join it to the rest of the
     question.
--   The code after the while loop, which prints \"Got it!\", will only
+-   The code after the while loop, which prints "Got it!", will only
     happen once the condition becomes false. For this program that means
     that answer *was* yes.
 
@@ -166,7 +166,7 @@ There\'s quite a bit going on in this code, so let\'s go through it.
 
 ------------------------------------------------------------------------
 
-We\'ve talked about how to use if statements to check if user input is
+We've talked about how to use if statements to check if user input is
 valid. For instance, this program will check if the user enters a
 negative number for their age:
 
@@ -204,7 +204,7 @@ Of course now, they can put in a negative number *three* times. Clearly
 this is not a great way of approaching this. A better way would be to
 use a loop. In this case, we will want to keep on asking them, over and
 over again, until they eventually put in valid data. Maybe this is the
-first try, or maybe it\'s the hundredth.
+first try, or maybe it's the hundredth.
 
 We can do it by simply replacing `if` with `while`. Now, the program
 will *keep* asking the user for data until it is greater than or equal
@@ -245,7 +245,7 @@ You are 27 years old.
 ------------------------------------------------------------------------
 
 One danger when creating loops is that the condition might *never*
-become true. For example, there\'s a mistake in the program below which
+become true. For example, there's a mistake in the program below which
 causes this:
 
 ``` {.python}
@@ -258,8 +258,8 @@ while number < 10:
 print("All done!")
 ```
 
-Here we mistyped \"number\" as \"numer\". So when we run the addition,
-it doesn\'t change number to be bigger. Instead it makes a *new*
+Here we mistyped "number" as "numer". So when we run the addition,
+it doesn't change number to be bigger. Instead it makes a *new*
 variable. Because of our typo, the variable `number` never reaches 10,
 so the condition stays false forever. This is called an *infinite loop*
 and is a common programming mistake.
@@ -267,19 +267,19 @@ and is a common programming mistake.
 If you run this program, it will never stop running. It will just
 continue on forever. Or until you stop it, which is probably what you
 will want to do. You can do this in Thonny by hitting the stop button
-(![](images/stop.png)), or by choosing \"Stop/Restart backend\" from the
-\"Run\" menu.
+(![](images/stop.png)), or by choosing "Stop/Restart backend" from the
+"Run" menu.
 
 6.5 Example: Running Total
 --------------------------
 
 ------------------------------------------------------------------------
 
-Let\'s write a program that will compute a running total of numbers. The
+Let's write a program that will compute a running total of numbers. The
 way this will work is that you will put in numbers to the program, and
 it will add them all together, and show you the sum after each one. You
-can then stop the program by entering a 0 (there\'s no reason to add 0
-normally since it won\'t change anything).
+can then stop the program by entering a 0 (there's no reason to add 0
+normally since it won't change anything).
 
 Below is an example of a run of this program, so you can see how it
 should work before we dive into some code:
@@ -322,7 +322,7 @@ variable is used to keep track of the running sum. It starts as the same
 as the number first entered.
 
 The condition for this while loop is `number != 0`. So we will keep
-going as long as the number they entered wasn\'t 0.
+going as long as the number they entered wasn't 0.
 
 Inside the loop, we do a few things. First we print out the total so the
 user can see it change for each number they enter. Then we get the next
@@ -332,7 +332,7 @@ After the loop, we just print out the total sum.
 
 This kind of program would be *impossible* to write without a loop of
 some kind. Even if we wanted to copy and paste a bunch of code, we
-couldn\'t because we don\'t know ahead of time how many numbers the user
+couldn't because we don't know ahead of time how many numbers the user
 will want to add.
 
 6.6 For Loops
@@ -361,14 +361,14 @@ for letter in name:
 The for loop looks a bit different from the while loop. Instead of the
 condition, we have the word `for` followed by a variable name. The
 variable name above is `letter`. Then we have the word `in`, followed by
-the sequence we are using. In this case, that\'s the string `name`.
+the sequence we are using. In this case, that's the string `name`.
 
 When you run a for loop, it makes the variable (`letter` in this case)
 equal to each thing in the sequence one-by-one. It then runs the loop
-body on it. So if we enter, let\'s say \"Amy\" as the name, then it will
-first set `letter` to \"A\". It will then run the loop body on \"A\".
-Next it will run the loop body again, but with `letter` equal to \"m\".
-Lastly it will run the loop body with `letter` as \"y\". Then it will
+body on it. So if we enter, let's say "Amy" as the name, then it will
+first set `letter` to "A". It will then run the loop body on "A".
+Next it will run the loop body again, but with `letter` equal to "m".
+Lastly it will run the loop body with `letter` as "y". Then it will
 stop.
 
 The result of running this program can be seen below:
@@ -388,7 +388,7 @@ up to the length of the string, and used indices to get the letters out.
 
 But for loops have a few benefits when looping through a sequence:
 
--   It\'s much harder to accidentally make an infinite for loop.
+-   It's much harder to accidentally make an infinite for loop.
 -   For loops are a little easier to read. They make our intention of
     looping through a sequence more obvious.
 
@@ -437,7 +437,7 @@ Just like the for loop with a string, this for loop sets our variable
 (called `i`) to each thing in the sequence one by one. It then runs the
 loop body once for each value.
 
-If we don\'t want to start on 0, we can also pass range a starting
+If we don't want to start on 0, we can also pass range a starting
 point. To do that, we have to pass two numbers. The first is the start
 and the second is 1 past the ending point.
 
@@ -510,7 +510,7 @@ This gives us the following:
 
 ------------------------------------------------------------------------
 
-As an example of a for loop with a range, let\'s write a program which
+As an example of a for loop with a range, let's write a program which
 gives us a table of Celsius temperatures with their equivalent
 Fahrenheit temperatures. Rather than read in one, and print out the
 other, we will just print a whole table. That way the user can see how
@@ -521,13 +521,13 @@ Celsius. We can do this by subtracting 32 from the Fahrenheit
 temperature and then multiplying by ^5^⁄~9~.
 
 The next part is doing this for a bunch of temperatures. To be helpful,
-let\'s make the range of temperatures start at the lowest Fahrenheit
-temperature it\'s likely to be. Here in Virginia, it\'s rare that it
+let's make the range of temperatures start at the lowest Fahrenheit
+temperature it's likely to be. Here in Virginia, it's rare that it
 gets below 0°, or above 100° Fahrenheit. We can therefore use 0 as the
 starting point to range, and 101 as the ending point (remember it has to
 be just *past* the value we want to end at.
 
-It will also be nicer if we don\'t print *every* temperature from 0° to
+It will also be nicer if we don't print *every* temperature from 0° to
 100°. 100 lines of output will probably be too much. Instead, we will go
 in increments of 5°. To do this, we can just pass 5 for the last thing
 to `range`.
@@ -549,7 +549,7 @@ for far in range(0, 101, 5):
 
 Here our loop variable is called `far` (short for Fahrenheit). It is
 given all the values in the sequence of numbers we make with range.
-First it\'s 0, then 5, then 10, all the way to 100.
+First it's 0, then 5, then 10, all the way to 100.
 
 For each time through the loop, we do all of the commands on the loop
 body. This converts to a Celsius temperature, rounds it, and prints out

@@ -33,12 +33,12 @@ graphical programs. We can use it to make games (hence the name), but it
 can also be used for other graphical programs such as simulations, or
 just having more colorful output.
 
-To install it with Thonny, choose \"Tools -\> Manage Packages\" from the
-main menu. Then search for \"pygame\" in the window that comes up:
+To install it with Thonny, choose "Tools -\> Manage Packages" from the
+main menu. Then search for "pygame" in the window that comes up:
 
 ![Searching for PyGame](images/pygame1.png)
 
-The one we want is just called \"PyGame\", so click on that. Next click
+The one we want is just called "PyGame", so click on that. Next click
 the Install button:
 
 ![The PyGame Package Page](images/pygame2.png)
@@ -80,8 +80,8 @@ This `set_mode` function creates the window for us. Its parameter is a
 list containing two numbers. The first number is how wide the window
 should be and the second is how tall it should be.
 
-These numbers refer to **pixels**, which is short for \"picture
-elements\". All computer screens are made up of tiny lights that can
+These numbers refer to **pixels**, which is short for "picture
+elements". All computer screens are made up of tiny lights that can
 show up as different colors. These are called pixels. Your computer
 monitor or laptop screen may have more or less pixels in it. A pretty
 typical display these days might be 1,920 pixels wide and 1,080 pixels
@@ -108,15 +108,15 @@ all, and 255 means that color is turned up to the max.
 For example, we could make a color with 100 for red, 240 for green and
 215 for blue. This would be a light aquamarine sort of color like this
 [    ]{style="background-color: #64f0d7"}. The easiest way to explore
-colors like this is probably to [Google \"color
-picker\"](https://www.google.com/search?q=color+picker) and play with
-Google\'s built in color choosing tool. At the bottom left, you will see
-the label \"RGB\" which indicates the three color components. This will
+colors like this is probably to [Google "color
+picker"](https://www.google.com/search?q=color+picker) and play with
+Google's built in color choosing tool. At the bottom left, you will see
+the label "RGB" which indicates the three color components. This will
 let you find the numbers for any color you want[^2].
 
 Colors are put into programs with *tuples* which are sort of like lists
 in Python except they use parentheses instead of square brackets. The
-other difference is tuples can\'t be changed once they are created,
+other difference is tuples can't be changed once they are created,
 while lists can. We can assign our aquamarine color into a variable like
 this:
 
@@ -181,11 +181,11 @@ circle. Of course we can change this to be whatever we want!
 
 The rest of the program takes place in a while loop. Graphics programs
 pretty much always have a main loop in them that keeps the program
-running. If we didn\'t have a loop, the window would pop up briefly when
+running. If we didn't have a loop, the window would pop up briefly when
 the program is run and close again when the program ends. Here the while
-loop is an infinite one. To end this program, you\'ll have to hit
-Thonny\'s \"stop\" button. Ideally, the program would end when the user
-hits the \'X\' to close the window instead. We\'ll see how to do that in
+loop is an infinite one. To end this program, you'll have to hit
+Thonny's "stop" button. Ideally, the program would end when the user
+hits the 'X' to close the window instead. We'll see how to do that in
 a little bit.
 
 Inside the loop, we do three things. First we fill the window with a
@@ -200,14 +200,14 @@ center of the circle should appear. We talk about coordinates in the
 next section, but (400, 300) is the middle of our 800x600 window.
 Finally we pass 100 as the radius of the circle.
 
-The third thing we do inside the loop is to \"flip\" the display.
+The third thing we do inside the loop is to "flip" the display.
 PyGame, like most graphical systems, uses a technique called **page
 flipping**. This means there are actually *two* graphical areas we
 create: the one being shown to the user and the one being drawn on. When
-we draw things like the orange circle, it gets drawn to the \"back\"
-display which isn\'t visible. Then when we are done drawing everything,
+we draw things like the orange circle, it gets drawn to the "back"
+display which isn't visible. Then when we are done drawing everything,
 we flip the displays so the user sees the new scene all at once. This
-prevents the user from seeing a half-drawn scene which won\'t look
+prevents the user from seeing a half-drawn scene which won't look
 right.
 
 ------------------------------------------------------------------------
@@ -217,7 +217,7 @@ right.
 
 Before we go much further, we need to talk about the coordinate system
 used in computer graphics. What does it mean when we put in (400, 300)
-for the circle\'s location?
+for the circle's location?
 
 Graphics systems typically use a coordinate system that is different
 from that used by mathematics. In graphics, the origin, (0, 0) is at the
@@ -241,7 +241,7 @@ there are 120,000 pixels.
 -----------
 
 Having to end the program through Thonny is not ideal. The user should
-be able to end the program by clicking the \'X\' in the window bar like
+be able to end the program by clicking the 'X' in the window bar like
 usual. To do this, we need to look for the quit **event**. An event is
 just something that might occur while our program is running, like the
 user clicking the close button, pressing a key on the keyboard or
@@ -332,7 +332,7 @@ x = 400
 y = 300
 ```
 
-Then when we draw the circle, we\'ll use these variables for the
+Then when we draw the circle, we'll use these variables for the
 position:
 
 ``` {.python}
@@ -394,7 +394,7 @@ pygame.quit()
 ```
 
 We add or subtract 10 pixels from one of `x` or `y` when an arrow key is
-pressed. Note that when up is pressed we subtract 10 pixels. That\'s
+pressed. Note that when up is pressed we subtract 10 pixels. That's
 because Y gets smaller towards the top of the window (which can be
 confusing at first).
 
@@ -406,16 +406,16 @@ might like to *hold* the right key to have it continually move right.
 To do this, we will need to look for both the key pressed and key
 released events. When an arrow key is pressed, we can set the circle in
 motion. When the arrow key is released we stop its motion. To this end,
-we\'ll create two new variables for the circle. One keeps track of its
+we'll create two new variables for the circle. One keeps track of its
 speed in the x direction and the other is the speed in the y direction.
-These start off at 0 to mean the circle isn\'t moving to start off.
+These start off at 0 to mean the circle isn't moving to start off.
 
 ``` {.python}
 xspeed = 0
 yspeed = 0
 ```
 
-We\'ll also make a variable for how fast the circle goes when it is
+We'll also make a variable for how fast the circle goes when it is
 moving:
 
 ``` {.python}
@@ -468,7 +468,7 @@ y = y + yspeed
 ```
 
 This adds the speed into each of the two coordinates. So the way this
-works is the user presses an arrow key, let\'s say the right key. This
+works is the user presses an arrow key, let's say the right key. This
 sets `xspeed` to positive 1. Every time through the loop, the 1 is added
 into `x`. So each time through it moves 1 pixel to the right. When the
 user releases the right key, `xspeed` is set back to 0. Then the `x`
@@ -683,7 +683,7 @@ Footnotes {#footnote-label .visually-hidden}
 ---------
 
 [^1]: In school you learned that red, yellow and blue are the three
-    primary colors. That\'s true in a *subtractive* model of color, such
+    primary colors. That's true in a *subtractive* model of color, such
     as you get when mixing paints together. But there are other models
     of color, such as the *additive* model wherein you combine colored
     lights. In this model red, green, and blue are the three primary
@@ -692,11 +692,11 @@ Footnotes {#footnote-label .visually-hidden}
 
 [^2]: With this color scheme, there are actually over 16 million colors
     we could create. The human eye can only discern about 10 million
-    different colors. So while theoretically there\'s really no limit on
+    different colors. So while theoretically there's really no limit on
     the number of colors, we can practically make any color we can
     imagine.
 
-[^3]: The term \"blit\" is an old phrase in graphics and game
+[^3]: The term "blit" is an old phrase in graphics and game
     programming. Its origin is an acronym for BLock Information
     Transfer. To blit something is to transfer it quickly from one part
     of memory to another. When you draw an image, you copy the image

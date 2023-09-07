@@ -32,7 +32,7 @@ different conditions.
 
 For example, when we talked about algorithms back in chapter 1, we came
 up with the following for guessing a number when the player just
-answered \"yes\" or \"no\":
+answered "yes" or "no":
 
 **Algorithm 1**
 ``` {.algorithm}
@@ -50,7 +50,7 @@ we do another. Lots of algorithms have to do things like this.
 Another example is adding numbers. When you are adding a column of
 numbers you have to make a decision on whether to carry or not. You
 check if the column totals more than 9. If so, you carry the tens place
-to the next column. If not, you don\'t.
+to the next column. If not, you don't.
 
 In this chapter, we will talk about how to write Python programs that
 make decisions like this.
@@ -109,12 +109,12 @@ Enter a number: INPUTSTART5INPUTEND
 ------------------------------------------------------------------------
 
 Notice that the print message in the program above was indented over to
-the right. Sometimes spaces don\'t matter in Python programs, but here
+the right. Sometimes spaces don't matter in Python programs, but here
 these spaces before the print are actually really important. Python uses
 indentation to mark if lines are part of an if statement or not.
 
 For example, we can add some more message to the program above, and
-whether they are indented or not will determine if they are \"part of\"
+whether they are indented or not will determine if they are "part of"
 the if statement:
 
 ``` {.python}
@@ -127,13 +127,13 @@ print("Bye bye!")
 
 The first two messages, the ones which are indented, will only be
 executed when the number is bigger than 10. However, the message which
-says \"Bye bye!\" will be printed every single time the program runs ---
-whether the condition is met or not. That\'s because it\'s not indented,
-so it\'s not part of the if statement.
+says "Bye bye!" will be printed every single time the program runs ---
+whether the condition is met or not. That's because it's not indented,
+so it's not part of the if statement.
 
 For this to work, we need to indent our code correctly so Python can
-tell if it\'s part of an if statement or not. Code should normally not
-be indented, but if it\'s part of an if, it should be. If you mix up
+tell if it's part of an if statement or not. Code should normally not
+be indented, but if it's part of an if, it should be. If you mix up
 indentation, Python will get confused. For instance, code like this will
 not work:
 
@@ -146,7 +146,7 @@ if number > 10:
 print("Bye bye!")
 ```
 
-Here Python will be confused because it doesn\'t know what to do with
+Here Python will be confused because it doesn't know what to do with
 the second message. Is it part of the if block or not?
 
 5.4 Comparisons
@@ -174,8 +174,8 @@ keyboard. So instead of the ≤ ≥ and ≠ symbols, Python uses `<=`, `>=`,
 and `!=`.
 
 Also notice that to check if two things are equal, Python uses **two**
-equal signs. That\'s because a single `=` is already used for something:
-assigning variables. It\'s a pretty common mistake to forget to put the
+equal signs. That's because a single `=` is already used for something:
+assigning variables. It's a pretty common mistake to forget to put the
 second equal sign in.
 
 5.5 Example: Checking Input
@@ -185,15 +185,15 @@ second equal sign in.
 
 One common use of if statements is to check if the input users enter
 makes sense or not. For example, if we ask the user their age, they
-could enter a value that doesn\'t make sense like -7, or 3000. We can
+could enter a value that doesn't make sense like -7, or 3000. We can
 use if statements to write a program which will check if the age given
 is too low or too high before going on to the rest of the program. We
 will also give them another chance to put in their age correctly.
 
-For our purposes, let\'s say the age has to be between 5 and 125.
-Anything less than 5 we\'ll count as a mistake (we\'re assuming toddlers
-aren\'t going to use this program). Also, anything over 125 will be
-counted as too old (assuming the person using the program hasn\'t broken
+For our purposes, let's say the age has to be between 5 and 125.
+Anything less than 5 we'll count as a mistake (we're assuming toddlers
+aren't going to use this program). Also, anything over 125 will be
+counted as too old (assuming the person using the program hasn't broken
 the lifespan record by three years).
 
 We can do this with the following program:
@@ -246,7 +246,7 @@ What is your age? INPUTSTART75INPUTEND
 Your age is 75
 ```
 
-There\'s one flaw in this program which is that if you give a bad answer
+There's one flaw in this program which is that if you give a bad answer
 *twice*, then it will just accept it. For example:
 
 ``` {.output}
@@ -257,7 +257,7 @@ Your age is 750
 ```
 
 In order to fix this, we will need to learn how to repeat some code over
-and over again. That\'ll be the topic of the next chapter!
+and over again. That'll be the topic of the next chapter!
 
 5.6 Booleans Types
 ------------------
@@ -275,10 +275,10 @@ different values an integer or string can have. A boolean, on the other
 hand, can have only two different values: `True` or `False`. Boolean
 values are used to represent whether conditions are true or not. A
 condition like `age < 5` has a boolean value. Either the age is less
-than 5 (in which case it\'s true), or it isn\'t less than 5 (in which
-case it\'s false).
+than 5 (in which case it's true), or it isn't less than 5 (in which
+case it's false).
 
-The somewhat unusual name \"boolean\", which Python shortens to \"bool\"
+The somewhat unusual name "boolean", which Python shortens to "bool"
 comes from the English mathematician George Boole. Boole developed a
 form of math based on true/false values which became influential in the
 development of computers.
@@ -316,8 +316,8 @@ uses for using boolean variables like this next chapter.
 ------------------------------------------------------------------------
 
 Remember that a type determines what sorts of things you can do with
-something. If you\'ve got a string, you can find the length, or join it
-to another string. If you\'ve got an integer, you can add or subtract
+something. If you've got a string, you can find the length, or join it
+to another string. If you've got an integer, you can add or subtract
 it. If you have a boolean, there are things you can do to it too.
 
 Booleans actually have just three operations:
@@ -328,7 +328,7 @@ Booleans actually have just three operations:
 
 The simplest of these is `not`. This operator just reverses the boolean
 you give it. If you have a boolean which is true, then you apply `not`
-to it, you get false. Here\'s an example:
+to it, you get false. Here's an example:
 
 ``` {.output}
 >>> valid = length >= 0
@@ -381,8 +381,8 @@ one line.
 
 ------------------------------------------------------------------------
 
-Oftentimes, we want to test a condition and, if it\'s true, do one
-thing, and if it\'s false, do another thing. For example, if we want to
+Oftentimes, we want to test a condition and, if it's true, do one
+thing, and if it's false, do another thing. For example, if we want to
 write some code which tells us how to get dressed based on the
 temperature, we could do something like this:
 
@@ -396,12 +396,12 @@ if temp >= 80:
     print("You should wear shorts.")
 ```
 
-This program checks if it\'s less than 80 degrees and tells the user to
-wear pants in that case. It then checks the opposite: if it\'s not less
+This program checks if it's less than 80 degrees and tells the user to
+wear pants in that case. It then checks the opposite: if it's not less
 than 80 out, then it must be greater than or equal to 80 degrees. Here
 it says to wear shorts.
 
-It\'s so common to want to do this, that there is a simpler way, using
+It's so common to want to do this, that there is a simpler way, using
 an `else` statement. That would look like this:
 
 ``` {.python}
@@ -415,7 +415,7 @@ else:
 
 Here, it will check if the temperature is less than 80. If so, it does
 the first print message, telling us to wear pants. If the condition was
-false, then it does the \"else\" part of the code --- the print which
+false, then it does the "else" part of the code --- the print which
 tells us to wear shorts instead.
 
 With an if/else statement, if the if condition is true, than the code
@@ -428,8 +428,8 @@ is executed instead. It can never do *both* things.
 ------------------------------------------------------------------------
 
 Sometimes we have more than one condition we want to check, and handle
-each one differently. We can do this using Python\'s `elif` statement.
-This stands for \"else if\", and allows us to chain together multiple
+each one differently. We can do this using Python's `elif` statement.
+This stands for "else if", and allows us to chain together multiple
 conditions.
 
 For example, imagine we want to expand our clothing-recommender program
@@ -446,8 +446,8 @@ else:
     print("You should wear shorts.")
 ```
 
-Here we recommend a coat when it\'s less than 60 degrees, pants when
-it\'s less than 80, and shorts otherwise.
+Here we recommend a coat when it's less than 60 degrees, pants when
+it's less than 80, and shorts otherwise.
 
 The way this works is that Python checks each condition in order. Once
 it finds one condition that is true, it executes the statements under it
@@ -461,10 +461,10 @@ Wear a coat.
 ```
 
 Here the first condition was true, so it tells us to bring a coat. Even
-though the second condition is true as well, it doesn\'t tell us to wear
+though the second condition is true as well, it doesn't tell us to wear
 pants. As soon as one case in the chain is true, it stops.
 
-There\'s no limit to how many `elif` statements we can include. If we
+There's no limit to how many `elif` statements we can include. If we
 want, we can expand it even more:
 
 **Program 5.2**
