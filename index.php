@@ -1,0 +1,55 @@
+<?php
+include('boiler/preamble.html');
+?>
+
+<br />
+
+<h1>Exploring Computer Science</h1>
+<h2>An Introduction with Python</h2>
+
+<p></p>
+
+<div class="container">
+<div class="row">
+<div class="column-50">
+
+<p>This is the home page for my introductory computer science textbook.  The
+book is intended for those with no experience with computer science at all.
+Its focus is on developing algorithms and solving problems.  Python is used
+as the programming language.</p>
+
+<p>The book is completely open and free under the Creative Commons Attribution
+4.0 International license.</p>
+
+<p><img src="images/cc.svg"/ > <img src="images/by.svg" /></p>
+
+<p>Table of Contents:
+<ul>
+<li><a href="html/title">Title</a></li>
+<li><a href="html/preface">Preface</a></li>
+<li><a href="html/chapter01">Chapter 1: The Road Ahead</a></li>
+<li><a href="html/chapter02">Chapter 2: Getting Started</a></li>
+<li><a href="html/chapter03">Chapter 3: First Programs</a></li>
+<li><a href="html/chapter04">Chapter 4: Types and Operations</a></li>
+<li><a href="html/chapter05">Chapter 5: Making Decisions</a></li>
+<li><a href="html/chapter06">Chapter 6: Going Back Again</a></li>
+<li><a href="html/chapter07">Chapter 7: Algorithms</a></li>
+<li><a href="html/chapter08">Chapter 8: Using Libraries</a></li>
+<li><a href="html/chapter09">Chapter 9: Lists</a></li>
+<li><a href="html/chapter10">Chapter 10: Functions</a></li>
+<li><a href="html/chapter11">Chapter 11: Graphics</a></li>
+</ul>
+</ul>
+</p>
+
+</div>
+<div class="column-50" style="padding:0.5em">
+<a href="html/title"><img src="images/cover.png" class="resize_fit_center"/></a>
+</div>
+</div>
+</div>
+
+<?php
+include('boiler/postamble.html');
+?>
+
