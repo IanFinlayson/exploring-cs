@@ -1,15 +1,15 @@
-% Options for packages loaded elsewhere
-
 \documentclass[12pt]{article}
 
+\usepackage{sectsty}
+
 % choose fonts
-\usepackage[sfdefault]{noto}
-\usepackage{inconsolata}
+\usepackage[sfdefault]{roboto}
+\usepackage{roboto-mono}
 \usepackage[T1]{fontenc}
 
 % separate paragraphs, don't indent
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{12pt} 
+\setlength{\parskip}{16pt} 
 
 
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
@@ -350,6 +350,8 @@ $endif$
 $endif$
 
 \begin{document}
+% make headings use the slab font
+\allsectionsfont{\robotoslab}
 $if(has-frontmatter)$
 \frontmatter
 $endif$
