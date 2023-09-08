@@ -1,34 +1,18 @@
-Markdown Conversion:
-    - python shell blocks with >>> in them
-    - maybe do the thing where the footnotes are highlighted...hopefully
-    - go through md and get rid of any junk
-    - make a better build system
-    - do we really need to escape all quotes??
+General:
+    * Find a new cover image and redo cover
+    * replace all diagrams with SVG ones
+    * replace coordinate window picture in chapter 11
+    * Add questions and programming challenges to chapters
 
+PDF:
+    * stop footnotes spreading across pages
+    * get input to be highlighted
+    * fix code blocks which are too long for page
 
-I say in chapter 1 we look at Euclid's algorithm, but we never do!
+New Content:
+    * AI chapter
+    * Cyber chapter
+    * File I/O chapter
+    * Computer organization chapter?
 
-
-
-
-
- - talk about tuples some place (used in graphics)
-
- - replace coordinate window picture in chapter 11
-
- - put in chapter on files 
-
- - put in something on modulus operator 
-
- - Replace the figures with svg ones
-
- - AI chapter explaining approaches including neural networks, also cyber chapter, and others???
- 
- - Maybe make a way to read the book section-by-section instead of chapter by chapter??
- 
- - put in challenge problems at end of each chapter (except 2 I guess)
-    also "test your undestanding questions"
-
- - look and see if there's a chance to use "Program 4.2" instead of "the program from eariler"
- or similar now that we have program titles.
  
