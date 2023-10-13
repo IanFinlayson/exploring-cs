@@ -18,3 +18,8 @@ which are independent of any particular language.
 This book is freely available under the Creative Commons Attribution 4.0
 International license. It is intended to serve as an open resource to
 anyone looking to learn about computer science.
+
+The background of the cover image is taken
+by [G. Lamar on Flickr](https://www.flickr.com/photos/geewhypics/50076471866/)
+and is used under a Creative Commons BY 2.0 License.
+
