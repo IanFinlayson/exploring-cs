@@ -1,10 +1,7 @@
-Chapter 1
-=========
+Chapter 1: The Road Ahead
+=========================
 
 ------------------------------------------------------------------------
-
-The Road Ahead {#the-road-ahead .sub}
-==============
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -354,7 +351,6 @@ takes 7 guesses in the worst case[^3]. Below is
 a table showing the number of guesses needed in the worst case for both
 algorithms, based on the highest number the other player could pick:
 
-::: {.scrolly}
   Highest Number   Algorithm 1 Guesses   Algorithm 2 Guesses
   ---------------- --------------------- ---------------------
   10               10                    4
@@ -362,7 +358,6 @@ algorithms, based on the highest number the other player could pick:
   1,000            1,000                 10
   1,000,000        1,000,000             20
   1,000,000,000    1,000,000,000         30
-:::
 
 It is sort of amazing that we can ask algorithm 2 to guess a number
 between 1 and 1 billion, and it will need only 30 guesses at most to get

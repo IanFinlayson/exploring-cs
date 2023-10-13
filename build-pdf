@@ -8,6 +8,10 @@ process_page() {
     #sed -i 's/INPUTSTART/<span class="input">/' pdf/$1.tex
     #sed -i 's/INPUTEND/<\/span>/' pdf/$1.tex
 
+    # we need to kill the footnotes section since Latex puts them at bottom of page
+    sed -i 's/.hypertarget.footnote-label.../% (footnote section removed by build-pdf)/' pdf/$1.tex
+    sed -i 's/.subsection.Footnotes..label.footnote-label..//' pdf/$1.tex
+
     # convert the latex into a pdf
     cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
     cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
