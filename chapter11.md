@@ -1,10 +1,8 @@
-Chapter 11
-==========
+Chapter 11: Graphics
+===================
 
 ------------------------------------------------------------------------
 
-Graphics Programming {#graphics-programming .sub}
-====================
 
 ::: {.blackbox}
 ::: {.blackbox-title}

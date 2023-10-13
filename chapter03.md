@@ -1,10 +1,7 @@
-Chapter 3
-=========
+Chapter 3: First Programs
+========================
 
 ------------------------------------------------------------------------
-
-First Programs {#first-programs .sub}
-==============
 
 ::: {.blackbox}
 ::: {.blackbox-title}

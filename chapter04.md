@@ -1,10 +1,7 @@
-Chapter 4
-=========
+Chapter 4: Types and Operations
+==============================
 
 ------------------------------------------------------------------------
-
-Types and Operations {#types-and-operations .sub}
-====================
 
 ::: {.blackbox}
 ::: {.blackbox-title}

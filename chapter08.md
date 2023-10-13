@@ -1,10 +1,7 @@
-Chapter 8
-=========
+Chapter 8: Using Libraries
+=========================
 
 ------------------------------------------------------------------------
-
-Using Libraries {#using-libraries .sub}
-===============
 
 ::: {.blackbox}
 ::: {.blackbox-title}

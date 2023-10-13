@@ -1,10 +1,8 @@
-Chapter 6
-=========
+Chapter 6: Going Back Again
+==========================
 
 ------------------------------------------------------------------------
 
-Going Back Again {#going-back-again .sub}
-================
 
 ::: {.blackbox}
 ::: {.blackbox-title}

@@ -1,10 +1,7 @@
-Chapter 7
-=========
+Chapter 7: Algorithms
+====================
 
 ------------------------------------------------------------------------
-
-Algorithms {#algorithms .sub}
-==========
 
 ::: {.blackbox}
 ::: {.blackbox-title}

@@ -1,10 +1,7 @@
-Chapter 2
-=========
+Chapter 2: Getting Started
+=========================
 
 ------------------------------------------------------------------------
-
-Getting Started {#getting-started .sub}
-===============
 
 ::: {.blackbox}
 ::: {.blackbox-title}

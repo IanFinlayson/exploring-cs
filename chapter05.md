@@ -1,10 +1,7 @@
-Chapter 5
-=========
+Chapter 5: Making Decisions
+==========================
 
 ------------------------------------------------------------------------
-
-Making Decisions {#making-decisions .sub}
-================
 
 ::: {.blackbox}
 ::: {.blackbox-title}
