@@ -7,7 +7,7 @@
 \usepackage{parskip}
 \usepackage{booktabs}
 \usepackage{graphicx}
-
+\usepackage{xcolor}
 
 % choose fonts
 \usepackage[sfdefault]{roboto}
@@ -56,8 +56,10 @@
 % start the document
 \begin{document}
 
-% make headings use the slab font
-\allsectionsfont{\robotoslab\MakeUppercase}
+% make headings use the slab font in the highlight color for book
+\definecolor{highlight}{HTML}{CD321A}
+\subsectionfont{\selectfont\color{highlight}\robotoslab\MakeUppercase}
+\sectionfont{\LARGE\selectfont\color{highlight}\robotoslab\MakeUppercase}
 
 % actually pull in the contents
 $body$
