@@ -1,8 +1,7 @@
-Chapter 6: Going Back Again
-==========================
+Chapter 6: Algorithms
+=====================
 
 ------------------------------------------------------------------------
-
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -10,578 +9,600 @@ Chapter 6: Going Back Again
 :::
 
 ::: {.blackbox-contents}
--   Learn how to write while loops to repeat code while some condition
-    is true.
--   Understand infinite loops, and know how to stop a program with an
-    infinite loop.
--   Learn how for loops work, and how to use them to loop through
-    strings.
--   Learn how to use the range function to create sequences of numbers
-    that can be used with for loops.
+-   Learn about nested control structures.
+-   Be introduced to techniques for solving problems with algorithms.
+-   Learn about pseudocode and flowcharts.
+-   See more examples of problems and algorithms.
 :::
 :::
 
-6.1 Repeating Steps
--------------------
+6.1 Overview
+------------
 
 ------------------------------------------------------------------------
 
-Many algorithms are built on the concept of a **loop** where you repeat
-some steps of the algorithm multiple times. For example:
-
--   On a shampoo bottle, it says "Lather, rinse, and repeat".
--   In our "guess the number" algorithm, we have to keep on guessing
-    until we guess the number right.
--   In adding and subtracting algorithms you learned in grade school you
-    must keep going for every digit of the number.
-
-With loops we will be able to write programs that do these kinds of
-things, and repeat some part of the program over again.
-
-As a first example, consider the "guess the number" game. We could in
-theory just use if statements to guess all the numbers:
-
-``` {.python}
-if input("Did you guess 1? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 2? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 3? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 4? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 5? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 6? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 7? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 8? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 9? ") == "yes":
-    print("Got it!")
-elif input("Did you guess 10? ") == "yes":
-    print("Got it!")
-```
-
-However, this is clearly kind of repetitive. It also isn't sustainable,
-if we wanted to write a program that would guess a number from 1 to 100,
-that would be a lot of typing! Instead we should use a loop.
-
-6.2 While Loops
----------------
-
-------------------------------------------------------------------------
-
-The simplest loop in Python is the while loop. The while loop looks a
-lot like an if statement. It starts with the word `while`, and then it
-has a condition, followed by a colon. Then there are some statements
-indented over. These statements are called the **loop body**.
-
-The following is a simple example of a program with a while loop:
-
-**Program 6.1**
-
-``` {.python}
-number = 1
-while number <= 10:
-    print(number)
-    number = number + 1
-```
-
-The way a while loop works is sort of similar to an if statement too.
-When this program is run, we start by setting the number variable to 1.
-Next we check if that variable is less than or equal to 10. If so we do
-the statements indented under the loop.
-
-The difference is that, after we're done those statements, *we go back
-to the top*. It will check the condition another time. If it's *still*
-true, it does the loop again. It will keep on doing it over and over
-again until the condition is false.
-
-In this particular case, the program will find that the condition is
-true the first time, so it will print the number, and then add one to
-it. Now the number is 2. This is still less than or equal to 10, so it
-does the loop body again. It keeps going on like this until the number
-variable is bigger than 10. So the output will be this:
-
-``` {.output}
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-```
-
-We can now use a while loop to implement the simple version of the
-"guess a number" game as follows:
-
-**Program 6.2**
-
-``` {.python}
-# start by asking for 1
-number = 1
-answer = input("Did you guess 1?")
-
-# keep doing the loop until the answer is yes
-while answer != "yes":
-    number = number + 1
-    answer = input("Did you guess " + str(number) + "?")
-
-# when we are done the loop it means we got it
-print("Got it!")
-```
-
-This program will keep looping until the user enters "yes". At that
-point, the condition becomes false and so the loop exits.
-
-There's quite a bit going on in this code, so let's go through it.
-
--   First, we need to ask them the first question: whether their number
-    was 1 or not. We do this so that the variable answer is defined for
-    the start of the loop.
--   We then have the loop condition which checks if their answer was not
-    "yes". If it wasn't we go into the loop. If it was, then we got
-    it on the first try, and skip over the whole loop.
--   Inside the loop body, we add 1 to the number variable. This is how
-    we change the thing we guess from 1, to 2, to 3, etc.
--   We also ask them if the latest number is their guess or not. Doing
-    so is a little tricky. Unlike `print`, the `input` function doesn't
-    let us pass it numbers, only a string. So we have to convert number
-    to a string with the `str` function, and join it to the rest of the
-    question.
--   The code after the while loop, which prints "Got it!", will only
-    happen once the condition becomes false. For this program that means
-    that answer *was* yes.
-
-6.3 Example: Checking Input
----------------------------
-
-------------------------------------------------------------------------
-
-We've talked about how to use if statements to check if user input is
-valid. For instance, this program will check if the user enters a
-negative number for their age:
-
-``` {.python}
-# program that checks for bad data once
-age = int(input("How old are you? "))
-
-if age < 0:
-    print("Hey, your age can't be negative!")
-    age = int(input("How old are you for real? "))
-
-print("You are", age, "years old.")
-```
-
-However, if someone puts in a negative number twice in a row, then the
-bad input will still get through. We could of course repeat the check
-again to make *really* sure:
-
-``` {.python}
-# (silly) program that checks for bad data twice
-age = int(input("How old are you? "))
-
-if age < 0:
-    print("Hey, your age can't be negative!")
-    age = int(input("How old are you for real? "))
-
-if age < 0:
-    print("Hey, your age STILL can't be negative!")
-    age = int(input("How old are you for real? "))
-
-print("You are", age, "years old.")
-```
-
-Of course now, they can put in a negative number *three* times. Clearly
-this is not a great way of approaching this. A better way would be to
-use a loop. In this case, we will want to keep on asking them, over and
-over again, until they eventually put in valid data. Maybe this is the
-first try, or maybe it's the hundredth.
-
-We can do it by simply replacing `if` with `while`. Now, the program
-will *keep* asking the user for data until it is greater than or equal
-to 0. Now the program looks like this:
-
-**Program 6.3**
-
-``` {.python}
-# program that checks for bad data over and over
-age = int(input("How old are you? "))
-
-while age < 0:
-    print("Hey, your age can't be negative!")
-    age = int(input("How old are you for real? "))
-
-print("You are", age, "years old.")
-```
-
-Below is an example run of this program, where the user messes up by
-entering a negative age a few times in a row:
-
-``` {.output}
-How old are you? INPUTSTART-5INPUTEND
-Hey, your age can't be negative!
-How old are you for real? INPUTSTART-2INPUTEND
-Hey, your age can't be negative!
-How old are you for real? INPUTSTART-7INPUTEND
-Hey, your age can't be negative!
-How old are you for real? INPUTSTART-1000INPUTEND
-Hey, your age can't be negative!
-How old are you for real? INPUTSTART27INPUTEND
-You are 27 years old.
-```
-
-6.4 Infinite Loops
-------------------
-
-------------------------------------------------------------------------
-
-One danger when creating loops is that the condition might *never*
-become true. For example, there's a mistake in the program below which
-causes this:
-
-``` {.python}
-number = 1
-
-while number < 10:
-    print(number)
-    numer = number + 1
-
-print("All done!")
-```
-
-Here we mistyped "number" as "numer". So when we run the addition,
-it doesn't change number to be bigger. Instead it makes a *new*
-variable. Because of our typo, the variable `number` never reaches 10,
-so the condition stays false forever. This is called an *infinite loop*
-and is a common programming mistake.
-
-If you run this program, it will never stop running. It will just
-continue on forever. Or until you stop it, which is probably what you
-will want to do. You can do this in Thonny by hitting the stop button
-(![](images/stop.png)), or by choosing "Stop/Restart backend" from the
-"Run" menu.
-
-6.5 Example: Running Total
---------------------------
-
-------------------------------------------------------------------------
-
-Let's write a program that will compute a running total of numbers. The
-way this will work is that you will put in numbers to the program, and
-it will add them all together, and show you the sum after each one. You
-can then stop the program by entering a 0 (there's no reason to add 0
-normally since it won't change anything).
-
-Below is an example of a run of this program, so you can see how it
-should work before we dive into some code:
-
-``` {.output}
-What's the first number? INPUTSTART7INPUTEND
-Running total is 7
-Next: INPUTSTART12INPUTEND
-Running total is 19
-Next: INPUTSTART-5INPUTEND
-Running total is 14
-Next:  INPUTSTART2INPUTEND
-Running total is 16
-Next:  INPUTSTART0INPUTEND
-The total is 16
-```
-
-The code which solves this problem is given below:
-
-**Program 6.4**
-
-``` {.python}
-# get the first number
-number = int(input("What's the first number? "))
-total = number
-
-# keep going until they enter 0
-while number != 0:
-    print("Running total is", total)
-    number = int(input("Next: "))
-    total = total + number
-
-# print the final result
-print("The total is", total)
-```
-
-We start by getting the first number from the user. The `number`
-variable is used to store the thing they just entered. The `total`
-variable is used to keep track of the running sum. It starts as the same
-as the number first entered.
-
-The condition for this while loop is `number != 0`. So we will keep
-going as long as the number they entered wasn't 0.
-
-Inside the loop, we do a few things. First we print out the total so the
-user can see it change for each number they enter. Then we get the next
-number. Lastly we add it to the total variable.
-
-After the loop, we just print out the total sum.
-
-This kind of program would be *impossible* to write without a loop of
-some kind. Even if we wanted to copy and paste a bunch of code, we
-couldn't because we don't know ahead of time how many numbers the user
-will want to add.
-
-6.6 For Loops
--------------
-
-------------------------------------------------------------------------
-
-There is another type of loop in Python called a **for loop**. A for
-loop is similar to a while loop in that it lets you do some piece of
-code over and over again. But it is different in that it loops through
-every element in a *sequence* of some kind.
-
-The only type of sequence we have seen so far is a string. A string is a
-sequence of characters (which could be letters, digits, punctuation,
-etc.). Below is a for loop that just prints each character one by one:
-
-**Program 6.5**
-
-``` {.python}
-name = input("What's your name? ")
-
-for letter in name:
-    print(letter)
-```
-
-The for loop looks a bit different from the while loop. Instead of the
-condition, we have the word `for` followed by a variable name. The
-variable name above is `letter`. Then we have the word `in`, followed by
-the sequence we are using. In this case, that's the string `name`.
-
-When you run a for loop, it makes the variable (`letter` in this case)
-equal to each thing in the sequence one-by-one. It then runs the loop
-body on it. So if we enter, let's say "Amy" as the name, then it will
-first set `letter` to "A". It will then run the loop body on "A".
-Next it will run the loop body again, but with `letter` equal to "m".
-Lastly it will run the loop body with `letter` as "y". Then it will
-stop.
-
-The result of running this program can be seen below:
-
-``` {.output}
-What's your name? INPUTSTARTAmyINPUTEND
-A
-m
-y
-```
-
-The result of this program is that it prints the name out vertically.
-
-Every for loop could be replaced by a while loop that does the same
-thing. In the example above, we could have written a while loop to count
-up to the length of the string, and used indices to get the letters out.
-
-But for loops have a few benefits when looping through a sequence:
-
--   It's much harder to accidentally make an infinite for loop.
--   For loops are a little easier to read. They make our intention of
-    looping through a sequence more obvious.
-
-6.7 The range Function
-----------------------
-
-------------------------------------------------------------------------
-
-For loops can be used to loop through any *sequence*. A string is just
-one type of sequence. There are several others in Python. The next one
-that we will look at is a *range*.
-
-The `range` function is used to create a sequence of numbers. For
-example, we could use `range` to make a sequence of numbers from 1
-through 10. Or a sequence of numbers from 25 down to 5. We can then
-combine `range` with a for loop to write code that does something for
-each number in the sequence.
-
-If we pass `range` 1 number, it will give us a sequence from 0 up to
-(but not including) that number. For example, if we pass 10:
-
-``` {.python}
-for i in range(10):
-    print(i)
-```
-
-Then range will give us a sequence of numbers going from 0 through 9.
-Instead of starting at 1, range starts at 0 --- just like string
-indices[^1]. If we run this program, we will
-get:
-
-``` {.output}
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-```
-
-Just like the for loop with a string, this for loop sets our variable
-(called `i`) to each thing in the sequence one by one. It then runs the
-loop body once for each value.
-
-If we don't want to start on 0, we can also pass range a starting
-point. To do that, we have to pass two numbers. The first is the start
-and the second is 1 past the ending point.
-
-For example, if we want to make a range of numbers from 5 through 10,
-including both end points, we could do it like this:
-
-``` {.python}
-for i in range(5, 11):
-    print(i)
-```
-
-This program will print the numbers from 5 to 10:
-
-``` {.output}
-5
-6
-7
-8
-9
-10
-```
-
-Lastly, we can pass *three* numbers into `range`. The first two are the
-same as before. The last number we pass in will be used as *step*
-between each. For example, if we want to go through even numbers from 2
-through 10, we could pass a step of 2:
-
-``` {.python}
-for i in range(2, 11, 2):
-    print(i)
-```
-
-This gives us the following:
-
-``` {.output}
-2
-4
-6
-8
-10
-```
-
-The step is just the amount that you add to each number to go on to the
-next one.
-
-We could also pass a negative number for the step to go *backwards*:
-
-``` {.python}
-for i in range(10, 0, -1):
-    print(i)
-```
-
-This gives us the following:
-
-``` {.output}
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
-```
-
-6.8 Example: Temperature Table
+In the last couple of chapters we looked at if and else statements, and
+looping. These statements are examples of **control flow** statements,
+because they control the flow of the program --- that is they change the
+order the other statements run in.
+
+In this chapter we will look at some more examples of these control flow
+statements, and learn some new things we can do with them. In
+particular, we will talk about *nesting* if and else statements and
+loops together. Doing this will allow us to write more complex problems
+and solve some problems we couldn't otherwise solve.
+
+With these tools, we can also start to tackle some more interesting
+problems. So this chapter will also talk about some techniques for
+solving problems. Lastly we will look at a handful of example problems,
+and talk about how we can go about breaking them down before giving code
+to solve them.
+
+6.2 Nesting Control Statements
 ------------------------------
 
 ------------------------------------------------------------------------
 
-As an example of a for loop with a range, let's write a program which
-gives us a table of Celsius temperatures with their equivalent
-Fahrenheit temperatures. Rather than read in one, and print out the
-other, we will just print a whole table. That way the user can see how
-the two relate.
+So far our programs have only used an if and else statement, or a loop
+at one time. But to make more complex programs, we can start to combine
+them up together. We can do that by *nesting* them together. For
+example, we can put an if/else statement inside of a loop. Or a loop
+inside of an if statement. Or even a loop inside of another loop.
 
-One part of this is converting one temperature from Fahrenheit to
-Celsius. We can do this by subtracting 32 from the Fahrenheit
-temperature and then multiplying by ^5^⁄~9~.
+As a first example, let's look at a program to read numbers from the
+user and tell the user if each number is even or odd. The user would be
+able to enter as many numbers as they want, and enter 0 to quit.
 
-The next part is doing this for a bunch of temperatures. To be helpful,
-let's make the range of temperatures start at the lowest Fahrenheit
-temperature it's likely to be. Here in Virginia, it's rare that it
-gets below 0°, or above 100° Fahrenheit. We can therefore use 0 as the
-starting point to range, and 101 as the ending point (remember it has to
-be just *past* the value we want to end at.
+To do this, we will need a while loop to keep reading in the numbers. We
+will also need an if/else statement to check if the number is even or
+not. The if/else can't be *after* the loop, because it needs to check
+every single number read in. Instead it has to be *inside* the loop.
 
-It will also be nicer if we don't print *every* temperature from 0° to
-100°. 100 lines of output will probably be too much. Instead, we will go
-in increments of 5°. To do this, we can just pass 5 for the last thing
-to `range`.
-
-The program, then, is given below:
-
-**Program 6.6**
+The code for doing this is below:
 
 ``` {.python}
-# loop from 0 to 100, going 5 at a time
-for far in range(0, 101, 5):
-    # do the conversion, and round it
-    cel = (far - 32) * 5/9
-    cel = round(cel, 2)
+# read the first number
+num = int(input("Enter a number: "))
 
-    # print one line of the table
-    print(far, "degrees F =", cel, "degrees C")
+# keep going while it's not 0
+while num != 0:
+    # do the even/odd check
+    if num % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+
+    # get the next number
+    num = int(input("Enter next number: "))
 ```
 
-Here our loop variable is called `far` (short for Fahrenheit). It is
-given all the values in the sequence of numbers we make with range.
-First it's 0, then 5, then 10, all the way to 100.
+The `%` operator is new, so we need to explain that first. What this
+does is checks the remainder of a division. For instance if we divide 13
+by 5, we get 2 with a remainder of 3. So `13 % 5` is equal to `3`. If
+the remainder when dividing by 2 is 0, it means there is no remainder,
+so the number is even.
 
-For each time through the loop, we do all of the commands on the loop
-body. This converts to a Celsius temperature, rounds it, and prints out
-the two temperatures that are equivalent.
+Here the if/else is *nested* inside of the loop. Every time the loop is
+done, we check the if condition and do either the if part or the else
+part. Remember that the indentation is what tells us what part of the
+code is part of the loop. Since the if and else statements are indented,
+they are part of the loop. That's what *nesting* means in computer
+science --- that something is part of something else.
 
-The output from this program is given below:
+There is no restriction on nesting like this. We could instead put a
+loop inside of an if statement, or a loop inside of another loop. We
+could even put a loop inside of an if statement which is part of another
+loop. We will see more examples of nested control structures as we go
+along.
+
+6.3 Example: Guess the Number
+-----------------------------
+
+------------------------------------------------------------------------
+
+Now that we know how to nest if statements with loops, we can finally
+tackle a Python version of the "Guess the Number" algorithm we looked
+at way back in Chapter 1. The algorithm is given again in pseudocode:
+
+``` {.algorithm}
+1. Set min to 1.
+2. Set max to 100.
+3. Set G to (max + min) ÷ 2 (rounding down if needed).
+4. Ask if their number is G.
+5. If it is, then we are done!
+6. If the guess was too high, set max to (G - 1).
+7. If the guess was too low, set min to (G + 1).
+8. Go back to step 3.
+```
+
+Notice that we have a loop (steps 3 through 8) with an if/elif/else
+statement inside of it (steps 5 through 7). So our program will need to
+nest these statements too.
+
+The Python code to solve this problem is below:
+
+``` {.python}
+# set initial values for our variables
+min = 1
+max = 100
+done = False
+
+while not done:
+    # ask them if this is their number or not
+    G = int((max + min) / 2)
+    answer = input("Is your number " + str(G) + "? ")
+
+    # respond to their answer
+    if answer == "yes":
+        done = True
+    elif answer == "too low":
+        min = G + 1
+    elif answer == "too high":
+        max = G - 1
+    else:
+        print("Answers are 'yes', 'too low', or 'too high'.")
+
+# when we exit the loop, we have guessed the number
+print("Got it!")
+```
+
+There are some things to point out about this program. First, we are
+using a boolean variable, called `done` to keep track of whether or not
+to exit the loop. The variable starts off as False, and we set it to
+True when we find the user's number. Because our condition tells us to
+keep looping while we are not done, the loop will keep going until we
+guess right.
+
+Another thing to point out is that we solve the problem of rounding down
+by calling the `int` function. We have used this function to change a
+string (like "12") into an integer (like 12). It can also be used to
+change a float number (like 12.5) into an integer (like 12). The `round`
+function could be used to round to the *nearest* whole number, but not
+to always round down like we want here.
+
+We are also calling the `str` function to convert the variable G into a
+string. The reason for this is that `input` doesn't allow us to pass
+multiple things to be printed like `print` does. We have to pass 1
+string. We do this by joining the different parts of our questions, but
+we can only join strings with the + operator --- not integers. So we use
+`str` to convert from a number (like 12) into a string (like "12").
+
+And crucially the if statement chain for testing if we got our guess
+right or not is nested inside the while loop. You can tell this because
+it is indented over. We need to do this because we need to do the test
+for *every* guess we make, not just one.
+
+Here is an example run of this program:
 
 ``` {.output}
-0 degrees F = -17.78 degrees C
-5 degrees F = -15.0 degrees C
-10 degrees F = -12.22 degrees C
-15 degrees F = -9.44 degrees C
-20 degrees F = -6.67 degrees C
-25 degrees F = -3.89 degrees C
-30 degrees F = -1.11 degrees C
-35 degrees F = 1.67 degrees C
-40 degrees F = 4.44 degrees C
-45 degrees F = 7.22 degrees C
-50 degrees F = 10.0 degrees C
-55 degrees F = 12.78 degrees C
-60 degrees F = 15.56 degrees C
-65 degrees F = 18.33 degrees C
-70 degrees F = 21.11 degrees C
-75 degrees F = 23.89 degrees C
-80 degrees F = 26.67 degrees C
-85 degrees F = 29.44 degrees C
-90 degrees F = 32.22 degrees C
-95 degrees F = 35.0 degrees C
-100 degrees F = 37.78 degrees C
+Is your number 50? INPUTSTARTtoo highINPUTEND
+Is your number 25? INPUTSTARTtoo lowINPUTEND
+Is your number 37? INPUTSTARTtoo highINPUTEND
+Is your number 31? INPUTSTARTtoo lowINPUTEND
+Is your number 34? INPUTSTARTyesINPUTEND
+Got it!
 ```
 
-There are other types of sequences that for loops work with. We will see
-a few more as we go. We will also see lots more examples of solving
-problems with loops. Almost all algorithms use looping in some fashion.
+6.4 Example: Password Strength
+------------------------------
+
+------------------------------------------------------------------------
+
+Let's look at another example now. Many websites require user passwords
+to meet certain standards. For example, our university has the following
+requirements for passwords:
+
+-   Be at least 8 characters long
+-   Include at least one upper-case letter
+-   Include at least one lower-case letter
+-   Include at least one digit
+
+We already know how to check if the string is long enough with the `len`
+function. The other ones are a bit trickier though. The approach we will
+take is to loop through the entire password one character at a time. For
+each character, we will check if it is one of the three things we need
+to look for.
+
+In order to do this, we will need a couple new string methods. These are
+`isupper`, `islower`, and `isdigit`. These each return true if the
+string contains only upper-case letters, lower-case letters or digits
+respectively. We'll call these on each letter to see what sort of
+character it is.
+
+In doing this, we also need to keep track of whether *any* of the
+symbols in the password are in one of these three categories or not. We
+will do this by having a boolean variable for each category. For
+instance, we can have a variable called `upper` which starts at false.
+Then, when we see an upper-case character, we will set it to true.
+
+The code for solving this problem is given below:
+
+``` {.python}
+# read the password from the user
+password = input("Enter password: ")
+
+#  check the length first
+if len(password) < 8:
+    print("Password must be 8 characters or more.")
+else:
+    # length OK, now check contents
+    upper = False
+    lower = False
+    digit = False
+    
+    # check each chatacter to see if it's in these categories
+    for char in password:
+        if char.isupper():
+            upper = True
+        elif char.islower():
+            lower = True
+        elif char.isdigit():
+            digit = True
+    
+    # now check if all three categories are met or not
+    if not upper:
+        print("Password must contain an upper-case letter.")
+    elif not lower:
+        print("Password must contain a lower-case letter.")
+    elif not digit:
+        print("Password must contain a digit.")
+    else:
+        print("Password is accepted!")
+```
+
+This is the longest program we have seen so far! It also has a few
+nested statements, so let's go through it carefully so we can be sure
+to understand it. The program starts by reading in your password. Next
+it does the check to see if it is at least 8 characters. If not, it
+gives you a message saying it's not long enough.
+
+The rest of the program is in the `else` statement. That means the rest
+of the checks only happen when the password *is* long enough. We start
+by making one variable for each category we have to check, and setting
+them all to false. We will assume we don't have any of these until we
+see one.
+
+Next, we loop through every character in the string with a for loop. For
+each character, we check if it's a upper-case letter, lower-case letter
+or digit. In each case we set the corresponding variable to true.
+
+When we are done going through the loop, we will have checked every
+single character in the password. If any of our three boolean variables
+is still false, that means that type of thing must not have been present
+in the password.
+
+We then finish up by checking those three variables in an if/elif/else
+statement. If any one of them was false, we scold the user saying their
+password needed one of those characters. In the else clause, we know
+that their password met all the criteria, so we declare that it is
+accepted.
+
+6.5 Example: Times Tables
+-------------------------
+
+------------------------------------------------------------------------
+
+Now we will look at an example of nested loops. That would be one loop
+nested inside of another loop. An example of a problem we could solve
+with nested loops is the problem of printing out a times table. A times
+table is a table which shows what one number multiplied by another is.
+You probably had to memorize this table in grade school.
+
+Let's say we want to print a 10 by 10 times table like the following:
+
+``` {.output}
+1   2   3   4   5   6   7   8   9   10   
+2   4   6   8   10  12  14  16  18  20  
+3   6   9   12  15  18  21  24  27  30  
+4   8   12  16  20  24  28  32  36  40  
+5   10  15  20  25  30  35  40  45  50  
+6   12  18  24  30  36  42  48  54  60  
+7   14  21  28  35  42  49  56  63  70  
+8   16  24  32  40  48  56  64  72  80  
+9   18  27  36  45  54  63  72  81  90  
+10  20  30  40  50  60  70  80  90  100  
+```
+
+To do this, we will need two nested loops. The first loop will loop
+through each of the ten *rows* of the table. Then the inner loop will go
+through each of the ten *columns* of the table. Then in that loop we
+print one number. The basic algorithm would look like this:
+
+``` {.python}
+for each row:
+    for each column:
+        print this row number times this column number
+```
+
+Because the column loop is nested inside the row loop, it will be done
+in its entirety for every row. With ten rows and ten columns, we will
+get a total of 100 numbers printed out.
+
+The Python code for this program is below:
+
+``` {.python}
+# read the size of the table
+size = int(input("What size table would you like? "))
+
+# loop through each row
+for row in range(1, size + 1):
+    # loop through each column
+    for col in range(1, size + 1):
+        # print one 'cell' of the table
+        print(row * col, end="\t")
+    # go to the next line after this row is done
+    print()
+```
+
+There are a couple things to notice here. First, we have our nested
+loops. Each loop goes through the numbers 1 to 10. We also have to give
+them a different variable (`row` and `col` in this case). We couldn't
+use "i" for both because then one would overwrite the other.
+
+Also we pass `size + 1` as the end point to the `range` function. That
+allows us to loop more or less depending on how big of a table the user
+requested.
+
+The print that outputs the number uses the two variables `row` and `col`
+multiplied together. We don't want each number to be on a line all by
+itself, so we have to tell Python not to end with a new line. Instead we
+pass `end="\t"`. The `"\t"` is a *tab character*. By putting a tab after
+each character, we make sure the numbers line up nicely in columns. We
+could have used a space and it would have worked, just looked a little
+messier.
+
+Then we have the funky looking line that calls `print()` with nothing at
+all between the parenthesis. The purpose of this is to go down to the
+next line. Each time we print a number, we end with a tab. Then after
+one row is done (after the inner for loop has finished), we need to go
+down to the next line so the next row has room. That's what that second
+print accomplishes.
+
+Nested loops can be tricky because you have to keep track of where you
+are in both at the same time.
+
+6.6 Breaking Down Problems
+--------------------------
+
+------------------------------------------------------------------------
+
+As we mentioned in Chapter 1, computer science is not really the study
+of computers --- it is the study of algorithms. The main thing that
+computer scientists do is come up with algorithms to solve various
+problems. Usually they write the algorithms in a programming language
+like Python, but coming up with the algorithm in the first place is
+usually the hard part.
+
+Like any intellectual skill, learning to develop algorithms is something
+that takes a bunch of time and practice. That said, there are some
+techniques for breaking down a problem so that you can go about solving
+it. This section will give some advice for doing this.
+
+The following are steps that I think are good to go through when
+tackling a new problem:
+
+1.  **Identify the inputs**
+
+    Most problems have some kind of information which is given to you as
+    input. Your algorithm is generally going to have to use this input
+    in some way, so listing out what inputs you will need is a good
+    starting point.
+
+2.  **Identify the outputs**
+
+    For most problems, there is also some kind of solution that you are
+    looking for. If we don't have the output we are looking for firmly
+    in mind, it will be hard to hit upon the right algorithm. Listing
+    the outputs our algorithm is expected to produce will make sure we
+    know our goal.
+
+3.  **Solve a few examples by hand**
+
+    Next you should solve a few examples of the problem just by hand. If
+    you can't solve the problem with example inputs, then you have no
+    hope of coming up with an algorithm that can solve it in general.
+    When doing this, it's good to try examples of the different
+    situations that could arise.
+
+    By working through a few concrete examples, you are doing two
+    things. First you are making sure that you really understand the
+    problem before diving into an algorithm. Secondly, you are going
+    through the steps that your algorithm will need to go through which
+    will give you insight into writing it.
+
+4.  **Write the basic steps**
+
+    Based on what you learned working the example problems, you can now
+    sketch out the algorithm. But rather than jump right into Python
+    code, it's often helpful to start with righting down the basic
+    steps in English first.
+
+    The main reason for this is because it's easier to focus on just
+    the algorithm and not the details of a programming language. For
+    example, you don't need to worry about deciding whether things
+    should be int or float, or making sure parenthesis line up right.
+
+    This English like description of an algorithm is sometimes called
+    "pseudocode" because it is sort of like computer code, but not
+    really in any actual language. The main benefit of this is that it
+    lets us focus on the algorithm without being distracted by details
+    of Python syntax.
+
+5.  **Test the steps**
+
+    Another benefit of using pseudocode is that we can now test out the
+    algorithm in its simple English-like steps before coding it. We
+    should follow the steps a couple of times to make sure that it gets
+    the right answers. If we made any mistakes, or if it is wrong in
+    some cases, we can fix it before we spend the time making it a
+    program. Algorithms in pseudocode can be easier to fix than programs
+    in a full programming language.
+
+6.  **Write the actual code**
+
+    Once we are confident our basic algorithm is working, we can start
+    putting it into actual code in a programming language (we'll use
+    Python of course). Now instead of focusing on the problem itself, we
+    will focus on the language's syntax and finding all the functions
+    we need.
+
+7.  **Test the code**
+
+    Now we can test our code out to see if it gives us the answers that
+    we expect. We should be able to plug in the inputs for the examples
+    we solved by hand and get the right answers.
+
+    Another benefit of splitting our problem-solving steps into two
+    parts is that we should not have to fix problems with the actual
+    algorithm any more (those should have been caught in step 5). Any
+    problems now should be with translating our pseudocode steps into
+    actual Python code.
+
+Experienced programmers will often skip steps 4 and 5, and jump right
+into writing code when they have an idea of how to solve a problem. The
+main reason for this is that they are so comfortable with the
+programming language they are using. An experienced programmer can
+translate steps into code as they go. For a beginner this is harder. And
+even experienced programmers will often fall back to writing the steps
+in English first when they run into an especially tricky
+problem[^1].
+
+6.7 Breaking Down Problems Example
+----------------------------------
+
+------------------------------------------------------------------------
+
+As an example of applying these steps, let's solve the problem of
+figuring out how much somebody is paid given their hourly rate and the
+number of hours they worked. If the hours worked are over 40, then the
+person is paid "time and a half" for their overtime.
+
+It's worth pointing out that the problem of solving one specific case
+of this problem (like if you worked 30 hours and make 12 dollars per
+hour) is just a math problem. It becomes a computer science problem when
+we want to solve it *in general*. With the right algorithm, we could
+solve any case of this problem at all --- no matter what the inputs are,
+our algorithm will give us the right answer.
+
+Let's go through the steps outlined above:
+
+1.  **Identify the inputs**
+
+    For this problem we have two pieces of input: the hourly rate and
+    the number of hours worked.
+
+2.  **Identify the outputs**
+
+    In this case, we only want one output, which is the amount of money
+    earned.
+
+3.  **Solve a few examples by hand**
+
+    For this problem, we should solve an example where the person
+    doesn't get overtime and one where they do. Let's start with the
+    case where they don't get overtime. Say they work for 30 hours, and
+    make 12 dollars per hour. In this case, we should just multiply the
+    two numbers together to get 30×12 = 360.
+
+    In the case where the employee *does* get overtime, we have to do
+    something extra. Let's say they work 45 hours and make 10 dollars
+    per hour. Now we need to give them 10 dollars for each of the 40
+    regular hours they are working. We also need to pay them extra for
+    the hours they work over 40. In this case that's 5 hours at 15
+    dollars per hour. So in total we have 40×10 + 5×15 = 475.
+
+4.  **Write the basic steps**
+
+    We should use the steps we took solving the problem above to guide
+    us in writing them out in pseudocode. We will have identified the
+    two main cases in this problem, and might come up with something as
+    straightforward as the following:
+
+    ``` {.algorithm}
+    1. Read in the hours
+    2. Read in the wage
+    3. If they worked 40 hours or less, pay will be (hours * wage)
+    4. Otherwise, pay will be:
+         40 * wage +  (hours - 40) * (wage * 1.5)
+    5. Print out the pay
+    ```
+
+5.  **Test the steps**
+
+    In this case, we can run through these steps with a couple of
+    example inputs to make sure they work. We can even use the ones we
+    worked through by hand to make sure they get the same answer we
+    arrived at.
+
+    If something does go wrong here, we should modify the algorithm at
+    this point before moving on.
+
+6.  **Write the actual code**
+
+    Now that we have an algorithm that we are pretty confident with, we
+    can go through and translate it into Python code. In this case, we
+    can write something like this:
+
+    ``` {.python}
+    hours = float(input("How many hours did you work? "))
+    wage = float(input("What is your hourly wage? "))
+
+    if hours <= 40:
+        pay = hours * wage
+    else:
+        pay = 40 * wage +  (hours - 40) * (wage * 1.5)
+
+    print("Your pay will be", pay)
+    ````
+
+7.  **Test the code**
+
+    Finally we can test this code to make sure the results it gives
+    matches what we expect. We should be able to run this code and give
+    it the inputs we tested in step 3 to make sure it gets the same
+    result that we got.
+
+Because this problem isn't *terribly* difficult, many of you could
+probably have jumped straight into code. The point of this section is to
+give an example of solving problems this way. These steps will be
+helpful to at least think about when you encounter trickier problems.
+
+6.8 Flowcharts
+--------------
+
+------------------------------------------------------------------------
+
+Another tool that computer scientists use to solve problems before
+jumping into code is the flowchart. A flowchart shows the steps of an
+algorithm, just like pseudocode does. A flowchart however makes the
+decisions in the algorithm really clear by having arrows that show what
+steps happen when.
+
+Below is an example of a flowchart for the overtime program:
+
+![A flowchart showing the steps in the pay calculator
+algorithm.](images/flow1.png)
+
+The flowchart shows the algorithm in a slightly more graphical way. Each
+box in the chart displays one step of the algorithm. The nice thing
+about a flowchart is that it makes the control flow statements really
+clear. In this case, you can see the decision (which is typically shown
+with a diamond shape in a flowchart), with branches for the "yes" and
+"no" cases.
+
+Flowcharts also make loops easy to spot. We can make a flowchart for the
+problem of reading a valid age from the user. The steps in the following
+algorithm keep asking the user for an age until they put in something
+that's not negative:
+
+![A flowchart showing the steps of reading a valid age from the
+user.](images/flow2.png)
+
+You can see the loop in this algorithm because of the arrow that's
+pointing back to a previous step (that's the arrow pointing from the
+"Read age again" step back around to the decision). Making flowcharts
+can be helpful as you are working on an algorithm, as they can help you
+understand the order that the steps need to be done in.
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -589,29 +610,35 @@ problems with loops. Almost all algorithms use looping in some fashion.
 :::
 
 ::: {.blackbox-contents}
--   Many algorithms use looping, which is repeating some steps of the
-    algorithm multiple times.
--   While loops are based on a condition. They check if the condition is
-    true. If it is, they run the code in the loop body. They then check
-    the condition again. They will keep doing this until the condition
-    is false.
--   It is possible to make a loop where the condition will never become
-    true. This is called an infinite loop, and usually is a mistake.
--   A for loop is used to do something with every part of a sequence.
--   A string is a sequence. If you want to do something with every
-    character in a string, a for loop works best.
--   We can also create sequences of numbers with the `range` function.
-    `range` can be given a starting point, an ending point, and the
-    amount to increase or decrease by.
+-   If, elif and else statements, along with our loop statements form
+    Python's "control flow" statements. These allow us to control the
+    order that program instructions are done in.
+-   These control flow statements can be combined, or nested, any way we
+    like. We can put a loop inside of an if statement, or an if
+    statement inside of a loop for example. This ability allows us to
+    solve more complex problems.
+-   When tackling a new problem, there are some steps to go about
+    solving the problem:
+    1.  Identify the inputs
+    2.  Identify the outputs
+    3.  Solve a few examples by hand
+    4.  Write the steps needed in plain English
+    5.  Test these steps and look for problems with them
+    6.  Translate your algorithm into code
+    7.  Test the code you've written
+-   You can use pseudocode or flowcharts to work on the general solution
+    to a problem before diving into code.
+-   To get better at algorithmic problem solving, you need to practice
+    solving problems!
 :::
 :::
 
 Footnotes {#footnote-label .visually-hidden}
 ---------
 
-[^1]: It might seem weird at first, but we count starting at 0 in
-    computer science. The reason has to do with the fact that memory
-    addresses are calculated based on an offset past the start of
-    something. So the first symbol in a string is stored 0 bytes past
-    the beginning.
+[^1]: When I personally am writing programs, I will often start by
+    writing my "basic steps" as comments in my program files. Then I
+    read through and make sure the steps make sense before jumping into
+    the code. Then, I add the code, but leave the comments in to explain
+    how the code is working. I find this method works well.
 

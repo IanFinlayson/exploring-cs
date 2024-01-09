@@ -1,7 +1,8 @@
-Chapter 10: Functions
-====================
+Chapter 10: Graphics
+===================
 
 ------------------------------------------------------------------------
+
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -9,596 +10,693 @@ Chapter 10: Functions
 :::
 
 ::: {.blackbox-contents}
--   Understand some of the benefits of splitting a program into multiple
-    functions.
--   Learn how to create our own functions.
--   Understand the purpose of parameters and how to write functions that
-    use them.
--   Understand the purpose of return values and how to use them.
--   Learn what "scope" is and how it affects variables in functions.
+-   Learn how to create graphics windows
+-   Understand the coordinate system used in graphics programs
+-   Learn how colors are created in a computer program
+-   Be able to create various graphics objects such as points, circles,
+    lines and rectangles
+-   Learn how to handle mouse and keyboard input in a graphics program
 :::
 :::
 
-10.1 What is a Function?
-------------------------
-
-We have been calling functions in Python ever since the very first
-"Hello World!" program:
-
-``` {.python}
-print("Hello World!")
-```
-
-Here we are calling the `print` function and asking it to print the
-given message to the screen for us. Every function has a job to do. The
-job of the print function is to print thins to the screen. When we
-"call" a function, we ask it to do its job.
-
-Functions can have **parameters**, which are the things between the
-parenthesis. Parameters allow us to pass data to a function to control
-how it works. The print function prints out each of its parameters.
-
-Consider the following function call:
-
-``` {.python}
-import math
-x = math.sqrt(144.0)
-```
-
-The `math.sqrt` function takes a number as a parameter. The job it has
-to do is to calculate the square root of the parameter. Unlike the print
-function, the sqrt function *returns* a value. We use parameters to give
-information to a function, and return values let functions give
-information back to us. So here, 144.0 is the parameter, and the return
-value will be 12.
-
-Not all functions return values. If we try to print the return value
-from the `print` function, we'll get the value "None":
-
-``` {.python}
->>> x = print("Hello")
->>> print(x)
-None
-```
-
-So parameters allow us to pass information to functions. Some functions
-take no parameters, some take one, and some take more. Likewise some
-functions return a value back and some do not.
+10.1 Installing the PyGame Library
+----------------------------------
 
 ------------------------------------------------------------------------
 
-10.2 Why Write Functions?
--------------------------
+As we talked about in [Chapter 8](chapter08), we can add libraries to
+Python that other people have built and incorporate them into our own
+programs. One of these is the *PyGame* library which allows us to make
+graphical programs. We can use it to make games (hence the name), but it
+can also be used for other graphical programs such as simulations, or
+just having more colorful output.
 
-In addition to calling functions that already exist, we can create our
-own. There are many reasons to do this. The first is to split our code
-up into more manageable pieces. Just like books are divided into
-paragraphs and chapters, programs can be divided up into functions to
-make them easier to understand and write.
+To install it with Thonny, choose "Tools -\> Manage Packages" from the
+main menu. Then search for "pygame" in the window that comes up:
 
-Another reason is to decrease repetitive code. Imagine you were writing
-a Program that reads in the size of a rectangle so it can compute the
-area and perimeter. It needs the width and height to do this, and both
-numbers should be greater than zero. We should make sure that's the
-case, so our code to read these values might look like this:
+![Searching for PyGame](images/pygame1.png)
 
-``` {.python}
-# read the width
-width = int(input("Width: "))
-while width <= 0:
-    print("Please enter a positive number.")
-    width = int(input("Width: "))
+The one we want is just called "PyGame", so click on that. Next click
+the Install button:
 
-# read the height
-height = int(input("Height: "))
-while height <= 0:
-    print("Please enter a positive number.")
-    height = int(input("Height: "))
-```
+![The PyGame Package Page](images/pygame2.png)
 
-This code is pretty repetitive. The input line, while condition and loop
-bodies are all basically the same. The only things different are the
-variable name being used and the input prompt.
-
-Having repetitive code in programs is not ideal. For one, we have to
-write more code. A basic tenet of programming is to not do more work
-than you have to. Another, even bigger, reason is that now we have to
-*maintain* the code in two places. If we want to, say, make it so that
-it doesn't crash the program when a letter is accidentally entered,
-then would have to make that change in *two* places. As we write larger
-programs that take longer to debug, having repetitive code like this is
-a bad idea.
-
-If we were to write a function to read in a positive number, then we can
-just call upon it whenever we need to, and know that it already does
-this job. That might look like this:
-
-``` {.python}
-# read height and width
-width = readPositive("Width: ")
-height = readPositive("Height: ")
-```
-
-We pass in the prompts, because that was the one thing that's really
-different. Of course we have to create the `readPositive` function for
-this to work. So we will see how to make functions next.
+It will take a moment or two to download. When it is finished, you
+should have PyGame installed and be ready to write and run graphical
+programs.
 
 ------------------------------------------------------------------------
 
-10.3 Writing a Function
------------------------
-
-So now that we know we want to write functions, we need to know how to
-do so. Functions are created using the following syntax:
-
-``` {.python}
-def functionName(parameters):
-    line 1
-    line 2
-    # etc ...
-```
-
-The keyword `def` starts a function, it stands for define. Function
-names follow the same rules as variable names: any letter or underscore,
-followed by any numbers of letters, numbers and underscores. Parameters
-are specified the same as in a function call: as a list separated by
-commas inside of parenthesis. Then the colon signifies the start of the
-function. Each line of code in the function must be indented over, as in
-a loop or if statement.
-
-As an example, we can define a function that prints out a greeting:
-
-``` {.python}
-def greet():
-    print("Hello!")
-```
-
-Here the function's name is `greet`, and it takes no parameters. The
-body of the function is the code that will be run when the function gets
-called. This function doesn't return anything either.
-
-If we run this program, nothing actually happens. Defining a function
-does not run the code inside it. It just says what *would* happen should
-the function ever actually be called. So in order for this program to do
-something, we would need to call the function after defining it, like
-this:
-
-``` {.python}
-# define the function
-def greet():
-    print("Hello!")
-
-# call the function
-greet()
-```
-
-Calling the functions we make works the same as calling a functions that
-come with Python. Now the program will first define the function, and
-then actually call it, so the print statement will run and we should see
-this:
-
-``` {.output}
-Hello!  
-```
-
-Functions must be defined before they are called. So this program will
-only work if the definition of greet is before the call to it. If we
-flip them around, Python would give us an error message.
-
-------------------------------------------------------------------------
-
-10.4 Parameters
----------------
-
-Suppose we want to personalize the greet function so that it greets
-people by name. To do this, the function will need to know the name of
-the person it is supposed to greet. To send information into a function,
-we use parameters. In this case, we'll add a parameter to the function
-that for the person's name:
-
-``` {.python}
-def greet(name):
-    print("Hello,", name, "how are you?")
-```
-
-Now this function takes one parameter called `name`. Inside the
-function, we can refer to `name` when we need that information. In this
-case, we just print it out. Notice that the function isn't *setting*
-the `name` variable anywhere. The function just assumes it has been set
-to something already.
-
-When we call the function, we pass in the actual value that should fill
-in for the parameter. For example, we add three calls to this function
-in the program below:
-
-``` {.python}
-def greet(name):
-    print("Hello", name, "how are you?")
-
-greet("Alice")
-greet("Bob")
-greet("Claire")
-```
-
-This program outputs the following:
-
-``` {.output}
-Hello Alice how are you?
-Hello Bob how are you?
-Hello Claire how are you?
-```
-
-Parameters let us pass information into the function to change the way
-it works. The function above just prints out its name variable, but that
-will be different based on what was passed in.
-
-We have to get the number of parameters right, or Python won't be able
-to call the function. If we pass the `greet` function zero parameters,
-or more than one parameter, then Python will complain:
-
-``` {.python}
->>> greet()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: greet() takes exactly 1 argument (0 given)
-
->>> greet("Too", "Many")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: greet() takes exactly 1 positional argument (2 given)
-```
-
-As another example, let's write a function that will print a countdown
-from a starting point. Sometimes we will want the function to print out
-a countdown starting at 10 and going down to 1. Sometimes we will want
-to start at just 5 instead.
-
-Because sometimes we want the starting point to be 10 and sometimes we
-want it to be 5, that has to be a parameter. We can then use that
-parameter, which we will call `start`, to control the for loop that will
-do the counting down. The code for this function is below:
-
-``` {.python}
-def countdown(start):
-    for i in range(start, 0, -1):
-        print(i)
-    print("Done!")
-
-countdown(10)
-countdown(5)
-```
-
-We are calling the `countdown` function with two different values for
-the start parameter. The output of this program appears below:
-
-``` {.output}
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
-Done!
-5
-4
-3
-2
-1
-Done!
-```
-
-10.5 Return Values
+10.2 PyGame Basics
 ------------------
 
-------------------------------------------------------------------------
-
-Now that we have seen how to pass information *to* functions using
-parameters, we will look at how to pass information back *from*
-functions using return values.
-
-A return value is a value that is produced by a function call. We have
-seen functions that produce return values such as `input` and
-`math.sqrt`. We can return values from our own functions using the
-`return` statement. This statement takes the value we want to return.
-The value we return can be any value in a Python program such as a
-constant, variable or expression.
-
-For example, let's say we want to write a function to calculate the
-area of a rectangle. To do this, the information we need is the width
-and height of the rectangle. Because we need to know this to do our
-task, these should be parameters into the function. The result of our
-work will be the area, so this is what we should return back. The
-function could look like this:
+The first thing we need to do is import the PyGame library. Recall from
+[Chapter 8](chapter08) that this can be done with the `import` command:
 
 ``` {.python}
-def rectangleArea(width, height):
-    area = width * height
-    return area
+import pygame
 ```
 
-The return statement sends back the value of the `area` variable which
-was computed. When we call this function, we'll need to save the value
-it gives us into a variable. If we don't than the result it gives us
-will be lost (just like we have to store the value that `input` gives us
-into a variable). The following bit of code calls the function above and
-then prints the result of it:
+Next, we need to call the PyGame `init()` function which sets up the
+library, initializing it so we can call upon the other functions:
 
 ``` {.python}
-a = rectangleArea(3, 5)
-print("The area of a 3 by 5 rectangle is", a)
+pygame.init()
 ```
 
-We can also take the output of a function and pass it directly as a
-parameter to another function. For instance, we can print the area of a
-rectangle to the screen directly by calling it from inside of print:
+Now we can create a window. All of the programs we have written up to
+this point have printed their results to the shell window. The shell is
+purely textual, so to draw shapes, images, and other graphical things,
+we need a window to put them in. We can create a window with this line
+of code:
 
 ``` {.python}
-print(rectangleArea(5, 7))
+window = pygame.display.set_mode([800, 600])
 ```
 
-Here the rectangleArea function is called with parameters of 5 and 7.
-This function is going to return the value 35 which is then passed
-directly as a parameter to the print function. The upshot is that the 35
-will be printed directly to the screen, without being stored in a
-variable first. We have actually been doing this same thing with the
-`input` function for a while in code like this:
+This `set_mode` function creates the window for us. Its parameter is a
+list containing two numbers. The first number is how wide the window
+should be and the second is how tall it should be.
 
-``` {.python}
-age = int(input("Enter your age: "))
-```
+These numbers refer to **pixels**, which is short for "picture
+elements". All computer screens are made up of tiny lights that can
+show up as different colors. These are called pixels. Your computer
+monitor or laptop screen may have more or less pixels in it. A pretty
+typical display these days might be 1,920 pixels wide and 1,080 pixels
+tall. In this case, our 800x600 window takes up around a quarter of the
+screen.
 
-Here the `input` function's return value (a string) is passed directly
-to the `int` function, which then returns us the integer version of that
-string.
-
-A function can also have multiple `return` statements for different
-cases. For example, we can write a function to convert a number grade
-into a letter grade:
-
-``` {.python}
-def numberToLetter(grade):
-    if grade >= 92:
-        return "A"
-    elif grade >= 89:
-        return "A-"
-    elif grade >= 87:
-        return "B+"
-    elif grade >= 82:
-        return "B"
-    elif grade >= 79:
-        return "B-"
-    elif grade >= 77:
-        return "C+"
-    elif grade >= 72:
-        return "C"
-    elif grade >= 69:
-        return "C-"
-    elif grade >= 67:
-        return "D+"
-    elif grade >= 60:
-        return "D"
-    else:
-        return "F"
-```
-
-Here we have a `return` statement for each condition in the function.
-When Python executes this function, the first condition that is true
-will have its return statement executed.
-
-While we can have multiple `return` statements, we can only ever execute
-one of them for each function. As soon as we reach the `return`
-statement, we leave the function and don't do anything else. For
-example, this program has a statement after the `return`:
-
-``` {.python}
-def rectangleArea(width, height):
-    area = width * height
-    return area
-    print("Hello!")    # will never be printed
-```
-
-This will never print the "Hello!" message, because Python leaves the
-function as soon as the `return` is done. No statements after that will
-be executed.
+The window is where all of the things we draw will show up. Before we
+can start talking about drawing things into the window, we need to
+discuss how color is represented in computer programs.
 
 ------------------------------------------------------------------------
 
-10.6 A couple more examples
----------------------------
+10.3 Colors
+-----------
 
-Another benefit of functions is they sometimes make code easier to read.
-We have seen that we can check if a number is even or odd by using the
-modulus operator. To refresh your memory, we can write a program to tell
-the user if their age is an even number like this:
+Just like everything else in computers, colors are ultimately stored as
+numbers. The way this works is that we have three numbers for every
+color: one for the amounts of red, green, and blue in the
+color[^1]. Each of these three numbers ranges
+from 0 to 255. The 255 limit may seem random, but that is the largest
+number that can fit in one byte. 0 means there is none of that color at
+all, and 255 means that color is turned up to the max.
 
-``` {.python}
-age = int(input("What is your age? "))
+For example, we could make a color with 100 for red, 240 for green and
+215 for blue. This would be a light aquamarine sort of color like this
+[    ]{style="background-color: #64f0d7"}. The easiest way to explore
+colors like this is probably to [Google "color
+picker"](https://www.google.com/search?q=color+picker) and play with
+Google's built in color choosing tool. At the bottom left, you will see
+the label "RGB" which indicates the three color components. This will
+let you find the numbers for any color you want[^2].
 
-if age % 2 == 0:
-    print("Your age is even")
-else:
-    print("Your age is odd")
-```
-
-What's going on is that the modulus operator divides the age variable
-by 2, and checks the remainder. If it's 0, then the age is evenly
-divided by 2, so it must be even. How this code works is not exactly
-clear. To help make this easier to read and understand, we can write
-functions called `isEven` and `isOdd` to perform these calculations:
-
-``` {.python}
-def isEven(num):
-    if num % 2 == 0:
-        return True
-    else:
-        return False
-
-def isOdd(num):
-    if num % 2 == 1:
-        return True
-    else:
-        return False
-```
-
-These functions both take a number as a parameter. They then do the
-modulus trick to determine if the number is even or odd and then return
-a boolean True or False value. Now we can call them whenever we want to
-know if a number is even or odd, instead of having to write out the
-modulus expression directly.
-
-As another example, let's say we want to write our own version of
-Python's `max` function? Given a list of numbers, it should return the
-biggest item out of it.
-
-This function will take the list as a parameter. The return value should
-be the biggest item found in the list. We can do this with the following
-function:
+Colors are put into programs with *tuples* which are sort of like lists
+in Python except they use parentheses instead of square brackets. The
+other difference is tuples can't be changed once they are created,
+while lists can. We can assign our aquamarine color into a variable like
+this:
 
 ``` {.python}
-def max(values):
-    biggest = values[0]
-    for v in values:
-        if v > biggest:
-            biggest = v
-    return biggest
+aqua = (100, 240, 215)
 ```
 
-Here we loop through the list and keep track of the biggest item that we
-have seen so far. Once we've gone through the whole thing, we return
-the biggest.
-
-Finally, let's write the code for the `readPositive` function we talked
-about earlier. To do this, we will make the prompt for the user a
-parameter, then read values until one is positive, and then use a
-`return` to send it back to the user. This might look like this:
+The numbers are always listed in the order of red, green, and then blue.
+Here are some definitions for other common colors:
 
 ``` {.python}
-def readPositive(prompt):
-    value = int(input(prompt))
-    while value <= 0:
-        print("Please enter a positive number.")
-        value = int(input(prompt))
-    return value
-```
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
 
-We could even make a more general version of this function which gets a
-number as input from the user between any lower and upper limits. The
-limits could be passed into the function along with the prompt.
+white = (255, 255, 255)
+black = (0, 0, 0)
+grey = (128, 128, 128)
+
+yellow = (255, 255, 0)
+orange = (255, 128, 0)
+pink = (255, 0, 255)
+purple = (128, 0, 255)
+```
 
 ------------------------------------------------------------------------
 
-10.7 Scope
-----------
+10.4 Our First Graphical Program
+--------------------------------
 
-**Scope** refers to the parts of code that can access things like
-variables. Before we used functions, we could access any variable any
-place in our program, after it was created. But when we create variables
-inside of a function, they can only be accessed inside of that function.
-For example, the `hello` function below makes a variable called
-`message`. We are allowed to access that variable inside the `hello`
-function, but not outside of it:
+Now that we can create colors, we can create a complete program using
+PyGame. The code for it is given first, then we will discuss it:
 
 ``` {.python}
-def hello():
-    message = "Hello!"
-    # this is OK because we're inside the function
-    print(message)
+import pygame
 
-# this is not allowed
-print(message)
+# setup PyGame
+pygame.init()
+
+# create a window
+window = pygame.display.set_mode([800, 600])
+
+# set some colors
+white = (255, 255, 255)
+orange = (255, 128, 0)
+
+while True:
+    # fill the window with a white color
+    window.fill(white)
+
+    # draw an orange circle in the window
+    pygame.draw.circle(window, orange, (400, 300), 100)
+
+    # flip the window
+    pygame.display.flip()
 ```
 
-This program produces an error because, in the last print statement, we
-are not inside of the hello function. Therefore the variable `message`
-cannot be accessed. Even if the function hello() is called, and
-`message` is created, we still cannot access `message` outside of the
-function.
+We start by importing the PyGame library, calling the `init()` function
+for it, and creating our window like before. Next we define two colors
+for use in the program, a white for the background and an orange for a
+circle. Of course we can change this to be whatever we want!
 
-``` {.python}
-def hello():
-    message = "Hello!"
-    print(message)
+The rest of the program takes place in a while loop. Graphics programs
+pretty much always have a main loop in them that keeps the program
+running. If we didn't have a loop, the window would pop up briefly when
+the program is run and close again when the program ends. Here the while
+loop is an infinite one. To end this program, you'll have to hit
+Thonny's "stop" button. Ideally, the program would end when the user
+hits the 'X' to close the window instead. We'll see how to do that in
+a little bit.
 
-# call the function
-hello()
+Inside the loop, we do three things. First we fill the window with a
+white color by calling `.fill()` on the window and passing the color we
+want it filled with.
 
-# still not OK and will cause an error
-print(message)
-```
+Secondly, we draw an orange circle in the middle of the window. This is
+done using `pygame.draw.circle()` which takes 4 parameters. The first is
+what window we want the circle drawn into. Next is the color we want the
+circle to appear as. After that we give it the coordinates of where the
+center of the circle should appear. We talk about coordinates in the
+next section, but (400, 300) is the middle of our 800x600 window.
+Finally we pass 100 as the radius of the circle.
 
-The scope of the `message` variable is only inside the hello function
-because that's where it was made. If we made `message` outside of the
-function, this would be OK:
-
-``` {.python}
-# message is not in a function, so its scope is the whole program
-message = "Hello!"
-
-def hello():
-    # this variable CAN be called here
-    print(message)
-
-# this is OK too
-print(message)
-```
-
-Here, `message` is set up outside of the function and *can* be accessed
-inside of functions in the program.
-
-Variables created outside of a function are called **global** and
-variables inside of a function are called **local**. So the scope of a
-global variable is the whole program, and the scope of a local variable
-is just the function it's in.
-
-The reason Python works this way is to try to keep programs more
-organized. If our program has a bunch of functions in it, that all make
-several variables, things would become messy if all of those variables
-could be accessed anywhere in the program. By keeping the scope of a
-variable just to the function it was made in, things stay organized. If
-you want to use some value from a function in other parts of your
-program, you need to use a `return` to send it back.
+The third thing we do inside the loop is to "flip" the display.
+PyGame, like most graphical systems, uses a technique called **page
+flipping**. This means there are actually *two* graphical areas we
+create: the one being shown to the user and the one being drawn on. When
+we draw things like the orange circle, it gets drawn to the "back"
+display which isn't visible. Then when we are done drawing everything,
+we flip the displays so the user sees the new scene all at once. This
+prevents the user from seeing a half-drawn scene which won't look
+right.
 
 ------------------------------------------------------------------------
 
-10.8 Designing Programs with Functions
---------------------------------------
+10.5 Coordinate Systems
+-----------------------
 
-When writing programs that are long and complicated, it's a good idea
-to break the program up into functions. We start the program by thinking
-about what pieces we need. We then make functions for each of the pieces
-and write them one by one. This is sometimes called a "divide and
-conquer" approach because we divide the program into parts and
-"conquer" them one by one.
+Before we go much further, we need to talk about the coordinate system
+used in computer graphics. What does it mean when we put in (400, 300)
+for the circle's location?
 
-In general each function should do one specific job. If a piece of code
-does more than one thing, you should consider splitting it up into
-multiple functions.
+Graphics systems typically use a coordinate system that is different
+from that used by mathematics. In graphics, the origin, (0, 0) is at the
+upper left corner of the window. The first coordinate, the X coordinate,
+increases as we go from left to right. The second, or Y, coordinate
+increases as we go from top to bottom (which is normally the opposite in
+math).
 
-::: {.blackbox}
-::: {.blackbox-title}
-**Chapter Summary**
-:::
+This image illustrates the coordinate system:
 
-::: {.blackbox-contents}
--   Functions allow us to split programs into independent parts. This
-    makes programs easier to write and test, and keeps code more
-    organized.
--   Parameters allow us to pass information into functions, which allows
-    us to customize the way that they work. When we call the function,
-    we supply it with the values it needs.
--   Return values allow functions to pass information back to the code
-    that called them. To use the return value, you normally store it
-    into a variable.
--   When a variable is created inside of a function, it can only be used
-    inside of that function. We say the scope of that variable is inside
-    that function which is called local. When a variable is created
-    outside of a function, its scope is global which means it can be
-    used anywhere.
--   When working on a big program, functions allow us to split the work
-    into smaller units and make solving a big problem more approachable.
-:::
-:::
+![The graphics coordinate system](images/coords.png)
+
+This image shows the coordinates of each of the four corners of the
+window. Notice that, like string indices, we start counting at pixel 0
+and not pixel 1. Here, the window is 400 by 300 pixels large. That means
+there are 120,000 pixels.
+
+------------------------------------------------------------------------
+
+10.6 Events
+-----------
+
+Having to end the program through Thonny is not ideal. The user should
+be able to end the program by clicking the 'X' in the window bar like
+usual. To do this, we need to look for the quit **event**. An event is
+just something that might occur while our program is running, like the
+user clicking the close button, pressing a key on the keyboard or
+clicking the mouse.
+
+By checking for these events, we can make our program respond to what
+the user is doing. PyGame has a function called `pygame.event.get()`
+which returns back a list of all the events that have occurred since the
+last time we called it. We can then loop through this list and respond
+to the events that we get.
+
+This version of the program checks for the quit event. It uses a boolean
+variable to keep track of whether the program is still running. When the
+quit event is encountered, this variable is set to False. We also call
+`pygame.quit()` at the end of the program.
+
+``` {.python}
+import pygame
+
+# setup PyGame
+pygame.init()
+
+# create a window
+window = pygame.display.set_mode([800, 600])
+
+# set some colors
+white = (255, 255, 255)
+orange = (255, 128, 0)
+
+running = True
+while running:
+    # check for events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # fill the window with a white color
+    window.fill(white)
+
+    # draw an orange circle in the window
+    pygame.draw.circle(window, orange, (400, 300), 100)
+
+    # flip the window
+    pygame.display.flip()
+
+pygame.quit()
+```
+
+Now the program should close the window and stop running when the user
+clicks the close button on the window bar.
+
+------------------------------------------------------------------------
+
+10.7 Keyboard and Motion
+------------------------
+
+We can get user input from the keyboard or the mouse using this method
+as well. To check if a key is pressed, we can detect the `KEYDOWN`
+event. Then we can check *which* key was pressed by checking `event.key`
+
+For example, we could let the user also quit the program by hitting the
+Escape key. To do this, we can add an `elif` to the code checking what
+type of event was received. If it was a `KEYDOWN` event, then we can
+check which key was pressed. If it was Escape, we can also set `running`
+to `False`. The full list of keys is [available
+here](https://www.pygame.org/docs/ref/key.html). The code for
+implementing this:
+
+``` {.python}
+for event in pygame.event.get():
+    # check what type of event it was
+    if event.type == pygame.QUIT:
+        running = False
+    elif event.type == pygame.KEYDOWN:
+        # check which key got pressed
+        if event.key == pygame.K_ESCAPE:
+            running = False
+```
+
+Another thing we can do with this is to let the user move the orange
+circle around with the arrow keys. To do this, we can start by storing
+the position of the circle in variables. That way we can change those
+variables when the keys are pressed:
+
+``` {.python}
+# the position of the circle
+x = 400
+y = 300
+```
+
+Then when we draw the circle, we'll use these variables for the
+position:
+
+``` {.python}
+pygame.draw.circle(window, orange, (x, y), 100)
+```
+
+Notice that we still need the extra parentheses because the position is
+passed as a tuple. Now if we change the `x` or `y` variables, the change
+will affect where the circle gets drawn to. We can do this by adding in
+code to change these variables when the arrow keys are pressed. The full
+code for this would look like this:
+
+``` {.python}
+import pygame
+
+# setup PyGame
+pygame.init()
+
+# create a window
+window = pygame.display.set_mode([800, 600])
+
+# set some colors
+white = (255, 255, 255)
+orange = (255, 128, 0)
+
+# the position of the circle
+x = 400
+y = 300
+
+running = True
+while running:
+    # check for events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            # check which key got pressed
+            if event.key == pygame.K_ESCAPE:
+                running = False
+            elif event.key == pygame.K_UP:
+                y = y - 10
+            elif event.key == pygame.K_DOWN:
+                y = y + 10
+            elif event.key == pygame.K_LEFT:
+                x = x - 10
+            elif event.key == pygame.K_RIGHT:
+                x = x + 10
+
+    # fill the window with a white color
+    window.fill(white)
+
+    # draw an orange circle in the window
+    pygame.draw.circle(window, orange, (x, y), 100)
+
+    # flip the window
+    pygame.display.flip()
+
+pygame.quit()
+```
+
+We add or subtract 10 pixels from one of `x` or `y` when an arrow key is
+pressed. Note that when up is pressed we subtract 10 pixels. That's
+because Y gets smaller towards the top of the window (which can be
+confusing at first).
+
+If you were using this approach to keyboard input and movement to make
+something like a game, it would not really be ideal. Rather than have to
+press they right key over and over to move the circle to the right, we
+might like to *hold* the right key to have it continually move right.
+
+To do this, we will need to look for both the key pressed and key
+released events. When an arrow key is pressed, we can set the circle in
+motion. When the arrow key is released we stop its motion. To this end,
+we'll create two new variables for the circle. One keeps track of its
+speed in the x direction and the other is the speed in the y direction.
+These start off at 0 to mean the circle isn't moving to start off.
+
+``` {.python}
+xspeed = 0
+yspeed = 0
+```
+
+We'll also make a variable for how fast the circle goes when it is
+moving:
+
+``` {.python}
+movementSpeed = 1
+```
+
+Next we will check for both types of key events (presses and releases)
+and set the `xspeed` and `yspeed` variables based on that:
+
+``` {.python}
+# a key was pressed down
+elif event.type == pygame.KEYDOWN:
+    if event.key == pygame.K_ESCAPE:
+        running = False
+    elif event.key == pygame.K_UP:
+        yspeed = -movementSpeed
+    elif event.key == pygame.K_DOWN:
+        yspeed = movementSpeed
+    elif event.key == pygame.K_LEFT:
+        xspeed = -movementSpeed
+    elif event.key == pygame.K_RIGHT:
+        xspeed = movementSpeed
+
+# a key was resleased
+elif event.type == pygame.KEYUP:
+    if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+        yspeed = 0
+    elif event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+        xspeed = 0
+```
+
+When an arrow key is pressed down, we set the `xspeed` or `yspeed`
+variable to either positive or negative `movementSpeed`. Which one
+depends on which key it was. For the right arrow key, we want it to move
+right so we set `xspeed` to positive `movementSpeed` which will indicate
+the circle moves up in the X coordinate.
+
+When an arrow key is released, we set the `xspeed` to 0 when it was the
+left or right keys, which stop its side to side movement. And if the up
+or down keys are released it stops moving up or down, so we set the
+veritcal `yspeed` to 0.
+
+Now the only thing to do is to take the speeds and use them to change
+the position of the circle. We can do that with this code:
+
+``` {.python}
+# move the circle
+x = x + xspeed
+y = y + yspeed
+```
+
+This adds the speed into each of the two coordinates. So the way this
+works is the user presses an arrow key, let's say the right key. This
+sets `xspeed` to positive 1. Every time through the loop, the 1 is added
+into `x`. So each time through it moves 1 pixel to the right. When the
+user releases the right key, `xspeed` is set back to 0. Then the `x`
+coordinate will no longer have anything added to it, so the circle
+stops.
+
+The full code for this example follows:
+
+``` {.python}
+import pygame
+
+# setup PyGame
+pygame.init()
+
+# create a window
+window = pygame.display.set_mode([800, 600])
+
+# set some colors
+white = (255, 255, 255)
+orange = (255, 128, 0)
+
+# the position of the circle
+x = 400
+y = 300
+
+# the current speed of the circle
+xspeed = 0
+yspeed = 0
+
+# how fast the circle can go when moving
+movementSpeed = 1
+
+running = True
+while running:
+    # check for events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        # a key was pressed down
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+            elif event.key == pygame.K_UP:
+                yspeed = -movementSpeed
+            elif event.key == pygame.K_DOWN:
+                yspeed = movementSpeed
+            elif event.key == pygame.K_LEFT:
+                xspeed = -movementSpeed
+            elif event.key == pygame.K_RIGHT:
+                xspeed = movementSpeed
+
+        # a key was resleased
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                yspeed = 0
+            elif event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                xspeed = 0
+
+    # move the circle
+    x = x + xspeed
+    y = y + yspeed
+
+    # fill the window with a white color
+    window.fill(white)
+
+    # draw an orange circle in the window
+    pygame.draw.circle(window, orange, (x, y), 100)
+
+    # flip the window
+    pygame.display.flip()
+
+pygame.quit()
+```
+
+------------------------------------------------------------------------
+
+10.8 Drawing More Things
+------------------------
+
+Besides just circles, we can draw other shapes as well. The following
+program draws a number of shapes to a window:
+
+``` {.python}
+import pygame
+import math
+
+pygame.init()
+
+window = pygame.display.set_mode([800, 600])
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Fill the background with light grey
+    window.fill((240, 240, 240))
+
+    # a red rectangle
+    pygame.draw.rect(window, (255, 0, 0), pygame.Rect(50, 50, 150, 100))
+
+    # a green ellipse
+    pygame.draw.ellipse(window, (0, 255, 0), pygame.Rect(400, 100, 300, 200))
+
+    # a blue polygon
+    pygame.draw.polygon(window, (0, 0, 255), [(100, 300), (200, 300), (250, 350), (150, 400), (15, 350)])
+
+    # an orange line
+    pygame.draw.line(window, (255, 128, 0), (100, 500), (400, 550), 4)
+    
+    # a purple arc
+    pygame.draw.arc(window, (150, 0, 180), pygame.Rect(500, 400, 100, 100), 0, math.pi/2)
+    
+    # Flip the display
+    pygame.display.flip()
+
+# Done! Time to quit.
+pygame.quit()
+```
+
+The rectangle is drawn with:
+
+``` {.python}
+pygame.draw.rect(window, (255, 0, 0), pygame.Rect(50, 50, 150, 100))
+```
+
+Just like when drawing the circle, the first parameter is the window to
+draw the rectangle to and the second is the color it should be. The
+third parameter is the rectangle to draw. The `pygame.Rect` function
+creates a rectangle given four parameters. They are:
+
+1.  x coordinate
+2.  y coordinate
+3.  width
+4.  height
+
+Drawing an ellipse is done in a similar way. We used this code to draw a
+green ellipse:
+
+``` {.python}
+pygame.draw.ellipse(window, (0, 255, 0), pygame.Rect(400, 100, 300, 200))
+```
+
+The parameters here mean the exact same thing. The only difference is
+that the ellipse will be drawn inside the rectangle shape which is
+given.
+
+Drawing a polygon is done with this line of code:
+
+``` {.python}
+pygame.draw.polygon(window, (0, 0, 255), [(100, 300), (200, 300), (250, 350), (150, 400), (15, 350)])
+```
+
+Again the first two things are the window to draw to and the color. Then
+the function takes a list of points which give the coordinates of the
+points in the polygon.
+
+A straight line can be drawn with code like this:
+
+``` {.python}
+pygame.draw.line(window, (255, 128, 0), (100, 500), (400, 550), 4)
+```
+
+After passing the window and the color for it, we pass two points which
+give the ending points for the line. The last parameter is optional and
+gives the thickness of the line.
+
+Finally we can draw a curved line, called an arc with:
+
+``` {.python}
+pygame.draw.arc(window, (150, 0, 180), pygame.Rect(500, 400, 100, 100), 0, math.pi/2)
+```
+
+We pass the window and the color first. Next comes a rectangle which
+bounds where the arc will be drawn (just like an ellipse). The last two
+parameters are angles measured in radians. These two angles specify the
+start and end angle for the arc.
+
+------------------------------------------------------------------------
+
+10.9 Drawing Images
+-------------------
+
+In addition to drawing these shapes, we can also load images from a file
+and draw them to the window too. The first step in doing this is to load
+the image file from your computer. We can do this with the
+`pygame.image.load` function:
+
+``` {.python}
+picture = pygame.image.load("campus.png")
+```
+
+For this to work, the image file has to be in the same folder as your
+Python program is saved to. PyGame can load several types of images
+including PNG and JPG. Once the image is loaded into a variable, we can
+draw it using code like this:
+
+``` {.python}
+window.blit(picture, (0, 0))
+```
+
+Instead of passing the window into a draw method, like for drawing
+shapes, here we call `blit` on the window itself[^3].
+The second parameter is where in the window the
+upper-left corner of the image should appear. Here we pass the origin
+(0, 0) so that the picture fills the whole window. You can download
+[campus.png](images/campus.png) to run the program.
+
+Footnotes {#footnote-label .visually-hidden}
+---------
+
+[^1]: In school you learned that red, yellow and blue are the three
+    primary colors. That's true in a *subtractive* model of color, such
+    as you get when mixing paints together. But there are other models
+    of color, such as the *additive* model wherein you combine colored
+    lights. In this model red, green, and blue are the three primary
+    colors. Shining a red light and a green light together actually
+    makes a yellow light!
+
+[^2]: With this color scheme, there are actually over 16 million colors
+    we could create. The human eye can only discern about 10 million
+    different colors. So while theoretically there's really no limit on
+    the number of colors, we can practically make any color we can
+    imagine.
+
+[^3]: The term "blit" is an old phrase in graphics and game
+    programming. Its origin is an acronym for BLock Information
+    Transfer. To blit something is to transfer it quickly from one part
+    of memory to another. When you draw an image, you copy the image
+    data onto the screen.
+

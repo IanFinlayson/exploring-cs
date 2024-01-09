@@ -1,5 +1,5 @@
-Chapter 3: First Programs
-========================
+Chapter 3: Types and Operations
+==============================
 
 ------------------------------------------------------------------------
 
@@ -9,395 +9,688 @@ Chapter 3: First Programs
 :::
 
 ::: {.blackbox-contents}
--   Become comfortable writing programs which print messages to the
-    screen.
--   Learn how to get user input into a program.
--   Understand how to create variables, and the rules for using them.
+-   Understand the idea of type.
+-   Learn about the Python string type, and some of its operations.
+-   Learn about the two number types in Python: integers and floats.
+-   See how to get numbers as input from the user.
+-   Understand how to perform math operations on number in Python.
 :::
 :::
 
-3.1 Output
-----------
+3.1 What are Types?
+-------------------
 
 ------------------------------------------------------------------------
 
-In our first Python program, we saw the `print` function which prints
-whatever message is put between the parenthesis. Here it is again:
+Just like us, programs need to keep track of information as they are
+solving problems or making decisions. They do this by storing data
+inside of variables. Last chapter, we saw how to create variables and
+also how to read input from the user and store it in variables. We
+didn't talk about this, but we did it using one type of data, called
+the string type.
+
+Python actually provides multiple types of data. A **type** is something
+associated with a variable that determines what sorts of things you can
+do with it. To be able to use a variable, you need to know what type it
+has.
+
+For example, you probably have a first name like "Anne", and a last
+name, like "Smith". In Python, these are called *strings*. You can do
+some things with strings like join them together, to get "Anne Smith".
+Or see how many letters they have. Other things don't make sense to do
+with strings. For example, you can't subtract strings --- that just
+doesn't make any sense.
+
+You also have a birth year, like 1998. You can do different things with
+that piece of information. For example, you *can* subtract it from other
+numbers. We can subtract 1998 from the current year to see how old you
+are.
+
+Python has several different types for dealing with different kinds of
+information like this. In this chapter, we will look at strings and
+numbers. We will also talk about some of the operations we can do with
+these.
+
+3.2 Strings
+-----------
+
+------------------------------------------------------------------------
+
+The first type that we will look into is the **string** type. A string
+is some text inside of a program. For instance a message, name, address,
+email, password, URL etc. are all textual and would be stored as strings
+in a Python program.
+
+Strings can be created by enclosing text inside of double quotes:
+
 
 ``` {.python}
-print("Hello World!")
+name = "Anne Smith"
+print(name)
 ```
 
-`print` is the main way for doing output in Python. Of course, we can
-have multiple print statements in a program. The following program has
-three prints:
+Strings can also be enclosed inside of single quotes instead:
+
 
 ``` {.python}
-print("Welcome to this program!")
-print("Hello World!")
-print("Bye bye!")
+name = 'Anne Smith'
+print(name)
 ```
 
-When a program has more than one line like this, Python will do them one
-by one. This is an important point of programming. Unless we tell Python
-otherwise, it starts with the first instruction, then goes through them
-in order until it gets to the end.
+There is usually no difference between the two ways of making strings.
+The exception is when a string *contains* a quote. For example, this
+program is just not going to work:
 
-So this program will print the first line, then the second, and then the
-third. The output of this program looks like this:
+
+``` {.python}
+answer = input("Answer "yes" or "no" here ")
+print(answer)
+```
+
+The problem here (which you can see from the way the code is
+highlighted) is that when Python sees the `"` at the start of `"yes"`,
+it thinks that the string is over. Then it gets really confused because
+it can't figure out what to do with the yes. To fix this, we can use
+single quotes instead:
+
+
+``` {.python}
+answer = input('Answer "yes" or "no" here ')
+print(answer)
+```
+
+Now this is OK because Python knows that the string is not over until it
+sees the second `'` symbol. This goes the other way too. For example
+this program has an error:
+
+
+``` {.python}
+print('You can't enter a negative number!')
+```
+
+But this one is fine:
+
+
+``` {.python}
+print("You can't enter a negative number!")
+```
+
+Personally, I always use the double-quotes unless the string I am
+writing needs to have double-quotes in it.
+
+3.3 Joining Strings
+-------------------
+
+------------------------------------------------------------------------
+
+Next we will talk about some of the operations that you can do with
+strings. The first one we will talk about is joining strings, which is
+also sometimes called concatenating[^1].
+
+This is done by putting two existing strings together with a + in
+between them. For example, the following program asks the user for their
+first and last name, and then joins them together to form a full name:
+
+
+``` {.python}
+# read the names from the user
+first = input("What is your first name? ")
+last = input("What is your last name? ")
+
+# join them together in a new variable
+fullName = first + last
+
+print(fullName)
+```
+
+Below is an example of this program being run:
 
 ``` {.output}
-Welcome to this program!
-Hello World!
-Bye bye!
+What is your first name? INPUTSTARTAnneINPUTEND
+What is your last name? INPUTSTARTSmithINPUTEND
+AnneSmith
 ```
 
-By the way, in this book, we will display code in the blocks with a
-light grey background, and what the programs output with a darker
-background like this.
+This program has three variables, which are all strings. The first
+contains the input the user gave for the first name ("Anne" in this
+example), the second contains the last name ("Smith"), and the third
+is created by joining the two names ("AnneSmith"), which is then
+printed out.
 
-As you can see, this program prints three lines of output, one for each
-of our three print statements. We will look at more things we can do
-with print statements in a bit, but first let's look at getting user
-input.
+We can add as many strings together as we want. For example, we can make
+it so there is a space between the users first and last name by joining
+a space in between them. The program with this fix is here:
 
-3.2 Input
----------
+**Program 3.1**
+
+
+``` {.python}
+# read the names from the user
+first = input("What is your first name? ")
+last = input("What is your last name? ")
+
+# join them together in a new variable, with a space
+fullName = first + " " + last
+
+print(fullName)
+```
+
+3.4 String Length and Indexing
+------------------------------
 
 ------------------------------------------------------------------------
 
-We can also do input in Python, when we want to ask the user for
-information. Most programs take some sort of input, which allows us to
-control what the program is doing, or what values it is calculating
-with.
+A string is a sequence of one or more *characters*. A character is just
+a single symbol of text, such as a letter, numeral, punctuation or
+space. For instance, the string string `"Hello World!"` has 12
+characters: 10 letters, a space, and an exclamation mark.
 
-This can be done with the `input` function. Like `print`, `input` can
-take a message inside of parenthesis. In the case of input, this message
-is a question to give the user, called a **prompt**.
+We can get the length of a string by using the `len` function. The
+following program will get a string from the user and then print how
+long it is:
 
-Here is an example of how `input` works[^1]:
+**Program 3.2**
+
 
 ``` {.python}
-input("How are you feeling today? ")
+# program to print the length of the user's input
+response = input("Enter a string: ")
+length = len(response)
+print("That string has", length, "characters.")
 ```
 
-When we run this program, it will print the prompt to the screen for us,
-and then wait for us to type something in. To give the program the input
-it's waiting for, we have to type into the shell window at the bottom
-of the screen. When you type something in and hit enter, it will take
-the input:
+Below is an example run of this program:
 
-![Giving the program input](images/input.png)
+``` {.output}
+Enter a string: INPUTSTARTHello out there!!INPUTEND
+That string has 17 characters.
+```
 
-As you can see, Thonny colors what we are typing in blue, and what the
-program prints as black. Here the input we gave the program was the
-words "Pretty Good".
+We can also get any individual characters out of a string if we want to.
+Each character in a string has an *index*. The index starts at 0 and
+goes up by 1 for each character. For instance, the string "Hello" has
+these indices:
 
-We can only type one line of text. As soon as we hit enter, Python moves
-on from the input instruction. In this case, there is no next
-instruction so the program finishes.
+![The indices of a string](images/string-index.png)
 
-This program does not actually *do anything* with the input we give it.
-In the program above, whatever the user types in can't really affect
-the program at all. In order to do something with input, we must put it
-into a *variable*.
+Notice that, while there are 5 letters, the indices go from 0 to 4, and
+that 5 is not the index of any letter. To get just one character from a
+string, we put the name of the string, then the index we want inside of
+square brackets.
 
-3.2 Variables
+For example, we can write a program that prints out the first letter of
+our input like this:
+
+**Program 3.3**
+
+
+``` {.python}
+# program to print just the first letter of the user's input
+response = input("Enter a string: ")
+first = response[0]
+print(first)
+```
+
+Here is an example of this program running:
+
+``` {.output}
+Enter a string: INPUTSTARTHello out there!!INPUTEND
+H
+```
+
+This may not seem terribly useful, but getting the characters out of a
+string is sometimes necessary. For example, if a string has several
+things in it, like a first name and a last name, you may need to look at
+each character to see where the first name ends and the last name
+begins.
+
+3.5 String Methods
+------------------
+
+------------------------------------------------------------------------
+
+There are other things we can do with strings, but first we need to talk
+about a new term. We have seen several functions `print` and `input`
+which are called *functions*. There is a similar concept in Python
+called a **method** which is like a function, but is called on a
+variable. To call a method, you give the variable, then a `.` then the
+name of the method, and finally parenthesis.
+
+For instance, strings have a method called `upper` which gives back a
+version of the string in all capital letters. We can call this method
+like this:
+
+
+``` {.python}
+mesg = input("Enter a message: ")
+
+allcaps = mesg.upper()
+print(allcaps)
+```
+
+Here we get a string from the user with `input`. Then we call the
+`upper` method on that string. This gives us back a new string with all
+the lower-case letters swapped for capital ones. We then print that out.
+Here's an example run:
+
+``` {.output}
+Enter a message: INPUTSTARThello there.INPUTEND
+HELLO THERE.
+```
+
+There is also a method called `lower` which gives us the all lower-case
+version. There are a few more helpful methods that we will see in
+examples later in this book. The important thing to take note of here is
+that these methods only make sense on strings. Numbers, or other types
+of data can't be lower-case or upper-case. So the type of thing you
+have is important.
+
+3.6 Numbers
+-----------
+
+------------------------------------------------------------------------
+
+Many programs work with numerical data, so numbers are another important
+type in Python. As we will see, numbers come up a lot more in
+programming than you might think. Even things like games need lots of
+numbers to work. For example, the positions of everything on the screen
+are stored as numbers.
+
+Python actually has a few different types of numbers for different
+situations.
+
+The first is the integer, or `int` type. Integers are numbers that have
+no fractional component. For example, an int can be equal to 3, or 4,
+but not 3.5. Integers can be positive or negative. Some languages have
+limits on how big an integer can be, but Python allows integers to be as
+big as they need to be[^2].
+
+We can create an integer just by putting a number into a program. We can
+also assign it to a variable to keep track of it. For example, to create
+a variable to keep track of the year someone was born, we could do so
+like this:
+
+
+``` {.python}
+birthYear = 1998
+```
+
+Integers cannot have any fractional component. So if we make a number
+that does have a fraction in it, Python gives it a different type,
+called a `float`[^3]:
+
+
+``` {.python}
+size = 10.2
+```
+
+A float is a number which can have a fractional part. That fractional
+part might be 0 though. For example, if you make a variable equal to
+3.0, then it will be stored as a float, which just happens to have the
+fractional part equal to 0.
+
+You may wonder why not just have all numbers be floats, since they can
+have fractional parts, but also can be set to numbers without a
+fractional part. The reason is that floats don't store numbers exactly;
+they only store approximations of them. The reason for this is that some
+numbers, like Pi, would require infinite memory to store exactly.
+
+We can see this effect by giving Python certain computations like the
+following (the \>\>\> indicates that line is typed into the shell
+window):
+
+``` {.python}
+>>> 0.1 + 0.2
+0.30000000000000004
+```
+
+Of course the answer should really be 0.3, but Python gives us a number
+that is almost, but not exactly, 0.3. This might seem like a flaw in
+Python, but it just comes from the fact that there are infinitely many
+real numbers between 0 and 1 --- we can't store them all perfectly in a
+computer. That's just life. The small amount of imprecision we get with
+floats is normally not an issue.
+
+As a rule of thumb, you should use integers when a number won't have a
+fractional component, because integers are exact. When a number might
+have a fraction, you have to use a float.
+
+3.7 Number Input
+----------------
+
+------------------------------------------------------------------------
+
+To read in a float from the user, we can't just use the `input`
+function. This always gives us a string, even if the user types in a
+number. You can see this in the following shell example, where we read
+in a variable and then check its type. The `type` function returns the
+type of what you give it:
+
+``` {.python}
+>>> num = input("Enter a number ")
+Enter a number 7
+>>> type(num)
+<class 'str'>
+```
+
+This is probably confusing, because 7 obviously *is* a number. But
+strings can contain digits too. For instance, if you are reading in an
+address, it might be something like `"1301 College Avenue"`. So strings
+can contain numbers inside of them. This one just happens to contain
+only a number. Python doesn't automatically set the type based on what
+the user types in.
+
+Now because it's a string, we can't really use it like a number. For
+example, if we try to add this variable to another number, we will get
+an error.
+
+In order to actually get a number from the user, we need to convert it
+into either an int or float first. This can be done by putting either
+`int()` or `float()` around the input line, like this:
+
+
+``` {.python}
+num1 = int(input("Enter an integer "))
+num2 = float(input("Enter a float "))
+```
+
+The first example will read in the user's input and convert it to an
+integer. The second will convert it into a float. If the user puts in
+something that is not correct, the program will stop with an error. For
+example, if we put in "3.5" for the first line, or "banana" for
+either line, the program won't continue.
+
+We'll learn how to catch these sorts of errors and handle them later
+on.
+
+3.8 Doing Math
+--------------
+
+------------------------------------------------------------------------
+
+Once we have numbers inside a Python program, there are lots of things
+we can do with them. We saw that + can be used to join together strings.
+With numbers it adds them together. The following program reads two
+float numbers from the user and then adds them together, displaying the
+result:
+
+**Program 3.4**
+
+
+``` {.python}
+# this program adds two numbers given by the user
+num1 = float(input("Enter a number: "))
+num2 = float(input("Enter a number: "))
+total = num1 + num2
+print("The total is", total)
+```
+
+This program reads in the two numbers from the user, and stores them in
+variables called `num1` and `num2`. It then adds them together using the
++ operation. Because these are numbers, this results in getting the sum
+of the two. This is why types are important --- if they were strings it
+would have joined them. The result of the addition is stored in the
+variable called "total" which is then printed to the screen.
+
+Of course Python has other operations besides just addition. Below is a
+list of some operators that Python supports:
+
+  Operator   Meaning
+  ---------- ----------------
+  \+         Addition
+  \-         Subtraction
+  \*         Multiplication
+  /          Division
+  \*\*       Exponentiation
+
+Using the + and - symbols for addition and subtraction is probably
+pretty familiar to you. Some of the others might take a little while to
+get used to.
+
+Programming languages were made with standard American keyboards in
+mind, so the symbol for multiplication is the asterisk (\*) instead of ×
+or · symbols used more in math. Likewise we use the / symbol for
+division instead of the ÷ symbol. The symbols were picked to make them
+easier to type when writing code.
+
+Notice that exponents are done with two asterisks `**`. A fairly common
+mistake is to use the caret symbol \^ instead. This could have been
+used, but actually means something else in Python[^4].
+
+Python follows the standard mathematical rules of precedence which can
+be overridden with parenthesis.
+
+3.9 Example: Tips
+-----------------
+
+------------------------------------------------------------------------
+
+As an example of working with numbers, let's write a program that can
+figure the amount that you should tip a server at a restaurant. When the
+bill comes at a restaurant, it's expected that diners will give a tip
+between 15 and 20 percent of the price of the meal. This can sometimes
+be tricky to figure out[^5], so let's write a
+program to figure it out for us!
+
+The program should start off by asking the user how much their meal
+cost. To do that, we will need to use `input` combined with the `float`
+function to read in a number that may have a fractional part:
+
+
+``` {.python}
+cost = float(input("How much was the bill? "))
+```
+
+Next, we need to do a little math. If the user wants to give a 15% tip,
+then we should multiply the amount by 1.15. This will give a new number
+which is equal to the original amount, but is 15% more. We should save
+this number into a new variable:
+
+
+``` {.python}
+total = cost * 1.15
+```
+
+One mistake beginning programmers sometimes make is to not put the
+answer to something like this in a variable. For instance they might
+write a line like this:
+
+
+``` {.python}
+# wrong
+cost * 1.15
+```
+
+This line of code doesn't really do anything. It multiplies cost by
+1.15, but it doesn't save the answer anywhere. In order to make use of
+a result like this, we have to put it into a variable.
+
+Now that we have the amount with a tip added in, we can print it for the
+user:
+
+
+``` {.python}
+print("The amount with tip is", total)
+```
+
+This will print out the full amount with tip added in, which we have
+just calculated. The whole program with comments added is below:
+
+**Program 3.5**
+
+
+``` {.python}
+# read in the starting cost
+cost = float(input("How much was the bill? "))
+
+# figure out the cost with a 15% tip added
+total = cost * 1.15
+
+# print the result
+print("The amount with 15% tip is", total)
+```
+
+Below is an example of running this program:
+
+``` {.output}
+How much was the bill? INPUTSTART32.40INPUTEND
+The amount with 15% tip is 37.26
+```
+
+This program would be quite helpful in figuring out how much to tip a
+server, but we can make it even better. What if someone wants to tip 20%
+instead? We could of course just change the `1.15` in the program to
+`1.20` instead.
+
+But it would be even better if we asked the user how much they want to
+tip and then use that amount instead of a pre-determined amount.
+
+So to start let's ask them **two** questions instead of just one:
+
+
+``` {.python}
+# read in the starting cost and tip amount
+cost = float(input("How much was the bill? "))
+percentage = int(input("How much do you want to tip? "))
+```
+
+Now we have two variables. The first one, `cost`, will store the cost of
+the meal before tipping. The second one, `percentage`, will store the
+percentage the user wants to tip.
+
+Now we need to do a little bit of math. The first thing we need to do is
+to divide the percentage they entered by 100. That way we can go from 15
+to the .15 that we need. The word "percent" actually means divided by
+100.
+
+Next we need to add 1 to this number. That way we go from the .15 to the
+1.15 we used in the first program. Except now it will work with any
+percentage.
+
+Then we can multiply that number by the cost of the meal. Altogether,
+that gives us this line of code:
+
+
+``` {.python}
+total = cost * (1 + percentage/100) 
+```
+
+Notice that we used parenthesis to make sure to do the addition before
+the multiplication. The new and improved version of the program is
+below:
+
+**Program 3.6**
+
+
+``` {.python}
+# read in the starting cost and tip amount
+cost = float(input("How much was the bill? "))
+percentage = int(input("How much do you want to tip? "))
+
+# figure out the cost with the tip added in
+total = cost * (1 + percentage/100)
+
+# print the result
+print("The amount with tip is", total)
+```
+
+And here is an example of running it:
+
+``` {.output}
+How much was the bill? INPUTSTART41.40INPUTEND
+How much do you want to tip? INPUTSTART20INPUTEND
+The amount with tip is 49.68
+```
+
+3.10 Rounding
 -------------
 
 ------------------------------------------------------------------------
 
-We talked about variables briefly when we were talking about algorithms
-back in Chapter 1. Here we will talk about how to use them in Python.
-
-Variables in programming are names that we associate with some piece of
-information. Variables let us refer back to something that was created
-earlier on in a program. They also let us save whatever the user inputs,
-so we can keep track of it.
-
-The way that a variable is created in Python is by putting the name on
-the left hand side, then an equals sign, and finally the thing that you
-want to store in the variable. For instance, if we want to save our
-user's input in a variable, we could do it like this:
-
-``` {.python}
-answer = input("How are you feeling today? ")
-```
-
-Now when we run this program, it will ask us the question, and wait for
-us to enter a response. It will then save whatever we give it into the
-variable called `answer`. We can now change the program so that it
-prints it back to us:
-
-``` {.python}
-answer = input("How are you feeling today? ")
-print("You said")
-print(answer)
-```
-
-Here is an example of the output of this program:
+One last thing before we close out this chapter. I sort of carefully
+chose the inputs to the last program so that the output looked right. If
+we had picked other things, it would not look as nice. For example:
 
 ``` {.output}
-How are you feeling today? INPUTSTARTpretty goodINPUTEND
-You said
-pretty good
+How much was the bill? INPUTSTART37.21INPUTEND
+How much do you want to tip? INPUTSTART17INPUTEND
+The amount with tip is 43.5357
 ```
 
-The text that we typed is in a different color so that you can see what the
-user types in this example. The white text is what the program itself is
-printing out.
+That just looks weird when we're talking about money. We always round
+money to the nearest cent. We would not expect to see something like
+this, so let's talk about how to fix it.
 
-There are a couple of things to note about this program. First, we have
-saved the input we typed into the variable called `answer`. We can then
-print this variable out on the third line of the program. This line of
-code is worth talking about:
+The best way is to round the result to 2 decimal places. This is done
+with the `round` function, which takes the number we want to round and
+how many decimal places to round to. We can try this in the shell
+
 
 ``` {.python}
-print(answer)
+>>> round(43.5357, 2)
+43.54
 ```
 
-Notice how this did not actually print the word "answer". When we
-print a variable, it doesn't print the variable's *name*, it prints
-the variable's *value*. Whatever got stored in the variable (which is
-whatever we typed in), gets printed here.
+`round` always rounds to the *nearest* place. For instance
+`round(4.7, 0)` rounds up to 5, while `round(4.3, 0)` will round down to
+4.
 
-Also, notice how there are no quotation marks around "answer" in the
-print command. If we put quotation marks in, it *would* actually have
-printed out the word "answer". We have to use quotation marks to print
-some message out exactly, and no quotation marks when we want to get the
-thing stored in a variable.
+The program with this fix in place would look like this:
 
-There are some rules for naming our variables. The name of a variable
-has to be made of letters, numbers and underscore characters. They
-cannot begin with a number and cannot have spaces in them.
+**Program 3.7**
 
-These are examples of legal variable names:
 
--   `price`
--   `price_in_dollars`
--   `priceFor2`
+``` {.python}
+# read in the starting cost and tip amount
+cost = float(input("How much was the bill? "))
+percentage = int(input("How much do you want to tip? "))
 
-And these are not legal:
+# figure out the cost with the tip added in
+total = cost * (1 + percentage/100)
 
--   `full-price` (the - symbol is not allowed)
--   `2_times_price` (can't start with a number)
--   `price in dollars` (no spaces are allowed)
+# round the answer to 2 decimal places
+rounded = round(total, 2)
 
-Variables also should not be named something that already means
-something in Python. That means that you should not name a variable
-`print` or `input`. There are lots of other names in Python that mean
-things and we will see them as we go.
+# print the result
+print("The amount with tip is", rounded)
+```
 
-Notice that Thonny colors `print` and `input` differently than other
-things. If the new variable you just made also shows up colored like
-this, then it means something special and you should pick another name!
+This is a pretty advanced program! It takes two pieces of input, uses
+four variables, and does some sort of tricky math. It even makes sure
+that the output looks like the user would expect. Even better it
+actually solves a real-life problem most of us can appreciate. If you
+followed what we've done here, then great job!
 
-3.3 More on Printing
---------------------
+3.11 Comprehension Questions
+----------------------------
 
 ------------------------------------------------------------------------
 
-In the program above, we printed our message on two different lines,
-which looks kind of weird. Instead, we can print it on one line, using
-just one print instruction. To do that, we can pass the message and the
-variable to print on one line, separated by a comma. That would look
-like this:
+1. Why is it important to understand the type of data stored in a variable in Python?
+2. What is the difference between an integer and floating point number?
+3. What does the + operator do with numbers and what does it do with strings?
+4. What number gives us the first character in a string when used as an index?
+5. What must we do with a number value read in with `input` before storing it in
+   a variable?
+   
 
-``` {.python}
-answer = input("How are you feeling today? ")
-print("You said", answer)
-```
-
-When we run this program, it gives us this:
-
-``` {.output}
-How are you feeling today? INPUTSTARTpretty goodINPUTEND
-You said pretty good
-```
-
-There is no limit to how many things we can print like this --- we can
-just keep adding things and putting commas between them. Like if we want
-to also print "Bye!" so the user knows the program is done, we could
-add that in:
-
-``` {.python}
-answer = input("How are you feeling today? ")
-print("You said", answer, ". Bye!")
-```
-
-Now the program prints this:
-
-``` {.output}
-How are you feeling today? INPUTSTARTpretty goodINPUTEND
-You said pretty good . Bye!
-```
-
-Notice that Python automatically puts a space between the things that we
-are printing. This is often helpful, but in this case makes the output
-look kind of weird since there is a space before our period. When we
-want to avoid this, we can also give the text `sep=""` to print. This
-tells Python to separate the things it's printing with nothing at all.
-Now the program looks like this:
-
-**Program 3.1**
-
-``` {.python}
-answer = input("How are you feeling today? ")
-print("You said ", answer, ". Bye!", sep="")
-```
-
-And it will output the following:
-
-``` {.output}
-How are you feeling today? INPUTSTARTpretty goodINPUTEND
-You said pretty good. Bye!
-```
-
-Note that we had to now put a space between "You said" and the
-variable because now there isn't one put in automatically. Some people
-aren't too bothered about details like this, but I like to get the
-spacing to look exactly right for the program's output.
-
-3.4 Example: Greeting Program
------------------------------
-
-------------------------------------------------------------------------
-
-Now let's create a slightly longer program which will need two
-variables. We'll talk about how the program will behave first, and then
-talk about how to write it.
-
-We want the program to ask the user for two things:
-
-1.  Their name
-2.  What day of the week it is
-
-It will then give them a personalized greeting wishing them to have a
-good day. For example, if we put in "Nicole" and "Thursday", then it
-would print this:
-
-``` {.output}
-Hello Nicole!
-Have a great Thursday!
-```
-
-However, if we put in "Tim" and "Monday" when the program asks our
-name and what day it is, then it will print this:
-
-``` {.output}
-Hello Tim!
-Have a great Monday!
-```
-
-This is an important point in programming --- what the program does will
-depend on the input given to it. It means that we can't just write the
-program like this:
-
-``` {.python}
-print("Hello Nicole!")
-print("Have a great Thursday!")
-```
-
-If we did, then it works if your name is Nicole, and it happens to be
-Thursday, but it won't work in any other case. You also can't just
-replace "Nicole" and "Thursday" with your own name and day. If you
-do, it will work for you that day, but not in any other situation.
-
-What we want is to have the program do the right thing in *every*
-situation. For that, we need to put the name and the day into variables.
-We will need one for each thing. One variable generally keeps track of
-just one piece of information.
-
-We will start by asking the user their name and storing the result into
-a variable:
-
-``` {.python}
-name = input("What is your name? ")
-```
-
-Next, we need to ask them for the other piece of information we need,
-the day of the week:
-
-``` {.python}
-day = input("What day is it? ")
-```
-
-Now we have these two variables, which we have called `name` and `day`.
-The next step is to do the printing. Now we will use our variables so
-that whatever answers they gave to those questions will be repeated:
-
-``` {.python}
-print("Hello ", name, "!", sep="")
-```
-
-This will print "Hello ", followed by the user's name, and then an
-exclamation point, with no spaces in between (so the exclamation shows
-up right after their name).
-
-Now it should greet them by name no matter what they put in. We can do
-the same thing to wish them a good day:
-
-``` {.python}
-print("Have a great ", day, "!", sep="")
-```
-
-Below is the whole program, with a comment at the top. It's usually a
-good idea to put a comment at the top of your code explaining what the
-point of the program is.
-
-**Program 3.2**
-
-``` {.python}
-# this program gives the user a custom greeting
-name = input("What is your name? ")
-day = input("What day is it? ")
-
-print("Hello ", name, "!", sep="")
-print("Have a great ", day, "!", sep="")
-```
-
-Notice the program also has a blank line in it. Blank lines are ignored
-just like comments are. It's common in programs to put a blank line
-between different sections of code --- kind of like paragraphs in a
-paper.
-
-Below is an example run --- though of course what it prints exactly
-depends on what you tell it!
-
-``` {.output}
-What is your name? INPUTSTARTMaryINPUTEND
-What day is it? INPUTSTARTFridayINPUTEND
-Hello Mary!
-Have a great Friday!
-```
-
-
-3.5 Comprehension Questions
----------------------------
-
-------------------------------------------------------------------------
-
-1. If a program has multiple statements, where does Python begin executing them?
-2. Why do we almost always assign the result of a call to input into a variable?
-3. If we print multiple things in one call to print, what symbol do we use to
-   separate them?
-3. What happens if Python sees a blank line in a program?
-5. Why do you think Python doesn't allow spaces to be in variable names?
-6. What's the difference between: `print(name)` and `print("name")`?
-
-
-3.6 Programming Exercises
+3.12 Programming Exercises
 -------------------------
 
 ------------------------------------------------------------------------
 
-1. Change program 3.2 so that it also asks the user where they are from.
-   Then, make it so the print also says where the user is from such as
-   "Hello Mary from Pennsylvania" or "Hello Joe from England", before
-   telling them to have a great day.
-2. Write a program that asks the user for their name, major, and class (such as
-   first-year, sophomore, junior, or senior).  Then print out a message to them
-   using those three pieces of information.
+1. Write a program to read in the length and width of a rectangle and print
+   both the area and perimeter of the rectangle to the user.
+
+2. Write a program to convert from feet to meters. There are 3.28084 feet in one
+meter. First read in the number of feet, do the calculation to find how many meters
+that is, and then print the result.
+
+3. Write a program to read in the user’s first name and last name, and print out their
+initials. For example, if the user puts in "Margaret" and "Jones" it should print out "M.J."
+
+4. Write a program to print the average of 4 numbers that the user gives. You should
+read in the 4 numbers, compute the average, and then print the answer.
 
 
 ::: {.blackbox}
@@ -406,20 +699,38 @@ Have a great Friday!
 :::
 
 ::: {.blackbox-contents}
--   The `print` command is used to print things to the screen. You can
-    pass multiple things to `print`, and it will print them one after
-    the other.
--   The `input` command is used to get input from the user. Input should
-    normally be stored into a variable.
--   Variables are used to keep track of information in a program. They
-    are given a name of your choosing and can be referred to later.
+-   A type is something associated with a variable that determines what
+    things make sense to do with it.
+-   The string type is for storing text. Strings can be joined together,
+    and you can get the individual characters out of them.
+-   There are two types of numbers in Python. Integers are for numbers
+    which can't have a fractional part, and floats are numbers which
+    can.
+-   The `input` function gives us strings by default. We can read in
+    numbers by using the `int` or `float` function.
+-   Both types of numbers let us use math operators on them, to perform
+    calculations.
+-   The `round` function is used to round numbers in Python.
 :::
 :::
 
 Footnotes {#footnote-label .visually-hidden}
 ---------
 
-[^1]: Notice the space after question mark. That is not necessary, but it
-    puts a space before the user can start typing, which I think looks
-    neater.
+[^1]: Sometimes computer scientists come up with fancy words like this
+    for very simple concepts. This is just one of many examples.
 
+[^2]: Of course, a computer has a set amount of memory, and a big enough
+    number could in theory need more memory than you have, but that
+    isn't really an issue in practice.
+
+[^3]: These numbers are called "floats" because they have a
+    "floating" decimal point. That means the decimal can appear in any
+    position, for example 10.0, 1.0, 0.1, and .01 are all valid numbers.
+    Some languages (not Python) also have fixed point numbers, where the
+    decimal can't move.
+    
+[^4]: The `^` is used for an operation called XOR, which is used for
+    dealing with binary numbers.
+    
+[^5]: Especially if the meal included a few drinks.

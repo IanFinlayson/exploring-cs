@@ -28,16 +28,15 @@ as the programming language.</p>
 <li><a href="html/title">Title</a></li>
 <li><a href="html/preface">Preface</a></li>
 <li><a href="html/chapter01">Chapter 1: The Road Ahead</a></li>
-<li><a href="html/chapter02">Chapter 2: Getting Started</a></li>
-<li><a href="html/chapter03">Chapter 3: First Programs</a></li>
-<li><a href="html/chapter04">Chapter 4: Types and Operations</a></li>
-<li><a href="html/chapter05">Chapter 5: Making Decisions</a></li>
-<li><a href="html/chapter06">Chapter 6: Going Back Again</a></li>
-<li><a href="html/chapter07">Chapter 7: Algorithms</a></li>
-<li><a href="html/chapter08">Chapter 8: Using Libraries</a></li>
-<li><a href="html/chapter09">Chapter 9: Lists</a></li>
-<li><a href="html/chapter10">Chapter 10: Functions</a></li>
-<li><a href="html/chapter11">Chapter 11: Graphics</a></li>
+<li><a href="html/chapter02">Chapter 2: Starting Out</a></li>
+<li><a href="html/chapter03">Chapter 3: Types and Operations</a></li>
+<li><a href="html/chapter04">Chapter 4: Making Decisions</a></li>
+<li><a href="html/chapter05">Chapter 5: Going Back Again</a></li>
+<li><a href="html/chapter06">Chapter 6: Algorithms</a></li>
+<li><a href="html/chapter07">Chapter 7: Using Libraries</a></li>
+<li><a href="html/chapter08">Chapter 8: Lists</a></li>
+<li><a href="html/chapter09">Chapter 9: Functions</a></li>
+<li><a href="html/chapter10">Chapter 10: Graphics</a></li>
 </ul>
 </ul>
 </p>

@@ -3,9 +3,9 @@
 produce_navbar() {
 
     # list of the chapters for making the nav bar
-    parts=("title" "preface" "chapter01" "chapter02" "chapter03" "chapter04" "chapter05" "chapter06" "chapter07" "chapter08" "chapter09" "chapter10" "chapter11")
-    display=("Title" "Preface" "Chapter 1" "Chapter 2" "Chapter 3" "Chapter 4" "Chapter 5" "Chapter 6" "Chapter 7" "Chapter 8" "Chapter 9" "Chapter 10" "Chapter 11")
-    titles=("Exploring Computer Science" "Exploring Computer Science" "The Road Ahead" "Getting Started" "First Programs" "Types and Operations" "Making Decisions" "Going Back Again" "Algorithms" "Using Libraries" "Lists" "Functions" "Graphics Programming")
+    parts=("title" "preface" "chapter01" "chapter02" "chapter03" "chapter04" "chapter05" "chapter06" "chapter07" "chapter08" "chapter09" "chapter10")
+    display=("Title" "Preface" "Chapter 1" "Chapter 2" "Chapter 3" "Chapter 4" "Chapter 5" "Chapter 6" "Chapter 7" "Chapter 8" "Chapter 9" "Chapter 10")
+    titles=("Exploring Computer Science" "Exploring Computer Science" "The Road Ahead" "Starting Out" "Types and Operations" "Making Decisions" "Going Back Again" "Algorithms" "Using Libraries" "Lists" "Functions" "Graphics Programming")
 
     # get the target, scrubbing the leading "exploring-cs/"
     target=$1
@@ -132,7 +132,6 @@ process_page chapter07
 process_page chapter08
 process_page chapter09
 process_page chapter10
-process_page chapter11
 
 # make a link to the images directory so html pages can refer to them
 if [ ! -L html/images ]

@@ -1,5 +1,5 @@
-Chapter 9: Lists
-===============
+Chapter 9: Functions
+====================
 
 ------------------------------------------------------------------------
 
@@ -9,537 +9,574 @@ Chapter 9: Lists
 :::
 
 ::: {.blackbox-contents}
--   Understand the purpose of list variables in Python.
--   Learn how to create lists of data, and index them to get values out.
--   Learn how to loop through lists with for loops.
--   Be able to add values to a list.
--   Learn how to read in lists from the user.
+-   Understand some of the benefits of splitting a program into multiple
+    functions.
+-   Learn how to create our own functions.
+-   Understand the purpose of parameters and how to write functions that
+    use them.
+-   Understand the purpose of return values and how to use them.
+-   Learn what "scope" is and how it affects variables in functions.
 :::
 :::
 
-9.1 Storing Lots of Variables
------------------------------
+9.1 What is a Function?
+------------------------
+
+We have been calling functions in Python ever since the very first
+"Hello World!" program:
+
+``` {.python}
+print("Hello World!")
+```
+
+Here we are calling the `print` function and asking it to print the
+given message to the screen for us. Every function has a job to do. The
+job of the print function is to print thins to the screen. When we
+"call" a function, we ask it to do its job.
+
+Functions can have **parameters**, which are the things between the
+parenthesis. Parameters allow us to pass data to a function to control
+how it works. The print function prints out each of its parameters.
+
+Consider the following function call:
+
+``` {.python}
+import math
+x = math.sqrt(144.0)
+```
+
+The `math.sqrt` function takes a number as a parameter. The job it has
+to do is to calculate the square root of the parameter. Unlike the print
+function, the sqrt function *returns* a value. We use parameters to give
+information to a function, and return values let functions give
+information back to us. So here, 144.0 is the parameter, and the return
+value will be 12.
+
+Not all functions return values. If we try to print the return value
+from the `print` function, we'll get the value "None":
+
+``` {.python}
+>>> x = print("Hello")
+>>> print(x)
+None
+```
+
+So parameters allow us to pass information to functions. Some functions
+take no parameters, some take one, and some take more. Likewise some
+functions return a value back and some do not.
 
 ------------------------------------------------------------------------
 
-Imagine that we were writing a program where we wanted to store a large
-amount of data. For example, imagine we were writing a program to figure
-calculate your grade in a class. We might want to store all of our
-grades into the program. Let's say we have 10 quiz grades in the class.
-We might write code like this:
+9.2 Why Write Functions?
+-------------------------
+
+In addition to calling functions that already exist, we can create our
+own. There are many reasons to do this. The first is to split our code
+up into more manageable pieces. Just like books are divided into
+paragraphs and chapters, programs can be divided up into functions to
+make them easier to understand and write.
+
+Another reason is to decrease repetitive code. Imagine you were writing
+a Program that reads in the size of a rectangle so it can compute the
+area and perimeter. It needs the width and height to do this, and both
+numbers should be greater than zero. We should make sure that's the
+case, so our code to read these values might look like this:
 
 ``` {.python}
-quiz1 = 88
-quiz2 = 94
-quiz3 = 76
-quiz4 = 100
-quiz5 = 92
-quiz6 = 89
-quiz7 = 95
-quiz8 = 85
-quiz9 = 79
-quiz10 = 99
+# read the width
+width = int(input("Width: "))
+while width <= 0:
+    print("Please enter a positive number.")
+    width = int(input("Width: "))
+
+# read the height
+height = int(input("Height: "))
+while height <= 0:
+    print("Please enter a positive number.")
+    height = int(input("Height: "))
 ```
 
-Then we might want to add up all of these grades to figure out our
-average:
+This code is pretty repetitive. The input line, while condition and loop
+bodies are all basically the same. The only things different are the
+variable name being used and the input prompt.
+
+Having repetitive code in programs is not ideal. For one, we have to
+write more code. A basic tenet of programming is to not do more work
+than you have to. Another, even bigger, reason is that now we have to
+*maintain* the code in two places. If we want to, say, make it so that
+it doesn't crash the program when a letter is accidentally entered,
+then would have to make that change in *two* places. As we write larger
+programs that take longer to debug, having repetitive code like this is
+a bad idea.
+
+If we were to write a function to read in a positive number, then we can
+just call upon it whenever we need to, and know that it already does
+this job. That might look like this:
 
 ``` {.python}
-total = quiz1 + quiz2 + quiz3 + quiz4 + quiz5 + quiz6 + quiz7 + quiz8 + quiz9 + quiz10
-average = total / 10
+# read height and width
+width = readPositive("Width: ")
+height = readPositive("Height: ")
 ```
 
-This hopefully seems a little bit tedious and repetitive. We have to
-make 10 different variables and do the same thing with all of them.
-Here, it's not *too* bad with 10. But imagine if we had even more
-numbers we wanted to keep track. For instance, imagine you're
-*teaching* a course and wanted to store all 10 quiz grades from 25
-students. That would be a lot of variables!
+We pass in the prompts, because that was the one thing that's really
+different. Of course we have to create the `readPositive` function for
+this to work. So we will see how to make functions next.
 
-There is a better way of doing this which is to use a **list**. A list
-is a collection of multiple pieces of data that are stored together in
-one variable.
+------------------------------------------------------------------------
 
-9.2 Creating Lists
+9.3 Writing a Function
+-----------------------
+
+So now that we know we want to write functions, we need to know how to
+do so. Functions are created using the following syntax:
+
+``` {.python}
+def functionName(parameters):
+    line 1
+    line 2
+    # etc ...
+```
+
+The keyword `def` starts a function, it stands for define. Function
+names follow the same rules as variable names: any letter or underscore,
+followed by any numbers of letters, numbers and underscores. Parameters
+are specified the same as in a function call: as a list separated by
+commas inside of parenthesis. Then the colon signifies the start of the
+function. Each line of code in the function must be indented over, as in
+a loop or if statement.
+
+As an example, we can define a function that prints out a greeting:
+
+``` {.python}
+def greet():
+    print("Hello!")
+```
+
+Here the function's name is `greet`, and it takes no parameters. The
+body of the function is the code that will be run when the function gets
+called. This function doesn't return anything either.
+
+If we run this program, nothing actually happens. Defining a function
+does not run the code inside it. It just says what *would* happen should
+the function ever actually be called. So in order for this program to do
+something, we would need to call the function after defining it, like
+this:
+
+``` {.python}
+# define the function
+def greet():
+    print("Hello!")
+
+# call the function
+greet()
+```
+
+Calling the functions we make works the same as calling a functions that
+come with Python. Now the program will first define the function, and
+then actually call it, so the print statement will run and we should see
+this:
+
+``` {.output}
+Hello!  
+```
+
+Functions must be defined before they are called. So this program will
+only work if the definition of greet is before the call to it. If we
+flip them around, Python would give us an error message.
+
+------------------------------------------------------------------------
+
+9.4 Parameters
+---------------
+
+Suppose we want to personalize the greet function so that it greets
+people by name. To do this, the function will need to know the name of
+the person it is supposed to greet. To send information into a function,
+we use parameters. In this case, we'll add a parameter to the function
+that for the person's name:
+
+``` {.python}
+def greet(name):
+    print("Hello,", name, "how are you?")
+```
+
+Now this function takes one parameter called `name`. Inside the
+function, we can refer to `name` when we need that information. In this
+case, we just print it out. Notice that the function isn't *setting*
+the `name` variable anywhere. The function just assumes it has been set
+to something already.
+
+When we call the function, we pass in the actual value that should fill
+in for the parameter. For example, we add three calls to this function
+in the program below:
+
+``` {.python}
+def greet(name):
+    print("Hello", name, "how are you?")
+
+greet("Alice")
+greet("Bob")
+greet("Claire")
+```
+
+This program outputs the following:
+
+``` {.output}
+Hello Alice how are you?
+Hello Bob how are you?
+Hello Claire how are you?
+```
+
+Parameters let us pass information into the function to change the way
+it works. The function above just prints out its name variable, but that
+will be different based on what was passed in.
+
+We have to get the number of parameters right, or Python won't be able
+to call the function. If we pass the `greet` function zero parameters,
+or more than one parameter, then Python will complain:
+
+``` {.python}
+>>> greet()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: greet() takes exactly 1 argument (0 given)
+
+>>> greet("Too", "Many")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: greet() takes exactly 1 positional argument (2 given)
+```
+
+As another example, let's write a function that will print a countdown
+from a starting point. Sometimes we will want the function to print out
+a countdown starting at 10 and going down to 1. Sometimes we will want
+to start at just 5 instead.
+
+Because sometimes we want the starting point to be 10 and sometimes we
+want it to be 5, that has to be a parameter. We can then use that
+parameter, which we will call `start`, to control the for loop that will
+do the counting down. The code for this function is below:
+
+``` {.python}
+def countdown(start):
+    for i in range(start, 0, -1):
+        print(i)
+    print("Done!")
+
+countdown(10)
+countdown(5)
+```
+
+We are calling the `countdown` function with two different values for
+the start parameter. The output of this program appears below:
+
+``` {.output}
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Done!
+5
+4
+3
+2
+1
+Done!
+```
+
+9.5 Return Values
 ------------------
 
 ------------------------------------------------------------------------
 
-To create a list, we can put the values in the list between square
-brackets, separated by commas. For example, we can store our 10 quiz
-grades in a list like this:
+Now that we have seen how to pass information *to* functions using
+parameters, we will look at how to pass information back *from*
+functions using return values.
+
+A return value is a value that is produced by a function call. We have
+seen functions that produce return values such as `input` and
+`math.sqrt`. We can return values from our own functions using the
+`return` statement. This statement takes the value we want to return.
+The value we return can be any value in a Python program such as a
+constant, variable or expression.
+
+For example, let's say we want to write a function to calculate the
+area of a rectangle. To do this, the information we need is the width
+and height of the rectangle. Because we need to know this to do our
+task, these should be parameters into the function. The result of our
+work will be the area, so this is what we should return back. The
+function could look like this:
 
 ``` {.python}
-quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
+def rectangleArea(width, height):
+    area = width * height
+    return area
 ```
 
-We could also create a list of strings:
+The return statement sends back the value of the `area` variable which
+was computed. When we call this function, we'll need to save the value
+it gives us into a variable. If we don't than the result it gives us
+will be lost (just like we have to store the value that `input` gives us
+into a variable). The following bit of code calls the function above and
+then prints the result of it:
 
 ``` {.python}
-names = ["Bob", "Alice", "Joe", "Mary"]
+a = rectangleArea(3, 5)
+print("The area of a 3 by 5 rectangle is", a)
 ```
 
-Each of these lists stores *all* of the values inside them. Lists
-provide a convenient way to store a bunch of things together with one
-name to access them.
+We can also take the output of a function and pass it directly as a
+parameter to another function. For instance, we can print the area of a
+rectangle to the screen directly by calling it from inside of print:
 
-9.3 Accessing List Elements
+``` {.python}
+print(rectangleArea(5, 7))
+```
+
+Here the rectangleArea function is called with parameters of 5 and 7.
+This function is going to return the value 35 which is then passed
+directly as a parameter to the print function. The upshot is that the 35
+will be printed directly to the screen, without being stored in a
+variable first. We have actually been doing this same thing with the
+`input` function for a while in code like this:
+
+``` {.python}
+age = int(input("Enter your age: "))
+```
+
+Here the `input` function's return value (a string) is passed directly
+to the `int` function, which then returns us the integer version of that
+string.
+
+A function can also have multiple `return` statements for different
+cases. For example, we can write a function to convert a number grade
+into a letter grade:
+
+``` {.python}
+def numberToLetter(grade):
+    if grade >= 92:
+        return "A"
+    elif grade >= 89:
+        return "A-"
+    elif grade >= 87:
+        return "B+"
+    elif grade >= 82:
+        return "B"
+    elif grade >= 79:
+        return "B-"
+    elif grade >= 77:
+        return "C+"
+    elif grade >= 72:
+        return "C"
+    elif grade >= 69:
+        return "C-"
+    elif grade >= 67:
+        return "D+"
+    elif grade >= 60:
+        return "D"
+    else:
+        return "F"
+```
+
+Here we have a `return` statement for each condition in the function.
+When Python executes this function, the first condition that is true
+will have its return statement executed.
+
+While we can have multiple `return` statements, we can only ever execute
+one of them for each function. As soon as we reach the `return`
+statement, we leave the function and don't do anything else. For
+example, this program has a statement after the `return`:
+
+``` {.python}
+def rectangleArea(width, height):
+    area = width * height
+    return area
+    print("Hello!")    # will never be printed
+```
+
+This will never print the "Hello!" message, because Python leaves the
+function as soon as the `return` is done. No statements after that will
+be executed.
+
+------------------------------------------------------------------------
+
+9.6 A couple more examples
 ---------------------------
 
-------------------------------------------------------------------------
-
-Once we have created a list, we can access each thing in the list. To do
-this, we can use the position of each element we want to access. Like
-strings, the first thing in the list is at position 0. The second
-element is at position 1, and so on. Starting at position 1 is a common
-mistake in programming.
-
-In order to access an element, we use the name of the list, then the
-position inside of brackets. So to access the first quiz grade in the
-above list, we would use:
+Another benefit of functions is they sometimes make code easier to read.
+We have seen that we can check if a number is even or odd by using the
+modulus operator. To refresh your memory, we can write a program to tell
+the user if their age is an even number like this:
 
 ``` {.python}
-print(quizzes[0])
+age = int(input("What is your age? "))
+
+if age % 2 == 0:
+    print("Your age is even")
+else:
+    print("Your age is odd")
 ```
 
-To access the last name above, we can say:
+What's going on is that the modulus operator divides the age variable
+by 2, and checks the remainder. If it's 0, then the age is evenly
+divided by 2, so it must be even. How this code works is not exactly
+clear. To help make this easier to read and understand, we can write
+functions called `isEven` and `isOdd` to perform these calculations:
 
 ``` {.python}
-print(names[3])
+def isEven(num):
+    if num % 2 == 0:
+        return True
+    else:
+        return False
+
+def isOdd(num):
+    if num % 2 == 1:
+        return True
+    else:
+        return False
 ```
 
-When we use the position number to access the things inside of a list,
-we say that we are *indexing* the list.
+These functions both take a number as a parameter. They then do the
+modulus trick to determine if the number is even or odd and then return
+a boolean True or False value. Now we can call them whenever we want to
+know if a number is even or odd, instead of having to write out the
+modulus expression directly.
 
-If we use an index that is too big for our list, Python will give us an
-error message:
+As another example, let's say we want to write our own version of
+Python's `max` function? Given a list of numbers, it should return the
+biggest item out of it.
 
-``` {.output}
->>> print(names[4])
-Traceback (most recent call last):
-  File "<pyshell#1>", line 1, in 
-    print(names[4])
-IndexError: list index out of range
-```
-
-9.4 Example: Dates
-------------------
-
-------------------------------------------------------------------------
-
-Let's say we want to write a program that converts a numerical date
-into one using words for the month. For example, we can put in 3 for the
-month and 25 for the day and it will print out "March 25". We could do
-it with if statements like this:
+This function will take the list as a parameter. The return value should
+be the biggest item found in the list. We can do this with the following
+function:
 
 ``` {.python}
-if month == 1:
-    print("January", day)
-elif month == 2:
-    print("February", day)
-elif month == 3:
-    print("March", day)
-# and so on...
+def max(values):
+    biggest = values[0]
+    for v in values:
+        if v > biggest:
+            biggest = v
+    return biggest
 ```
 
-But this can actually be done with less code (and more efficiently)
-using lists. We can make a list of all the month names. We could then
-*index* the list with the month number. We will have to subtract 1 from
-the index because month numbers start at 1, but list numbers start at 0.
+Here we loop through the list and keep track of the biggest item that we
+have seen so far. Once we've gone through the whole thing, we return
+the biggest.
+
+Finally, let's write the code for the `readPositive` function we talked
+about earlier. To do this, we will make the prompt for the user a
+parameter, then read values until one is positive, and then use a
+`return` to send it back to the user. This might look like this:
 
 ``` {.python}
-# get our input
-month = int(input("What is the month? "))
-day = int(input("What is the day? "))
-
-# make a list of all the names of months
-names = ["January", "February", "March", "April", "May", "June", "July",
-         "August", "September", "October", "November", "December"]
-
-# get the name of this month by indexing
-monthName = names[month - 1]
-
-# print our output
-print("It is", monthName, day)
+def readPositive(prompt):
+    value = int(input(prompt))
+    while value <= 0:
+        print("Please enter a positive number.")
+        value = int(input(prompt))
+    return value
 ```
 
-This program works by taking in the month as a number. It then subtracts
-one from this number and uses it to index the list. So if the month
-number is 5, it subtracts 1 to get 4. It then uses 4 as the index to get
-the name "May" out of the list.
-
-Below is an example of this program running:
-
-``` {.output}
-What is the month? INPUTSTART6INPUTEND
-What is the day? INPUTSTART22INPUTEND
-It is June 22
-```
-
-9.5 Looping Through a List
---------------------------
+We could even make a more general version of this function which gets a
+number as input from the user between any lower and upper limits. The
+limits could be passed into the function along with the prompt.
 
 ------------------------------------------------------------------------
 
-One super common thing to do with a list is to loop through everything
-in the list and do something with each thing in it. For example, we
-might loop through a list of our quiz scores to add them up, or loop
-through a list of names searching for one name in particular.
+9.7 Scope
+----------
 
-We can do this by using a for loop in Python. We have seen for loops for
-looping through strings and sequences of numbers using range(). They
-also work for lists.
-
-For example, if we want to print all of our quiz grades, we could write
-code like this:
-
-``` {.python}
-quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
-
-for quiz in quizzes:
-    print(quiz)
-```
-
-The for loop assigns each thing in the list to `quiz`, one by one, and
-executes the lines under the for loop on it. In this case, it will print
-all of the quiz scores to the screen one by one. By changing the code in
-the loop, we can do different things with each item.
-
-To add all of the quiz scores together, we can do the following:
+**Scope** refers to the parts of code that can access things like
+variables. Before we used functions, we could access any variable any
+place in our program, after it was created. But when we create variables
+inside of a function, they can only be accessed inside of that function.
+For example, the `hello` function below makes a variable called
+`message`. We are allowed to access that variable inside the `hello`
+function, but not outside of it:
 
 ``` {.python}
-# our list of quiz scores
-quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
+def hello():
+    message = "Hello!"
+    # this is OK because we're inside the function
+    print(message)
 
-# figure out the total score
-total = 0
-for quiz in quizzes:
-    total = total + quiz
-
-# find the average and print it
-average = total / len(quizzes)
-print("Your average score is", average)
+# this is not allowed
+print(message)
 ```
 
-The `total` variable here is worth talking about a little bit. We set it
-to 0 before the loop and then also set it inside the loop. What we set
-it to there is `total + quiz`. So the first thing it's equal to is 0,
-then we set it to that 0 plus the first quiz value, so it becomes 88.
-Then the next time through the loop, we set it to the 88 it is now plus
-the 94, resulting in total storing 182. This kind of "accumulation"
-loop is common in coding.
+This program produces an error because, in the last print statement, we
+are not inside of the hello function. Therefore the variable `message`
+cannot be accessed. Even if the function hello() is called, and
+`message` is created, we still cannot access `message` outside of the
+function.
 
-This is much less code than having to add all 10 variables by typing
-them all out! We also can add more quiz scores to the list without
-having to redo the code to find the average. This example also shows
-using the `len` function to find the length of a list --- this works the
-same way it does for strings.
+``` {.python}
+def hello():
+    message = "Hello!"
+    print(message)
 
-9.6 Example: Smart Guess the Number
------------------------------------
+# call the function
+hello()
+
+# still not OK and will cause an error
+print(message)
+```
+
+The scope of the `message` variable is only inside the hello function
+because that's where it was made. If we made `message` outside of the
+function, this would be OK:
+
+``` {.python}
+# message is not in a function, so its scope is the whole program
+message = "Hello!"
+
+def hello():
+    # this variable CAN be called here
+    print(message)
+
+# this is OK too
+print(message)
+```
+
+Here, `message` is set up outside of the function and *can* be accessed
+inside of functions in the program.
+
+Variables created outside of a function are called **global** and
+variables inside of a function are called **local**. So the scope of a
+global variable is the whole program, and the scope of a local variable
+is just the function it's in.
+
+The reason Python works this way is to try to keep programs more
+organized. If our program has a bunch of functions in it, that all make
+several variables, things would become messy if all of those variables
+could be accessed anywhere in the program. By keeping the scope of a
+variable just to the function it was made in, things stay organized. If
+you want to use some value from a function in other parts of your
+program, you need to use a `return` to send it back.
 
 ------------------------------------------------------------------------
 
-When we first looked at using loops, we saw an example of a guess the
-number program that started at 1, and then went on guessing up to 10. To
-refresh your memory, this code looked like this:
-
-``` {.python}
-# guess 1 the first time
-guess = 1
-answer = input("Did you guess " + str(guess) + "? ")
-
-# keep guessing the next number until they get it
-while answer != "yes":
-    guess = guess + 1
-    answer = input("Did you guess " + str(guess) + "? ")
-
-print("Got it!")
-```
-
-This program does in fact eventually guess the number the user is
-thinking of, but it doesn't guess them in a very human-like manner.
-Only a robot would guess in order like that. Another way is to guess the
-numbers randomly, instead of in order:
-
-``` {.python}
-import random
-
-# guess a random number
-guess = random.randint(1, 10)
-answer = input("Did you guess " + str(guess) + "? ")
-
-# keep guessing in order until we get it
-while answer != "yes":
-    guess = random.randint(1, 10)
-    answer = input("Did you guess " + str(guess) + "? ")
-
-print("Got it!")
-```
-
-Now the program no longer guesses the numbers in order, but it still
-doesn't guess them very well. Now each guess is random with no memory
-of what the previous guesses were. It could even guess the same number
-twice in a row. What we'd like is for the number to guess the numbers
-from 1 to 10 in random order without repeating itself.
-
-We can do this using a list of numbers to guess and then "shuffling"
-the list. The idea here is that we will make a list to store all of the
-numbers 1 through 10. Then we call the `random.shuffle` function which
-takes a list and shuffles it randomly.
-
-We then loop through this shuffled list and guess the numbers in it one
-by one. Now the program will guess them in a random way, but it won't
-ever guess the same number twice.
-
-The code to do this is below:
-
-``` {.python}
-import random
-
-guesses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-random.shuffle(guesses)
-
-for number in guesses:
-     if input("Did you guess " + str(number) + "? ") == "yes":
-          print("Got it!")
-          break
-```
-
-There's something else new in this program which is the `break`
-command. This exits out of the loop immediately when we run it. By doing
-the break when we get the number right, we cause the loop to exit early,
-when it might not have gone through all of the numbers yet. Without
-this, the program would keep asking us until it went through all 10
-numbers.
-
-An example run of this program is below:
-
-``` {.output}
-Did you guess 6? INPUTSTARTnoINPUTEND
-Did you guess 8? INPUTSTARTnoINPUTEND
-Did you guess 4? INPUTSTARTnoINPUTEND
-Did you guess 2? INPUTSTARTnoINPUTEND
-Did you guess 5? INPUTSTARTnoINPUTEND
-Did you guess 1? INPUTSTARTnoINPUTEND
-Did you guess 7? INPUTSTARTyesINPUTEND
-Got it!
-```
-
-9.7 Splitting Input
--------------------
-
-------------------------------------------------------------------------
-
-One very helpful thing we can do with strings is to call their `split`
-method, which splits the string into parts by some separator (which we
-get to choose). This can allow us to go through each word of a sentence,
-for example.
-
-The following program does just that. It asks the user to input a
-sentence. It then calls the `split` method to split it based on spaces.
-This gives us back a list variable (which we call words). We can then do
-what we want to with those individual words. Here we just print them
-out.
-
-``` {.python}
-# read in a whole sentence
-sentence = input("Enter a sentence: ")
-
-# split it into words (separated by spaces)
-words = sentence.split(" ")
-
-# loop through each one
-for word in words:
-    print(word)
-```
-
-Below is an example run of this program:
-
-``` {.output}
-Enter a sentence: INPUTSTARTthe quick brown fox jumps over the lazy dogINPUTEND
-the
-quick
-brown
-fox
-jumps
-over
-the
-lazy
-dog
-```
-
-We can use this to improve our quiz grade averaging program. In this
-program we "hard-coded" our quiz scores into the program with the
-following line of code:
-
-``` {.python}
-quizzes = [88, 94, 76, 100, 92, 89, 95, 85, 79, 99]
-```
-
-Let's say that our program was so super helpful that we wanted to share
-it with our friends. We would not necessarily want them to have to edit
-our code to put in their own grades. So instead we should make it so the
-program asks you for the quiz grades.
-
-There are a couple of ways to do this, but one is to make the program
-read them in on one line and then split them up. We can use any kind of
-separator we want to separate the numbers. Let's say we want to use a
-comma.
-
-The following program does this by asking the user to enter their quiz
-grades, splitting them into individual things in a list, and then
-looping through them.
-
-``` {.python}
-# read in a whole sentence
-quizzes = input("Enter quiz grades separated by commas: ")
-
-# split it into parts
-quizzes = quizzes.split(",")
-
-# loop through each one getting total
-total = 0
-for quiz in quizzes:
-    total = total + int(quiz)
-
-# print average
-print("Average is", total / len(quizzes))
-```
-
-One wrinkle here is that our list is actually storing strings, because
-that's what the `split` method returns to us. So when we do the adding
-we have got to convert the numbers to int first.
-
-Below is an example of this program being run:
-
-``` {.output}
-Enter quiz grades separated by commas: INPUTSTART92,78,88,70,100,94INPUTEND
-Average is 87.0
-```
-
-Now we are reading in the list from the user, and looping over it to
-calculate the average.
-
-9.8 Adding to a List
---------------------
-
-------------------------------------------------------------------------
-
-So far we have looked at making lists all in one go, either by getting
-the list contents from `split`, or by listing the things inside
-brackets, like this:
-
-``` {.python}
-names = ["Bob", "Alice", "Joe", "Mary"]
-```
-
-But what if we want to add an item to a list that already exists? This
-can be done with the `append` list method. For instance, this code will
-add two new names to the list:
-
-``` {.python}
-names.append("Joe")
-names.append("Beatrice")
-```
-
-This allows us build a list as we go, rather than create the whole thing
-at once. As we will see, there are lots of cases where being able to add
-to a list is handy.
-
-The `append` method adds items on to the *end* of the list. If we wanted
-to add an item somewhere else, we can use the `insert` method instead.
-This method takes two parameters. The first is the index we want to
-insert at. The second parameter is the item we would like to insert.
-
-The following code starts by making an empty list, and then inserting
-some names into it at different positions:
-
-``` {.python}
-names = []
-names.insert(0, "Bob")
-names.insert(0, "Alice")
-names.insert(1, "James")
-print(names)
-```
-
-This example will print `['Alice', 'James', 'Bob']`.
-
-When "Bob" is inserted at position 0, it's the only one, so the list
-is `["Bob"]`. Then, when "Alice" is inserted at location 0, the list
-becomes `["Alice", "Bob"]`. Finally, when "James" is inserted at
-location 1, he is inserted between Alice and Bob to make the list
-`["Alice", "James", "Bob"]`.
-
-If we care about the *order* of the list, insert lets us choose where to
-put new items.
-
-9.9 Reading in a List
----------------------
-
-------------------------------------------------------------------------
-
-We've seen one way to read in a list in Python, using the `split`
-method. Here we ask the user to enter all the values on one line, with
-some separator like a space or comma. This works well sometimes, but
-there are some downsides. One is that it reads it all in as strings, and
-another is that it might be inconvenient if there's a lot of items to
-read.
-
-Another way to input a list from the user is to read in each value
-separately and then add them to the list one by one. With this approach,
-we can read them in as numbers.
-
-The following program attempts to do this:
-
-``` {.python}
-numbers = []
-while True:
-    item = int(input("Enter a number: "))
-    numbers.append(item)
-    print(numbers)
-```
-
-The only problem with this code is that it is an infinite loop. We need
-to have some way of knowing when to stop!
-
-There are two ways that this could be done:
-
-1.  Ask the user up front how many items they would like to enter, and
-    then loop that many times. The following example does this:
-
-``` {.python}
-quizzes = []
-count = int(input("How many quizzes are there? "))
-
-for i in range(count):
-    item = int(input("Enter a quiz grade: "))
-    quizzes.append(item)
-```
-
-2.  Have a certain value reserved to mean "I'm done now". A value
-    used in this manner is called a *sentinel* value. If we are entering
-    numbers that should always be positive, like quiz grades, then we
-    can use -1 as the sentinel.
-
-    An example doing it this way is below:
-
-``` {.python}
-quizzes = []
-item = int(input("Enter a quiz grade: "))
-
-while item >= 0:
-    quizzes.append(item)
-    item = int(input("Enter a quiz grade: "))
-    
-print(quizzes)
-```
-
-Note in this example that we need to read in a quiz grade twice. The
-first time is done before the loop to make sure that the `item` variable
-is defined before we test it in our while condition. Then we read it
-again inside the loop to make sure it can happen for every quiz the user
-wants to enter.
+9.8 Designing Programs with Functions
+--------------------------------------
+
+When writing programs that are long and complicated, it's a good idea
+to break the program up into functions. We start the program by thinking
+about what pieces we need. We then make functions for each of the pieces
+and write them one by one. This is sometimes called a "divide and
+conquer" approach because we divide the program into parts and
+"conquer" them one by one.
+
+In general each function should do one specific job. If a piece of code
+does more than one thing, you should consider splitting it up into
+multiple functions.
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -547,19 +584,21 @@ wants to enter.
 :::
 
 ::: {.blackbox-contents}
--   Lists store multiple pieces of information together in one variable.
-    This is helpful when you have lots of related things to store.
--   You can create a list all at once, by putting the things in the list
-    inside square brackets, separated by commas.
--   You can also add things into a list that was already created using
-    either `append`, which adds to the end, or `insert` which can put
-    something into the middle of a list.
--   You can get individual items out of a list using brackets with an
-    index inside of them. Like strings, the indices start at 0.
--   We can loop through lists using for loops, which go through each
-    item in the list one by one.
--   There are different ways to read in a list from the user. We can
-    read a bunch of items in one line, and use `split` to split them up,
-    we can also read them one by one and add them to the list as we go.
+-   Functions allow us to split programs into independent parts. This
+    makes programs easier to write and test, and keeps code more
+    organized.
+-   Parameters allow us to pass information into functions, which allows
+    us to customize the way that they work. When we call the function,
+    we supply it with the values it needs.
+-   Return values allow functions to pass information back to the code
+    that called them. To use the return value, you normally store it
+    into a variable.
+-   When a variable is created inside of a function, it can only be used
+    inside of that function. We say the scope of that variable is inside
+    that function which is called local. When a variable is created
+    outside of a function, its scope is global which means it can be
+    used anywhere.
+-   When working on a big program, functions allow us to split the work
+    into smaller units and make solving a big problem more approachable.
 :::
 :::
