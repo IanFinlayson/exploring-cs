@@ -661,6 +661,38 @@ that the output looks like the user would expect. Even better it
 actually solves a real-life problem most of us can appreciate. If you
 followed what we've done here, then great job!
 
+4.11 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. Why is it important to understand the type of data stored in a variable in Python?
+2. What is the difference between an integer and floating point number?
+3. What does the + operator do with numbers and what does it do with strings?
+4. What number gives us the first character in a string when used as an index?
+5. What must we do with a number value read in with `input` before storing it in
+   a variable?
+   
+
+4.6 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Write a program to read in the length and width of a rectangle and print
+   both the area and perimeter of the rectangle to the user.
+
+2. Write a program to convert from feet to meters. There are 3.28084 feet in one
+meter. First read in the number of feet, do the calculation to find how many meters
+that is, and then print the result.
+
+3. Write a program to read in the user’s first name and last name, and print out their
+initials. For example, if the user puts in "Margaret" and "Jones" it should print out "M.J."
+
+4. Write a program to print the average of 4 numbers that the user gives. You should
+read in the 4 numbers, compute the average, and then print the answer.
+
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

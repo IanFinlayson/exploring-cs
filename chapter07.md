@@ -300,6 +300,7 @@ Let's say we want to print a 10 by 10 times table like the following:
 7   14  21  28  35  42  49  56  63  70  
 8   16  24  32  40  48  56  64  72  80  
 9   18  27  36  45  54  63  72  81  90  
+10  20  30  40  50  60  70  80  90  100  
 ```
 
 To do this, we will need two nested loops. The first loop will loop

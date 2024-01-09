@@ -374,7 +374,101 @@ This book will spend more time on algorithm design than analysis, but it
 is an important part of computer science and we will touch on it from
 time to time.
 
-1.5 What is a Computer?
+
+1.5 Another Algorithm Example
+-----------------------------
+
+------------------------------------------------------------------------
+
+Let's look at another example of an algorithm.  Imagine you were asked to
+add up all of the numbers from 1 to 100.  When coming up with an algorithm
+for a problem I find it's best to begin thinking about how you would solve the
+problem manually.  In this case, we might follow steps like the following:
+
+1. Start by writing down our first number, 1.
+2. Take the second number and add it to the first giving us 3.  Here we'll
+   scratch out the 1 and replace it with the 3.
+3. Move to the next number, which is 3 and add it in, giving us 6.  Again we
+   replace the 3 with the 6.
+4. Move to the 4, and again add it in...
+
+Thinking this through, there's basically two things we are keeping track of:
+which number we are currently on, and what our total sum is so far.  In
+algorithms, the way we keep track of things is with variables.  So let's make
+a variable called *current* for keeping track of what number we're on, and
+one called *sum* for keeping track of the running total.
+
+With these variables, the algorithm might look like this:
+
+**Algorithm 3**
+``` {.algorithm}
+1. Set current to 1.
+2. Set sum to 0.
+3. Set the sum equal to the current sum + current.
+4. If current is equal to 100, stop we are done.
+5. Add one to current, moving to the next number.
+6. Go back to step 3.
+```
+
+This algorithm will run through all the numbers 1 to 100 and compute the total.
+If we were to give it to a careful and patient person, they would find that the
+sum is equal to 5,050.  We could also write this algorithm in a language that a
+computer can understand (a topic we'll spend most of the rest of this book
+covering) and the computer would be able to give us that answer much more
+quickly and with no chance of a mistake.
+
+However, this problem also happens to have a more efficient algorithm!  The more
+efficient algorithm was supposedly discovered by the mathematician Carl Friedrich Gauss
+when he was in elementary school.  The story (which may or may not be
+apocryphal) goes that Gauss's teacher gave him exactly this problem to keep him
+occupied and was surprised when Gauss came back after only a few minutes.  The
+way Gauss solved the problem was by realizing you could rewrite the numbers like
+this:
+
+```
+  1 +   2 +   3 +   4 + ... +  98 +  99 + 100
+100 +  99 +  98 +  97 + ... +   3 +   2 +   1
+---------------------------------------------
+101 + 101 + 101 + 101 + ... + 101 + 101 + 101
+```
+
+The first row is the numbers 1 through 100 added together.  The second is the
+numbers 100 through 1 added together (which results in the same sum of course).
+When we add the two sets of numbers together like this, every column is equal
+to 101.  To add the one hundred 101's together we don't actually need to add.
+We can just multiply 101 times 100, giving us 10100.  Then we need to divide
+by 2, because we added two sets of numbers 1 to 100 instead of one.  That gives
+us the answer 5,050 just as the other algorithm did.
+
+Using this technique, we can write a faster algorithm.  For clarity, we'll
+make a variable for the number we are adding up to, which could be 100 or
+any other number we wish.  We'll call this variable "N".
+
+**Algorithm 4**
+``` {.algorithm}
+1. Set the ending number, N, to 100.
+2. Set sum = ((N + 1) * N) / 2
+```
+
+Despite being perhaps harder to understand, algorithm 4 is more efficient than
+algorithm 3 for solving this problem.  To add the numbers 1 through 100, we
+would do 99 additions with algorithm 3.  With algorithm 4, we would do one
+addition, one multiplication, and one division.  Like the guess the number
+example, the differences between these algorithms also increases as we look at
+bigger numbers:
+
+  Highest Number   Algorithm 3 Operations  Algorithm 4 Operations
+  ---------------- ----------------------  ----------------------
+  10               9                       3
+  100              99                      3
+  1,000            999                     3
+  1,000,000        999,999                 3
+  1,000,000,000    999,999,999             3
+
+Again the choice of algorithm can be very important in terms of how long it
+takes to solve a problem!
+
+1.6 What is a Computer?
 -----------------------
 
 ------------------------------------------------------------------------
@@ -512,7 +606,7 @@ what the computer is doing and see the result of the program which is
 running. These include monitors, speakers, printers, and vibration units
 (which can vibrate to provide the user feedback).
 
-1.6 Programming Languages
+1.7 Programming Languages
 -------------------------
 
 ------------------------------------------------------------------------
@@ -629,7 +723,7 @@ Just like someone who interprets one spoken language into another, an
 interpreter program translates on the fly. As the high-level program is
 being run, its code is being translated for the computer to execute.
 
-1.7 What do you do with Computer Science?
+1.8 What do you do with Computer Science?
 -----------------------------------------
 
 ------------------------------------------------------------------------
@@ -679,6 +773,61 @@ the case). It is also a field where you should feel free to experiment.
 Unlike a chemistry student mixing up chemicals, there's really not much
 you can do while programming that will cause any harm to you or your
 computer.
+
+
+1.9 Comprehension Questions
+---------------------------
+
+------------------------------------------------------------------------
+
+1. What is an algorithm, and what role do algorithms play in computer science?
+2. In the context of algorithms, what is a variable?
+3. In the context of algorithms, what is a loop?
+4. Why is it important that algorithms can be followed without understanding how
+   they work?
+5. Why is it important to analyse how long algorithms take?
+6. What was special about the Analytical Engine developed by Babbage and Lovelace?
+7. Why do most programmers use high-level languages instead of machine language?
+8. Give an example of how another field or industry makes use of computer science.
+ 
+1.10 Algorithm Exercises
+------------------------
+
+------------------------------------------------------------------------
+
+1. Write an algorithm that can find the largest number in a list of 10 numbers.
+   Begin by thinking about what information you will need to keep track of.
+
+2. Below is Euclid's algorithm for finding the greatest common divisor
+between two numbers:
+
+``` {.algorithm}
+1. Set M to the biggest of our two numbers
+2. Set N to the other number
+3. If N is equal to 0, the answer is M.
+4. Set R to the remainder of M divided by N.
+5. Set M to N.
+6. Set N to R.
+7. Go to step 3.
+```
+
+What does this algorithm give as the answer with the following inputs:
+
+a) 30 and 12
+
+b) 20 and 10
+
+c) 5 and 3
+
+Remember that you don't need to understand why this algorithm works to follow
+its steps (or indeed even know what a greatest common divisor even is).
+
+3. In grade school you learned an algorithm for adding numbers with any number of
+digits. Try writing out the algorithm as a set of detailed step-by-step instructions. You
+can assume that the person following the algorithm can add any 1-digit numbers
+together (i.e. they can do 7+8 in their head, but can’t add the whole number that
+way).
+
 
 ::: {.blackbox}
 ::: {.blackbox-title}

@@ -371,6 +371,35 @@ Hello Mary!
 Have a great Friday!
 ```
 
+
+3.5 Comprehension Questions
+---------------------------
+
+------------------------------------------------------------------------
+
+1. If a program has multiple statements, where does Python begin executing them?
+2. Why do we almost always assign the result of a call to input into a variable?
+3. If we print multiple things in one call to print, what symbol do we use to
+   separate them?
+3. What happens if Python sees a blank line in a program?
+5. Why do you think Python doesn't allow spaces to be in variable names?
+6. What's the difference between: `print(name)` and `print("name")`?
+
+
+3.6 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Change program 3.2 so that it also asks the user where they are from.
+   Then, make it so the print also says where the user is from such as
+   "Hello Mary from Pennsylvania" or "Hello Joe from England", before
+   telling them to have a great day.
+2. Write a program that asks the user for their name, major, and class (such as
+   first-year, sophomore, junior, or senior).  Then print out a message to them
+   using those three pieces of information.
+
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

@@ -254,6 +254,20 @@ Now that we are able to write and run Python programs, we will begin
 delving into learning the language and starting to solve problems with
 it!
 
+2.9 Comprehension Questions
+---------------------------
+
+------------------------------------------------------------------------
+
+1. Why do we need an interpreter for running programs written in high-level languages like Python?
+2. What is an Integrated Development Environment (IDE)?
+3. What is the difference between the shell window and the editor window in
+   Thonny?
+4. What is a comment in Python, and what is its purpose in a program?
+5. What happens if there is an error in a program?  Will the program be able to
+   be run?
+
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**
