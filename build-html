@@ -88,7 +88,7 @@ process_page() {
     rm -f ./temp.html html/$1.html
 
     # convert this page into temp
-    pandoc -o ./temp.html $1.md
+    pandoc --mathjax -o ./temp.html $1.md
     
     # start by dumping in the boilerplate preamble, and building the navbar
     cat boiler/preamble.html >> html/$1.html

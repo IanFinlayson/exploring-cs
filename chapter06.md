@@ -604,6 +604,80 @@ pointing back to a previous step (that's the arrow pointing from the
 can be helpful as you are working on an algorithm, as they can help you
 understand the order that the steps need to be done in.
 
+6.9 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. Explain what is meant by "nesting" control structures such as if
+   statements and loops.
+2. How can you determine whether a line of code is part of a loop, or
+   comes after the loop?
+3. If we have a loop that executes 10 times, then nested within that is
+   a loop that executes 3 times, how many times does a print statement
+   within the inner loop execute?
+4. What is pseudocode and how does it aid in developing algorithms?
+5. How do flowcharts help in understanding and solving programming problems?
+6. Why is testing each step of an algorithm important before implementing it in code?
+
+
+6.10 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Write a program which counts how many times a character appears within a
+   string. Begin by reading in a string from the user.  Next, read in a
+   single character (which is just a string you can assume has length 1).
+   Loop over the string and count how many characters match the one you are
+   looking for, and report that to the user at the end.
+
+2. It’s harder than you probably think to determine if a year is a leap year or not -- it’s
+   not just every 4 years. The rules are:
+       
+       1. If the year is divisible by 400 it’s a leap year
+       2. Else if it’s divisible by 100 it’s not a leap year
+       3. Else if it’s divisible by 4 it is a leap year
+       4. Otherwise it’s not a leap year
+       
+   Write a Python program to read in a year and tell the user whether it’s a leap year or not.
+
+3. Write a program to find the largest number in a sequence.  Start by asking
+   the user to tell you how many numbers they will provide.  Next write a loop
+   that runs that many times.  Inside the loop, ask the user to give you a
+   number and keep track of which one is the biggest.  At the end of the
+   program, you should print the largest number in the sequence the user
+   entered.
+
+4. The Collatz Conjecture states that if we take any integer N , and repeatedly do the following steps to it:
+        
+        If it’s even, divide it by two
+        If it’s odd, multiply it by 3 and add 1.
+        
+   Then we will eventually hit 1.
+   For example if we start with 5, we go though the following steps:
+   
+        5 (starting number)
+        16 (times by 3 and add 1)
+        8 (divide by 2)
+        4 (divide by 2)
+        2 (divide by 2)
+        1 (divide by 2)
+
+   This conjecture was raised by mathematician Lothar Collatz in 1937. Every number
+   anyone has ever tried has eventually gotten to 1, but mathematicians have not
+   been able to prove if this will work for all numbers or not.
+
+   You should write a program which reads in the starting number and prints out the
+   numbers in the sequence until you hit 1.
+
+5. An infinite series is a list of numbers with some repeating pattern to
+   them. One famous infinite series is the following:
+       $\frac{1}{1} + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64}$
+   Write a program to read in a number, called N, from the user. Then add up the first
+   N numbers in this series. For example, if the user enters 3, it should add $\frac{1}{1} + \frac{1}{2} + \frac{1}{4}$
+   and print the answer.
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

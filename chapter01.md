@@ -436,7 +436,7 @@ The first row is the numbers 1 through 100 added together.  The second is the
 numbers 100 through 1 added together (which results in the same sum of course).
 When we add the two sets of numbers together like this, every column is equal
 to 101.  To add the one hundred 101's together we don't actually need to add.
-We can just multiply 101 times 100, giving us 10100.  Then we need to divide
+We can just multiply 101 times 100, giving us 10,100.  Then we need to divide
 by 2, because we added two sets of numbers 1 to 100 instead of one.  That gives
 us the answer 5,050 just as the other algorithm did.
 
@@ -523,15 +523,14 @@ Wikimedia Commons, CC BY-SA 2.5). Right: punched cards for use with the
 machine (© Karoly Lorentey, Wikimedia Commons, CC BY
 2.0)](images/analytical.png)
 
-Babbage worked with Ada Lovelace, who was incidentally the daughter of
-the poet Lord Byron. She worked on translating algorithms so that they
-could be executed by the analytical engine. The first of these was a
-program to compute the Bernoulli numbers. This was the first published
-computer program. A **program** is an algorithm that is written
-specifically for a computer to execute. Unlike Babbage and others, Ada
-believed the analytical engine to be capable of going beyond number
-crunching, including speculating that the engine could be used to create
-music.
+Babbage worked with Ada Lovelace, who was incidentally the daughter of the poet
+Lord Byron. She worked on translating algorithms so that they could be executed
+by the analytical engine. The first of these was a program to compute the
+Bernoulli numbers. This was the first published computer program. A **program**
+is an algorithm or collection of algorithms that is written specifically for a
+computer to execute. Unlike Babbage and others at the time, Lovelace believed
+the analytical engine to be capable of going beyond number crunching, including
+speculating that the engine could be used to create music.
 
 ![Left: Charles Babbage. Right: Ada Lovelace.](images/babbageada.jpg)
 
@@ -543,11 +542,11 @@ These include the Z4 by the German Konrad Zuse, the Colossus developed
 in Great Britain to break coded messages, and the ENIAC developed at the
 University of Pennsylvania to calculate ballistics trajectories.
 
-![The Z4 (1944) (© Clemens Pfeiffer, CC BY 2.5)](images/z4.jpg)
-
-![The Colossus (1944)](images/colossus.jpg)
-
-![The ENIAC (1946)](images/eniac.jpg)
+![Early Computers
+Top: The Z4 (1944) (© Clemens Pfeiffer, CC BY 2.5)
+Middle: The Colossus (1944)
+Bottom: The ENIAC (1946)
+](images/early-computers.png)
 
 Unlike the Analytical Engine, which was completely mechanical, these
 computers used electronic circuitry. After these machines were
@@ -801,26 +800,26 @@ computer.
 2. Below is Euclid's algorithm for finding the greatest common divisor
 between two numbers:
 
-``` {.algorithm}
-1. Set M to the biggest of our two numbers
-2. Set N to the other number
-3. If N is equal to 0, the answer is M.
-4. Set R to the remainder of M divided by N.
-5. Set M to N.
-6. Set N to R.
-7. Go to step 3.
-```
+    ``` {.algorithm}
+    1. Set M to the biggest of our two numbers
+    2. Set N to the other number
+    3. If N is equal to 0, the answer is M.
+    4. Set R to the remainder of M divided by N.
+    5. Set M to N.
+    6. Set N to R.
+    7. Go to step 3.
+    ```
 
-What does this algorithm give as the answer with the following inputs:
+    What does this algorithm give as the answer with the following inputs:
 
-a) 30 and 12
+    a) 30 and 12
 
-b) 20 and 10
+    b) 20 and 10
 
-c) 5 and 3
+    c) 5 and 3
 
-Remember that you don't need to understand why this algorithm works to follow
-its steps (or indeed even know what a greatest common divisor even is).
+    Remember that you don't need to understand why this algorithm works to follow
+    its steps (or indeed even know what a greatest common divisor even is).
 
 3. In grade school you learned an algorithm for adding numbers with any number of
 digits. Try writing out the algorithm as a set of detailed step-by-step instructions. You

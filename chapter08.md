@@ -541,6 +541,43 @@ is defined before we test it in our while condition. Then we read it
 again inside the loop to make sure it can happen for every quiz the user
 wants to enter.
 
+8.10 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. What is the main purpose of using lists in Python?
+2. How can you access the third element in a list named `items`?
+3. If you have a list pets equal to `["dog", "cat", "bird"]`, how do you add "fish" to the end of the list?
+4. What will `len(pets)` return after executing the append operation in the previous question?
+5. Is it more common to loop over a list with a for loop or a while loop?
+6. What happens if you try to access an index from a list that does not exist?
+   Like it we try to read `pets[99]` in the list above?
+
+8.11 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+
+1. Write a program to read in a list of numbers and print one randomly selected
+   element.
+2. Write a program to read in a list of strings and then one string to search
+   for.  Then loop through the list and tell the user if the string they are
+   looking for is in the list or not.
+3. Write a program which reads in a list of numbers from the user and then
+   prints all of those numbers which are greater than 50.
+4. Write a program which reads in a list of strings from the user.  Your program
+   should then print out the list of strings backwards. There are two main ways to
+   do this.  You could put the strings into the list backwards right when you
+   read them in. This will build the list backwards, and then you can print it out
+   forwards.  Or you could put the strings into the list in order, then loop
+   through them backwards when you print them. You can use a for loop with range to
+   go through the indexes in reverse order.
+
+
+
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

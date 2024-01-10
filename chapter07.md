@@ -463,6 +463,50 @@ build a big program from scratch and have to write everything in it
 yourself. Instead, you can use things that come with Python or written
 by others as a part of your program.
 
+7.9 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. What is a library in Python and why is it useful?
+2. What is the difference between `import math` and `from math import *`?
+3. How can we find out what is available in a library like math?
+4. What are third-party libraries in Python, and how can they be installed and
+   used in a program like Thonny?
+5. What does the random.randint function do?
+
+7.10 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Use the random library we aw this chapter to write a guess the number program
+   in which the *computer* thinks of the number and the *user* tries to guess
+   it.
+
+2. Create a simple math quiz game where the program generates two random numbers
+   and asks the user to compute their sum, difference, or product. Provide
+   feedback based on the user's answer.  The user should be able to choose ahead
+   of time how many problems they want.  At the end, give the user a report of
+   how many they got right and what percentage.
+
+3. The [calendar library](https://docs.python.org/3/library/calendar.html) that
+   comes with Python has useful functions for dealing with dates.  Use the
+   `weekday` function to write a program which asks the user to enter a date
+   (including month, day, and year) and telling them what day of the week that
+   date was.  For example, your program will be able to tell us that October 31,
+   2024 falls on a Thursday or that January 1, 1731 was a Monday.
+
+4. The [time library](https://docs.python.org/3/library/time.html) has functions
+   for dealing with time.  One of the most commonly used is the `sleep` function
+   which pauses for a set amount of time.  Go back to one of your previous
+   programs and insert some pauses to give the user time to read output before
+   moving on to the next line.
+
+5. There is a 3rd party Python library called [colorama](https://pypi.org/project/colorama/)
+   which can be used to colorize our print messages.  Go back to one of your
+   previous programs and use this library to provide colored output.
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

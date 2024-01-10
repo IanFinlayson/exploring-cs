@@ -677,6 +677,51 @@ upper-left corner of the image should appear. Here we pass the origin
 (0, 0) so that the picture fills the whole window. You can download
 [campus.png](images/campus.png) to run the program.
 
+
+10.10 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. How do computers represent color?
+2. What is a tuple and how is it different from a list?
+3. What does "page flipping" refer to?
+4. Where is the origin point in a computer graphics window?
+5. What is a pixel?
+6. How does PyGame handle events like the user clicking a mouse or quitting?
+
+
+10.11 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+
+1. Write a program which draws your initials on the screen using lines.  If you
+   have a "curvy" initial, you don’t have to make it appear round. For example,
+   an S can be made out of just three lines.  But if, you want to be ambitious,
+   you can use the pygame.draw.arc function to make curves.
+
+2. Write a program where you draw a randomly colored rectangle to the screen.
+
+3. Modify the last program so that whenever the user clicks the rectangle it
+   changes color.
+
+4. Write a program in which ball moves around the screen.  When it
+   hits the edge, you should have it bounce back.  This can be done by keeping
+   track of four variables: the ball's X and Y coordinates, and the *change* in
+   the ball's X and Y coordinates, which we can call DX and DY.  Each time
+   through the main loop, add the DX into the X and DY into the Y.  If we need
+   the ball to move right DX will be positive.  If it needs to bounce back to
+   the left, we set DX to be negative.
+
+5. Expand the previous program to be a simple Pong game, by adding two
+   rectangles which represent the player and computer paddles.  One paddle
+   should be moved when the up and down keys are pressed.  The other can
+   move however you like: up and down forever, randomly, or by tracking the
+   ball.
+
+
 Footnotes {#footnote-label .visually-hidden}
 ---------
 

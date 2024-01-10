@@ -61,47 +61,48 @@ will see how to use it to run some Python code!
 
 ------------------------------------------------------------------------
 
-To install Python along with Thonny on Windows computers, go to the
-[Thonny website](https://thonny.org/). Hover over the Windows link in
-the download box at the upper right. Click the top link which is labeled
-"Installer with 64-bit Python". Choose to save the file. When the
-download is finished, run the installer program.
+Installing Thonny is slightly different depending on what sort of
+computer you have.  Follow one of the following set of directions
+based on whether you have Windows, Mac, or Linux:
 
-Click next, select the agreement, choose where to install it, and wait
-for the installer to finish. Once it is done, you should have Thonny,
-along with its Python interpreter installed.
+1. To install Python along with Thonny on **Windows** computers, go to the
+    [Thonny website](https://thonny.org/). Hover over the Windows link in
+    the download box at the upper right. Click the top link which is labeled
+    "Installer with 64-bit Python". Choose to save the file. When the
+    download is finished, run the installer program.
 
-------------------------------------------------------------------------
+    Click next, select the agreement, choose where to install it, and wait
+    for the installer to finish. Once it is done, you should have Thonny,
+    along with its Python interpreter installed.
 
-To install Python along with Thonny on a Mac OSX computer, go to the
-[Thonny website](https://thonny.org/). Hover over the the Mac link in the
-download box at the upper right. Click the link to the .pkg file and download
-it to your computer.
 
-When the download has finished, you should see the Thonny icon in a
-window. Drag this icon into your applications folder to copy it to your
-computer. You should then have it installed and be able launch Thonny
-from your Application menu to start programming.
+2. To install Python along with Thonny on a **Mac OSX** computer, go to the
+    [Thonny website](https://thonny.org/). Hover over the the Mac link in the
+    download box at the upper right. Click the link to the .pkg file and download
+    it to your computer.
 
-------------------------------------------------------------------------
+    When the download has finished, you should see the Thonny icon in a
+    window. Drag this icon into your applications folder to copy it to your
+    computer. You should then have it installed and be able launch Thonny
+    from your Application menu to start programming.
 
-While all recent versions of Linux come with Python, they do not come
-with Thonny. To install it, open up a terminal and run the following
-command:
+3. While all recent versions of **Linux** come with Python, they do not come
+    with Thonny. To install it, open up a terminal and run the following
+    command:
 
-``` {.algorithm}
-bash <(wget -O - https://thonny.org/installer-for-linux)
-```
+    ``` {.algorithm}
+    bash <(wget -O - https://thonny.org/installer-for-linux)
+    ```
 
-Then hit Enter at the prompt to continue.
+    Then hit Enter at the prompt to continue.
 
-That should download the latest version, and install it on your
-computer. You should be able to find Thonny amongst your installed
-applications. You could also launch it by running the command:
+    That should download the latest version, and install it on your
+    computer. You should be able to find Thonny amongst your installed
+    applications. You could also launch it by running the command:
 
-``` {.algorithm}
-~/apps/thonny/bin/thonny
-```
+    ``` {.algorithm}
+    ~/apps/thonny/bin/thonny
+    ```
 
 2.3 The Shell Window
 --------------------

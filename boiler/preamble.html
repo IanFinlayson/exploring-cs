@@ -16,6 +16,20 @@
 
 <script src="/scripts/smartquotes.js"></script>
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    "HTML-CSS": {
+        availableFonts : ["Asana"],
+        preferredFont : "Asana",
+        webFont : "Asana",
+        imageFont : null
+  }
+});
+</script>
+<script src="/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 <script>
 function iansetup() {
     smartquotes();

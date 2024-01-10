@@ -583,6 +583,69 @@ There are other types of sequences that for loops work with. We will see
 a few more as we go. We will also see lots more examples of solving
 problems with loops. Almost all algorithms use looping in some fashion.
 
+
+
+
+
+
+
+5.9 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. What is the purpose of writing loops in a program?
+2. How is a while loop different from an if statement in Python?
+3. What is an infinite loop?  Are they usually a good thing?
+4. How are for loops different than while loops?
+5. What is the purpose of the range function?
+6. When would you choose to use a for loop vs. a while loop?
+
+
+5.10 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Write a program that reads in a number from the user, and a message. The pro-
+   gram should then print the message out "number" many times. For example, if they
+   enter 3 and "Hello", then the program should print "Hello" three times.
+
+2. Write a program which will let the user print the length of strings, for as many
+   as they want. It should ask them to enter a string and then print the length of it. It
+   should keep doing this until they enter an empty string (with a length of 0). Then the
+   program should end.
+
+3. Your younger sibling is working on learning their times tables. They want help
+   with specific numbers, so have asked you to write a program to print one column of
+   a times table. For example, if they want help with 7, your program would print:
+   ```
+       7 * 1 = 7
+       7 * 2 = 14
+       7 * 3 = 21
+       ...
+       7 * 10 = 70
+   ```
+   Your program should read in the number they want the times table column of (7 of
+   this case). It should then output this column showing the products of the number
+   with 1 through 10. f
+
+4. Write a sum calculator.  Begin by asking the user how many numbers they wish
+   to enter.  Then write a loop that executes that many times.  Each time, read
+   in a number from the user and add it to a running tally.  At the end, print
+   out the sum of all the numbers they entered.
+
+5. Ask the user to enter a number and then tell them how many digits are in that
+   number.  This can be done by dividing the number by 10 until the number is
+   less than 1, counting how many divisions you did to make that happen.
+
+6. The Fibonacci series is a sequence of numbers. The first two numbers
+   in the series are both 1. Each number after that is the sum of the previous
+   two numbers. So the series starts as "1, 1, 2, 3, 5, 8, 13, 21...". Write a
+   program to print the first 50 numbers in the series.
+
+
+
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Chapter Summary**

@@ -562,10 +562,11 @@ variable just to the function it was made in, things stay organized. If
 you want to use some value from a function in other parts of your
 program, you need to use a `return` to send it back.
 
-------------------------------------------------------------------------
 
 9.8 Designing Programs with Functions
 --------------------------------------
+
+------------------------------------------------------------------------
 
 When writing programs that are long and complicated, it's a good idea
 to break the program up into functions. We start the program by thinking
@@ -577,6 +578,65 @@ conquer" approach because we divide the program into parts and
 In general each function should do one specific job. If a piece of code
 does more than one thing, you should consider splitting it up into
 multiple functions.
+
+9.9 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. What is a function in Python, and why is it beneficial to use functions in your programs?
+2. What is the difference between writing a function and calling it?
+3. What term is used to describe passing information *into* a function?
+4. What term is used to describe passing information *back from* a function?
+5. What does the term "scope" refer to in the context of functions?
+6. What happens if you don't pass all of the parameters a function expects?
+
+
+9.10 Programming Exercises
+-------------------------
+
+
+------------------------------------------------------------------------
+
+1. Write a function to convert a Celsius temperature to Fahrenheit.  The
+   parameters should be the Celsius temperature and the return value the
+   Fahrenheit one.  The formula for the conversion is $F = C \times \frac{9}{5} + 32$.
+
+2. Write a function called "getInt" based on the readPositive function above.
+   The function should take the minimum and maximum values the user can put in.
+   It should then ask the user to enter a number until they put in something
+   between that range, and return it when they do
+
+3. Write a function called "printStart". It should take a list as the first parameter and
+   a number, called "n" as the second parameter. It should print the first "n"
+   items of the list to the screen.
+
+4. Write a program which calculates a few properties of rectangles, each being
+   done with a separate function.  The three functions you should write are:
+      
+      **area**
+      This function should take the height and width of the rectangle and return the
+      area of the rectangle. which is the product of the two.
+
+      **perimeter**
+      This function should take the height and width of the rectangle and return the
+      perimeter, which is the sum of all four sides.
+
+      **isSquare**
+      This function should take the height and width and return a boolean indicating
+      whether or not the rectangle is also a square.
+   Have the program get the height and width of the rectangle and call each of
+   these functions, printing the results.
+
+5. Write a function which takes a list of numbers as a parameter and returns the
+   smallest value found in the list.
+
+6. Write a function called "filterNegatives". It should take a list of numbers as the
+   parameter. It should return a new list of numbers with only the positive numbers
+   from the original list. So if you gave it [1, -3, 5, -6, 8, 12, -2] then it would return back
+   [1, 5, 8, 12].
+
+
 
 ::: {.blackbox}
 ::: {.blackbox-title}

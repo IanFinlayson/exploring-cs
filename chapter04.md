@@ -144,7 +144,9 @@ print("Bye bye!")
 ```
 
 Here Python will be confused because it doesn't know what to do with
-the second message. Is it part of the if block or not?
+the second message. Is it part of the if block or not?  Python will
+give us an error in cases like this, and we won't be able to run the
+code until we fix the indentation.
 
 4.4 Comparisons
 ---------------
@@ -490,6 +492,62 @@ Next chapter we will continue talking about booleans and conditions. We
 have seen how they can be used to make decisions with if statements.
 Next we will see how they can be used to repeat code over again with
 loops.
+
+
+4.10 Comprehension Questions
+----------------------------
+
+------------------------------------------------------------------------
+
+1. What is a condition in programming?  Give an example.
+2. What role does indentation play in if statements?
+3. What is the difference between the `=` and `==` operators in Python?
+4. What is a boolean type?  What values can a boolean variable hold?
+5. What does the `else` keyword do in Python?
+
+
+4.11 Programming Exercises
+-------------------------
+
+------------------------------------------------------------------------
+
+1. Program F in the section above checks if the user meets the height and age
+   requirement of a roller coaster. If they can ride it tells them so. If they
+   can’t it tells them they can’t ride, but not why. Write a version of it that
+   tells them either they can ride, they are not old enough, or they are not tall
+   enough.
+
+2. Write a program to tell a student their classification as a college student.
+   Those with less than 30 credits are first-year students, those with less
+   between 30 and 59 credits are sophomores, those with between 60 and 89 credits
+   are juniors, and those with 90 or more credits are seniors. Ask the user how
+   many credits they have and print what class they belong to.
+
+3. You are helping organize a large event which people need to check into. To
+   help make checking in faster, you are dividing people by last name. Those
+   with a last name beginning with a letter A–F check in at line 1. Those with a
+   first letter from G–L go to line 2. Those with M–R go to line 3, and those with
+   a first letter from S–Z go to line 4.  Write a program which will ask the user
+   for their last name and tell them which line to go to.
+
+4. At a certain university, students graduating in even years are said to be
+   "Goats". Students graduating in odd years are said to be "Devils". Write a
+   program to ask the user what year they are graduating, and tells them if they
+   are a Devil or a Goat.  Hint: remember the % operator gives us the remainder
+   after dividing two numbers.
+
+5. Write a program to check if a date is valid. You should ask the day and the month
+   and then print whether it’s valid based on that. For instance, 10/2 is a valid date, but
+   9/31 is not. You can ignore leap years for this.
+
+6. Do exercise 5, but this time also ask the user whether or not it is a leap
+   year, and factor that into the algorithm for determining if the date is valid
+   or not.
+
+7. Lots of companies pay time-and-a-half for hours worked over 40. Write a program
+   to read in the number of hours an employee worked, and their pay rate. Then print
+   out their pay for that period.
+
 
 ::: {.blackbox}
 ::: {.blackbox-title}
