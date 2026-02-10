@@ -1,7 +1,6 @@
 Chapter 1: The Road Ahead
 =========================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -18,7 +17,6 @@ Chapter 1: The Road Ahead
 1.1 What is Computer Science?
 -----------------------------
 
-------------------------------------------------------------------------
 
 This book is an introduction to the field of computer science, so we
 will begin by talking about what computer science is. Unlike other
@@ -50,7 +48,7 @@ divisor between two numbers. For example, the greatest common divisor of
 12 and 30 is 6 because 6 is the biggest number that goes into both 12
 and 30 evenly. We'll take a look at Euclid's algorithm in Chapter 6.
 
-![Euclid](images/euclid.jpg)
+![Euclid](images/euclid.jpg "Euclid"){alt="Euclid"}
 
 Other mathematicians devised algorithms for solving other problems, such
 as adding, multiplying, factorizing, finding roots of equations, etc.
@@ -59,8 +57,7 @@ al-Khwārizmī, a Persian mathematician who wrote on algorithms for
 solving algebra and arithmetic problems. The word "algebra" also comes
 from the title of one of al-Khwārizmī's books.
 
-![Al-Khwarizmi (© Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA
-4.0)](images/alhhwarizmi.jpg)
+![Al-Khwarizmi](images/alhhwarizmi.jpg "Al-Khwarizmi © Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA 4.0"){alt="Al-Khwarizmi"}
 
 You actually have learned several of these sorts of mathematical
 algorithms yourself while in school. For example, if I asked you to add
@@ -84,7 +81,6 @@ algorithm automatically.
 1.2 Algorithm Design
 --------------------
 
-------------------------------------------------------------------------
 
 One major part of computer science is *designing* algorithms. As we will
 see throughout this book, there are many problems that can be solved
@@ -189,7 +185,6 @@ try every number until it gets the right one.
 1.3 Another Version of the Game
 -------------------------------
 
-------------------------------------------------------------------------
 
 Next we will look at a more interesting variation of this game. In this
 variation, instead of just answering "no" for an incorrect guess, the
@@ -275,7 +270,6 @@ kinds of interesting problems.
 1.4 Algorithm Analysis
 ----------------------
 
-------------------------------------------------------------------------
 
 Another major part of computer science is *analyzing* algorithms.
 Oftentimes a problem will have more than one algorithm to solve it. We
@@ -378,7 +372,6 @@ time to time.
 1.5 Another Algorithm Example
 -----------------------------
 
-------------------------------------------------------------------------
 
 Let's look at another example of an algorithm.  Imagine you were asked to
 add up all of the numbers from 1 to 100.  When coming up with an algorithm
@@ -471,7 +464,6 @@ takes to solve a problem!
 1.6 What is a Computer?
 -----------------------
 
-------------------------------------------------------------------------
 
 Computer science is primarily the study of algorithms, but computers do
 play a role as well. In this section we will talk about what computers
@@ -492,7 +484,7 @@ inventors made similar mechanical devices, including Gottfried Wilhelm
 Leibniz.
 
 ![Pascal's calculator (1649) (© Rama, Wikimedia Commons CC BY-SA 3.0
-FR)](images/pascaline.jpg)
+FR)](images/pascaline.jpg){alt="Pascal's calculator"}
 
 Another pioneer in early computers was the British mathematician and
 engineer Charles Babbage. He designed the difference engine, which could
@@ -521,7 +513,7 @@ cards in, and the patterns of holes would affect its behavior.
 ![Left: a model of part of the analytical engine (© Bruno Barral,
 Wikimedia Commons, CC BY-SA 2.5). Right: punched cards for use with the
 machine (© Karoly Lorentey, Wikimedia Commons, CC BY
-2.0)](images/analytical.png)
+2.0)](images/analytical.png){alt="The analytical engine and punched cards"}
 
 Babbage worked with Ada Lovelace, who was incidentally the daughter of the poet
 Lord Byron. She worked on translating algorithms so that they could be executed
@@ -532,7 +524,8 @@ computer to execute. Unlike Babbage and others at the time, Lovelace believed
 the analytical engine to be capable of going beyond number crunching, including
 speculating that the engine could be used to create music.
 
-![Left: Charles Babbage. Right: Ada Lovelace.](images/babbageada.jpg)
+![Left: Charles Babbage. Right: Ada
+Lovelace.](images/babbageada.jpg){alt="Babbage and Lovelace"}
 
 Unfortunately, the analytical engine was never completed, primarily due
 to a lack of funding. A general-purpose computer was not actually
@@ -546,7 +539,7 @@ University of Pennsylvania to calculate ballistics trajectories.
 Top: The Z4 (1944) (© Clemens Pfeiffer, CC BY 2.5)
 Middle: The Colossus (1944)
 Bottom: The ENIAC (1946)
-](images/early-computers.png)
+](images/early-computers.png){alt="The Z4, Colossus and ENIAC"}
 
 Unlike the Analytical Engine, which was completely mechanical, these
 computers used electronic circuitry. After these machines were
@@ -564,7 +557,8 @@ they functioned in essentially the same way as every computer designed
 since. They all consist of a processor, memory and some input/output
 devices. Below is a simplified diagram of a computer system.
 
-![A functional view of a computer](images/computer.png)
+![A functional view of a computer](images/computer.png){alt="A computer consists of a CPU and Memory, which interacts with input and
+output devices"}
 
 The **CPU** (which stands for central processing unit), is responsible
 for carrying out the instructions of a program. Each instruction is very
@@ -608,7 +602,6 @@ running. These include monitors, speakers, printers, and vibration units
 1.7 Programming Languages
 -------------------------
 
-------------------------------------------------------------------------
 
 So the computer executes simple instructions, reads and writes its
 memory, gets input from the user, and gives the user output. But where
@@ -684,7 +677,8 @@ The computer can't run this instruction directly, it must be translated
 into machine code. That is done by a program called an **assembler**:
 
 ![An assembler converts assembly code into machine
-language.](images/assembly.png)
+language.](images/assembly.png){alt="An assembler converts assembly code
+into machine language"}
 
 The assembler converts each line of assembly code into the corresponding
 machine code instruction. Then, the machine code program can be run on
@@ -716,7 +710,8 @@ line by line. For each line it sees, it gives one or more lines of
 machine code to the computer:
 
 ![An interpreter translates high-level code into machine
-code.](images/interpreter.png)
+code.](images/interpreter.png){alt="An interpreter translates high-level
+code into machine code"}
 
 Just like someone who interprets one spoken language into another, an
 interpreter program translates on the fly. As the high-level program is
@@ -725,7 +720,6 @@ being run, its code is being translated for the computer to execute.
 1.8 What do you do with Computer Science?
 -----------------------------------------
 
-------------------------------------------------------------------------
 
 We have seen that computer science is primarily about algorithms, but
 this section will address how algorithms are used in a variety of areas
@@ -777,7 +771,6 @@ computer.
 1.9 Comprehension Questions
 ---------------------------
 
-------------------------------------------------------------------------
 
 1. What is an algorithm, and what role do algorithms play in computer science?
 2. In the context of algorithms, what is a variable?
@@ -792,7 +785,6 @@ computer.
 1.10 Algorithm Exercises
 ------------------------
 
-------------------------------------------------------------------------
 
 1. Write an algorithm that can find the largest number in a list of 10 numbers.
    Begin by thinking about what information you will need to keep track of.

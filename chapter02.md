@@ -1,7 +1,6 @@
 Chapter 2: Starting Out
 =========================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -22,7 +21,6 @@ Chapter 2: Starting Out
 2.1 Interpreters and IDEs
 -------------------------
 
-------------------------------------------------------------------------
 
 As we learned in the last chapter, computers only directly understand
 programs written in machine code. However, nearly all programs are
@@ -59,7 +57,6 @@ will see how to use it to run some Python code!
 2.2 Installing Python
 --------------------------------
 
-------------------------------------------------------------------------
 
 Installing Thonny is slightly different depending on what sort of
 computer you have.  Follow one of the following set of directions
@@ -107,12 +104,11 @@ based on whether you have Windows, Mac, or Linux:
 2.3 The Shell Window
 --------------------
 
-------------------------------------------------------------------------
 
 You should now have Python and Thonny installed. When you run it, you
 should see a window something like this:
 
-![The main Thonny window](images/thonny.png)
+![The main Thonny window](images/thonny.png){alt="The main Thonny window"}
 
 The main window has two main parts. The top is the file area. This is
 where you will type in the program that you will create. This is empty
@@ -123,7 +119,9 @@ pass Python code to the Python interpreter. Any code you put in here
 will be run right away and the results will be given to you. Here is an
 example:
 
-![Some examples put into the shell window](images/shell.png)
+![Some examples put into the shell window](images/shell.png){alt="Some examples
+put into the shell window, such as adding 3 + 4, and calling the print
+function"}
 
 As you can see, when we put `3 + 4` into the shell, it gives us the
 answer, 7. Likewise when we put in the command `print("Hi!")`, it prints
@@ -146,7 +144,6 @@ expressions in and see how the shell gives you results back.
 2.4 Our First Program
 ---------------------
 
-------------------------------------------------------------------------
 
 Now we are ready to write our first program. The goal of the first
 program is just to print the text "Hello World" to the screen [^1].
@@ -163,7 +160,8 @@ You should type this program into the top window of Thonny. Then we can
 run the program. This can be done in one of three ways:
 
 -   Clicking the "Run" menu, then choosing "Run current script".
--   Clicking the green play button (![](images/run.png)).
+-   Clicking the green play button (![](images/run.png){alt="The green play
+    button"}).
 -   Hitting the F5 key.
 
 Before the program can run, it will ask you to save it. When saving your
@@ -174,7 +172,8 @@ the ".py" extension.
 Once the program is saved, it will run. You should then see the results
 in the shell window:
 
-![The results of running the program](images/prog.png)
+![The results of running the program](images/prog.png){alt="The program prints
+'Hello World!' in the shell window"}
 
 Now that we have seen how to run the program, we will talk about the
 program itself a little bit. This program consists of two lines. The
@@ -213,7 +212,6 @@ name.
 2.5 When Things Go Wrong
 ------------------------
 
-------------------------------------------------------------------------
 
 We said that the parenthesis and quotes are needed, but what happens if
 we get rid of them? In these cases, the Python interpreter will not be
@@ -221,7 +219,8 @@ able to figure out what to do with the code, and will give us an error
 message. For instance, if we get rid of the quotation marks, we get
 this:
 
-![Missing quotation marks](images/error0.png)
+![Missing quotation marks](images/error0.png){alt="Python tells us
+'Invalid syntax' in red text as an error message"}
 
 Here the program did not run successfully. Instead, the shell gives us
 the error `SyntaxError: invalid syntax`. There is also an "Assistant"
@@ -232,7 +231,8 @@ doesn't mean anything in Python code.
 
 If we get rid of the parenthesis instead, we get a different error:
 
-![Missing parenthesis](images/error1.png)
+![Missing parenthesis](images/error1.png){alt="Python tells us that we
+are missing parentheses and suggests adding them in"}
 
 Here the error is much easier to figure out. It actually tells us what
 is missing and even suggests a fix for it. Even though the two errors
@@ -249,7 +249,6 @@ friends or instructor for help.
 2.6 Output
 ----------
 
-------------------------------------------------------------------------
 
 In our first Python program, we saw the `print` function which prints
 whatever message is put between the parenthesis. Here it is again:
@@ -294,7 +293,6 @@ input.
 2.7 Input
 ---------
 
-------------------------------------------------------------------------
 
 We can also do input in Python, when we want to ask the user for
 information. Most programs take some sort of input, which allows us to
@@ -317,7 +315,8 @@ it's waiting for, we have to type into the shell window at the bottom
 of the screen. When you type something in and hit enter, it will take
 the input:
 
-![Giving the program input](images/input.png)
+![Giving the program input](images/input.png){alt="The user typed
+'Pretty Good' into the shell window as input"}
 
 As you can see, Thonny colors what we are typing in blue, and what the
 program prints as black. Here the input we gave the program was the
@@ -335,7 +334,6 @@ into a *variable*.
 2.8 Variables
 -------------
 
-------------------------------------------------------------------------
 
 We talked about variables briefly when we were talking about algorithms
 back in Chapter 1. Here we will talk about how to use them in Python.
@@ -425,7 +423,6 @@ this, then it means something special and you should pick another name!
 2.9 More on Printing
 --------------------
 
-------------------------------------------------------------------------
 
 In the program above, we printed our message on two different lines,
 which looks kind of weird. Instead, we can print it on one line, using
@@ -491,7 +488,6 @@ spacing to look exactly right for the program's output.
 2.10 Example: Greeting Program
 -----------------------------
 
-------------------------------------------------------------------------
 
 Now let's create a slightly longer program which will need two
 variables. We'll talk about how the program will behave first, and then
@@ -605,7 +601,6 @@ Have a great Friday!
 2.11 Comprehension Questions
 ---------------------------
 
-------------------------------------------------------------------------
 
 1. Why do we need an interpreter for running programs written in high-level languages like Python?
 2. What is an Integrated Development Environment (IDE)?
@@ -622,7 +617,6 @@ Have a great Friday!
 2.12 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Change program 2.3 so that it also asks the user where they are from.
    Then, make it so the print also says where the user is from such as

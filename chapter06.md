@@ -1,7 +1,6 @@
 Chapter 6: Algorithms
 =====================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -19,7 +18,6 @@ Chapter 6: Algorithms
 6.1 Overview
 ------------
 
-------------------------------------------------------------------------
 
 In the last couple of chapters we looked at if and else statements, and
 looping. These statements are examples of **control flow** statements,
@@ -41,7 +39,6 @@ to solve them.
 6.2 Nesting Control Statements
 ------------------------------
 
-------------------------------------------------------------------------
 
 So far our programs have only used an if and else statement, or a loop
 at one time. But to make more complex programs, we can start to combine
@@ -98,7 +95,6 @@ along.
 6.3 Example: Guess the Number
 -----------------------------
 
-------------------------------------------------------------------------
 
 Now that we know how to nest if statements with loops, we can finally
 tackle a Python version of the "Guess the Number" algorithm we looked
@@ -186,7 +182,6 @@ Got it!
 6.4 Example: Password Strength
 ------------------------------
 
-------------------------------------------------------------------------
 
 Let's look at another example now. Many websites require user passwords
 to meet certain standards. For example, our university has the following
@@ -280,7 +275,6 @@ accepted.
 6.5 Example: Times Tables
 -------------------------
 
-------------------------------------------------------------------------
 
 Now we will look at an example of nested loops. That would be one loop
 nested inside of another loop. An example of a problem we could solve
@@ -364,7 +358,6 @@ are in both at the same time.
 6.6 Breaking Down Problems
 --------------------------
 
-------------------------------------------------------------------------
 
 As we mentioned in Chapter 1, computer science is not really the study
 of computers --- it is the study of algorithms. The main thing that
@@ -470,7 +463,6 @@ problem[^1].
 6.7 Breaking Down Problems Example
 ----------------------------------
 
-------------------------------------------------------------------------
 
 As an example of applying these steps, let's solve the problem of
 figuring out how much somebody is paid given their hourly rate and the
@@ -570,7 +562,6 @@ helpful to at least think about when you encounter trickier problems.
 6.8 Flowcharts
 --------------
 
-------------------------------------------------------------------------
 
 Another tool that computer scientists use to solve problems before
 jumping into code is the flowchart. A flowchart shows the steps of an
@@ -581,7 +572,8 @@ steps happen when.
 Below is an example of a flowchart for the overtime program:
 
 ![A flowchart showing the steps in the pay calculator
-algorithm.](images/flow1.png)
+algorithm](images/flow1.png){alt="A flowchart of the decisions through
+the pay calculator program"}
 
 The flowchart shows the algorithm in a slightly more graphical way. Each
 box in the chart displays one step of the algorithm. The nice thing
@@ -596,7 +588,8 @@ algorithm keep asking the user for an age until they put in something
 that's not negative:
 
 ![A flowchart showing the steps of reading a valid age from the
-user.](images/flow2.png)
+user](images/flow2.png){alt="A flowchart of an algorithm to get a valid
+age from a user"}
 
 You can see the loop in this algorithm because of the arrow that's
 pointing back to a previous step (that's the arrow pointing from the
@@ -607,7 +600,6 @@ understand the order that the steps need to be done in.
 6.9 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. Explain what is meant by "nesting" control structures such as if
    statements and loops.
@@ -624,7 +616,6 @@ understand the order that the steps need to be done in.
 6.10 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Write a program which counts how many times a character appears within a
    string. Begin by reading in a string from the user.  Next, read in a

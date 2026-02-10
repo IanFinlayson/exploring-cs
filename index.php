@@ -2,7 +2,10 @@
 include('boiler/preamble.html');
 ?>
 
-<br />
+<title>Exploring Computer Science</title>
+
+<body>
+<main>
 
 <h1>Exploring Computer Science</h1>
 <h2>An Introduction with Python</h2>
@@ -18,10 +21,10 @@ book is intended for those with no experience with computer science at all.
 Its focus is on developing algorithms and solving problems.  Python is used
 as the programming language.</p>
 
-<p>The book is completely open and free under the Creative Commons Attribution
-4.0 International license.</p>
+<p>The book is completely open and free under the Creative Commons BY-NC-SA 4.0
+International license.</p>
 
-<p><img src="images/cc.svg"/ > <img src="images/by.svg" /></p>
+<p><img src="images/cc.svg" alt="CC" /> <img src="images/by.svg" alt="BY" /> <img src="images/nc.svg" alt="NC" /> <img src="images/sa.svg" alt="SA" /></p>
 
 <p>Table of Contents:
 <ul>
@@ -38,12 +41,11 @@ as the programming language.</p>
 <li><a href="html/chapter09">Chapter 9: Functions</a></li>
 <li><a href="html/chapter10">Chapter 10: Graphics</a></li>
 </ul>
-</ul>
 </p>
 
 </div>
 <div class="column-50" style="padding:0.5em">
-<a href="html/title"><img src="images/cover.png" class="resize_fit_center"/></a>
+<a href="html/title"><img src="images/cover.png" class="resize_fit_center" alt="Exploring Computer Science" /></a>
 </div>
 </div>
 </div>
@@ -51,4 +53,5 @@ as the programming language.</p>
 <?php
 include('boiler/postamble.html');
 ?>
+
 

@@ -1,10 +1,14 @@
-\documentclass[12pt]{scrartcl}
+\documentclass[11pt]{scrartcl}
 
 \usepackage{sectsty}
 \usepackage{hyperref}
 \usepackage{upquote}
 \usepackage{color}
+\usepackage[most]{tcolorbox}
+\usepackage{framed}
+\usepackage{svg}
 \usepackage{fancyvrb}
+\usepackage{microtype}
 \usepackage{longtable}
 \usepackage{parskip}
 \usepackage{booktabs}
@@ -13,9 +17,9 @@
 \usepackage{xcolor}
 
 % choose fonts
-\usepackage[sfdefault]{roboto}
-\usepackage{roboto-mono}
-\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage{sourcecodepro}
+\allsectionsfont{\rmfamily}
 
 \hypersetup{
     pdftitle = {Exploring Computer Science},
@@ -30,6 +34,30 @@
     urlcolor = [RGB]{0,0.5,0.5},
     pdfcreator = {LaTeX via pandoc}
 }
+
+% make it so therre are no "orphans" (heaing alone) or "widows" (last line alone)
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% prevent headings from appearing unless there's room for text after it
+\usepackage{needspace}
+\let\oldsection\section
+\renewcommand{\section}{\Needspace{5\baselineskip}\oldsection}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{\Needspace{4\baselineskip}\oldsubsection}
+\let\oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\Needspace{3\baselineskip}\oldsubsubsection}
+
+% give latex more freedom to place images sensibly
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+
 
 % get rid of section numbers (the titles already have them)
 \setcounter{secnumdepth}{-\maxdimen}
@@ -97,13 +125,34 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 
+% make shaded color boxes for code blocks
+\definecolor{codebg}{RGB}{245,245,245} % light gray
+
+\renewenvironment{Shaded}{%
+  \begin{tcolorbox}[
+    enhanced,
+    boxrule=0.8pt,
+    colorframe=black,
+    colback=codebg,
+    arc=2mm,
+    left=6pt,right=6pt,top=6pt,bottom=6pt,
+    boxsep=0pt,
+    breakable,
+    before skip=10pt,
+    after skip=10pt,
+    segmentation style={solid, black},
+  ]%
+}{%
+  \end{tcolorbox}%
+}
+
 % start the document
 \begin{document}
 
 % make headings use the slab font in the highlight color for book
 \definecolor{highlight}{HTML}{CD321A}
-\subsectionfont{\selectfont\color{highlight}\robotoslab\MakeUppercase}
-\sectionfont{\LARGE\selectfont\color{highlight}\robotoslab\MakeUppercase}
+%\subsectionfont{\selectfont\color{highlight}\robotoslab\MakeUppercase}
+%\sectionfont{\LARGE\selectfont\color{highlight}\robotoslab\MakeUppercase}
 
 % actually pull in the contents
 $body$

@@ -1,7 +1,6 @@
 Chapter 7: Using Libraries
 ==========================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -21,7 +20,6 @@ Chapter 7: Using Libraries
 7.1 Overview
 ------------
 
-------------------------------------------------------------------------
 
 Python comes with some built-in functions that we've used in our
 programs. These include things like `print`, `input`, `round`, and
@@ -50,7 +48,6 @@ on libraries so you can learn how to use them.
 7.2 The import Statement
 ------------------------
 
-------------------------------------------------------------------------
 
 In order to use a library, we must put an `import` statement in our
 program. This tells Python to load the library so that we access the
@@ -93,7 +90,6 @@ sqrt function comes from the math library which we imported above.
 7.3 Another form of import
 --------------------------
 
-------------------------------------------------------------------------
 
 Sometimes we want to use some functions from a library and we don't
 want to have to put the name of the library and the `.` before the name
@@ -158,7 +154,6 @@ using the other form is more convenient.
 7.4 Documentation Pages
 -----------------------
 
-------------------------------------------------------------------------
 
 So the math library has lots of things we might want to use in it. But
 how do we find out all what's in there? And how do we learn how to use
@@ -200,7 +195,6 @@ the things you can import into Python, grouped in categories.
 7.5 Example: Password Entropy
 -----------------------------
 
-------------------------------------------------------------------------
 
 As an example of using the math library, let's look at the problem of
 figuring out how difficult a password would be to guess based on how
@@ -274,7 +268,6 @@ much higher entropy value!
 7.6 The random Library
 ----------------------
 
-------------------------------------------------------------------------
 
 Another very useful library that is included with Python is the `random`
 library, for getting random numbers. You can read all about it [on its
@@ -376,7 +369,6 @@ You win!
 7.7 Third-Party Libraries
 -------------------------
 
-------------------------------------------------------------------------
 
 The math and random libraries both come with Python. If you have Python
 installed, you can import them and start using them right away. In this
@@ -400,16 +392,19 @@ this very easy.
 Start by clicking "Tools" on the toolbar, and then "Manage
 Packages\...". That pulls up a window that looks something like this:
 
-![The Manage Packages Screen](images/pkgs1.png)
+![The Manage Packages Screen](images/pkgs1.png){alt="The package management
+screen in Thonny"}
 
 Now we can search PyPI for the art package. There are several results,
 so click on the one that just says "art":
 
-![The Search Results for "art"](images/pkgs2.png)
+![The Search Results for "art"](images/pkgs2.png){alt="Search results for the
+text art"}
 
 That brings you to this page. Click "Install" to install the package:
 
-![The art Package Screen](images/pkgs3.png)
+![The art Package Screen](images/pkgs3.png){alt="The art package page, with an
+install button"}
 
 We should now have the library and be ready to use it. It comes with
 several functions you can read about on its home page. For now let's
@@ -437,7 +432,6 @@ That gives us this exciting output:
 7.8 Using Libraries
 -------------------
 
-------------------------------------------------------------------------
 
 The functions and things that can be used in Python come in three broad
 categories:
@@ -466,7 +460,6 @@ by others as a part of your program.
 7.9 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. What is a library in Python and why is it useful?
 2. What is the difference between `import math` and `from math import *`?
@@ -478,7 +471,6 @@ by others as a part of your program.
 7.10 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Use the random library we aw this chapter to write a guess the number program
    in which the *computer* thinks of the number and the *user* tries to guess

@@ -1,19 +1,25 @@
+Immediate:
+    * Make each section a different webpage
+    * Go through sections and condense some of them, we don't need very short ones
+    Re-do the navigation, maybe a collapsable thing on the left
+
 General:
+    * Rewrite graphics chapter, it sucks (still use pygame probly)
+    * Beef up chapters that are too short with more examples
     * Re-arrange loops chapter -- do for first, then while
-    * Find a new cover image and redo cover
     * replace all diagrams with SVG ones
     * replace coordinate window picture in chapter 11
-    * Add questions and programming challenges to chapters
+    * add more programming challenges for each chapter
 
 PDF:
     * stop footnotes spreading across pages
-    * get input to be highlighted
     * fix code blocks which are too long for page
+    * INPUTSTART
+    * merge to 1 pdf
 
-New Content:
-    * AI chapter
-    * Cyber chapter
-    * File I/O chapter
-    * Computer organization chapter?
+New Chapters:
+    * AI
+    * Cyber
+    * File I/O
+    * Computer organization
 
- 

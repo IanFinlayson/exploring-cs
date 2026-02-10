@@ -1,7 +1,6 @@
 Chapter 4: Making Decisions
 ==========================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -20,7 +19,6 @@ Chapter 4: Making Decisions
 4.1 Decisions in Algorithms
 ---------------------------
 
-------------------------------------------------------------------------
 
 So far, our programs have all started on the first line and executed
 each line in sequence until the end of the program. However, many
@@ -55,7 +53,6 @@ make decisions like this.
 4.2 If Statements
 -----------------
 
-------------------------------------------------------------------------
 
 The way that we can make decisions like this in Python is with an *if
 statement*. If statements in Python start with the word `if`, followed
@@ -103,7 +100,6 @@ Enter a number: INPUTSTART5INPUTEND
 4.3 Indentation and Spacing
 ---------------------------
 
-------------------------------------------------------------------------
 
 Notice that the print message in the program above was indented over to
 the right. Sometimes spaces don't matter in Python programs, but here
@@ -151,7 +147,6 @@ code until we fix the indentation.
 4.4 Comparisons
 ---------------
 
-------------------------------------------------------------------------
 
 In the example above we used the `>` operator to compare two numbers and
 decide which one was bigger. Of course we can also check if something is
@@ -180,7 +175,6 @@ second equal sign in.
 4.5 Example: Checking Input
 ---------------------------
 
-------------------------------------------------------------------------
 
 One common use of if statements is to check if the input users enter
 makes sense or not. For example, if we ask the user their age, they
@@ -261,7 +255,6 @@ and over again. That'll be the topic of the next chapter!
 4.6 Booleans Types
 ------------------
 
-------------------------------------------------------------------------
 
 Last chapter we talked about **types** in Python. So far we have learned
 about strings, integers and floats. Last chapter we saw how these work
@@ -282,7 +275,7 @@ comes from the English mathematician George Boole. Boole developed a
 form of math based on true/false values which became influential in the
 development of computers.
 
-![George Boole, circa 1860](images/boole.jpg)
+![George Boole, circa 1860](images/boole.jpg){alt="George Boole"}
 
 We often use booleans like the programs above. We do a comparison which
 has a true/false value, and put it right into the if statement. But
@@ -312,7 +305,6 @@ uses for using boolean variables like this next chapter.
 4.7 Boolean Operations
 ----------------------
 
-------------------------------------------------------------------------
 
 Remember that a type determines what sorts of things you can do with
 something. If you've got a string, you can find the length, or join it
@@ -378,7 +370,6 @@ one line.
 4.8 Two-Way Decisions
 ---------------------
 
-------------------------------------------------------------------------
 
 Oftentimes, we want to test a condition and, if it's true, do one
 thing, and if it's false, do another thing. For example, if we want to
@@ -424,7 +415,6 @@ is executed instead. It can never do *both* things.
 4.9 Multi-Way Decisions
 -----------------------
 
-------------------------------------------------------------------------
 
 Sometimes we have more than one condition we want to check, and handle
 each one differently. We can do this using Python's `elif` statement.
@@ -497,7 +487,6 @@ loops.
 4.10 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. What is a condition in programming?  Give an example.
 2. What role does indentation play in if statements?
@@ -509,7 +498,6 @@ loops.
 4.11 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Program F in the section above checks if the user meets the height and age
    requirement of a roller coaster. If they can ride it tells them so. If they

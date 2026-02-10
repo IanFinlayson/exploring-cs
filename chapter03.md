@@ -1,7 +1,6 @@
 Chapter 3: Types and Operations
 ==============================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -20,7 +19,6 @@ Chapter 3: Types and Operations
 3.1 What are Types?
 -------------------
 
-------------------------------------------------------------------------
 
 Just like us, programs need to keep track of information as they are
 solving problems or making decisions. They do this by storing data
@@ -54,7 +52,6 @@ these.
 3.2 Strings
 -----------
 
-------------------------------------------------------------------------
 
 The first type that we will look into is the **string** type. A string
 is some text inside of a program. For instance a message, name, address,
@@ -121,7 +118,6 @@ writing needs to have double-quotes in it.
 3.3 Joining Strings
 -------------------
 
-------------------------------------------------------------------------
 
 Next we will talk about some of the operations that you can do with
 strings. The first one we will talk about is joining strings, which is
@@ -178,7 +174,6 @@ print(fullName)
 3.4 String Length and Indexing
 ------------------------------
 
-------------------------------------------------------------------------
 
 A string is a sequence of one or more *characters*. A character is just
 a single symbol of text, such as a letter, numeral, punctuation or
@@ -211,7 +206,8 @@ Each character in a string has an *index*. The index starts at 0 and
 goes up by 1 for each character. For instance, the string "Hello" has
 these indices:
 
-![The indices of a string](images/string-index.png)
+![The indices of a string](images/string-index.png){alt="The string begins with
+the first character at slot 0, and the last in slot 4"}
 
 Notice that, while there are 5 letters, the indices go from 0 to 4, and
 that 5 is not the index of any letter. To get just one character from a
@@ -247,7 +243,6 @@ begins.
 3.5 String Methods
 ------------------
 
-------------------------------------------------------------------------
 
 There are other things we can do with strings, but first we need to talk
 about a new term. We have seen several functions `print` and `input`
@@ -288,7 +283,6 @@ have is important.
 3.6 Numbers
 -----------
 
-------------------------------------------------------------------------
 
 Many programs work with numerical data, so numbers are another important
 type in Python. As we will see, numbers come up a lot more in
@@ -358,7 +352,6 @@ have a fraction, you have to use a float.
 3.7 Number Input
 ----------------
 
-------------------------------------------------------------------------
 
 To read in a float from the user, we can't just use the `input`
 function. This always gives us a string, even if the user types in a
@@ -406,7 +399,6 @@ on.
 3.8 Doing Math
 --------------
 
-------------------------------------------------------------------------
 
 Once we have numbers inside a Python program, there are lots of things
 we can do with them. We saw that + can be used to join together strings.
@@ -463,7 +455,6 @@ be overridden with parenthesis.
 3.9 Example: Tips
 -----------------
 
-------------------------------------------------------------------------
 
 As an example of working with numbers, let's write a program that can
 figure the amount that you should tip a server at a restaurant. When the
@@ -605,7 +596,6 @@ The amount with tip is 49.68
 3.10 Rounding
 -------------
 
-------------------------------------------------------------------------
 
 One last thing before we close out this chapter. I sort of carefully
 chose the inputs to the last program so that the output looked right. If
@@ -664,7 +654,6 @@ followed what we've done here, then great job!
 3.11 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. Why is it important to understand the type of data stored in a variable in Python?
 2. What is the difference between an integer and floating point number?  When
@@ -678,7 +667,6 @@ followed what we've done here, then great job!
 3.12 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Write a program to read in the length and width of a rectangle and print
    both the area and perimeter of the rectangle to the user.

@@ -1,7 +1,6 @@
 Chapter 5: Going Back Again
 ===========================
 
-------------------------------------------------------------------------
 
 
 ::: {.blackbox}
@@ -24,7 +23,6 @@ Chapter 5: Going Back Again
 5.1 Repeating Steps
 -------------------
 
-------------------------------------------------------------------------
 
 Many algorithms are built on the concept of a **loop** where you repeat
 some steps of the algorithm multiple times. For example:
@@ -71,7 +69,6 @@ that would be a lot of typing! Instead we should use a loop.
 5.2 While Loops
 ---------------
 
-------------------------------------------------------------------------
 
 The simplest loop in Python is the while loop. The while loop looks a
 lot like an if statement. It starts with the word `while`, and then it
@@ -162,7 +159,6 @@ There's quite a bit going on in this code, so let's go through it.
 5.3 Example: Checking Input
 ---------------------------
 
-------------------------------------------------------------------------
 
 We've talked about how to use if statements to check if user input is
 valid. For instance, this program will check if the user enters a
@@ -240,7 +236,6 @@ You are 27 years old.
 5.4 Infinite Loops
 ------------------
 
-------------------------------------------------------------------------
 
 One danger when creating loops is that the condition might *never*
 become true. For example, there's a mistake in the program below which
@@ -265,13 +260,12 @@ and is a common programming mistake.
 If you run this program, it will never stop running. It will just
 continue on forever. Or until you stop it, which is probably what you
 will want to do. You can do this in Thonny by hitting the stop button
-(![](images/stop.png)), or by choosing "Stop/Restart backend" from the
+(![A small stop sign icon](images/stop.png){alt="Stop Sign"}), or by choosing "Stop/Restart backend" from the
 "Run" menu.
 
 5.5 Example: Running Total
 --------------------------
 
-------------------------------------------------------------------------
 
 Let's write a program that will compute a running total of numbers. The
 way this will work is that you will put in numbers to the program, and
@@ -336,7 +330,6 @@ will want to add.
 5.6 For Loops
 -------------
 
-------------------------------------------------------------------------
 
 There is another type of loop in Python called a **for loop**. A for
 loop is similar to a while loop in that it lets you do some piece of
@@ -393,7 +386,6 @@ But for loops have a few benefits when looping through a sequence:
 5.7 The range Function
 ----------------------
 
-------------------------------------------------------------------------
 
 For loops can be used to loop through any *sequence*. A string is just
 one type of sequence. There are several others in Python. The next one
@@ -506,7 +498,6 @@ This gives us the following:
 5.8 Example: Temperature Table
 ------------------------------
 
-------------------------------------------------------------------------
 
 As an example of a for loop with a range, let's write a program which
 gives us a table of Celsius temperatures with their equivalent
@@ -592,7 +583,6 @@ problems with loops. Almost all algorithms use looping in some fashion.
 5.9 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. What is the purpose of writing loops in a program?
 2. How is a while loop different from an if statement in Python?
@@ -605,7 +595,6 @@ problems with loops. Almost all algorithms use looping in some fashion.
 5.10 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 1. Write a program that reads in a number from the user, and a message. The pro-
    gram should then print the message out "number" many times. For example, if they

@@ -1,7 +1,6 @@
 Chapter 8: Lists
 ================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -20,7 +19,6 @@ Chapter 8: Lists
 8.1 Storing Lots of Variables
 -----------------------------
 
-------------------------------------------------------------------------
 
 Imagine that we were writing a program where we wanted to store a large
 amount of data. For example, imagine we were writing a program to figure
@@ -63,7 +61,6 @@ one variable.
 8.2 Creating Lists
 ------------------
 
-------------------------------------------------------------------------
 
 To create a list, we can put the values in the list between square
 brackets, separated by commas. For example, we can store our 10 quiz
@@ -86,7 +83,6 @@ name to access them.
 8.3 Accessing List Elements
 ---------------------------
 
-------------------------------------------------------------------------
 
 Once we have created a list, we can access each thing in the list. To do
 this, we can use the position of each element we want to access. Like
@@ -125,7 +121,6 @@ IndexError: list index out of range
 8.4 Example: Dates
 ------------------
 
-------------------------------------------------------------------------
 
 Let's say we want to write a program that converts a numerical date
 into one using words for the month. For example, we can put in 3 for the
@@ -179,7 +174,6 @@ It is June 22
 8.5 Looping Through a List
 --------------------------
 
-------------------------------------------------------------------------
 
 One super common thing to do with a list is to loop through everything
 in the list and do something with each thing in it. For example, we
@@ -238,7 +232,6 @@ same way it does for strings.
 8.6 Example: Smart Guess the Number
 -----------------------------------
 
-------------------------------------------------------------------------
 
 When we first looked at using loops, we saw an example of a guess the
 number program that started at 1, and then went on guessing up to 10. To
@@ -329,7 +322,6 @@ Got it!
 8.7 Splitting Input
 -------------------
 
-------------------------------------------------------------------------
 
 One very helpful thing we can do with strings is to call their `split`
 method, which splits the string into parts by some separator (which we
@@ -424,7 +416,6 @@ calculate the average.
 8.8 Adding to a List
 --------------------
 
-------------------------------------------------------------------------
 
 So far we have looked at making lists all in one go, either by getting
 the list contents from `split`, or by listing the things inside
@@ -477,7 +468,6 @@ put new items.
 8.9 Reading in a List
 ---------------------
 
-------------------------------------------------------------------------
 
 We've seen one way to read in a list in Python, using the `split`
 method. Here we ask the user to enter all the values on one line, with
@@ -544,7 +534,6 @@ wants to enter.
 8.10 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. What is the main purpose of using lists in Python?
 2. How can you access the third element in a list named `items`?
@@ -557,7 +546,6 @@ wants to enter.
 8.11 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 
 1. Write a program to read in a list of numbers and print one randomly selected

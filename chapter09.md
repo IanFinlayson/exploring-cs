@@ -1,7 +1,6 @@
 Chapter 9: Functions
 ====================
 
-------------------------------------------------------------------------
 
 ::: {.blackbox}
 ::: {.blackbox-title}
@@ -65,7 +64,6 @@ So parameters allow us to pass information to functions. Some functions
 take no parameters, some take one, and some take more. Likewise some
 functions return a value back and some do not.
 
-------------------------------------------------------------------------
 
 9.2 Why Write Functions?
 -------------------------
@@ -123,7 +121,6 @@ We pass in the prompts, because that was the one thing that's really
 different. Of course we have to create the `readPositive` function for
 this to work. So we will see how to make functions next.
 
-------------------------------------------------------------------------
 
 9.3 Writing a Function
 -----------------------
@@ -185,7 +182,6 @@ Functions must be defined before they are called. So this program will
 only work if the definition of greet is before the call to it. If we
 flip them around, Python would give us an error message.
 
-------------------------------------------------------------------------
 
 9.4 Parameters
 ---------------
@@ -294,7 +290,6 @@ Done!
 9.5 Return Values
 ------------------
 
-------------------------------------------------------------------------
 
 Now that we have seen how to pass information *to* functions using
 parameters, we will look at how to pass information back *from*
@@ -405,7 +400,6 @@ This will never print the "Hello!" message, because Python leaves the
 function as soon as the `return` is done. No statements after that will
 be executed.
 
-------------------------------------------------------------------------
 
 9.6 A couple more examples
 ---------------------------
@@ -489,7 +483,6 @@ We could even make a more general version of this function which gets a
 number as input from the user between any lower and upper limits. The
 limits could be passed into the function along with the prompt.
 
-------------------------------------------------------------------------
 
 9.7 Scope
 ----------
@@ -566,7 +559,6 @@ program, you need to use a `return` to send it back.
 9.8 Designing Programs with Functions
 --------------------------------------
 
-------------------------------------------------------------------------
 
 When writing programs that are long and complicated, it's a good idea
 to break the program up into functions. We start the program by thinking
@@ -582,7 +574,6 @@ multiple functions.
 9.9 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. What is a function in Python, and why is it beneficial to use functions in your programs?
 2. What is the difference between writing a function and calling it?
@@ -596,7 +587,6 @@ multiple functions.
 -------------------------
 
 
-------------------------------------------------------------------------
 
 1. Write a function to convert a Celsius temperature to Fahrenheit.  The
    parameters should be the Celsius temperature and the return value the

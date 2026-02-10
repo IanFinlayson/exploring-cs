@@ -1,7 +1,6 @@
 Chapter 10: Graphics
 ===================
 
-------------------------------------------------------------------------
 
 
 ::: {.blackbox}
@@ -22,7 +21,6 @@ Chapter 10: Graphics
 10.1 Installing the PyGame Library
 ----------------------------------
 
-------------------------------------------------------------------------
 
 As we talked about in [Chapter 8](chapter08), we can add libraries to
 Python that other people have built and incorporate them into our own
@@ -34,18 +32,19 @@ just having more colorful output.
 To install it with Thonny, choose "Tools -\> Manage Packages" from the
 main menu. Then search for "pygame" in the window that comes up:
 
-![Searching for PyGame](images/pygame1.png)
+![Searching for PyGame](images/pygame1.png){alt="The PyGame package in the
+Thonny package search results"}
 
 The one we want is just called "PyGame", so click on that. Next click
 the Install button:
 
-![The PyGame Package Page](images/pygame2.png)
+![The PyGame Package Page](images/pygame2.png){alt="Installing PyGame
+in Thonny"}
 
 It will take a moment or two to download. When it is finished, you
 should have PyGame installed and be ready to write and run graphical
 programs.
 
-------------------------------------------------------------------------
 
 10.2 PyGame Basics
 ------------------
@@ -90,7 +89,6 @@ The window is where all of the things we draw will show up. Before we
 can start talking about drawing things into the window, we need to
 discuss how color is represented in computer programs.
 
-------------------------------------------------------------------------
 
 10.3 Colors
 -----------
@@ -140,7 +138,6 @@ pink = (255, 0, 255)
 purple = (128, 0, 255)
 ```
 
-------------------------------------------------------------------------
 
 10.4 Our First Graphical Program
 --------------------------------
@@ -208,7 +205,6 @@ we flip the displays so the user sees the new scene all at once. This
 prevents the user from seeing a half-drawn scene which won't look
 right.
 
-------------------------------------------------------------------------
 
 10.5 Coordinate Systems
 -----------------------
@@ -226,14 +222,14 @@ math).
 
 This image illustrates the coordinate system:
 
-![The graphics coordinate system](images/coords.png)
+![The graphics coordinate system](images/coords.png){alt="The coordinate
+system has the origin point in the upper-left corner of the window"}
 
 This image shows the coordinates of each of the four corners of the
 window. Notice that, like string indices, we start counting at pixel 0
 and not pixel 1. Here, the window is 400 by 300 pixels large. That means
 there are 120,000 pixels.
 
-------------------------------------------------------------------------
 
 10.6 Events
 -----------
@@ -291,7 +287,6 @@ pygame.quit()
 Now the program should close the window and stop running when the user
 clicks the close button on the window bar.
 
-------------------------------------------------------------------------
 
 10.7 Keyboard and Motion
 ------------------------
@@ -542,7 +537,6 @@ while running:
 pygame.quit()
 ```
 
-------------------------------------------------------------------------
 
 10.8 Drawing More Things
 ------------------------
@@ -647,7 +641,6 @@ bounds where the arc will be drawn (just like an ellipse). The last two
 parameters are angles measured in radians. These two angles specify the
 start and end angle for the arc.
 
-------------------------------------------------------------------------
 
 10.9 Drawing Images
 -------------------
@@ -681,7 +674,6 @@ upper-left corner of the image should appear. Here we pass the origin
 10.10 Comprehension Questions
 ----------------------------
 
-------------------------------------------------------------------------
 
 1. How do computers represent color?
 2. What is a tuple and how is it different from a list?
@@ -694,7 +686,6 @@ upper-left corner of the image should appear. Here we pass the origin
 10.11 Programming Exercises
 -------------------------
 
-------------------------------------------------------------------------
 
 
 1. Write a program which draws your initials on the screen using lines.  If you

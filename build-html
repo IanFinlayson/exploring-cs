@@ -22,6 +22,7 @@ produce_navbar() {
     echo "<title>${display[$idx]}: ${titles[$idx]}</title>"
     echo "</head>"
     echo "<body onload=\"iansetup()\">"
+    echo "<main>"
 
     # start the nav bar
     echo "<div class=\"topnav\">"
@@ -110,6 +111,8 @@ process_page() {
     sed -i 's/INPUTSTART/<span class="input">/' ./temp.html
     sed -i 's/INPUTEND/<\/span>/' ./temp.html
 
+    # put <hr /> tags after section headings
+    sed -i 's/<h2[^>]*>[^<]*<\/h2>/&<hr \/>/' ./temp.html
 
     # now dump the content, followed by postamble
     cat ./temp.html >> html/$1.html

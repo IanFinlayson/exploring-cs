@@ -9,11 +9,9 @@ process_page() {
     sed -i 's/INPUTEND/}/' pdf/$1.tex
 
     # we need to kill the footnotes section since Latex puts them at bottom of page
-    sed -i 's/.hypertarget.footnote-label.../% (footnote section removed by build-pdf)/' pdf/$1.tex
-    sed -i 's/.subsection.Footnotes..label.footnote-label..//' pdf/$1.tex
+    sed -i 's/subsection.Footnotes..label.footnote-label.*//' pdf/$1.tex
 
     # convert the latex into a pdf
-    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
     cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
     cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
     
@@ -32,17 +30,17 @@ then
 fi
 
 # render all the pages from markdown -> tex -> pdf
-process_page title
-process_page preface
-process_page chapter01
-process_page chapter02
-process_page chapter03
-process_page chapter04
+#process_page title
+#process_page preface
+#process_page chapter01
+#process_page chapter02
+#process_page chapter03
+#process_page chapter04
 process_page chapter05
-process_page chapter06
-process_page chapter07
-process_page chapter08
-process_page chapter09
-process_page chapter10
+#process_page chapter06
+#process_page chapter07
+#process_page chapter08
+#process_page chapter09
+#process_page chapter10
 
 
