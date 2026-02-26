@@ -367,6 +367,8 @@ statement. Before we had the boolean operators at our disposal, we had
 to do this with two separate if statements. Now, we can combine it into
 one line.
 
+
+
 4.8 Two-Way Decisions
 ---------------------
 
@@ -411,6 +413,22 @@ tells us to wear shorts instead.
 With an if/else statement, if the if condition is true, than the code
 under the if line is executed. Otherwise, the code under the else line
 is executed instead. It can never do *both* things.
+
+As another example, imagine a roller coaster at a theme park which has
+requirements for riding it.  Those who wish to ride must be at least
+12 years old and also 54 inches.  We can write a program to check both
+of these conditions and tell users if they can ride:
+
+``` {.python}
+age = int(input("What is your age? "))
+height = int(input("What is your height in inches? "))
+
+if age >= 12 and height >= 54:
+    print("You can ride the roller coaster!")
+else:
+    print("You cannot ride the roller coaster :(")
+```
+
 
 4.9 Multi-Way Decisions
 -----------------------
@@ -499,7 +517,7 @@ loops.
 -------------------------
 
 
-1. Program F in the section above checks if the user meets the height and age
+1. The program at the end of Section 4.8 checks if the user meets the height and age
    requirement of a roller coaster. If they can ride it tells them so. If they
    can’t it tells them they can’t ride, but not why. Write a version of it that
    tells them either they can ride, they are not old enough, or they are not tall

@@ -596,9 +596,9 @@ problems with loops. Almost all algorithms use looping in some fashion.
 -------------------------
 
 
-1. Write a program that reads in a number from the user, and a message. The pro-
-   gram should then print the message out "number" many times. For example, if they
-   enter 3 and "Hello", then the program should print "Hello" three times.
+1. Write a program that reads in a number from the user, and a message. The
+   program should then print the message out "number" many times. For example,
+   if they enter 3 and "Hello", then the program should print "Hello" three times.
 
 2. Write a program which will let the user print the length of strings, for as many
    as they want. It should ask them to enter a string and then print the length of it. It
@@ -617,7 +617,7 @@ problems with loops. Almost all algorithms use looping in some fashion.
    ```
    Your program should read in the number they want the times table column of (7 of
    this case). It should then output this column showing the products of the number
-   with 1 through 10. f
+   with 1 through 10.
 
 4. Write a sum calculator.  Begin by asking the user how many numbers they wish
    to enter.  Then write a loop that executes that many times.  Each time, read

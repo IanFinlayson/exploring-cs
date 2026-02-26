@@ -2,11 +2,11 @@
 
 process_page() {
     # convert this page into temp
-    pandoc --template=boiler/template.latex -o pdf/$1.tex $1.md
+    pandoc --lua-filter=boiler/output-blocks.lua --template=boiler/template.latex -o pdf/$1.tex $1.md
     
     # we need special formatting for input inside of pre output blocks, so we made some thingies
-    sed -i 's/INPUTSTART/\\textcolor{red}{/' pdf/$1.tex
-    sed -i 's/INPUTEND/}/' pdf/$1.tex
+    sed -i 's/INPUTSTART/(*@\\textcolor{inputfg}{\\texttt{\\textbf{/' pdf/$1.tex
+    sed -i 's/INPUTEND/}}}@*)/' pdf/$1.tex
 
     # we need to kill the footnotes section since Latex puts them at bottom of page
     sed -i 's/subsection.Footnotes..label.footnote-label.*//' pdf/$1.tex
@@ -29,18 +29,20 @@ then
     cd pdf && ln -s ../images ./images && cd ..
 fi
 
+# for the PDF, the markdown generated title page looked like ass, so it's custom
+cp boiler/title.pdf pdf
+
 # render all the pages from markdown -> tex -> pdf
-#process_page title
-#process_page preface
-#process_page chapter01
-#process_page chapter02
-#process_page chapter03
-#process_page chapter04
+process_page preface
+process_page chapter01
+process_page chapter02
+process_page chapter03
+process_page chapter04
 process_page chapter05
-#process_page chapter06
-#process_page chapter07
-#process_page chapter08
-#process_page chapter09
-#process_page chapter10
+process_page chapter06
+process_page chapter07
+process_page chapter08
+process_page chapter09
+process_page chapter10
 
 

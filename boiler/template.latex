@@ -101,7 +101,7 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
 \newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0, 100, 0}{\textit{#1}}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
@@ -145,6 +145,37 @@
 }{%
   \end{tcolorbox}%
 }
+
+% blocks for output of programs (shaded dark)
+\usepackage[most]{tcolorbox}
+\usepackage{fvextra} % better Verbatim
+
+\definecolor{outputbg}{RGB}{32,32,32}
+\definecolor{outputfg}{RGB}{245,245,245}
+
+% A dedicated verbatim listing environment for program output
+\newtcblisting{OutputShaded}{
+  enhanced,
+  breakable,
+  colback=outputbg,
+  coltext=outputfg,
+  colframe=black,
+  boxrule=1.2pt,
+  arc=2mm,
+  left=6pt,right=6pt,top=0pt,bottom=0pt,
+  boxsep=0pt,
+  listing only,
+  listing engine=fvextra,
+  listing options={
+    basicstyle=\ttfamily,
+    breaklines=true,
+    breakanywhere=true,
+    escapeinside={(*@}{@*)}
+  }
+}
+
+\definecolor{inputfg}{RGB}{0,179,185}
+
 
 % start the document
 \begin{document}
