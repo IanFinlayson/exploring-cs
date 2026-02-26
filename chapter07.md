@@ -298,7 +298,7 @@ algorithms use random numbers as an important part of how they work.
 In actual fact, computers cannot really give us truly random numbers.
 The values that `randint` provides actually are produced from
 mathematical sequences. They *seem* random, but are in fact not. These
-numbers are called "pseudo-random" for that reason[^1].
+numbers are called "pseudo-random" for that reason[^pseudorand].
 
 Now that we can use random numbers, we can write a simple "Rock, Paper,
 Scissors" game. In this game, two players each pick one of the three
@@ -523,10 +523,10 @@ by others as a part of your program.
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label7 .visually-hidden}
 ---------
 
-[^1]: There have been cases where programmers use this fact to figure out
+[^pseudorand]: There have been cases where programmers use this fact to figure out
     the algorithms behind "random" gambling games like slot machines
     and predict when the games will produce a payout.
     

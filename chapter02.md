@@ -146,7 +146,7 @@ expressions in and see how the shell gives you results back.
 
 
 Now we are ready to write our first program. The goal of the first
-program is just to print the text "Hello World" to the screen [^1].
+program is just to print the text "Hello World" to the screen [^helloworld].
 The code for this program is the
 following:
 
@@ -184,7 +184,7 @@ first line says:
 ```
 
 This line is a **comment**. Any line that starts with the \# symbol is a
-comment in Python [^2]. When the interpreter
+comment in Python [^hashtag]. When the interpreter
 gets a comment line, it completely ignores it, and moves on to the next
 line. The sole purpose of comments is to leave little notes in the code,
 for any people reading. They are meant to explain things about how the
@@ -303,7 +303,7 @@ This can be done with the `input` function. Like `print`, `input` can
 take a message inside of parenthesis. In the case of input, this message
 is a question to give the user, called a **prompt**.
 
-Here is an example of how `input` works[^3]:
+Here is an example of how `input` works[^inputspace]:
 
 ``` {.python}
 input("How are you feeling today? ")
@@ -652,19 +652,19 @@ Have a great Friday!
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label2 .visually-hidden}
 ---------
 
-[^1]: Having the first program print this message is something of a silly
+[^helloworld]: Having the first program print this message is something of a silly
     tradition in computer science. It dates back at least to the 1978
     book "The C Programming Language".
 
-[^2]: I used to insist this symbol be called a "pound" or "hash"
+[^hashtag]: I used to insist this symbol be called a "pound" or "hash"
     symbol, and become annoyed when it was called a "hashtag", but
     I've accepted it. You can say that Python comments begin with
     hashtags.
     
-[^3]: Notice the space after question mark. That is not necessary, but it
+[^inputspace]: Notice the space after question mark. That is not necessary, but it
     puts a space before the user can start typing, which I think looks
     neater.
 

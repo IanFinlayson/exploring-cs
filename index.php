@@ -43,6 +43,8 @@ International license.</p>
 </ul>
 </p>
 
+<p>The book is also available in PDF format, if you prefer: <a href="Exploring-Computer-Science.pdf">Exploring Computer Science</a>.</p>
+
 </div>
 <div class="column-50" style="padding:0.5em">
 <a href="html/title"><img src="images/cover.png" class="resize_fit_center" alt="Exploring Computer Science" /></a>

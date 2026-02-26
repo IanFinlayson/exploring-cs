@@ -41,7 +41,7 @@ food of some kind (hopefully cake). The result of your work following an
 algorithm is a solution to a problem.
 
 The study of algorithms actually predates the existence of computers by
-thousands of years[^1]. One of the first known
+thousands of years[^alghistory]. One of the first known
 algorithms was described by the Greek mathematician Euclid in his book
 *Elements* around 300 BCE. The algorithm was to find the greatest common
 divisor between two numbers. For example, the greatest common divisor of
@@ -127,7 +127,7 @@ doing this could be written as:
 4. If it was not, then add 1 to G.
 5. Go back to step 2.
 ```
-This algorithm[^2] works by keeping track of
+This algorithm[^pseudocode] works by keeping track of
 which number we are going to be guessing next, which we call "G". This
 is a **variable**, which is a very important concept in programming. A
 variable is a name that we give to a value which may change as the
@@ -341,7 +341,7 @@ guessed number itself as well), then we get this sequence of numbers:
     1
 
 Because we can cut 100 in half 7 times before we hit 1, our algorithm
-takes 7 guesses in the worst case[^3]. Below is
+takes 7 guesses in the worst case[^logexplain]. Below is
 a table showing the number of guesses needed in the worst case for both
 algorithms, based on the highest number the other player could pick:
 
@@ -582,7 +582,7 @@ the computer as well. But, like everything else, this is done with
 numbers. The letters and punctuation symbols have specific numbers
 assigned to them. For instance when you type an 'A', the computer
 stores a 65. When you type a period, the computer stores a 46. When you
-type a space, the computer stores a 32[^4].
+type a space, the computer stores a 32[^asciicodes].
 
 Of course, the way that computers store numbers is in *binary*, which
 means they only use 1's and 0's. We will not talk about how to convert
@@ -615,7 +615,7 @@ add 1 to g.
 ```
 
 Let's look at what this step would look like as a real computer
-instruction[^5]. But first, we would need to
+instruction[^armbased]. But first, we would need to
 decide what memory location to store `G` in. Let's say we put it in
 location 7.
 
@@ -844,28 +844,28 @@ way).
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label1 .visually-hidden}
 ---------
 
 
-[^1]: Before the advent of computers, the study of algorithms was not
+[^alghistory]: Before the advent of computers, the study of algorithms was not
     called "computer science". It was just part of mathematics. After
     computers were invented, it split off into its own field.
 
-[^2]: This algorithm is written in "pseudocode" which is not real
+[^pseudocode]: This algorithm is written in "pseudocode" which is not real
     computer code, but is similar to computer code. For most of this
     book we will use real code, but for these first examples, we just
     want to talk about the concepts in general.
 
-[^3]: For the mathematically inclined, the worst case number of guesses
+[^logexplain]: For the mathematically inclined, the worst case number of guesses
     has the following relationship with the number of possibilities we
     start with: guesses = ⌈log~2~(possibilities)⌉
 
-[^4]: These numbers are defined by the ASCII (American Standard Code for
+[^asciicodes]: These numbers are defined by the ASCII (American Standard Code for
     Information Interchange) code. Computer scientists do not need to
     remember these!
 
-[^5]: The instruction in this example is for ARM-based computer systems.
+[^armbased]: The instruction in this example is for ARM-based computer systems.
     These include almost all phones, tablets and other small computers.
     Most laptops and desktops use a different format, but the ideas are
     the same.

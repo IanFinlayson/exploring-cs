@@ -458,7 +458,7 @@ programming language they are using. An experienced programmer can
 translate steps into code as they go. For a beginner this is harder. And
 even experienced programmers will often fall back to writing the steps
 in English first when they run into an especially tricky
-problem[^1].
+problem[^commentmethod].
 
 6.7 Breaking Down Problems Example
 ----------------------------------
@@ -698,10 +698,10 @@ understand the order that the steps need to be done in.
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label6 .visually-hidden}
 ---------
 
-[^1]: When I personally am writing programs, I will often start by
+[^commentmethod]: When I personally am writing programs, I will often start by
     writing my "basic steps" as comments in my program files. Then I
     read through and make sure the steps make sense before jumping into
     the code. Then, I add the code, but leave the comments in to explain

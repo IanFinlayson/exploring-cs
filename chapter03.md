@@ -121,7 +121,7 @@ writing needs to have double-quotes in it.
 
 Next we will talk about some of the operations that you can do with
 strings. The first one we will talk about is joining strings, which is
-also sometimes called concatenating[^1].
+also sometimes called concatenating[^concat].
 
 This is done by putting two existing strings together with a + in
 between them. For example, the following program asks the user for their
@@ -297,7 +297,7 @@ The first is the integer, or `int` type. Integers are numbers that have
 no fractional component. For example, an int can be equal to 3, or 4,
 but not 3.5. Integers can be positive or negative. Some languages have
 limits on how big an integer can be, but Python allows integers to be as
-big as they need to be[^2].
+big as they need to be[^intsize].
 
 We can create an integer just by putting a number into a program. We can
 also assign it to a variable to keep track of it. For example, to create
@@ -311,7 +311,7 @@ birthYear = 1998
 
 Integers cannot have any fractional component. So if we make a number
 that does have a fraction in it, Python gives it a different type,
-called a `float`[^3]:
+called a `float`[^floatexplain]:
 
 
 ``` {.python}
@@ -447,7 +447,7 @@ easier to type when writing code.
 
 Notice that exponents are done with two asterisks `**`. A fairly common
 mistake is to use the caret symbol \^ instead. This could have been
-used, but actually means something else in Python[^4].
+used, but actually means something else in Python[^xornote].
 
 Python follows the standard mathematical rules of precedence which can
 be overridden with parenthesis.
@@ -460,7 +460,7 @@ As an example of working with numbers, let's write a program that can
 figure the amount that you should tip a server at a restaurant. When the
 bill comes at a restaurant, it's expected that diners will give a tip
 between 15 and 20 percent of the price of the meal. This can sometimes
-be tricky to figure out[^5], so let's write a
+be tricky to figure out[^drinks], so let's write a
 program to figure it out for us!
 
 The program should start off by asking the user how much their meal
@@ -707,23 +707,23 @@ followed what we've done here, then great job!
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label3 .visually-hidden}
 ---------
 
-[^1]: Sometimes computer scientists come up with fancy words like this
+[^concat]: Sometimes computer scientists come up with fancy words like this
     for very simple concepts. This is just one of many examples.
 
-[^2]: Of course, a computer has a set amount of memory, and a big enough
+[^intsize]: Of course, a computer has a set amount of memory, and a big enough
     number could in theory need more memory than you have, but that
     isn't really an issue in practice.
 
-[^3]: These numbers are called "floats" because they have a
+[^floatexplain]: These numbers are called "floats" because they have a
     "floating" decimal point. That means the decimal can appear in any
     position, for example 10.0, 1.0, 0.1, and .01 are all valid numbers.
     Some languages (not Python) also have fixed point numbers, where the
     decimal can't move.
     
-[^4]: The `^` is used for an operation called XOR, which is used for
+[^xornote]: The `^` is used for an operation called XOR, which is used for
     dealing with binary numbers.
     
-[^5]: Especially if the meal included a few drinks.
+[^drinks]: Especially if the meal included a few drinks.

@@ -96,7 +96,7 @@ discuss how color is represented in computer programs.
 Just like everything else in computers, colors are ultimately stored as
 numbers. The way this works is that we have three numbers for every
 color: one for the amounts of red, green, and blue in the
-color[^1]. Each of these three numbers ranges
+color[^primarycolors]. Each of these three numbers ranges
 from 0 to 255. The 255 limit may seem random, but that is the largest
 number that can fit in one byte. 0 means there is none of that color at
 all, and 255 means that color is turned up to the max.
@@ -108,7 +108,7 @@ colors like this is probably to [Google "color
 picker"](https://www.google.com/search?q=color+picker) and play with
 Google's built in color choosing tool. At the bottom left, you will see
 the label "RGB" which indicates the three color components. This will
-let you find the numbers for any color you want[^2].
+let you find the numbers for any color you want[^colorspace].
 
 Colors are put into programs with *tuples* which are sort of like lists
 in Python except they use parentheses instead of square brackets. The
@@ -664,7 +664,7 @@ window.blit(picture, (0, 0))
 ```
 
 Instead of passing the window into a draw method, like for drawing
-shapes, here we call `blit` on the window itself[^3].
+shapes, here we call `blit` on the window itself[^blitnote].
 The second parameter is where in the window the
 upper-left corner of the image should appear. Here we pass the origin
 (0, 0) so that the picture fills the whole window. You can download
@@ -713,10 +713,10 @@ upper-left corner of the image should appear. Here we pass the origin
    ball.
 
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label10 .visually-hidden}
 ---------
 
-[^1]: In school you learned that red, yellow and blue are the three
+[^primarycolors]: In school you learned that red, yellow and blue are the three
     primary colors. That's true in a *subtractive* model of color, such
     as you get when mixing paints together. But there are other models
     of color, such as the *additive* model wherein you combine colored
@@ -724,13 +724,13 @@ Footnotes {#footnote-label .visually-hidden}
     colors. Shining a red light and a green light together actually
     makes a yellow light!
 
-[^2]: With this color scheme, there are actually over 16 million colors
+[^colorspace]: With this color scheme, there are actually over 16 million colors
     we could create. The human eye can only discern about 10 million
     different colors. So while theoretically there's really no limit on
     the number of colors, we can practically make any color we can
     imagine.
 
-[^3]: The term "blit" is an old phrase in graphics and game
+[^blitnote]: The term "blit" is an old phrase in graphics and game
     programming. Its origin is an acronym for BLock Information
     Transfer. To blit something is to transfer it quickly from one part
     of memory to another. When you draw an image, you copy the image

@@ -1,24 +1,5 @@
 #!/bin/bash
 
-process_page() {
-    # convert this page into temp
-    pandoc --lua-filter=boiler/output-blocks.lua --template=boiler/template.latex -o pdf/$1.tex $1.md
-    
-    # we need special formatting for input inside of pre output blocks, so we made some thingies
-    sed -i 's/INPUTSTART/(*@\\textcolor{inputfg}{\\texttt{\\textbf{/' pdf/$1.tex
-    sed -i 's/INPUTEND/}}}@*)/' pdf/$1.tex
-
-    # we need to kill the footnotes section since Latex puts them at bottom of page
-    sed -i 's/subsection.Footnotes..label.footnote-label.*//' pdf/$1.tex
-
-    # convert the latex into a pdf
-    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
-    cd pdf; pdflatex --interaction=batchmode $1.tex; cd ..
-    
-    # remove unneeded output files
-    rm pdf/*.aux pdf/*.log pdf/*.out
-}
-
 # make a fresh pdf output directory
 rm -rf pdf
 mkdir -p pdf
@@ -29,20 +10,34 @@ then
     cd pdf && ln -s ../images ./images && cd ..
 fi
 
-# for the PDF, the markdown generated title page looked like ass, so it's custom
-cp boiler/title.pdf pdf
+# do the actual conversion
+pandoc --lua-filter=boiler/output-blocks.lua --template=boiler/template.latex -o pdf/book.tex \
+    title.md boiler/chapterbreak.tex \
+    preface.md boiler/chapterbreak.tex \
+    chapter01.md boiler/chapterbreak.tex \
+    chapter02.md boiler/chapterbreak.tex \
+    chapter03.md boiler/chapterbreak.tex \
+    chapter04.md boiler/chapterbreak.tex \
+    chapter05.md boiler/chapterbreak.tex \
+    chapter06.md boiler/chapterbreak.tex \
+    chapter07.md boiler/chapterbreak.tex \
+    chapter08.md boiler/chapterbreak.tex \
+    chapter09.md boiler/chapterbreak.tex \
+    chapter10.md boiler/chapterbreak.tex
 
-# render all the pages from markdown -> tex -> pdf
-process_page preface
-process_page chapter01
-process_page chapter02
-process_page chapter03
-process_page chapter04
-process_page chapter05
-process_page chapter06
-process_page chapter07
-process_page chapter08
-process_page chapter09
-process_page chapter10
 
+# we need special formatting for input inside of pre output blocks, so we made some thingies
+sed -i 's/INPUTSTART/(*@\\textcolor{inputfg}{\\texttt{\\textbf{/' pdf/book.tex
+sed -i 's/INPUTEND/}}}@*)/' pdf/book.tex
+
+# we need to kill the footnotes section since Latex puts them at bottom of page
+sed -i 's/subsection.Footnotes..label.footnote-label.*//' pdf/book.tex
+
+# convert the latex into a pdf
+cd pdf; pdflatex --interaction=batchmode book.tex; cd ..
+
+mv pdf/book.pdf ./Exploring-Computer-Science.pdf
+
+# remove unneeded output files
+rm -rf pdf
 

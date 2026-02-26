@@ -407,7 +407,7 @@ for i in range(10):
 
 Then range will give us a sequence of numbers going from 0 through 9.
 Instead of starting at 1, range starts at 0 --- just like string
-indices[^1]. If we run this program, we will
+indices[^zeronum]. If we run this program, we will
 get:
 
 ``` {.output}
@@ -658,10 +658,10 @@ problems with loops. Almost all algorithms use looping in some fashion.
 :::
 :::
 
-Footnotes {#footnote-label .visually-hidden}
+Footnotes {#footnote-label5 .visually-hidden}
 ---------
 
-[^1]: It might seem weird at first, but we count starting at 0 in
+[^zeronum]: It might seem weird at first, but we count starting at 0 in
     computer science. The reason has to do with the fact that memory
     addresses are calculated based on an offset past the start of
     something. So the first symbol in a string is stored 0 bytes past
