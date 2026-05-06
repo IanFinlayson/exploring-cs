@@ -811,7 +811,7 @@ between two numbers:
     c) 5 and 3
 
     Remember that you don't need to understand why this algorithm works to follow
-    its steps (or indeed even know what a greatest common divisor even is).
+    its steps (or indeed know what a greatest common divisor even is).
 
 3. In grade school you learned an algorithm for adding numbers with any number of
 digits. Try writing out the algorithm as a set of detailed step-by-step instructions. You

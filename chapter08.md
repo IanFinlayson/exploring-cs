@@ -43,7 +43,8 @@ Then we might want to add up all of these grades to figure out our
 average:
 
 ``` {.python}
-total = quiz1 + quiz2 + quiz3 + quiz4 + quiz5 + quiz6 + quiz7 + quiz8 + quiz9 + quiz10
+total = quiz1 + quiz2 + quiz3 + quiz4 + quiz5 + quiz6 + \
+    quiz7 + quiz8 + quiz9 + quiz10
 average = total / 10
 ```
 
@@ -53,6 +54,12 @@ Here, it's not *too* bad with 10. But imagine if we had even more
 numbers we wanted to keep track. For instance, imagine you're
 *teaching* a course and wanted to store all 10 quiz grades from 25
 students. That would be a lot of variables!
+
+By the way, notice how the line ends in a `\` character.  This allows
+for long lines to be continued without Python thinking that the statement
+is done.  Without this, this line of code would be too long to fit on one
+page!  Generally super long lines of code are a sign there might be a better
+way to do something.
 
 There is a better way of doing this which is to use a **list**. A list
 is a collection of multiple pieces of data that are stored together in
@@ -148,8 +155,9 @@ month = int(input("What is the month? "))
 day = int(input("What is the day? "))
 
 # make a list of all the names of months
-names = ["January", "February", "March", "April", "May", "June", "July",
-         "August", "September", "October", "November", "December"]
+names = ["January", "February", "March", "April", "May",
+         "June", "July", "August", "September", "October",
+         "November", "December"]
 
 # get the name of this month by indexing
 monthName = names[month - 1]

@@ -590,7 +590,7 @@ multiple functions.
 
 1. Write a function to convert a Celsius temperature to Fahrenheit.  The
    parameters should be the Celsius temperature and the return value the
-   Fahrenheit one.  The formula for the conversion is $F = C \times \frac{9}{5} + 32$.
+   Fahrenheit one.  The formula for the conversion is $$F = C \times \frac{9}{5} + 32$$.
 
 2. Write a function called "getInt" based on the readPositive function above.
    The function should take the minimum and maximum values the user can put in.

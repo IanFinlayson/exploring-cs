@@ -460,6 +460,7 @@ even experienced programmers will often fall back to writing the steps
 in English first when they run into an especially tricky
 problem[^commentmethod].
 
+
 6.7 Breaking Down Problems Example
 ----------------------------------
 
@@ -664,9 +665,9 @@ understand the order that the steps need to be done in.
 
 5. An infinite series is a list of numbers with some repeating pattern to
    them. One famous infinite series is the following:
-       $\frac{1}{1} + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64}$
+       $$\frac{1}{1} + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64}$$
    Write a program to read in a number, called N, from the user. Then add up the first
-   N numbers in this series. For example, if the user enters 3, it should add $\frac{1}{1} + \frac{1}{2} + \frac{1}{4}$
+   N numbers in this series. For example, if the user enters 3, it should add $$\frac{1}{1} + \frac{1}{2} + \frac{1}{4}$$
    and print the answer.
 
 ::: {.blackbox}
