@@ -557,7 +557,7 @@ they functioned in essentially the same way as every computer designed
 since. They all consist of a processor, memory and some input/output
 devices. Below is a simplified diagram of a computer system.
 
-![A functional view of a computer](images/computer.png){alt="A computer consists of a CPU and Memory, which interacts with input and
+![A functional view of a computer](images/computer.svg){alt="A computer consists of a CPU and Memory, which interacts with input and
 output devices"}
 
 The **CPU** (which stands for central processing unit), is responsible
@@ -677,7 +677,7 @@ The computer can't run this instruction directly, it must be translated
 into machine code. That is done by a program called an **assembler**:
 
 ![An assembler converts assembly code into machine
-language.](images/assembly.png){alt="An assembler converts assembly code
+language.](images/assembly.svg){alt="An assembler converts assembly code
 into machine language"}
 
 The assembler converts each line of assembly code into the corresponding
@@ -710,7 +710,7 @@ line by line. For each line it sees, it gives one or more lines of
 machine code to the computer:
 
 ![An interpreter translates high-level code into machine
-code.](images/interpreter.png){alt="An interpreter translates high-level
+code.](images/interpreter.svg){alt="An interpreter translates high-level
 code into machine code"}
 
 Just like someone who interprets one spoken language into another, an

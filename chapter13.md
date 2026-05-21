@@ -81,7 +81,7 @@ spreading out like a tree:
 down from that is boards in which one cell is filled in with an X.
 Spreading down from that is boards in which two cells are filled in, the
 X from the row above, and an O. This way the graph represents the space
-of possible tic-tac-toe boards.](images/tictac.png){width="70%"}
+of possible tic-tac-toe boards.](images/tictac.svg){width="70%"}
 
 Here the computer is \'X\' and needs to pick its move. To do so it
 searches forward through all the 9 possible moves it could make. For
@@ -138,7 +138,7 @@ neurons, each represented with a circle. On the left is the input layer
 of three neurons. In the middle is the hidden layer of four neurons, and
 finally the output layer has two. Each input layer neuron connects to
 each neuron in the hidden layer, and each in the hidden layer connects
-to each output neuron.](images/neural.png){width="50%"}
+to each output neuron.](images/neural.svg){width="50%"}
 
 The input layer of neurons takes the input of the program, which is
 represented as a series of numbers. As we have seen, all data a computer
@@ -155,7 +155,7 @@ its inputs in some way:
 with floating point numbers coming into it. Each of these has a weight
 associated with it. Each value is multiplied by the corresponding
 weight, and then summed, which forms the output of the
-neuron.](images/neural2.png){width="50%"}
+neuron.](images/neural2.svg){width="50%"}
 
 At the output layer, the numbers are resolved back into an answer.
 

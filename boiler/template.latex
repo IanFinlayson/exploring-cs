@@ -58,6 +58,8 @@
 \setcounter{bottomnumber}{2}
 \setcounter{totalnumber}{4}
 
+% make svg images scale to the width of the page (not spill over to the right)
+\svgsetup{width=\linewidth}
 
 % get rid of section numbers (the titles already have them)
 \setcounter{secnumdepth}{-\maxdimen}

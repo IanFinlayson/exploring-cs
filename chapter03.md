@@ -206,7 +206,7 @@ Each character in a string has an *index*. The index starts at 0 and
 goes up by 1 for each character. For instance, the string "Hello" has
 these indices:
 
-![The indices of a string](images/string-index.png){alt="The string begins with
+![The indices of a string](images/string-index.svg){alt="The string begins with
 the first character at slot 0, and the last in slot 4"}
 
 Notice that, while there are 5 letters, the indices go from 0 to 4, and

@@ -36,7 +36,7 @@ sed -i 's/INPUTEND/}}}@*)/' pdf/book.tex
 sed -i 's/subsection.Footnotes..label.footnote-label.*//' pdf/book.tex
 
 # convert the latex into a pdf
-cd pdf; pdflatex --interaction=batchmode book.tex; cd ..
+cd pdf; pdflatex -shell-escape --interaction=batchmode book.tex; cd ..
 
 mv pdf/book.pdf ./Exploring-Computer-Science.pdf
 

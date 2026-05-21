@@ -573,7 +573,7 @@ steps happen when.
 Below is an example of a flowchart for the overtime program:
 
 ![A flowchart showing the steps in the pay calculator
-algorithm](images/flow1.png){alt="A flowchart of the decisions through
+algorithm](images/flow1.svg){alt="A flowchart of the decisions through
 the pay calculator program"}
 
 The flowchart shows the algorithm in a slightly more graphical way. Each
@@ -589,7 +589,7 @@ algorithm keep asking the user for an age until they put in something
 that's not negative:
 
 ![A flowchart showing the steps of reading a valid age from the
-user](images/flow2.png){alt="A flowchart of an algorithm to get a valid
+user](images/flow2.svg){alt="A flowchart of an algorithm to get a valid
 age from a user"}
 
 You can see the loop in this algorithm because of the arrow that's
