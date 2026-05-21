@@ -40,6 +40,8 @@ International license.</p>
 <li><a href="html/chapter08">Chapter 8: Lists</a></li>
 <li><a href="html/chapter09">Chapter 9: Functions</a></li>
 <li><a href="html/chapter10">Chapter 10: Graphics</a></li>
+<li><a href="html/chapter11">Chapter 11: Using Files</a></li>
+<li><a href="html/chapter12">Chapter 12: Computer Security</a></li>
 </ul>
 </p>
 
