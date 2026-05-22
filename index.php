@@ -42,6 +42,7 @@ International license.</p>
 <li><a href="html/chapter10">Chapter 10: Graphics</a></li>
 <li><a href="html/chapter11">Chapter 11: Using Files</a></li>
 <li><a href="html/chapter12">Chapter 12: Computer Security</a></li>
+<li><a href="html/chapter13">Chapter 13: Artificial Intelligence</a></li>
 </ul>
 </p>
 

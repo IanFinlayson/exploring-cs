@@ -2,7 +2,6 @@ Chapter 10: Graphics
 ===================
 
 
-
 ::: {.blackbox}
 ::: {.blackbox-title}
 **Learning Objectives**
@@ -711,6 +710,29 @@ upper-left corner of the image should appear. Here we pass the origin
    should be moved when the up and down keys are pressed.  The other can
    move however you like: up and down forever, randomly, or by tracking the
    ball.
+
+
+::: {.blackbox}
+::: {.blackbox-title}
+**Chapter Summary**
+:::
+
+::: {.blackbox-contents}
+-   PyGame is a library that we can install which allows us to create graphical
+    programs.  It can be installed like other libraries in Python.
+-   Screens are made up of pixels, each of which can store a single color.
+-   Colors are made up of three components: red, green, and blue.  By setting
+    each of these components we can create effectively any color there is.
+-   Computer screens use a coordinate system where the origin point is the upper
+    left-hand corner.  The X coordinate increases as we go to the right and the
+    Y coordinate increases as we go down.
+-   Graphical programs often use events to handle interaction with the user.
+    Our programs wait for events to occur instead of actively ask the user for
+    input.
+-   PyGame has built in functions for drawing all kinds of geometric shapes, and
+    also images.
+:::
+:::
 
 
 Footnotes {#footnote-label10 .visually-hidden}

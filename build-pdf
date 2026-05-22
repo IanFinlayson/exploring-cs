@@ -25,7 +25,8 @@ pandoc --lua-filter=boiler/output-blocks.lua --template=boiler/template.latex -o
     chapter09.md boiler/chapterbreak.tex \
     chapter10.md boiler/chapterbreak.tex \
     chapter11.md boiler/chapterbreak.tex \
-    chapter12.md boiler/chapterbreak.tex
+    chapter12.md boiler/chapterbreak.tex \
+    chapter13.md boiler/chapterbreak.tex
 
 
 # we need special formatting for input inside of pre output blocks, so we made some thingies

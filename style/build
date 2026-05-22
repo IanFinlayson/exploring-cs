@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sass -t compressed style.sass > style.css
-
