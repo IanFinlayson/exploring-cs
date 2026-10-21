@@ -48,7 +48,7 @@ divisor between two numbers. For example, the greatest common divisor of
 12 and 30 is 6 because 6 is the biggest number that goes into both 12
 and 30 evenly. We'll take a look at Euclid's algorithm in Chapter 6.
 
-![Euclid](images/euclid.jpg "Euclid"){alt="Euclid"}
+![Euclid, public domain image](images/euclid.jpg "Euclid, public domain image"){alt="Euclid"}
 
 Other mathematicians devised algorithms for solving other problems, such
 as adding, multiplying, factorizing, finding roots of equations, etc.
@@ -57,7 +57,7 @@ al-Khwārizmī, a Persian mathematician who wrote on algorithms for
 solving algebra and arithmetic problems. The word "algebra" also comes
 from the title of one of al-Khwārizmī's books.
 
-![Al-Khwarizmi](images/alhhwarizmi.jpg "Al-Khwarizmi © Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA 4.0"){alt="Al-Khwarizmi"}
+![Al-Khwarizmi © Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA 4.0](images/alhhwarizmi.jpg "Al-Khwarizmi © Yunuskhuja Tuygunkhujaev, Wikimedia Commons, CC BY-SA 4.0"){alt="Al-Khwarizmi"}
 
 You actually have learned several of these sorts of mathematical
 algorithms yourself while in school. For example, if I asked you to add
@@ -484,7 +484,9 @@ inventors made similar mechanical devices, including Gottfried Wilhelm
 Leibniz.
 
 ![Pascal's calculator (1649) (© Rama, Wikimedia Commons CC BY-SA 3.0
-FR)](images/pascaline.jpg){alt="Pascal's calculator"}
+FR)](images/pascaline.jpg "Pascal's calculator (1649) (© Rama, Wikimedia Commons CC BY-SA 3.0
+FR)"){alt="Pascal's calculator"}
+
 
 Another pioneer in early computers was the British mathematician and
 engineer Charles Babbage. He designed the difference engine, which could
@@ -513,7 +515,7 @@ cards in, and the patterns of holes would affect its behavior.
 ![Left: a model of part of the analytical engine (© Bruno Barral,
 Wikimedia Commons, CC BY-SA 2.5). Right: punched cards for use with the
 machine (© Karoly Lorentey, Wikimedia Commons, CC BY
-2.0)](images/analytical.png){alt="The analytical engine and punched cards"}
+2.0)](images/analytical.png "The analyitcal engine and punched cards"){alt="The analytical engine and punched cards"}
 
 Babbage worked with Ada Lovelace, who was incidentally the daughter of the poet
 Lord Byron. She worked on translating algorithms so that they could be executed
@@ -524,8 +526,8 @@ computer to execute. Unlike Babbage and others at the time, Lovelace believed
 the analytical engine to be capable of going beyond number crunching, including
 speculating that the engine could be used to create music.
 
-![Left: Charles Babbage. Right: Ada
-Lovelace.](images/babbageada.jpg){alt="Babbage and Lovelace"}
+![Left: Charles Babbage (public domain image). Right: Ada
+Lovelace (public domain image).](images/babbageada.jpg){alt="Babbage and Lovelace"}
 
 Unfortunately, the analytical engine was never completed, primarily due
 to a lack of funding. A general-purpose computer was not actually
@@ -537,8 +539,8 @@ University of Pennsylvania to calculate ballistics trajectories.
 
 ![Early Computers
 Top: The Z4 (1944) (© Clemens Pfeiffer, CC BY 2.5)
-Middle: The Colossus (1944)
-Bottom: The ENIAC (1946)
+Middle: The Colossus (1944) (public domain image)
+Bottom: The ENIAC (1946) (public domain image)
 ](images/early-computers.png){alt="The Z4, Colossus and ENIAC"}
 
 Unlike the Analytical Engine, which was completely mechanical, these

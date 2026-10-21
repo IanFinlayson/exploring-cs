@@ -650,7 +650,7 @@ the image file from your computer. We can do this with the
 `pygame.image.load` function:
 
 ``` {.python}
-picture = pygame.image.load("campus.png")
+picture = pygame.image.load("squirrel.png")
 ```
 
 For this to work, the image file has to be in the same folder as your
@@ -667,7 +667,7 @@ shapes, here we call `blit` on the window itself[^blitnote].
 The second parameter is where in the window the
 upper-left corner of the image should appear. Here we pass the origin
 (0, 0) so that the picture fills the whole window. You can download
-[campus.png](images/campus.png) to run the program.
+[squirrel.png](images/squirrel.png) to run the program (photo by author).
 
 
 10.10 Comprehension Questions

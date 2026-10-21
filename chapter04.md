@@ -275,7 +275,7 @@ comes from the English mathematician George Boole. Boole developed a
 form of math based on true/false values which became influential in the
 development of computers.
 
-![George Boole, circa 1860](images/boole.jpg){alt="George Boole"}
+![George Boole (public domain image)](images/boole.jpg){alt="George Boole"}
 
 We often use booleans like the programs above. We do a comparison which
 has a true/false value, and put it right into the if statement. But
